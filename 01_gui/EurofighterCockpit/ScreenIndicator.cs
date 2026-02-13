@@ -12,12 +12,12 @@ namespace EurofighterCockpit
 {
     public partial class ScreenIndicator : Form
     {
-        public ScreenIndicator(int number)
+        public ScreenIndicator(Screen screen, int number)
         {
             InitializeComponent();
 
             screenNumber.Text = number.ToString();
-
+            this.Location = new Point(screen.Bounds.Left, screen.Bounds.Top);
         }
     }
 }

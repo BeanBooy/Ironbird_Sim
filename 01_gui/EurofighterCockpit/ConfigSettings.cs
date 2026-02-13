@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,26 +13,41 @@ namespace EurofighterCockpit
 {
     public partial class ConfigSettings : Form
     {
-        public ConfigSettings()
-        {
+        private Screen[] screens;
+        private bool showScreenIndicator;
+        private ScreenIndicator[] screenIndicators;
+
+        public ConfigSettings() {
             InitializeComponent();
+
+            screens = Screen.AllScreens;
+            showScreenIndicator = false;
+            screenIndicators = new ScreenIndicator[screens.Length];
+            for (int i = 0; i < screens.Length; i++) {
+                screenIndicators[i] = new ScreenIndicator(Screen.AllScreens[i], i);
+            }
         }
 
-        private void ConfigSettings_Load(object sender, EventArgs e)
-        {
-            int screencount = Screen.AllScreens.Count();
-            Console.WriteLine("screencount = " + screencount);
-
-            for (int i = 0; i < screencount; i++) {
-                ScreenIndicator si = new ScreenIndicator(i);
-                si.Show();
-                si.Location = new Point(Screen.AllScreens[i].Bounds.Left, Screen.AllScreens[i].Bounds.Top);
+        public bool ShowScreenIndicator { 
+            get { return showScreenIndicator; } 
+            set { 
+                showScreenIndicator = value;
+                toggleScreenIndicator();
             }
+        }
 
-            //this.Location = new Point(screen.Bounds.Left, screen.Bounds.Top);
+        private void screenIndicator_CheckedChanged(object sender, EventArgs e) {
+            this.ShowScreenIndicator = screenIndicator.Checked;
+        }
 
-            //Form fs = new FullscreenWrapper();
-            //fs.Show();
-        } 
+        private void toggleScreenIndicator() {
+            if (ShowScreenIndicator) {
+                Array.ForEach(screenIndicators, obj => obj.Show());
+            }
+            else {
+                Array.ForEach(screenIndicators, obj => obj.Hide());
+            }
+        }
+
     }
 }

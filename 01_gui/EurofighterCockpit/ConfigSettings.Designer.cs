@@ -28,20 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.screenIndicator = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
+            // 
+            // screenIndicator
+            // 
+            this.screenIndicator.AutoSize = true;
+            this.screenIndicator.Location = new System.Drawing.Point(44, 42);
+            this.screenIndicator.Name = "screenIndicator";
+            this.screenIndicator.Size = new System.Drawing.Size(188, 24);
+            this.screenIndicator.TabIndex = 0;
+            this.screenIndicator.Text = "show screen indicator";
+            this.screenIndicator.UseVisualStyleBackColor = true;
+            this.screenIndicator.CheckedChanged += new System.EventHandler(this.screenIndicator_CheckedChanged);
             // 
             // ConfigSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.screenIndicator);
             this.Name = "ConfigSettings";
             this.Text = "ConfigSettings";
-            this.Load += new System.EventHandler(this.ConfigSettings_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
+
+        private System.Windows.Forms.CheckBox screenIndicator;
     }
 }

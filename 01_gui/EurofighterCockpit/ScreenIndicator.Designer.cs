@@ -33,26 +33,35 @@
             // 
             // screenNumber
             // 
-            this.screenNumber.BackColor = System.Drawing.Color.RosyBrown;
-            this.screenNumber.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.screenNumber.AutoSize = true;
+            this.screenNumber.BackColor = System.Drawing.Color.Orange;
             this.screenNumber.Font = new System.Drawing.Font("Consolas", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.screenNumber.Location = new System.Drawing.Point(0, 0);
+            this.screenNumber.Margin = new System.Windows.Forms.Padding(0);
+            this.screenNumber.MinimumSize = new System.Drawing.Size(30, 168);
             this.screenNumber.Name = "screenNumber";
-            this.screenNumber.Size = new System.Drawing.Size(250, 250);
+            this.screenNumber.Size = new System.Drawing.Size(307, 168);
             this.screenNumber.TabIndex = 0;
-            this.screenNumber.Text = "X";
+            this.screenNumber.Text = "---";
             this.screenNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ScreenIndicator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(250, 250);
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(592, 293);
             this.Controls.Add(this.screenNumber);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ScreenIndicator";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "ScreenIndicator";
+            this.TopMost = true;
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
