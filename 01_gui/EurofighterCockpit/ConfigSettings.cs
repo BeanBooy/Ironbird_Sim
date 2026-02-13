@@ -14,7 +14,11 @@ namespace EurofighterCockpit
 {
     public partial class ConfigSettings : Form
     {
+        public Color colRed = Color.FromName("Crimson");
+        public Color colGreen = Color.FromArgb(40, 209, 43);
+
         private Screen[] screens;
+        private int screenCount;
         private bool showScreenIndicator;
         private ScreenIndicator[] screenIndicators;
 
@@ -25,10 +29,11 @@ namespace EurofighterCockpit
             InitializeComponent();
 
             screens = Screen.AllScreens;
+            screenCount = screens.Length;
             showScreenIndicator = false;
-            screenIndicators = new ScreenIndicator[screens.Length];
-            for (int i = 0; i < screens.Length; i++) {
-                screenIndicators[i] = new ScreenIndicator(Screen.AllScreens[i], i);
+            screenIndicators = new ScreenIndicator[screenCount];
+            for (int i = 0; i < screenCount; i++) {
+                screenIndicators[i] = new ScreenIndicator(screens[i], i);
             }
 
 
@@ -38,6 +43,9 @@ namespace EurofighterCockpit
             // ...
             // ...
 
+            populateScreenSelectors(tlp_videoPlayer, screenCount);
+            populateScreenSelectors(tlp_xxx1, screenCount);
+            populateScreenSelectors(tlp_xxx2, screenCount);
         }
 
         public bool ShowScreenIndicator { 
@@ -52,7 +60,7 @@ namespace EurofighterCockpit
             set {
                 videoPath = value;
                 tb_videoFilePath.Text = value;
-                tb_videoFilePath.BackColor = File.Exists(value) ? Color.FromName("Control") : Color.Crimson;
+                tb_videoFilePath.BackColor = File.Exists(value) ? Color.FromName("Control") : colRed;
                 videoPlayer?.setSource(value);
             }
         }
@@ -61,13 +69,17 @@ namespace EurofighterCockpit
             videoPlayer = new VideoPlayer();
             //videoPlayer.FormClosed += new FormClosedEventHandler(func_name);
             videoPlayer.FormClosed += (sender, e) => {
-                p_videoPlayerStatus.BackColor = Color.FromName("Crimson");
+                btn_videoPlayerScreenToggle.BackColor = colRed;
+                btn_videoPlayerScreenToggle.Text = "OFF";
                 videoPlayer = null;
+            };
+            videoPlayer.Load += (sender, e) => {
+                btn_videoPlayerScreenToggle.BackColor = colGreen;
+                btn_videoPlayerScreenToggle.Text = "ON";
             };
 
             VideoPath = "E:\\Dev\\Ironbird_Sim\\demoVid.mp4";  // default video path (start automaticlly without user input)
             videoPlayer.Show();
-            p_videoPlayerStatus.BackColor = Color.FromName("Green");
             return videoPlayer;
         }
 
@@ -99,14 +111,44 @@ namespace EurofighterCockpit
 
         }
 
-        private void btn_videoPlayerScreenReset_Click(object sender, EventArgs e) {
-            // close window if not done already
-            if (videoPlayer != null) {
+        private void btn_videoPlayerScreenToggle_Click(object sender, EventArgs e) {
+            if (videoPlayer == null) {
+                // video play is off and should be turned on
+                videoPlayer = launchVideoPlayer();
+            }
+            else {
+                // video play is on and should be turned off
                 videoPlayer.Close();
                 videoPlayer = null;
             }
-            // start again
-            videoPlayer = launchVideoPlayer();
+        }
+
+        private void populateScreenSelectors(TableLayoutPanel tly, int columns) {
+            // should be 3 screens/culumns for perfect setup,
+            // but why hardcode it if a dynamic complicated solution is possible ;)
+            tly.Controls.Clear();
+            tly.RowStyles.Clear();
+            tly.ColumnStyles.Clear();
+            tly.RowCount = 1;
+            tly.ColumnCount = columns;
+            // make row fill entire height (I think it's default tbh)
+            tly.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            // create columns
+            for (int i = 0; i < columns; i++) {
+                // each column gets equal width
+                tly.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+
+                RadioButton rb = new RadioButton();
+                rb.Text = i.ToString();
+                rb.Dock = DockStyle.Fill;
+                rb.TextAlign = ContentAlignment.MiddleCenter;
+                rb.Appearance = Appearance.Button;
+                rb.BackColor = Color.FromName("Control");
+                rb.FlatStyle = FlatStyle.Flat;
+                rb.FlatAppearance.CheckedBackColor = Color.Orange;
+
+                tly.Controls.Add(rb, i, 0);
+            }
         }
     }
 }
