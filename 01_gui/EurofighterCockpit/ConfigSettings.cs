@@ -36,6 +36,7 @@ namespace EurofighterCockpit
                 screenIndicators[i] = new ScreenIndicator(screens[i], i);
             }
 
+            Logger logger = new Logger();
 
 
 
@@ -46,6 +47,8 @@ namespace EurofighterCockpit
             populateScreenSelectors(tlp_videoPlayer, screenCount);
             populateScreenSelectors(tlp_xxx1, screenCount);
             populateScreenSelectors(tlp_xxx2, screenCount);
+
+
         }
 
         public bool ShowScreenIndicator { 
