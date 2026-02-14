@@ -37,7 +37,7 @@ namespace EurofighterCockpit
         public void log(string message, bool raw = false) {
             // at this point we are sure the log file exists (see constructor)
             if (!raw) {
-                message = $"{DateTime.Now:T} | {message}";
+                message = $"[{DateTime.Now:T}] {message}";
             }
             try {
                 File.AppendAllText(Path.Combine(logFileDir, logFile), $"{message}{Environment.NewLine}", Encoding.UTF8);

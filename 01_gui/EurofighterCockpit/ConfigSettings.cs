@@ -7,6 +7,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -16,6 +17,8 @@ namespace EurofighterCockpit
     {
         public Color colRed = Color.FromName("Crimson");
         public Color colGreen = Color.FromArgb(40, 209, 43);
+
+        private Logger logger;
 
         private Screen[] screens;
         private int screenCount;
@@ -36,7 +39,7 @@ namespace EurofighterCockpit
                 screenIndicators[i] = new ScreenIndicator(screens[i], i);
             }
 
-            Logger logger = new Logger();
+            logger = new Logger();
 
 
 
@@ -48,7 +51,7 @@ namespace EurofighterCockpit
             populateScreenSelectors(tlp_xxx1, screenCount);
             populateScreenSelectors(tlp_xxx2, screenCount);
 
-
+            displayMessage("...ready!");
         }
 
         public bool ShowScreenIndicator { 
@@ -83,11 +86,13 @@ namespace EurofighterCockpit
 
             VideoPath = "E:\\Dev\\Ironbird_Sim\\demoVid.mp4";  // default video path (start automaticlly without user input)
             videoPlayer.Show();
+            displayMessage($"video player launched ({VideoPath})");
+            logger.log($"video player launched ({VideoPath})");
             return videoPlayer;
         }
 
         private void screenIndicator_CheckedChanged(object sender, EventArgs e) {
-            this.ShowScreenIndicator = screenIndicator.Checked;
+            ShowScreenIndicator = screenIndicator.Checked;
         }
 
         private void toggleScreenIndicator() {
@@ -151,6 +156,25 @@ namespace EurofighterCockpit
                 rb.FlatAppearance.CheckedBackColor = Color.Orange;
 
                 tly.Controls.Add(rb, i, 0);
+            }
+        }
+
+        private void displayMessage(string message) {
+            try {
+                if (!message.EndsWith(Environment.NewLine)) {
+                    message += Environment.NewLine;
+                }
+
+                string formatedMessage = $"[{DateTime.Now.ToString("HH:mm:ss")}] {message}";
+                tb_logs.AppendText(formatedMessage);
+
+                // scroll to last line if needed
+                tb_logs.ScrollToCaret();
+            }
+            catch (Exception ex) {
+                string methodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
+                string severity = ex.GetType().Name;
+                logger.log($"{methodName}: {severity} - {ex.ToString()}");
             }
         }
     }
