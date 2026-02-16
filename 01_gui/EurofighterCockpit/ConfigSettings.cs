@@ -27,6 +27,7 @@ namespace EurofighterCockpit
         private ScreenIndicator[] screenIndicators;
 
         private VideoPlayer videoPlayer;
+        private const string defaultVideoPath = "E:\\Dev\\Ironbird_Sim\\demoVid.mp4";
         private string videoPath;
 
         private Infotainment infotainment;
@@ -83,8 +84,8 @@ namespace EurofighterCockpit
             videoPlayer = new VideoPlayer();
             videoPlayer.Load += (_, __) => { toggleBtn(btn_videoPlayer, true); };
             videoPlayer.FormClosed += (_, __) => { toggleBtn(btn_videoPlayer, false); videoPlayer = null; };
-            // default video path (start automaticlly without user input)
-            VideoPath = "E:\\Dev\\Ironbird_Sim\\demoVid.mp4";
+            // set video path (default should start automaticlly without user input)
+            VideoPath = VideoPath == null ? defaultVideoPath : VideoPath;
             videoPlayer.Show();
             displayMessage($"video player launched ({VideoPath})");
             logger.log($"video player launched ({VideoPath})");
