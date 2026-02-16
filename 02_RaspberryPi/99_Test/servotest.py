@@ -2,7 +2,7 @@ import time
 from adafruit_servokit import ServoKit
 
 # Initialisiere das ServoKit-Objekt mit der I2C-Adresse 0x41
-kit = ServoKit(channels=16, address=0x41)
+kit = ServoKit(channels=16, address=0x40,frequency=333)
 
 # Setze die minimale und maximale Position des Servos
 min_position = 0  # Minimal Position
@@ -17,11 +17,11 @@ delay = 0.02
 # Funktion zum Bewegen des Servos von min_position zu max_position
 def move_servo():
     for angle in range(min_position, max_position + 1, step_size):
-        kit.servo[4].angle = angle
+        kit.servo[0].angle = angle
         time.sleep(delay)
 
     for angle in range(max_position, min_position - 1, -step_size):
-        kit.servo[4].angle = angle
+        kit.servo[0].angle = angle
         time.sleep(delay)
 
 try:
