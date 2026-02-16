@@ -33,15 +33,15 @@
             this.btn_browseVideoFile = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
-            this.tlp_xxx2 = new System.Windows.Forms.TableLayoutPanel();
-            this.tlp_xxx1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tlp_infotainmentSub = new System.Windows.Forms.TableLayoutPanel();
+            this.tlp_infotainment = new System.Windows.Forms.TableLayoutPanel();
             this.tlp_videoPlayer = new System.Windows.Forms.TableLayoutPanel();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.btn_videoPlayerScreenToggle = new System.Windows.Forms.Button();
+            this.btn_infotainmentSub = new System.Windows.Forms.Button();
+            this.btn_infotainment = new System.Windows.Forms.Button();
+            this.btn_videoPlayer = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -50,8 +50,8 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.tb_logs = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel8.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -105,15 +105,15 @@
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel8.Controls.Add(this.tlp_xxx2, 2, 3);
-            this.tableLayoutPanel8.Controls.Add(this.tlp_xxx1, 1, 3);
+            this.tableLayoutPanel8.Controls.Add(this.tlp_infotainmentSub, 2, 3);
+            this.tableLayoutPanel8.Controls.Add(this.tlp_infotainment, 1, 3);
             this.tableLayoutPanel8.Controls.Add(this.tlp_videoPlayer, 0, 3);
             this.tableLayoutPanel8.Controls.Add(this.label14, 2, 2);
             this.tableLayoutPanel8.Controls.Add(this.label13, 1, 2);
             this.tableLayoutPanel8.Controls.Add(this.label12, 0, 2);
-            this.tableLayoutPanel8.Controls.Add(this.button8, 2, 1);
-            this.tableLayoutPanel8.Controls.Add(this.button7, 1, 1);
-            this.tableLayoutPanel8.Controls.Add(this.btn_videoPlayerScreenToggle, 0, 1);
+            this.tableLayoutPanel8.Controls.Add(this.btn_infotainmentSub, 2, 1);
+            this.tableLayoutPanel8.Controls.Add(this.btn_infotainment, 1, 1);
+            this.tableLayoutPanel8.Controls.Add(this.btn_videoPlayer, 0, 1);
             this.tableLayoutPanel8.Controls.Add(this.label11, 2, 0);
             this.tableLayoutPanel8.Controls.Add(this.label10, 1, 0);
             this.tableLayoutPanel8.Controls.Add(this.label9, 0, 0);
@@ -127,37 +127,37 @@
             this.tableLayoutPanel8.Size = new System.Drawing.Size(845, 271);
             this.tableLayoutPanel8.TabIndex = 27;
             // 
-            // tlp_xxx2
+            // tlp_infotainmentSub
             // 
-            this.tlp_xxx2.BackColor = System.Drawing.Color.Transparent;
-            this.tlp_xxx2.ColumnCount = 3;
-            this.tlp_xxx2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tlp_xxx2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tlp_xxx2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tlp_xxx2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlp_xxx2.Location = new System.Drawing.Point(582, 182);
-            this.tlp_xxx2.Margin = new System.Windows.Forms.Padding(20, 0, 20, 0);
-            this.tlp_xxx2.Name = "tlp_xxx2";
-            this.tlp_xxx2.RowCount = 1;
-            this.tlp_xxx2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlp_xxx2.Size = new System.Drawing.Size(243, 89);
-            this.tlp_xxx2.TabIndex = 33;
+            this.tlp_infotainmentSub.BackColor = System.Drawing.Color.Transparent;
+            this.tlp_infotainmentSub.ColumnCount = 3;
+            this.tlp_infotainmentSub.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tlp_infotainmentSub.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tlp_infotainmentSub.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tlp_infotainmentSub.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlp_infotainmentSub.Location = new System.Drawing.Point(582, 182);
+            this.tlp_infotainmentSub.Margin = new System.Windows.Forms.Padding(20, 0, 20, 0);
+            this.tlp_infotainmentSub.Name = "tlp_infotainmentSub";
+            this.tlp_infotainmentSub.RowCount = 1;
+            this.tlp_infotainmentSub.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlp_infotainmentSub.Size = new System.Drawing.Size(243, 89);
+            this.tlp_infotainmentSub.TabIndex = 33;
             // 
-            // tlp_xxx1
+            // tlp_infotainment
             // 
-            this.tlp_xxx1.BackColor = System.Drawing.Color.Transparent;
-            this.tlp_xxx1.ColumnCount = 3;
-            this.tlp_xxx1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tlp_xxx1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tlp_xxx1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tlp_xxx1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlp_xxx1.Location = new System.Drawing.Point(301, 182);
-            this.tlp_xxx1.Margin = new System.Windows.Forms.Padding(20, 0, 20, 0);
-            this.tlp_xxx1.Name = "tlp_xxx1";
-            this.tlp_xxx1.RowCount = 1;
-            this.tlp_xxx1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlp_xxx1.Size = new System.Drawing.Size(241, 89);
-            this.tlp_xxx1.TabIndex = 32;
+            this.tlp_infotainment.BackColor = System.Drawing.Color.Transparent;
+            this.tlp_infotainment.ColumnCount = 3;
+            this.tlp_infotainment.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tlp_infotainment.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tlp_infotainment.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tlp_infotainment.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlp_infotainment.Location = new System.Drawing.Point(301, 182);
+            this.tlp_infotainment.Margin = new System.Windows.Forms.Padding(20, 0, 20, 0);
+            this.tlp_infotainment.Name = "tlp_infotainment";
+            this.tlp_infotainment.RowCount = 1;
+            this.tlp_infotainment.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlp_infotainment.Size = new System.Drawing.Size(241, 89);
+            this.tlp_infotainment.TabIndex = 32;
             // 
             // tlp_videoPlayer
             // 
@@ -217,48 +217,50 @@
             this.label12.Text = "Screen";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // button8
+            // btn_infotainmentSub
             // 
-            this.button8.BackColor = System.Drawing.Color.Crimson;
-            this.button8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.Location = new System.Drawing.Point(582, 70);
-            this.button8.Margin = new System.Windows.Forms.Padding(20);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(243, 43);
-            this.button8.TabIndex = 27;
-            this.button8.Text = "OFF";
-            this.button8.UseVisualStyleBackColor = false;
+            this.btn_infotainmentSub.BackColor = System.Drawing.Color.Crimson;
+            this.btn_infotainmentSub.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_infotainmentSub.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_infotainmentSub.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_infotainmentSub.Location = new System.Drawing.Point(582, 70);
+            this.btn_infotainmentSub.Margin = new System.Windows.Forms.Padding(20);
+            this.btn_infotainmentSub.Name = "btn_infotainmentSub";
+            this.btn_infotainmentSub.Size = new System.Drawing.Size(243, 43);
+            this.btn_infotainmentSub.TabIndex = 27;
+            this.btn_infotainmentSub.Text = "OFF";
+            this.btn_infotainmentSub.UseVisualStyleBackColor = false;
+            this.btn_infotainmentSub.Click += new System.EventHandler(this.anyWindowToggle_Click);
             // 
-            // button7
+            // btn_infotainment
             // 
-            this.button7.BackColor = System.Drawing.Color.Crimson;
-            this.button7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.Location = new System.Drawing.Point(301, 70);
-            this.button7.Margin = new System.Windows.Forms.Padding(20);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(241, 43);
-            this.button7.TabIndex = 26;
-            this.button7.Text = "OFF";
-            this.button7.UseVisualStyleBackColor = false;
+            this.btn_infotainment.BackColor = System.Drawing.Color.Crimson;
+            this.btn_infotainment.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_infotainment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_infotainment.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_infotainment.Location = new System.Drawing.Point(301, 70);
+            this.btn_infotainment.Margin = new System.Windows.Forms.Padding(20);
+            this.btn_infotainment.Name = "btn_infotainment";
+            this.btn_infotainment.Size = new System.Drawing.Size(241, 43);
+            this.btn_infotainment.TabIndex = 26;
+            this.btn_infotainment.Text = "OFF";
+            this.btn_infotainment.UseVisualStyleBackColor = false;
+            this.btn_infotainment.Click += new System.EventHandler(this.anyWindowToggle_Click);
             // 
-            // btn_videoPlayerScreenToggle
+            // btn_videoPlayer
             // 
-            this.btn_videoPlayerScreenToggle.BackColor = System.Drawing.Color.Crimson;
-            this.btn_videoPlayerScreenToggle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_videoPlayerScreenToggle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_videoPlayerScreenToggle.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_videoPlayerScreenToggle.Location = new System.Drawing.Point(20, 70);
-            this.btn_videoPlayerScreenToggle.Margin = new System.Windows.Forms.Padding(20);
-            this.btn_videoPlayerScreenToggle.Name = "btn_videoPlayerScreenToggle";
-            this.btn_videoPlayerScreenToggle.Size = new System.Drawing.Size(241, 43);
-            this.btn_videoPlayerScreenToggle.TabIndex = 25;
-            this.btn_videoPlayerScreenToggle.Text = "OFF";
-            this.btn_videoPlayerScreenToggle.UseVisualStyleBackColor = false;
-            this.btn_videoPlayerScreenToggle.Click += new System.EventHandler(this.btn_videoPlayerScreenToggle_Click);
+            this.btn_videoPlayer.BackColor = System.Drawing.Color.Crimson;
+            this.btn_videoPlayer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_videoPlayer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_videoPlayer.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_videoPlayer.Location = new System.Drawing.Point(20, 70);
+            this.btn_videoPlayer.Margin = new System.Windows.Forms.Padding(20);
+            this.btn_videoPlayer.Name = "btn_videoPlayer";
+            this.btn_videoPlayer.Size = new System.Drawing.Size(241, 43);
+            this.btn_videoPlayer.TabIndex = 25;
+            this.btn_videoPlayer.Text = "OFF";
+            this.btn_videoPlayer.UseVisualStyleBackColor = false;
+            this.btn_videoPlayer.Click += new System.EventHandler(this.anyWindowToggle_Click);
             // 
             // label11
             // 
@@ -271,7 +273,7 @@
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(279, 46);
             this.label11.TabIndex = 18;
-            this.label11.Text = "xxxx XX xxx";
+            this.label11.Text = "Infotainment 2";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label10
@@ -285,7 +287,7 @@
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(277, 46);
             this.label10.TabIndex = 17;
-            this.label10.Text = "xxXXx XXxxx";
+            this.label10.Text = "Infotainment 1";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label9
@@ -358,6 +360,17 @@
             this.panel4.Size = new System.Drawing.Size(990, 588);
             this.panel4.TabIndex = 30;
             // 
+            // tb_logs
+            // 
+            this.tb_logs.Font = new System.Drawing.Font("Consolas", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_logs.Location = new System.Drawing.Point(23, 92);
+            this.tb_logs.Multiline = true;
+            this.tb_logs.Name = "tb_logs";
+            this.tb_logs.ReadOnly = true;
+            this.tb_logs.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.tb_logs.Size = new System.Drawing.Size(947, 389);
+            this.tb_logs.TabIndex = 29;
+            // 
             // label1
             // 
             this.label1.BackColor = System.Drawing.Color.Transparent;
@@ -369,17 +382,6 @@
             this.label1.TabIndex = 28;
             this.label1.Text = "Logs";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // tb_logs
-            // 
-            this.tb_logs.Font = new System.Drawing.Font("Consolas", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_logs.Location = new System.Drawing.Point(23, 92);
-            this.tb_logs.Multiline = true;
-            this.tb_logs.Name = "tb_logs";
-            this.tb_logs.ReadOnly = true;
-            this.tb_logs.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tb_logs.Size = new System.Drawing.Size(947, 389);
-            this.tb_logs.TabIndex = 29;
             // 
             // ConfigSettings
             // 
@@ -413,14 +415,14 @@
         private System.Windows.Forms.Button btn_browseVideoFile;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button btn_videoPlayerScreenToggle;
+        private System.Windows.Forms.Button btn_infotainmentSub;
+        private System.Windows.Forms.Button btn_infotainment;
+        private System.Windows.Forms.Button btn_videoPlayer;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TableLayoutPanel tlp_xxx2;
-        private System.Windows.Forms.TableLayoutPanel tlp_xxx1;
+        private System.Windows.Forms.TableLayoutPanel tlp_infotainmentSub;
+        private System.Windows.Forms.TableLayoutPanel tlp_infotainment;
         private System.Windows.Forms.TableLayoutPanel tlp_videoPlayer;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
