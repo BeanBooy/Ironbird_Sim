@@ -24,16 +24,16 @@ PORT_CONST = 4444
 MODE = 0
 LC = 1  # Left Canards
 RC = 2  # Right Canards
-LS = 3  # Left
-RS = 4  # Right
-LO = 5  # Left
-RO = 6  # Right
-LI = 7  # Left
-RI = 8  # Right
-LE = 9  # Left Engine
-RE = 10 # Right Engine
+LS = 3  # Left Slats (Vorflügel)
+RS = 4  # Right Slats
+LO = 5  # Left Aileron (Outboard, Querruder)
+RO = 6  # Right Aileron
+LI = 7  # Left Inboard (Querruder innen)
+RI = 8  # Right Inboard
+#LE = 9  # Left Engine	# Engine entfällt da im aktuellen Modell keine Engine-Servos
+#RE = 10 # Right Engine
 AB = 11 # Airbrakes
-FI = 12
+FI = 12	# Flaps Inboard	
 LED = 13
 LED_LE = 14 # LED Left Engine (dynamisch) .  ACHTUNG: Wird nicht verwendet, da Triebwerksbeleuchtung über RE
 LED_RE = 15 # LED Right Engine (dynamisch) . ACHTUNG: Wird nicht verwendet, da Triebwerksbeleuchtung über RE
@@ -53,8 +53,8 @@ pulselenLO = 0
 pulselenLI = 0
 pulselenRI = 0
 pulselenRO = 0
-pulselenLE = 0
-pulselenRE = 0
+#pulselenLE = 0
+#pulselenRE = 0
 pulselenLED_ENGINE = 0
 pulselenLDP_V = 0
 pulselenLDP_H = 0
@@ -103,8 +103,8 @@ def PWMsetServo_EF():
         servodriver.servo[7].angle = pulselenLI
         servodriver.servo[8].angle = pulselenRI
         servodriver.servo[9].angle = pulselenRO
-        servodriver.servo[10].angle = pulselenLE
-        servodriver.servo[11].angle = pulselenRE
+        #servodriver.servo[10].angle = pulselenLE
+        #servodriver.servo[11].angle = pulselenRE
         
         servodriver.servo[12].angle = pulselenLED_ENGINE # Triebwerksbeleuchtung (beide an Port 12)
         servodriver.servo[13].angle = pulselenLDP_L # Laserpointer
@@ -230,12 +230,12 @@ while True:
         pulselenLI = receivedData[LI]
         pulselenRI = receivedData[RI]
         pulselenRO = receivedData[RO]
-        pulselenLE = receivedData[LE]
-        pulselenRE = receivedData[RE]
+        #pulselenLE = receivedData[LE]
+        #pulselenRE = receivedData[RE]
         pulselenLDP_H = receivedData[LDP_H]
         pulselenLDP_V = receivedData[LDP_V]
         pulselenLDP_L = receivedData[LDP_L]
-        pulselenLED_ENGINE = receivedData[RE] # Triebwerksbeleuchtung bekommt selbe Pulslaenge wie Engine weil Right=Left
+        #pulselenLED_ENGINE = receivedData[RE] # Triebwerksbeleuchtung bekommt selbe Pulslaenge wie Engine weil Right=Left
 
 
 
