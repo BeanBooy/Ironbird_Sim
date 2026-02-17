@@ -3,7 +3,7 @@ from adafruit_servokit import ServoKit
 
 # Initialisiere das ServoKit-Objekt mit der I2C-Adresse 0x40 (Default)
 dServo = ServoKit(channels=16, address=0x40,frequency=333) # frequency 333Hz ONLY for DIGITAL SERVOS!
-LGServo = ServoKit(channels=16, address=0x40, frequency=30) # Landing Gear, only min or max (optional: Use Flightcontroller)
+LGServo = ServoKit(channels=16, address=0x41, frequency=30) # Landing Gear, only min or max (optional: Use Flightcontroller)
 
 # Setze die minimale und maximale Position des Servos
 min_position = 0
@@ -44,7 +44,7 @@ try:
 
 except KeyboardInterrupt:
     # Wenn CTRL+C gedrückt wird, stoppe die Bewegung und setze den Servo auf 90 Grad
-    for servo in range(dServo._channels):
+    for servo in range(len(dServo.servo)):
             if servo in LGchannel:
                  LGServo.servo[servo].angle = min_position
             else:
