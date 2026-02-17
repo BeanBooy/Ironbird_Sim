@@ -26,30 +26,38 @@ except:
          dServo.servo[channel].set_pulse_width_range(1400,2600)
 
 # Jeden Servo einzeln hintereinander auf min, mid, max setzen
+def test_allServos():
+    def move_LGServo(angle):
+        LGServo.servo[0]. angle = angle
+        time.sleep(LGdelay)
 
-def move_LGServo(angle):
-    LGServo.servo[0]. angle = angle
-    time.sleep(LGdelay)
+    def move_dServo(servo, angle):
+        dServo.servo[servo].angle = angle
+        time.sleep(delay)
 
-def move_dServo(servo, angle):
-    dServo.servo[servo].angle = angle
-    time.sleep(delay)
+    def test_LGServo():
+        print(f"Landing Gear to min position".ljust(50))
+        move_LGServo(min_position)
+        print("Landing Gear to max position")
+        move_LGServo(max_position)
 
-def test_LGServo():
-     move_LGServo(min_position)
-     move_LGServo(max_position)
-
-def test_dServo():
-    try:
-        for channel in range(len(channelsOccupied)):
-                for angle in range(len(positions)):
-                    move_dServo(channelsOccupied[channel],positions[angle])
-    except:
-        for servo in range(dServo._channels):
-                for angle in range(len(positions)):
-                    move_dServo(servo,positions[angle])
+    def test_dServo():
+        print("Testing digital Servos")
+        try:
+            for channel in range(len(channelsOccupied)):
+                    for angle in range(len(positions)):
+                        print(f"Servochannel {channelsOccupied[channel]} | to angle {positions[angle]}".ljust(50), end="\r")
+                        move_dServo(channelsOccupied[channel],positions[angle])
+        except:
+            for servo in range(dServo._channels):
+                    for angle in range(len(positions)):
+                        print(f"Servochannel {servo} | to angle {positions[angle]}".ljust(50), end="\r")
+                        move_dServo(servo,positions[angle])
+    test_dServo()
+    test_LGServo()
 
 def idle_Servo():
+     print("idling Servos...")
      dServo.servo[0].angle = 90
      dServo.servo[1].angle = 90
      dServo.servo[2].angle = 90
@@ -78,8 +86,7 @@ try:
     i = 0
     #idle_Servo()
     while i < 1:
-        test_dServo()
-        test_LGServo()
+        test_allServos()
         i += 1
     idle_Servo()
 

@@ -14,3 +14,5 @@ for pulse in range(500, 3000, 50):  # 1000–2000 µs in 50 µs steps
     servo.set_pulse_width_range(pulse, pulse+1)
     servo.angle = 180 # angle desired to find pulsewidth needed
     time.sleep(1)
+
+https://cdn-learn.adafruit.com/downloads/pdf/16-channel-pwm-servo-driver.pdf
