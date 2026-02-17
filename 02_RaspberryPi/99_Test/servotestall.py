@@ -2,50 +2,89 @@ import time
 from adafruit_servokit import ServoKit
 
 # Initialisiere das ServoKit-Objekt mit der I2C-Adresse 0x40 (Default)
-dServo = ServoKit(channels=16, address=0x40,frequency=333) # frequency 333Hz ONLY for DIGITAL SERVOS!
+dServo = ServoKit(channels=16, address=0x40,frequency=333) # frequency 300-333Hz ONLY for DIGITAL SERVOS!
 LGServo = ServoKit(channels=16, address=0x41, frequency=30) # Landing Gear, only min or max (optional: Use Flightcontroller)
 
 # Setze die minimale und maximale Position des Servos
 min_position = 0
 max_position = 180 
-mid_position = (max_position+min_position) / 2
+mid_position = int((max_position+min_position) / 2)
 
 positions = [min_position,mid_position,max_position]
-LGchannel = [14,15] # at least for testing (only two, because MLG is controlled as one)
+channelsOccupied = [0,5,9,12] # can be deleted if you want to go through every channel (here only for testingpurpose)
 
 # Zeitverzögerung zwischen den Schritten (in Sekunden)
-delay = 0.5
+delay = 2
+LGdelay = 10
+
+# set Pulsewidth like described in README.md 
+try:
+    for channel in range(len(channelsOccupied)):
+        dServo.servo[channelsOccupied[channel]].set_pulse_width_range(1400, 2600)
+except:
+    for channel in range(dServo._channels):
+         dServo.servo[channel].set_pulse_width_range(1400,2600)
 
 # Jeden Servo einzeln hintereinander auf min, mid, max setzen
 
+def move_LGServo(angle):
+    LGServo.servo[0]. angle = angle
+    time.sleep(LGdelay)
+
+def move_dServo(servo, angle):
+    dServo.servo[servo].angle = angle
+    time.sleep(delay)
+
+def test_LGServo():
+     move_LGServo(min_position)
+     move_LGServo(max_position)
+
 def test_dServo():
-    def move_dServo(servo, angle):
-        dServo.servo[servo].angle = angle
-        time.sleep(delay)
-    for servo in range(dServo._channels): # goes through all channels and tests every servo for min, mid, max position
-            if servo not in LGchannel:
+    try:
+        for channel in range(len(channelsOccupied)):
                 for angle in range(len(positions)):
-                    move_dServo(servo,int(positions[angle]))
+                    move_dServo(channelsOccupied[channel],positions[angle])
+    except:
+        for servo in range(dServo._channels):
+                for angle in range(len(positions)):
+                    move_dServo(servo,positions[angle])
 
-def test_LG():
-    def move_LGServo(servo, LG_state):
-        LGServo.servo[servo].angle = LG_state
-        time.sleep(3)
-    for LG in range(len(LGchannel)):
-        move_LGServo(LGchannel[LG],max_position)
-        move_LGServo(LGchannel[LG],min_position)
+def idle_Servo():
+     dServo.servo[0].angle = 90
+     dServo.servo[1].angle = 90
+     dServo.servo[2].angle = 90
+     dServo.servo[3].angle = 90
+     dServo.servo[4].angle = 90
+     dServo.servo[5].angle = 90
+     dServo.servo[6].angle = 90
+     dServo.servo[7].angle = 90
+     dServo.servo[8].angle = 90
+     dServo.servo[9].angle = 90
+     dServo.servo[10].angle = 90
+     dServo.servo[11].angle = 90
+     dServo.servo[12].angle = 90
+     dServo.servo[13].angle = 90
+     dServo.servo[14].angle = 90
+     dServo.servo[15].angle = 90
 
+     LGServo.servo[0].angle = min_position
+     time.sleep(LGdelay)
+     for servo in range(16):
+          dServo.servo[servo].angle = None # detach
+          LGServo.servo[0].angle = None
 
+# Main loop
 try:
-    while True:
-        test_LG()
+    i = 0
+    #idle_Servo()
+    while i < 1:
         test_dServo()
-        
+        test_LGServo()
+        i += 1
+    idle_Servo()
 
 except KeyboardInterrupt:
     # Wenn CTRL+C gedrückt wird, stoppe die Bewegung und setze den Servo auf 90 Grad
-    for servo in range(len(dServo.servo)):
-            if servo in LGchannel:
-                 LGServo.servo[servo].angle = min_position
-            else:
-                 dServo.servo[servo].angle = mid_position
+    idle_Servo()
+
+
