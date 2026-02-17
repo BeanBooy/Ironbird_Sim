@@ -16,6 +16,7 @@ namespace EurofighterCockpit
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            // start app
             Application.Run(new ConfigSettings());
         }
     }
