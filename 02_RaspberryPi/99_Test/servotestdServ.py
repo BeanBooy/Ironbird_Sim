@@ -11,7 +11,7 @@ max_position = 180
 mid_position = int((max_position+min_position) / 2)
 
 positions = [min_position,mid_position,max_position]
-channelsOccupied = [0,5,9,12] # can be deleted if you want to go through every channel (here only for testingpurpose)
+#channelsOccupied = [0,5,9,12] # can be deleted if you want to go through every channel (here only for testingpurpose)
 
 # Zeitverzögerung zwischen den Schritten (in Sekunden)
 delay = 2
@@ -21,7 +21,7 @@ try:
     for channel in range(len(channelsOccupied)):
         dServo.servo[channelsOccupied[channel]].set_pulse_width_range(1400, 2600)
 except:
-    for channel in range(dServo.servo):
+    for channel in range(dServo._channels):
          dServo.servo[channel].set_pulse_width_range(1400,2600)
 
 # Jeden Servo einzeln hintereinander auf min, mid, max setzen
@@ -32,11 +32,11 @@ def move_dServo(servo, angle):
     time.sleep(delay)
 
 def test_dServo():
-    if len(channelsOccupied) != 0:
+    try:
         for channel in range(len(channelsOccupied)):
                 for angle in range(len(positions)):
                     move_dServo(channelsOccupied[channel],positions[angle])
-    else:
+    except:
         for servo in range(dServo._channels):
                 for angle in range(len(positions)):
                     move_dServo(servo,positions[angle])
