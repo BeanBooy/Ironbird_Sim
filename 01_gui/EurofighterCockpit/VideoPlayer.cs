@@ -1,5 +1,6 @@
 ﻿using AxWMPLib;
 using EurofighterCockpit.Properties;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,6 +29,16 @@ namespace EurofighterCockpit
             // for whatever reason the sound setting are lost when setting a new url
             // that's why they have to be set again
             windowsMediaPlayer.settings.mute = true;
+        }
+
+        private void VideoPlayer_LocationChanged(object sender, EventArgs e) {
+            Console.WriteLine("Location Changed");
+            //windowsMediaPlayer.Ctlcontrols.play();
+        }
+
+        private void VideoPlayer_Move(object sender, EventArgs e) {
+            Console.WriteLine("Move");
+            //windowsMediaPlayer.Ctlcontrols.pause();
         }
     }
 }

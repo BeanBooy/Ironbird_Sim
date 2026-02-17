@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -16,62 +17,43 @@ namespace EurofighterCockpit
 {
     public partial class ConfigSettings : Form
     {
-        public Color colRed = Color.FromName("Crimson");
-        public Color colGreen = Color.FromArgb(40, 209, 43);
+        // colors
+        public readonly Color colRed = Color.FromName("Crimson");
+        public readonly Color colGreen = Color.FromArgb(40, 209, 43);
 
-        private Logger logger;
+        // logger
+        private readonly Logger logger = new Logger();
 
-        private Screen[] screens;
-        private int screenCount;
+        // screens
+        private readonly Screen[] screens;
+        private readonly int screenCount;
         private bool showScreenIndicator;
-        private ScreenIndicator[] screenIndicators;
+        private readonly ScreenIndicator[] screenIndicators;
 
+        // windows
         private VideoPlayer videoPlayer;
-        private const string defaultVideoPath = "E:\\Dev\\Ironbird_Sim\\demoVid.mp4";
-        private string videoPath;
-
         private Infotainment infotainment;
         private Infotainment infotainmentSub;
 
-        public ConfigSettings() {
-            InitializeComponent();
+        // window indices
+        private int videoPlayerScreenIndex = 0;
+        private int infotainmentScreenIndex = 0;
+        private int infotainmentSubScreenIndex = 0;
 
-            screens = Screen.AllScreens;
-            screenCount = screens.Length;
-            showScreenIndicator = false;
-            screenIndicators = new ScreenIndicator[screenCount];
-            for (int i = 0; i < screenCount; i++) {
-                screenIndicators[i] = new ScreenIndicator(screens[i], i);
-            }
+        // video
+        private const string defaultVideoPath = "E:\\Dev\\Ironbird_Sim\\demoVid.mp4";
+        private string videoPath;
 
-            logger = new Logger();
-
-
-
-            videoPlayer = launchVideoPlayer();
-            infotainment = launchInfotainment();
-            infotainmentSub = launchInfotainmentSub();
-
-            populateScreenSelectors(tlp_videoPlayer, screenCount);
-            populateScreenSelectors(tlp_infotainment, screenCount);
-            populateScreenSelectors(tlp_infotainmentSub, screenCount);
-
-            displayMessage("...ready!");
-
-            // testing section !!!!!!!!!!!
-
-            infotainment.ShowSlide(new Slide1());
-        }
-
+        // properties
         public bool ShowScreenIndicator { 
-            get { return showScreenIndicator; } 
+            get => showScreenIndicator;
             set { 
                 showScreenIndicator = value;
                 toggleScreenIndicator();
             }
         }
         public string VideoPath {
-            get { return videoPath; } 
+            get => videoPath;
             set {
                 videoPath = value;
                 tb_videoFilePath.Text = value;
@@ -80,48 +62,62 @@ namespace EurofighterCockpit
             }
         }
 
-        private VideoPlayer launchVideoPlayer() {
-            videoPlayer = new VideoPlayer();
-            videoPlayer.Load += (_, __) => { toggleBtn(btn_videoPlayer, true); };
-            videoPlayer.FormClosed += (_, __) => { toggleBtn(btn_videoPlayer, false); videoPlayer = null; };
-            // set video path (default should start automaticlly without user input)
-            VideoPath = VideoPath == null ? defaultVideoPath : VideoPath;
-            videoPlayer.Show();
-            displayMessage($"video player launched ({VideoPath})");
-            logger.log($"video player launched ({VideoPath})");
-            return videoPlayer;
+        public ConfigSettings() {
+            InitializeComponent();
+
+            // initialize screens
+            screens = Screen.AllScreens;
+            screenCount = screens.Length;
+            screenIndicators = new ScreenIndicator[screenCount];
+            for (int i = 0; i < screenCount; i++) {
+                screenIndicators[i] = new ScreenIndicator(screens[i], i);
+            }
+            
+            // launch windows
+            // TODO: move to LibVLCSharp instead of MediaPlayer
+            videoPlayer = launchWindow(ref videoPlayer, videoPlayerScreenIndex, btn_videoPlayer, vp => {
+                VideoPath = VideoPath == null ? defaultVideoPath : VideoPath;
+                vp.setSource(VideoPath); 
+            });
+            infotainment = launchWindow(ref infotainment, infotainmentScreenIndex, btn_infotainment);
+            infotainmentSub = launchWindow(ref infotainmentSub, infotainmentSubScreenIndex, btn_infotainmentSub, inf => inf.hidePanel());
+
+            populateScreenSelectors(tlp_videoPlayer, videoPlayer, screenCount);
+            populateScreenSelectors(tlp_infotainment, infotainment, screenCount);
+            populateScreenSelectors(tlp_infotainmentSub, infotainmentSub, screenCount);
+
+            displayMessage("...ready!");
+
+            // testing section !!!!!!!!!!!
+
+            infotainment.ShowSlide(new Slide1());
         }
 
-        private Infotainment launchInfotainment() {
-            infotainment = new Infotainment();
-            infotainment.Load += (_, __) => { toggleBtn(btn_infotainment, true); };
-            infotainment.FormClosed += (_, __) => { toggleBtn(btn_infotainment, false); infotainment = null; };
-            infotainment.Show();
-            displayMessage("infotainment launched");
-            logger.log("infotainment launched");
-            return infotainment;
-        }
-
-        private Infotainment launchInfotainmentSub() {
-            infotainmentSub = new Infotainment();
-            infotainmentSub.Load += (_, __) => { toggleBtn(btn_infotainmentSub, true); };
-            infotainmentSub.FormClosed += (_, __) => { toggleBtn(btn_infotainmentSub, false); infotainmentSub = null; };
-            infotainmentSub.hidePanel();
-            infotainmentSub.Show();
-            displayMessage("infotainmentSub launched");
-            logger.log("infotainmentSub launched");
-            return infotainmentSub;
+        private T launchWindow<T>(ref T window, int screenIndex, Button toggleButton, Action<T> postInit = null) where T : Form, new() {
+            if (window != null) return window;
+            window = new T();
+            window.Load += (s, e) => toggleBtn(toggleButton, true);
+            // capture window in local variable for safe closure
+            Form localWindow = window;
+            window.FormClosed += (s, e) => {
+                toggleBtn(toggleButton, false);
+                // set the correct field to null
+                if (localWindow == videoPlayer) videoPlayer = null;
+                else if (localWindow == infotainment) infotainment = null;
+                else if (localWindow == infotainmentSub) infotainmentSub = null;
+            };
+            moveWindowToScreen(window, screenIndex);
+            postInit?.Invoke(window); // optional additional code
+            window.Show();
+            logMessage($"{window.GetType().Name} launched!");
+            return window;
         }
 
         private void toggleBtn(Button btn, bool state) {
             btn.BackColor = state ? colGreen : colRed;
             btn.Text = state ? "ON" : "OFF";
         }
-
-        private void screenIndicator_CheckedChanged(object sender, EventArgs e) {
-            ShowScreenIndicator = screenIndicator.Checked;
-        }
-
+        
         private void toggleScreenIndicator() {
             if (ShowScreenIndicator) {
                 Array.ForEach(screenIndicators, obj => obj.Show());
@@ -131,7 +127,119 @@ namespace EurofighterCockpit
             }
         }
 
-        private void btn_browseVideoFile_MouseClick(object sender, MouseEventArgs e) {
+        private void populateScreenSelectors(TableLayoutPanel tly, Form form, int columns) {
+            // should be 3 screens/columns for perfect setup,
+            // but why hardcode it if a dynamic complicated solution is possible ;)
+            tly.Controls.Clear();
+            tly.RowStyles.Clear();
+            tly.ColumnStyles.Clear();
+            tly.RowCount = 1;
+            tly.ColumnCount = columns;
+            tly.RowStyles.Add(new RowStyle(SizeType.Percent, 100f));
+            // create columns
+            for (int i = 0; i < columns; i++) {
+                RadioButton rb = new RadioButton();
+                rb.Text = i.ToString();
+                rb.Dock = DockStyle.Fill;
+                rb.TextAlign = ContentAlignment.MiddleCenter;
+                rb.Appearance = Appearance.Button;
+                rb.BackColor = Color.FromName("Control");
+                rb.FlatStyle = FlatStyle.Flat;
+                rb.FlatAppearance.CheckedBackColor = Color.Orange;
+                rb.Click += new EventHandler(anyScreenSelector_Click);
+                // add radio button to parent and justify the width
+                tly.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100f / columns));
+                tly.Controls.Add(rb, i, 0);
+            }
+            // select first one automatically
+            ((RadioButton)tly.Controls[0]).Checked = true;
+        }
+
+        private void moveWindowToScreen(Form form, int screenIndex) {
+            if (form == null || screenIndex < 0 || screenIndex >= screens.Length) return;
+            form.StartPosition = FormStartPosition.Manual;
+            form.Location = screens[screenIndex].WorkingArea.Location;
+        }
+
+        private void logMessage(string message) {
+            logger.log(message);
+            displayMessage(message);
+        }
+        private void displayMessage(string message) {
+            try {
+                if (!message.EndsWith(Environment.NewLine)) {
+                    message += Environment.NewLine;
+                }
+
+                string formattedMessage = $"[{DateTime.Now.ToString("HH:mm:ss")}] {message}";
+                // thread-safe ui update
+                if (tb_logs.InvokeRequired) {
+                    tb_logs.Invoke(new Action(() => tb_logs.AppendText(formattedMessage)));
+                }
+                else {
+                    tb_logs.AppendText(formattedMessage);
+                }
+
+                // scroll to last line if needed
+                tb_logs.ScrollToCaret();
+            }
+            catch (Exception ex) {
+                string methodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
+                string severity = ex.GetType().Name;
+                logger.log($"{methodName}: {severity} - {ex.ToString()}");
+            }
+        }
+
+        #region event handler
+        private void screenIndicator_CheckedChanged(object sender, EventArgs e) {
+            ShowScreenIndicator = screenIndicator.Checked;
+        }
+
+        private void anyWindowToggle_Click(object sender, EventArgs e) {
+            if (sender == btn_videoPlayer) {
+                if (videoPlayer == null) {
+                    videoPlayer = launchWindow(ref videoPlayer, videoPlayerScreenIndex, btn_videoPlayer, vp => vp.setSource(VideoPath));
+                }
+                else {
+                    videoPlayer.Close();
+                }
+            }
+            else if (sender == btn_infotainment) {
+                if (infotainment == null) {
+                    infotainment = launchWindow(ref infotainment, infotainmentScreenIndex, btn_infotainment);
+                }
+                else {
+                    infotainment.Close();
+                }
+            }
+            else if (sender == btn_infotainmentSub) {
+                if (infotainmentSub == null) {
+                    infotainmentSub = launchWindow(ref infotainmentSub, infotainmentSubScreenIndex, btn_infotainmentSub, inf => inf.hidePanel());
+                }
+                else {
+                    infotainmentSub.Close();
+                }
+            }
+        }
+
+        private void anyScreenSelector_Click(object sender, EventArgs e) {
+            RadioButton rb = sender as RadioButton;
+            int screenIndex = Convert.ToInt32(rb.Text);
+            if (rb.Parent == tlp_videoPlayer) {
+                videoPlayerScreenIndex = screenIndex;
+                moveWindowToScreen(videoPlayer, screenIndex);
+            }
+            if (rb.Parent == tlp_infotainment) {
+                infotainmentScreenIndex = screenIndex;
+                moveWindowToScreen(infotainment, infotainmentScreenIndex);
+            }
+            if (rb.Parent == tlp_infotainmentSub) {
+                infotainmentSubScreenIndex = screenIndex;
+                moveWindowToScreen(infotainmentSub, infotainmentSubScreenIndex);
+            }
+        }
+
+        private void btn_browseVideoFile_Click(object sender, EventArgs e) {
             // open file dialog to select video file
             using (OpenFileDialog ofd = new OpenFileDialog()) {
                 ofd.InitialDirectory = "E:\\Dev\\Ironbird_Sim";  // TODO: setup for final version
@@ -143,96 +251,8 @@ namespace EurofighterCockpit
                     VideoPath = ofd.FileName;
                 }
             }
-
         }
 
-        //private void btn_videoPlayerScreenToggle_Click(object sender, EventArgs e) {
-        //    if (videoPlayer == null) {
-        //        // video play is off and should be turned on
-        //        videoPlayer = launchVideoPlayer();
-        //    }
-        //    else {
-        //        // video play is on and should be turned off
-        //        videoPlayer.Close();
-        //        videoPlayer = null;
-        //    }
-        //}
-
-        private void anyWindowToggle_Click(object sender, EventArgs e) {
-            if (sender == btn_videoPlayer) {
-                if (videoPlayer == null) {
-                    videoPlayer = launchVideoPlayer();
-                }
-                else {
-                    videoPlayer.Close();
-                    videoPlayer = null;
-                }
-            }
-            if (sender == btn_infotainment) {
-                if (infotainment == null) {
-                    infotainment = launchInfotainment();
-                }
-                else {
-                    infotainment.Close();
-                    infotainment = null;
-                }
-            }
-            if (sender == btn_infotainmentSub) {
-                if (infotainmentSub == null) {
-                    infotainmentSub = launchInfotainmentSub();
-                }
-                else {
-                    infotainmentSub.Close();
-                    infotainmentSub = null;
-                }
-            }
-        }
-
-        private void populateScreenSelectors(TableLayoutPanel tly, int columns) {
-            // should be 3 screens/culumns for perfect setup,
-            // but why hardcode it if a dynamic complicated solution is possible ;)
-            tly.Controls.Clear();
-            tly.RowStyles.Clear();
-            tly.ColumnStyles.Clear();
-            tly.RowCount = 1;
-            tly.ColumnCount = columns;
-            // make row fill entire height (I think it's default tbh)
-            tly.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            // create columns
-            for (int i = 0; i < columns; i++) {
-                // each column gets equal width
-                tly.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-
-                RadioButton rb = new RadioButton();
-                rb.Text = i.ToString();
-                rb.Dock = DockStyle.Fill;
-                rb.TextAlign = ContentAlignment.MiddleCenter;
-                rb.Appearance = Appearance.Button;
-                rb.BackColor = Color.FromName("Control");
-                rb.FlatStyle = FlatStyle.Flat;
-                rb.FlatAppearance.CheckedBackColor = Color.Orange;
-
-                tly.Controls.Add(rb, i, 0);
-            }
-        }
-
-        private void displayMessage(string message) {
-            try {
-                if (!message.EndsWith(Environment.NewLine)) {
-                    message += Environment.NewLine;
-                }
-
-                string formatedMessage = $"[{DateTime.Now.ToString("HH:mm:ss")}] {message}";
-                tb_logs.AppendText(formatedMessage);
-
-                // scroll to last line if needed
-                tb_logs.ScrollToCaret();
-            }
-            catch (Exception ex) {
-                string methodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
-                string severity = ex.GetType().Name;
-                logger.log($"{methodName}: {severity} - {ex.ToString()}");
-            }
-        }
+        #endregion
     }
 }
