@@ -14,7 +14,7 @@ positions = [min_position,mid_position,max_position]
 channelsOccupied = [0,5,9,12] # can be deleted if you want to go through every channel (here only for testingpurpose)
 
 # Zeitverzögerung zwischen den Schritten (in Sekunden)
-delay = 2
+delay = 1
 LGdelay = 10
 
 # set Pulsewidth like described in README.md 
@@ -36,10 +36,10 @@ def test_allServos():
         time.sleep(delay)
 
     def test_LGServo():
-        print(f"Landing Gear to min position".ljust(50))
-        move_LGServo(min_position)
-        print("Landing Gear to max position")
+        print(f"Landing Gear to max position".ljust(50))
         move_LGServo(max_position)
+        print("Landing Gear to min position")
+        move_LGServo(min_position)
 
     def test_dServo():
         print("Testing digital Servos")
