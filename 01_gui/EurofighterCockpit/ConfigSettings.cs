@@ -23,9 +23,13 @@ namespace EurofighterCockpit
         // logger
         private readonly Logger logger = Logger.Instance;
 
+        // network
+        NetworkController nk;
+
         // controller
         private JoystickController joystickController;
         private Timer timer;
+        private JoystickData prevData = new JoystickData();  // needed to skip updates when data == prevData
 
         // screens
         private readonly Screen[] screens;
@@ -91,6 +95,7 @@ namespace EurofighterCockpit
             populateScreenSelectors(tlp_infotainment, infotainment, screenCount);
             populateScreenSelectors(tlp_infotainmentSub, infotainmentSub, screenCount);
 
+            // initialize the joysticks
             joystickController = new JoystickController();
             joystickController.initJoystick();
             joystickController.initThrottle();
@@ -107,12 +112,22 @@ namespace EurofighterCockpit
             // testing section !!!!!!!!!!!
 
             infotainment.ShowSlide(new Slide1());
-            bpb_joystickXpos.Progress = 33;
+
+            nk = new NetworkController();
+            nk.connectToIp();
+            byte[] test = new byte[] { 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2 };
+            nk.sendData(test);
         }
 
         private void Timer_Tick(object sender, EventArgs e) {
             //displayMessage("tick");
             JoystickData data = joystickController.poll();
+            if (data.Equals(prevData)) {
+                return;
+            }
+            else {
+                prevData = data;
+            }
             // update the UI
             bpb_joystickXpos.Progress = Convert.ToInt32(data.JoystickXPercent * 100);
             bpb_joystickXneg.Progress = Convert.ToInt32(data.JoystickXPercent * -100);
