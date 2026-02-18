@@ -9,8 +9,8 @@
 
 import socket
 
-HOST = socket.gethostbyname(socket.gethostname())
-PORT = 4444
+HOST = ''
+PORT = 4443
 
 server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server_socket.bind((HOST, PORT))

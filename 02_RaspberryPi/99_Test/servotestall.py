@@ -1,5 +1,6 @@
 import time
 from adafruit_servokit import ServoKit
+from LGCD_Sequence import Servo
 
 # Initialisiere das ServoKit-Objekt mit der I2C-Adresse 0x40 (Default)
 dServo = ServoKit(channels=16, address=0x40,frequency=333) # frequency 300-333Hz ONLY for DIGITAL SERVOS!
