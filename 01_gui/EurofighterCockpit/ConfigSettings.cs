@@ -21,7 +21,7 @@ namespace EurofighterCockpit
         public readonly Color colGreen = Color.FromArgb(40, 209, 43);
 
         // logger
-        private readonly Logger logger = new Logger();
+        private readonly Logger logger = Logger.Instance;
 
         // controller
         private JoystickController joystickController;
@@ -68,6 +68,8 @@ namespace EurofighterCockpit
         public ConfigSettings() {
             InitializeComponent();
 
+            logger.setLogBox(tb_logs);
+
             // initialize screens
             screens = Screen.AllScreens;
             screenCount = screens.Length;
@@ -99,7 +101,7 @@ namespace EurofighterCockpit
             //delayToSend.Interval = 20;
             //delayToSend.Start();
 
-            displayMessage("...ready!");
+            logger.logToBox("...ready!");
 
             // testing section !!!!!!!!!!!
 
@@ -142,7 +144,7 @@ namespace EurofighterCockpit
             moveWindowToScreen(window, screenIndex);
             postInit?.Invoke(window); // optional additional code
             window.Show();
-            logMessage($"{window.GetType().Name} launched!");
+            logger.log($"{window.GetType().Name} launched!");
             return window;
         }
 
@@ -194,34 +196,34 @@ namespace EurofighterCockpit
             form.Location = screens[screenIndex].WorkingArea.Location;
         }
 
-        private void logMessage(string message) {
-            logger.log(message);
-            displayMessage(message);
-        }
-        private void displayMessage(string message) {
-            try {
-                if (!message.EndsWith(Environment.NewLine)) {
-                    message += Environment.NewLine;
-                }
+        //private void logMessage(string message) {
+        //    logger.log(message);
+        //    displayMessage(message);
+        //}
+        //private void displayMessage(string message) {
+        //    try {
+        //        if (!message.EndsWith(Environment.NewLine)) {
+        //            message += Environment.NewLine;
+        //        }
 
-                string formattedMessage = $"[{DateTime.Now.ToString("HH:mm:ss")}] {message}";
-                // thread-safe ui update
-                if (tb_logs.InvokeRequired) {
-                    tb_logs.Invoke(new Action(() => tb_logs.AppendText(formattedMessage)));
-                }
-                else {
-                    tb_logs.AppendText(formattedMessage);
-                }
+        //        string formattedMessage = $"[{DateTime.Now.ToString("HH:mm:ss")}] {message}";
+        //        // thread-safe ui update
+        //        if (tb_logs.InvokeRequired) {
+        //            tb_logs.Invoke(new Action(() => tb_logs.AppendText(formattedMessage)));
+        //        }
+        //        else {
+        //            tb_logs.AppendText(formattedMessage);
+        //        }
 
-                // scroll to last line if needed
-                tb_logs.ScrollToCaret();
-            }
-            catch (Exception ex) {
-                string methodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
-                string severity = ex.GetType().Name;
-                logger.log($"{methodName}: {severity} - {ex.ToString()}");
-            }
-        }
+        //        // scroll to last line if needed
+        //        tb_logs.ScrollToCaret();
+        //    }
+        //    catch (Exception ex) {
+        //        string methodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
+        //        string severity = ex.GetType().Name;
+        //        logger.log($"{methodName}: {severity} - {ex.ToString()}");
+        //    }
+        //}
 
         #region event handler
         private void screenIndicator_CheckedChanged(object sender, EventArgs e) {

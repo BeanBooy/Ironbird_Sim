@@ -11,56 +11,61 @@ namespace EurofighterCockpit
 {
     internal class JoystickController
     {
-        DirectInput directInput;
+        //DirectInput directInput;
         private Joystick joystick;
         private Joystick throttle;
 
         // logger
-        private readonly Logger logger = new Logger();
+        private readonly Logger logger = Logger.Instance;
 
         public void initializeJoystick() {
             try {
-                directInput = new DirectInput();
-                var joystickGuid = Guid.Empty;
-                var throttleGuid = Guid.Empty;
+                DirectInput directInput = new DirectInput();
+                DeviceInstance joystickDI = null;
+                DeviceInstance throttleDI = null;
 
                 // loop over all devices to find joystick and throttle
                 foreach (var deviceInstance in directInput.GetDevices(DeviceType.Joystick, DeviceEnumerationFlags.AllDevices)) {
                     if (deviceInstance.ProductName.Contains("Joystick"))
-                        joystickGuid = deviceInstance.InstanceGuid;
+                        joystickDI = deviceInstance;
                     else if (deviceInstance.ProductName.Contains("Throttle"))
-                        throttleGuid = deviceInstance.InstanceGuid;
+                        throttleDI = deviceInstance;
                 }
 
-                if (joystickGuid == Guid.Empty) {
-                    Console.WriteLine("Joystick nicht verbunden!");
+                if (joystickDI == null || throttleDI == null) {
+                    if (joystickDI == null) {
+                        logger.log("No joystick device found.");
+                    }
+                    if (throttleDI == null) {
+                        logger.log("No throttle device found.");
+                    }
+                    return;
                 }
-                if (throttleGuid == Guid.Empty) {
-                    Console.WriteLine("Throttle nicht verbunden!");
+                // connect to joystick device
+                if (joystickDI == null) {
+                    logger.log("No joystick device found.");
                 }
-
-                // get the instances
-                if (joystickGuid != Guid.Empty) {
-                    joystick = new Joystick(directInput, joystickGuid);
+                else {
+                    joystick = new Joystick(directInput, joystickDI.InstanceGuid);
                     joystick.Acquire();
+                    logger.log($"connected to JOYSTICK device ({joystickDI.InstanceName})");
                 }
-                if (throttleGuid != Guid.Empty) {
-                    throttle = new Joystick(directInput, throttleGuid);
+                // conenct to throttle device
+                if (throttleDI == null) {
+                    logger.log("No throttle device found.");
+                }
+                else {
+                    throttle = new Joystick(directInput, throttleDI.InstanceGuid);
                     throttle.Acquire();
+                    logger.log($"connected to THROTTLE device ({throttleDI.InstanceName})");
                 }
-                
             }
             catch (Exception ex) {
-                string methodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
-                string severity = ex.GetType().Name;
-                logger.log($"{methodName}: {severity} - {ex.ToString()}");
+                logger.log($"ERROR while connecting to input device: {ex.ToString()}");
             }
         }
 
         public JoystickData poll() {
-            if (joystick != null) {
-                joystick.Poll();
-            }
 
             var stateJoystick = joystick.GetCurrentState();
             var stateThrottle = throttle.GetCurrentState();
