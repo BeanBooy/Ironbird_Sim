@@ -11,10 +11,10 @@ max_position = 180
 mid_position = int((max_position+min_position) / 2)
 
 positions = [min_position,mid_position,max_position]
-channelsOccupied = [0,5,15] # can be deleted if you want to go through every channel (here only for testingpurpose)
+channelsOccupied = [0,5,10,15] # can be deleted if you want to go through every channel (here only for testingpurpose)
 
 # Zeitverzögerung zwischen den Schritten (in Sekunden)
-delay = 2
+delay = 1
 LGdelay = 10
 
 # set Pulsewidth like described in README.md 
@@ -23,12 +23,12 @@ try:
         dServo.servo[channelsOccupied[channel]].set_pulse_width_range(1000, 2000)
 except:
     for channel in range(dServo._channels):
-         dServo.servo[channel].set_pulse_width_range(1400,2600)
+         dServo.servo[channel].set_pulse_width_range(1000,2000)
 
 # Jeden Servo einzeln hintereinander auf min, mid, max setzen
 def test_allServos():
     def move_LGServo(angle):
-        LGServo.servo[0]. angle = angle
+        LGServo.servo[0].angle = angle
         time.sleep(LGdelay)
 
     def move_dServo(servo, angle):
@@ -93,5 +93,3 @@ try:
 except KeyboardInterrupt:
     # Wenn CTRL+C gedrückt wird, stoppe die Bewegung und setze den Servo auf 90 Grad
     idle_Servo()
-
-
