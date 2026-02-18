@@ -53,6 +53,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BetterProgressBar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BetterProgressBar.Designer.cs">
+      <DependentUpon>BetterProgressBar.cs</DependentUpon>
+    </Compile>
     <Compile Include="ConfigSettings.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,6 +94,9 @@
     <Compile Include="VideoPlayer.Designer.cs">
       <DependentUpon>VideoPlayer.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="BetterProgressBar.resx">
+      <DependentUpon>BetterProgressBar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ConfigSettings.resx">
       <DependentUpon>ConfigSettings.cs</DependentUpon>
     </EmbeddedResource>

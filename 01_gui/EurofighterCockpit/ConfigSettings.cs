@@ -104,23 +104,26 @@ namespace EurofighterCockpit
             // testing section !!!!!!!!!!!
 
             infotainment.ShowSlide(new Slide1());
+            bpb_joystickXpos.Progress = 33;
         }
 
         private void Timer_Tick(object sender, EventArgs e) {
             //displayMessage("tick");
             JoystickData data = joystickController.poll();
 
-            l_joystickX.Text = data.joystickTorque.raw.ToString();
-            l_joystickY.Text = data.joystickTorque.percent.ToString();
-
-            cb_trigger.Checked = data.trigger;
-            cb_airbrake.Checked = data.airbrake;
-            cb_sound.Checked = data.sound;
-
-            cb_rudderL.Checked = data.rudderLeft;
-            cb_rudderM.Checked = data.rudderReset;
-            cb_rudderR.Checked = data.rudderRight;
-
+            // update the UI
+            bpb_joystickXpos.Progress = Convert.ToInt32(data.joystickX.percent * 100);
+            bpb_joystickXneg.Progress = Convert.ToInt32(data.joystickX.percent * -100);
+            bpb_joystickYpos.Progress = Convert.ToInt32(data.joystickY.percent * 100);
+            bpb_joystickYneg.Progress = Convert.ToInt32(data.joystickY.percent * -100);
+            bpb_airbrakeBool.Progress = data.airbrake ? 100 : 0;
+            // TODO: airbrake trigger curve
+            bpb_throttle.Progress = Convert.ToInt32(data.throttle.percent * 100);
+            bpb_trigger.Progress = data.trigger ? 100 : 0;
+            bpb_sound.Progress = data.sound ? 100 : 0;
+            bpb_rudderL.Progress = data.rudderLeft ? 100 : 0;
+            bpb_rudderR.Progress = data.rudderRight ? 100 : 0;
+            bpb_rudderReset.Progress = data.rudderReset ? 100 : 0;
         }
 
         private T launchWindow<T>(ref T window, int screenIndex, Button toggleButton, Action<T> postInit = null) where T : Form, new() {
