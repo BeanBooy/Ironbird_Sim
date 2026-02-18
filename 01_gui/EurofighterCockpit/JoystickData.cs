@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace EurofighterCockpit
 {
@@ -42,5 +43,25 @@ namespace EurofighterCockpit
         public double JoystickYPercent { get => (Convert.ToDouble(joystickY) - ushort.MaxValue / 2) / ushort.MaxValue * -2; }
         public double JoystickTorquePercent { get => (joystickTorque - ushort.MaxValue / 2) / ushort.MaxValue; }
         public double ThrottlePercent { get => (Convert.ToDouble(throttle) - ushort.MaxValue) / -ushort.MaxValue; }
+
+        public override bool Equals(object obj) {
+            if (obj is JoystickData other) {
+                return throttleConnected == other.throttleConnected &&
+                    joystickConnected == other.joystickConnected &&
+                    joystickX == other.joystickX &&
+                    joystickY == other.joystickY &&
+                    joystickTorque == other.joystickTorque &&
+                    airbrake == other.airbrake &&
+                    trigger == other.trigger &&
+                    throttle == other.throttle &&
+                    rudderLeft == other.rudderLeft &&
+                    rudderRight == other.rudderRight &&
+                    rudderReset == other.rudderReset &&
+                    sound == other.sound;
+            }
+            else
+                return false;
+        }
+
     }
 }
