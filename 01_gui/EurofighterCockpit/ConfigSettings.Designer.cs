@@ -75,7 +75,7 @@
             this.bpb_airbrakeBool = new EurofighterCockpit.BetterProgressBar();
             this.bpb_airbrake = new EurofighterCockpit.BetterProgressBar();
             this.bpb_throttle = new EurofighterCockpit.BetterProgressBar();
-            this.betterProgressBar2 = new EurofighterCockpit.BetterProgressBar();
+            this.bpb_joystickTorque = new EurofighterCockpit.BetterProgressBar();
             this.betterProgressBar1 = new EurofighterCockpit.BetterProgressBar();
             this.bpb_joystickXpos = new EurofighterCockpit.BetterProgressBar();
             this.bpb_joystickXneg = new EurofighterCockpit.BetterProgressBar();
@@ -477,7 +477,7 @@
             this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel6.Controls.Add(this.label8);
             this.panel6.Controls.Add(this.label7);
-            this.panel6.Controls.Add(this.betterProgressBar2);
+            this.panel6.Controls.Add(this.bpb_joystickTorque);
             this.panel6.Controls.Add(this.betterProgressBar1);
             this.panel6.Controls.Add(this.bpb_joystickXpos);
             this.panel6.Controls.Add(this.bpb_joystickXneg);
@@ -709,18 +709,18 @@
             this.bpb_throttle.Size = new System.Drawing.Size(88, 187);
             this.bpb_throttle.TabIndex = 33;
             // 
-            // betterProgressBar2
+            // bpb_joystickTorque
             // 
-            this.betterProgressBar2.BackColor = System.Drawing.Color.White;
-            this.betterProgressBar2.ColorProg = System.Drawing.Color.Orange;
-            this.betterProgressBar2.Direction = EurofighterCockpit.Direction.rightToLeft;
-            this.betterProgressBar2.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.betterProgressBar2.Location = new System.Drawing.Point(16, 36);
-            this.betterProgressBar2.Margin = new System.Windows.Forms.Padding(0);
-            this.betterProgressBar2.Name = "betterProgressBar2";
-            this.betterProgressBar2.Progress = 0;
-            this.betterProgressBar2.Size = new System.Drawing.Size(50, 15);
-            this.betterProgressBar2.TabIndex = 37;
+            this.bpb_joystickTorque.BackColor = System.Drawing.Color.White;
+            this.bpb_joystickTorque.ColorProg = System.Drawing.Color.Orange;
+            this.bpb_joystickTorque.Direction = EurofighterCockpit.Direction.rightToLeft;
+            this.bpb_joystickTorque.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.bpb_joystickTorque.Location = new System.Drawing.Point(16, 36);
+            this.bpb_joystickTorque.Margin = new System.Windows.Forms.Padding(0);
+            this.bpb_joystickTorque.Name = "bpb_joystickTorque";
+            this.bpb_joystickTorque.Progress = 0;
+            this.bpb_joystickTorque.Size = new System.Drawing.Size(50, 15);
+            this.bpb_joystickTorque.TabIndex = 37;
             // 
             // betterProgressBar1
             // 
@@ -856,7 +856,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
-        private BetterProgressBar betterProgressBar2;
+        private BetterProgressBar bpb_joystickTorque;
         private BetterProgressBar betterProgressBar1;
         private BetterProgressBar bpb_airbrakeBool;
         private System.Windows.Forms.Label label16;

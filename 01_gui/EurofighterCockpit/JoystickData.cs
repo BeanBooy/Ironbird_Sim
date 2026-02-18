@@ -9,34 +9,38 @@ namespace EurofighterCockpit
 {
     internal class JoystickData
     {
+        private bool throttleConnected;
+        private bool joystickConnected;
+
         // joystick
-        public (ushort raw, double percent) joystickX;
-        public (ushort raw, double percent) joystickY;
-        public (ushort raw, double percent) joystickTorque;  // ???
-        public bool airbrake;
-        public bool trigger;
+        private ushort joystickX = ushort.MaxValue / 2;
+        private ushort joystickY = ushort.MaxValue / 2;
+        private ushort joystickTorque;  // ???
+        private bool airbrake;
+        private bool trigger;
 
         // throttle
-        public (ushort raw, double percent) throttle;
-        public bool rudderLeft;
-        public bool rudderRight;
-        public bool rudderReset;
+        private ushort throttle = ushort.MaxValue;
+        private bool rudderLeft;
+        private bool rudderRight;
+        private bool rudderReset;
+        private bool sound;
 
-        public bool sound;
-
-        public JoystickData(ushort joystickX, ushort joystickY, ushort joystickTorque, bool airbrake, bool trigger, ushort throttle, bool rudderLeft, bool rudderRight, bool rudderReset, bool sound) {
-            this.joystickX = (joystickX, (Convert.ToDouble(joystickX) - ushort.MaxValue / 2) / ushort.MaxValue * 2);
-            this.joystickY = (joystickY, (Convert.ToDouble(joystickY) - ushort.MaxValue / 2) / ushort.MaxValue * -2);
-            this.joystickTorque = (joystickTorque, (joystickTorque - ushort.MaxValue / 2) / ushort.MaxValue);
-            this.airbrake = airbrake;
-            this.trigger = trigger;
-            this.throttle = (throttle, (Convert.ToDouble(throttle) - ushort.MaxValue) / -ushort.MaxValue);
-            this.rudderLeft = rudderLeft;
-            this.rudderRight = rudderRight;
-            this.rudderReset = rudderReset;
-            this.sound = sound;
-
-
-        }
+        public bool ThrottleConnected { get => throttleConnected; set => throttleConnected = value; }
+        public bool JoystickConnected { get => joystickConnected; set => joystickConnected = value; }
+        public ushort JoystickX { get => joystickX; set => joystickX = value; }
+        public ushort JoystickY { get => joystickY; set => joystickY = value; }
+        public ushort JoystickTorque { get => joystickTorque; set => joystickTorque = value; }
+        public bool Airbrake { get => airbrake; set => airbrake = value; }
+        public bool Trigger { get => trigger; set => trigger = value; }
+        public ushort Throttle { get => throttle; set => throttle = value; }
+        public bool RudderLeft { get => rudderLeft; set => rudderLeft = value; }
+        public bool RudderRight { get => rudderRight; set => rudderRight = value; }
+        public bool RudderReset { get => rudderReset; set => rudderReset = value; }
+        public bool Sound { get => sound; set => sound = value; }
+        public double JoystickXPercent { get => (Convert.ToDouble(joystickX) - ushort.MaxValue / 2) / ushort.MaxValue * -2; }
+        public double JoystickYPercent { get => (Convert.ToDouble(joystickY) - ushort.MaxValue / 2) / ushort.MaxValue * -2; }
+        public double JoystickTorquePercent { get => (joystickTorque - ushort.MaxValue / 2) / ushort.MaxValue; }
+        public double ThrottlePercent { get => (Convert.ToDouble(throttle) - ushort.MaxValue) / -ushort.MaxValue; }
     }
 }

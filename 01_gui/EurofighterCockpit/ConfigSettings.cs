@@ -92,8 +92,9 @@ namespace EurofighterCockpit
             populateScreenSelectors(tlp_infotainmentSub, infotainmentSub, screenCount);
 
             joystickController = new JoystickController();
+            joystickController.initJoystick();
+            joystickController.initThrottle();
 
-            joystickController.initializeJoystick();
             timer = new Timer();
             timer.Interval = 10;  // update every 10ms
             timer.Tick += Timer_Tick;
@@ -112,20 +113,20 @@ namespace EurofighterCockpit
         private void Timer_Tick(object sender, EventArgs e) {
             //displayMessage("tick");
             JoystickData data = joystickController.poll();
-
             // update the UI
-            bpb_joystickXpos.Progress = Convert.ToInt32(data.joystickX.percent * 100);
-            bpb_joystickXneg.Progress = Convert.ToInt32(data.joystickX.percent * -100);
-            bpb_joystickYpos.Progress = Convert.ToInt32(data.joystickY.percent * 100);
-            bpb_joystickYneg.Progress = Convert.ToInt32(data.joystickY.percent * -100);
-            bpb_airbrakeBool.Progress = data.airbrake ? 100 : 0;
+            bpb_joystickXpos.Progress = Convert.ToInt32(data.JoystickXPercent * 100);
+            bpb_joystickXneg.Progress = Convert.ToInt32(data.JoystickXPercent * -100);
+            bpb_joystickYpos.Progress = Convert.ToInt32(data.JoystickYPercent * 100);
+            bpb_joystickYneg.Progress = Convert.ToInt32(data.JoystickYPercent * -100);
+            bpb_joystickTorque.Progress = Convert.ToInt32(data.JoystickTorquePercent * 100);
+            bpb_airbrakeBool.Progress = data.Airbrake ? 100 : 0;
             // TODO: airbrake trigger curve
-            bpb_throttle.Progress = Convert.ToInt32(data.throttle.percent * 100);
-            bpb_trigger.Progress = data.trigger ? 100 : 0;
-            bpb_sound.Progress = data.sound ? 100 : 0;
-            bpb_rudderL.Progress = data.rudderLeft ? 100 : 0;
-            bpb_rudderR.Progress = data.rudderRight ? 100 : 0;
-            bpb_rudderReset.Progress = data.rudderReset ? 100 : 0;
+            bpb_throttle.Progress = Convert.ToInt32(data.ThrottlePercent * 100);
+            bpb_trigger.Progress = data.Trigger ? 100 : 0;
+            bpb_sound.Progress = data.Sound ? 100 : 0;
+            bpb_rudderL.Progress = data.RudderLeft ? 100 : 0;
+            bpb_rudderR.Progress = data.RudderRight ? 100 : 0;
+            bpb_rudderReset.Progress = data.RudderReset ? 100 : 0;
         }
 
         private T launchWindow<T>(ref T window, int screenIndex, Button toggleButton, Action<T> postInit = null) where T : Form, new() {
@@ -196,35 +197,6 @@ namespace EurofighterCockpit
             form.Location = screens[screenIndex].WorkingArea.Location;
         }
 
-        //private void logMessage(string message) {
-        //    logger.log(message);
-        //    displayMessage(message);
-        //}
-        //private void displayMessage(string message) {
-        //    try {
-        //        if (!message.EndsWith(Environment.NewLine)) {
-        //            message += Environment.NewLine;
-        //        }
-
-        //        string formattedMessage = $"[{DateTime.Now.ToString("HH:mm:ss")}] {message}";
-        //        // thread-safe ui update
-        //        if (tb_logs.InvokeRequired) {
-        //            tb_logs.Invoke(new Action(() => tb_logs.AppendText(formattedMessage)));
-        //        }
-        //        else {
-        //            tb_logs.AppendText(formattedMessage);
-        //        }
-
-        //        // scroll to last line if needed
-        //        tb_logs.ScrollToCaret();
-        //    }
-        //    catch (Exception ex) {
-        //        string methodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
-        //        string severity = ex.GetType().Name;
-        //        logger.log($"{methodName}: {severity} - {ex.ToString()}");
-        //    }
-        //}
-
         #region event handler
         private void screenIndicator_CheckedChanged(object sender, EventArgs e) {
             ShowScreenIndicator = screenIndicator.Checked;
@@ -286,6 +258,16 @@ namespace EurofighterCockpit
                     VideoPath = ofd.FileName;
                 }
             }
+        }
+
+        protected override void WndProc(ref Message m) {
+            // overwrite WndProc to handle 'WM_DEVICECHANGE' to notice possible joystick device change
+            const int WM_DEVICECHANGE = 0x0219;
+            if (m.Msg == WM_DEVICECHANGE) {
+                joystickController.initJoystick();
+                joystickController.initThrottle();
+            }
+            base.WndProc(ref m);
         }
 
         #endregion
