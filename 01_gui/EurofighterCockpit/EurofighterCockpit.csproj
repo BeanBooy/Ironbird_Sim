@@ -34,6 +34,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="SharpDX, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1, processorArchitecture=MSIL">
+      <HintPath>packages\SharpDX.4.2.0\lib\net45\SharpDX.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX.DirectInput, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1, processorArchitecture=MSIL">
+      <HintPath>packages\SharpDX.DirectInput.4.2.0\lib\net45\SharpDX.DirectInput.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -47,6 +53,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BetterProgressBar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BetterProgressBar.Designer.cs">
+      <DependentUpon>BetterProgressBar.cs</DependentUpon>
+    </Compile>
     <Compile Include="ConfigSettings.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -59,6 +71,8 @@
     <Compile Include="Infotainment.Designer.cs">
       <DependentUpon>Infotainment.cs</DependentUpon>
     </Compile>
+    <Compile Include="JoystickData.cs" />
+    <Compile Include="JoystickController.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -80,6 +94,9 @@
     <Compile Include="VideoPlayer.Designer.cs">
       <DependentUpon>VideoPlayer.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="BetterProgressBar.resx">
+      <DependentUpon>BetterProgressBar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ConfigSettings.resx">
       <DependentUpon>ConfigSettings.cs</DependentUpon>
     </EmbeddedResource>
@@ -104,6 +121,7 @@
     <EmbeddedResource Include="VideoPlayer.resx">
       <DependentUpon>VideoPlayer.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
