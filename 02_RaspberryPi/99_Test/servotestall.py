@@ -11,16 +11,16 @@ max_position = 180
 mid_position = int((max_position+min_position) / 2)
 
 positions = [min_position,mid_position,max_position]
-channelsOccupied = [0,5,9,12] # can be deleted if you want to go through every channel (here only for testingpurpose)
+channelsOccupied = [0,5,15] # can be deleted if you want to go through every channel (here only for testingpurpose)
 
 # Zeitverzögerung zwischen den Schritten (in Sekunden)
-delay = 1
+delay = 2
 LGdelay = 10
 
 # set Pulsewidth like described in README.md 
 try:
     for channel in range(len(channelsOccupied)):
-        dServo.servo[channelsOccupied[channel]].set_pulse_width_range(1400, 2600)
+        dServo.servo[channelsOccupied[channel]].set_pulse_width_range(1000, 2000)
 except:
     for channel in range(dServo._channels):
          dServo.servo[channel].set_pulse_width_range(1400,2600)
