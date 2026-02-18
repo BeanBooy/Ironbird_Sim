@@ -9,7 +9,6 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -23,6 +22,10 @@ namespace EurofighterCockpit
 
         // logger
         private readonly Logger logger = new Logger();
+
+        // controller
+        private JoystickController joystickController;
+        private Timer timer;
 
         // screens
         private readonly Screen[] screens;
@@ -86,11 +89,38 @@ namespace EurofighterCockpit
             populateScreenSelectors(tlp_infotainment, infotainment, screenCount);
             populateScreenSelectors(tlp_infotainmentSub, infotainmentSub, screenCount);
 
+            joystickController = new JoystickController();
+
+            joystickController.initializeJoystick();
+            timer = new Timer();
+            timer.Interval = 10;  // update every 10ms
+            timer.Tick += Timer_Tick;
+            timer.Start();
+            //delayToSend.Interval = 20;
+            //delayToSend.Start();
+
             displayMessage("...ready!");
 
             // testing section !!!!!!!!!!!
 
             infotainment.ShowSlide(new Slide1());
+        }
+
+        private void Timer_Tick(object sender, EventArgs e) {
+            //displayMessage("tick");
+            JoystickData data = joystickController.poll();
+
+            l_joystickX.Text = data.joystickTorque.raw.ToString();
+            l_joystickY.Text = data.joystickTorque.percent.ToString();
+
+            cb_trigger.Checked = data.trigger;
+            cb_airbrake.Checked = data.airbrake;
+            cb_sound.Checked = data.sound;
+
+            cb_rudderL.Checked = data.rudderLeft;
+            cb_rudderM.Checked = data.rudderReset;
+            cb_rudderR.Checked = data.rudderRight;
+
         }
 
         private T launchWindow<T>(ref T window, int screenIndex, Button toggleButton, Action<T> postInit = null) where T : Form, new() {

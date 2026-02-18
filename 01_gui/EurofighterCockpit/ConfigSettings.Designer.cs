@@ -52,10 +52,24 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.tb_logs = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.l_joystickY = new System.Windows.Forms.Label();
+            this.l_joystickX = new System.Windows.Forms.Label();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.cb_trigger = new System.Windows.Forms.CheckBox();
+            this.cb_sound = new System.Windows.Forms.CheckBox();
+            this.cb_airbrake = new System.Windows.Forms.CheckBox();
+            this.cb_rudderL = new System.Windows.Forms.CheckBox();
+            this.cb_rudderM = new System.Windows.Forms.CheckBox();
+            this.cb_rudderR = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel8.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // screenIndicator
@@ -128,6 +142,7 @@
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 62.39316F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 57F));
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel8.Size = new System.Drawing.Size(563, 176);
             this.tableLayoutPanel8.TabIndex = 27;
             // 
@@ -323,10 +338,10 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Gray;
-            this.panel2.Location = new System.Drawing.Point(1279, 96);
+            this.panel2.Location = new System.Drawing.Point(13, 475);
             this.panel2.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(275, 135);
+            this.panel2.Size = new System.Drawing.Size(361, 135);
             this.panel2.TabIndex = 29;
             // 
             // panel3
@@ -358,7 +373,7 @@
             this.panel4.BackColor = System.Drawing.Color.Gray;
             this.panel4.Controls.Add(this.tb_logs);
             this.panel4.Controls.Add(this.label1);
-            this.panel4.Location = new System.Drawing.Point(672, 280);
+            this.panel4.Location = new System.Drawing.Point(388, 289);
             this.panel4.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(660, 382);
@@ -388,12 +403,154 @@
             this.label1.Text = "Logs";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.Gray;
+            this.panel5.Controls.Add(this.cb_rudderR);
+            this.panel5.Controls.Add(this.cb_rudderM);
+            this.panel5.Controls.Add(this.cb_rudderL);
+            this.panel5.Controls.Add(this.cb_airbrake);
+            this.panel5.Controls.Add(this.cb_sound);
+            this.panel5.Controls.Add(this.cb_trigger);
+            this.panel5.Controls.Add(this.progressBar1);
+            this.panel5.Controls.Add(this.l_joystickY);
+            this.panel5.Controls.Add(this.l_joystickX);
+            this.panel5.Controls.Add(this.label6);
+            this.panel5.Controls.Add(this.label5);
+            this.panel5.Location = new System.Drawing.Point(590, 12);
+            this.panel5.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(486, 264);
+            this.panel5.TabIndex = 30;
+            // 
+            // label4
+            // 
+            this.label4.BackColor = System.Drawing.Color.Gray;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(591, 20);
+            this.label4.Margin = new System.Windows.Forms.Padding(1);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(484, 37);
+            this.label4.TabIndex = 28;
+            this.label4.Text = "Controller";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(27, 74);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(60, 16);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "joystickX";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(27, 101);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(61, 16);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "joystickY";
+            // 
+            // l_joystickY
+            // 
+            this.l_joystickY.AutoSize = true;
+            this.l_joystickY.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.l_joystickY.Location = new System.Drawing.Point(93, 100);
+            this.l_joystickY.Name = "l_joystickY";
+            this.l_joystickY.Size = new System.Drawing.Size(28, 16);
+            this.l_joystickY.TabIndex = 3;
+            this.l_joystickY.Text = "000";
+            // 
+            // l_joystickX
+            // 
+            this.l_joystickX.AutoSize = true;
+            this.l_joystickX.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.l_joystickX.Location = new System.Drawing.Point(93, 73);
+            this.l_joystickX.Name = "l_joystickX";
+            this.l_joystickX.Size = new System.Drawing.Size(28, 16);
+            this.l_joystickX.TabIndex = 2;
+            this.l_joystickX.Text = "000";
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(195, 81);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(125, 23);
+            this.progressBar1.TabIndex = 4;
+            this.progressBar1.Value = 40;
+            // 
+            // cb_trigger
+            // 
+            this.cb_trigger.AutoSize = true;
+            this.cb_trigger.Location = new System.Drawing.Point(41, 160);
+            this.cb_trigger.Name = "cb_trigger";
+            this.cb_trigger.Size = new System.Drawing.Size(55, 17);
+            this.cb_trigger.TabIndex = 5;
+            this.cb_trigger.Text = "trigger";
+            this.cb_trigger.UseVisualStyleBackColor = true;
+            // 
+            // cb_sound
+            // 
+            this.cb_sound.AutoSize = true;
+            this.cb_sound.Location = new System.Drawing.Point(41, 183);
+            this.cb_sound.Name = "cb_sound";
+            this.cb_sound.Size = new System.Drawing.Size(55, 17);
+            this.cb_sound.TabIndex = 6;
+            this.cb_sound.Text = "sound";
+            this.cb_sound.UseVisualStyleBackColor = true;
+            // 
+            // cb_airbrake
+            // 
+            this.cb_airbrake.AutoSize = true;
+            this.cb_airbrake.Location = new System.Drawing.Point(41, 206);
+            this.cb_airbrake.Name = "cb_airbrake";
+            this.cb_airbrake.Size = new System.Drawing.Size(64, 17);
+            this.cb_airbrake.TabIndex = 7;
+            this.cb_airbrake.Text = "airbrake";
+            this.cb_airbrake.UseVisualStyleBackColor = true;
+            // 
+            // cb_rudderL
+            // 
+            this.cb_rudderL.AutoSize = true;
+            this.cb_rudderL.Location = new System.Drawing.Point(127, 160);
+            this.cb_rudderL.Name = "cb_rudderL";
+            this.cb_rudderL.Size = new System.Drawing.Size(73, 17);
+            this.cb_rudderL.TabIndex = 8;
+            this.cb_rudderL.Text = "rudder left";
+            this.cb_rudderL.UseVisualStyleBackColor = true;
+            // 
+            // cb_rudderM
+            // 
+            this.cb_rudderM.AutoSize = true;
+            this.cb_rudderM.Location = new System.Drawing.Point(127, 183);
+            this.cb_rudderM.Name = "cb_rudderM";
+            this.cb_rudderM.Size = new System.Drawing.Size(82, 17);
+            this.cb_rudderM.TabIndex = 9;
+            this.cb_rudderM.Text = "rudder reset";
+            this.cb_rudderM.UseVisualStyleBackColor = true;
+            // 
+            // cb_rudderR
+            // 
+            this.cb_rudderR.AutoSize = true;
+            this.cb_rudderR.Location = new System.Drawing.Point(127, 206);
+            this.cb_rudderR.Name = "cb_rudderR";
+            this.cb_rudderR.Size = new System.Drawing.Size(79, 17);
+            this.cb_rudderR.TabIndex = 10;
+            this.cb_rudderR.Text = "rudder right";
+            this.cb_rudderR.UseVisualStyleBackColor = true;
+            // 
             // ConfigSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(1582, 690);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -410,6 +567,8 @@
             this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -440,5 +599,18 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.TextBox tb_logs;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label l_joystickY;
+        private System.Windows.Forms.Label l_joystickX;
+        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.CheckBox cb_trigger;
+        private System.Windows.Forms.CheckBox cb_sound;
+        private System.Windows.Forms.CheckBox cb_rudderL;
+        private System.Windows.Forms.CheckBox cb_airbrake;
+        private System.Windows.Forms.CheckBox cb_rudderR;
+        private System.Windows.Forms.CheckBox cb_rudderM;
     }
 }
