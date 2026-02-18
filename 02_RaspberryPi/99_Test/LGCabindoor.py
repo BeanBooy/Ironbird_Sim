@@ -20,10 +20,14 @@ class Servo():
             LaG.servo[0].fraction = LG_IN
             time.sleep(delay)
         
-    def move_CD(self,servo,angle):
-        Servos.servo[servo].set_pulse_width_range(1000,2000)
-        Servos.servo[servo].angle = angle
-        time.sleep(delay/2)
+    def move(self,servo,angle,pause=True):
+        if isinstance(servo, int): # if only one channel given: channel -> list of channel(s)
+            servo = [servo]
+        for channel in servo:
+            Servos.servo[channel].set_pulse_width_range(1000, 2000)
+            Servos.servo[channel].angle = angle
+        if pause == True:
+          time.sleep(delay/2)
         
     def inverServ(self,servo,angle, Kit=Servos):
         Kit.servo[servo].angle = int(180-angle)
@@ -32,17 +36,43 @@ LG = Servo("LandingGear")       # Initialize Classobjects
 CD = Servo("CabinDoor")
 
 def idle():
-    CD.move_CD(0,90)
-    CD.move_CD(1,90)
+    CD.move([0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],90,False) # just reset every channel
     LG.move_LG(LG_IN)
     time.sleep(delay)
 
+def LGCD_sequence(channels,state):
+    if state == LG_OUT:
+        if isinstance(channels, int):
+           channels = [channels]
 
-LG.move_LG(LG_OUT)
-LG.move_LG(LG_IN)
-CD.move_CD(0,0)
-CD.move_CD(0,90)
-CD.move_CD(0,180)
+        # open CD for selected channels
 
+        for channel in channels:
+           print("Servochannel ", channels," | to angle 0")
+           CD.move(channel,180,False)
+        time.sleep(delay/2)
+
+        print("LG Out")
+        LG.move_LG(LG_OUT) # after CD open LG
+
+    elif state == LG_IN:
+
+        print("LG IN") # First close LG
+        LG.move_LG(LG_IN)
+
+        for channel in channels:
+           print("Servochannel ", channels," | to angle 0")
+           CD.move(channel,0,False)
+        time.sleep(delay/2)
+        print("ERFOLG!!!")
+        
+
+
+LGCD_sequence([0,5],LG_OUT)
+print("Out erfolgreich, jetzt 3 sek warten")
+time.sleep(3)
+LGCD_sequence([0,5],LG_IN)
 idle()
+
+
 
