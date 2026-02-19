@@ -11,8 +11,8 @@ from adafruit_servokit import ServoKit
 # adresses of Landinggear and digital Servos
 I2CSERVO = 0x40
 I2CLG = 0x41
-LG_OUT = 2
-LG_IN = 1
+LG_OUT = 1
+LG_IN = 0
 delay = 6 # Delay in seconds for LG-Sequence
 stop_thread = threading.Event() # set flag for threads to handle exit
 
@@ -22,24 +22,24 @@ PORT_CONST = 4443
 MODE = 0 # equals idle
 
 # signal 1 - 3 reserved for Cabindoor
-LC = 4  # Left Canards
-RC = 5  # Right Canards
-LO = 6  # Left Aileron (Outboard, Querruder)
-RO = 7  # Right Aileron
-AB = 8 # Airbrakes
-LF = 9	# Flaps Inboard
-RF = 10 # Flaps Outboard
-LG = 11 # Landing Gear
+LC = 1  # Left Canards
+RC = 2  # Right Canards
+LO = 3  # Left Aileron (Outboard, Querruder)
+RO = 4  # Right Aileron
+LF = 5	# Flaps Inboard
+RF = 6 # Flaps Outboard
+AB = 7 # Airbrakes
+LG = 8 # Landing Gear
 
 # Angles
 
-angleLC = 0
-angleRC = 0
-angleLO = 0
-angleRO = 0
-angleAB = 0
-angleLF = 0
-angleRF = 0
+angleLC = 128 # as one byte signal, equals 90 degrees later on
+angleRC = 128
+angleLO = 128
+angleRO = 128
+angleAB = 128
+angleLF = 128
+angleRF = 128
 fractionLG = LG_IN
 
 
@@ -73,11 +73,10 @@ def start_thread(target, *args):
 
 # cleans sockets and ends the programm
 def handle_exit(signum, frame):
-    print("Disconecting...")
+    print(f"Disconnecting...".ljust(50), end="\r")
     stop_thread.set() # handling threads
 
     for t in threads:
-        print(f"Ending thread {t}")
         t.join(timeout=1)
 
     if 'client_socket' in globals() and client_socket is not None:
@@ -85,6 +84,7 @@ def handle_exit(signum, frame):
     if 'server_socket' in globals() and server_socket is not None:
         server_socket.close()
     RuheModus()
+    print(f"Disconnected successfully".ljust(50))
     sys.exit(0)
 
 try:
@@ -95,7 +95,7 @@ except Exception as e:
     print(f"(SERVO) ServoKit could not be initialized: {e}")
 
 try:
-    #Initialisierung des ServoKit-Objekts fuer die LEDs TODO: Adresse anpassen
+    # Initialize communication to LG-PCA-board
     LGdriver = ServoKit(channels=16,address=I2CLG,frequency=30)
 
 except Exception as e:
@@ -109,10 +109,10 @@ class Servo():
 
     def move_LG(self, state):
         if state == LG_OUT:
-            LGdriver.servo[0].fraction = 1
+            LGdriver.servo[0].fraction = LG_OUT
             safe_sleep(delay)
         elif state == LG_IN:
-            LGdriver.servo[0].fraction = 0
+            LGdriver.servo[0].fraction = LG_IN
             safe_sleep(delay)
         elif state == None:
             LGdriver.servo[0].fraction = None
@@ -121,7 +121,6 @@ class Servo():
         if isinstance(servo, int): # if only one channel given: channel -> list of channel(s)
             servo = [servo]
         for channel in servo:
-            #servodriver.servo[channel].set_pulse_width_range(1000, 2000)
             servodriver.servo[channel].angle = angle
         if pause == True:
           safe_sleep(delay/2)
