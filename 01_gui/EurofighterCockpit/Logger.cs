@@ -15,8 +15,9 @@ namespace EurofighterCockpit
         // there will always be only one instance
 
         private static Logger instance = null;
-        // lock at initialisatio to ensure thread safety
+        // locks for thread safety
         private static readonly object padlock = new object();
+        private readonly object fileLock = new object();
 
         private string logFileDir = $"{Directory.GetCurrentDirectory()}\\logs";
         private string logFile = $"EurofighterCockpit_{DateTime.Now:yyyy_MM_dd}.log";
@@ -66,32 +67,34 @@ namespace EurofighterCockpit
             if (!raw) {
                 message = $"[{DateTime.Now:T}] {message}";
             }
+
             try {
-                File.AppendAllText(Path.Combine(logFileDir, logFile), $"{message}{Environment.NewLine}", Encoding.UTF8);
+                lock (fileLock) {
+                    File.AppendAllText(
+                        Path.Combine(logFileDir, logFile),
+                        message + Environment.NewLine,
+                        Encoding.UTF8);
+                }
             }
-            catch {
-                //nothing here 
+            catch (Exception ex) {
+                logToBox($"ERROR in log file: {ex.Message}");
             }
         }
 
         public void logToBox(string message) {
             if (logBox == null) return;
 
-            if (!message.EndsWith(Environment.NewLine)) {
-                message += Environment.NewLine;
-            }
-
             string formattedMessage = $"[{DateTime.Now.ToString("HH:mm:ss")}] {message}";
-            // thread-safe ui update
-            if (logBox.InvokeRequired) {
-                logBox.Invoke(new Action(() => logBox.AppendText(formattedMessage)));
-            }
-            else {
-                logBox.AppendText(formattedMessage);
-            }
+            if (!formattedMessage.EndsWith(Environment.NewLine))
+                formattedMessage += Environment.NewLine;
 
-            // scroll to last line if needed
-            logBox.ScrollToCaret();
+            if (logBox.IsHandleCreated) {
+                logBox.BeginInvoke(new Action(() => {
+                    logBox.AppendText(formattedMessage);
+                    // scroll to last line if needed
+                    logBox.ScrollToCaret();
+                }));
+            }
         }
     }
 }
