@@ -2,6 +2,7 @@ import sys
 import signal
 import socket
 import argparse
+import threading
 import time
 from adafruit_servokit import ServoKit
 
@@ -36,7 +37,7 @@ angleRO = 0
 angleAB = 0
 angleLF = 0
 angleRF = 0
-fractionLG = 0
+fractionLG = LG_IN
 
 try:
     # initialize socket
@@ -58,6 +59,7 @@ def handle_exit(signum, frame):
         client_socket.close()
     if 'server_socket' in globals() and server_socket is not None:
         server_socket.close()
+    RuheModus()
     sys.exit(0)
 
 try:
@@ -99,8 +101,8 @@ class Servo():
         if pause == True:
           time.sleep(delay/2)
 
-LG = Servo("LandingGear")       # Initialize Classobjects
-CD = Servo("CabinDoor")
+LaG = Servo("LandingGear")       # Initialize Classobjects
+CaD = Servo("CabinDoor")
 
 def LGCD_sequence(channels,state):
     if state == LG_OUT:
@@ -110,23 +112,23 @@ def LGCD_sequence(channels,state):
         # open CD for selected channels
 
         for channel in channels:
-           print("Servochannel ", channel," | to angle 0")
-           CD.move(channel,180,False)
+           #print("Servochannel ", channel," | to angle 0")
+           CaD.move(channel,180,False)
         time.sleep(delay/2)
 
         print("LG Out")
-        LG.move_LG(LG_OUT) # after CD open LG
+        LaG.move_LG(LG_OUT) # after CD open LG
 
     elif state == LG_IN:
 
         print("LG IN") # First close LG
-        LG.move_LG(LG_IN)
+        LaG.move_LG(LG_IN)
 
         for channel in channels:
-           print("Servochannel ", channels," | to angle 0")
-           CD.move(channel,90,False)
+           #print("Servochannel ", channels," | to angle 0")
+           CaD.move(channel,90,False)
         time.sleep(delay/2)
-        print("ERFOLG!!!")
+        #print("ERFOLG!!!")
         
 
 
@@ -141,9 +143,9 @@ def signaltoangle(signal): # received signal in range from 0 to 256 convert to a
 # Servos in die vorgegebene Position fahren
 def PWMsetServo_EF():
     try:
-        servodriver.servo[0].angle = 90
-        servodriver.servo[1].angle = signaltoangle(angleLC)
-        servodriver.servo[2].angle = signaltoangle(angleRC)
+        #servodriver.servo[0].angle = 90
+        #servodriver.servo[1].angle = signaltoangle(angleLC)
+        #servodriver.servo[2].angle = signaltoangle(angleRC)
         servodriver.servo[3].angle = signaltoangle(angleLO)
         servodriver.servo[4].angle = signaltoangle(angleRO)
         servodriver.servo[5].angle = signaltoangle(angleAB)
@@ -159,8 +161,7 @@ def PWMsetServo_EF():
 
         servodriver.servo[14].angle = 90 # Horizontal
         servodriver.servo[15].angle = 90 # Vertikal
-
-        LGCD_sequence([0,1,2],fractionLG)
+        threading.Thread(target=LGCD_sequence, args=([0,1,2], fractionLG), daemon=True).start()
 
     except Exception as e:
         print(f"(EF) Fehler beim Ansteuern der Servos: {e}")
@@ -170,20 +171,24 @@ def PWMsetServo_EF():
 def RuheModus():
     try:
         for numservo in range(16):
-            servodriver.servo[numservo].angle = 0
+            servodriver.servo[numservo].angle = 90
+        threading.Thread(target=LGCD_sequence, args=([0,1,2], LG_IN), daemon=True).start()
+        for numservo in range(16):
             servodriver.servo[numservo].angle = None # detach all Servos
-        LGCD_sequence([0,1,2],LG_IN)
+            threading.Thread(target=LGCD_sequence, args=([0,1,2], None), daemon=True).start()
+
     except Exception as e:
         print(f"Fehler beim Ansteuern der Servos: {e}")
 
 def ServoTest():
-    for cylce in range(2):
-        for angle in range(0, 180):
-            for servoNum in range(0, 16):
-                servodriver.servo[servoNum].angle = angle
-                time.sleep(0.5)
-        LGCD_sequence([0,1,2],LG_OUT)
-        RuheModus()
+    while receivedData[MODE] == 3:
+        for cylce in range(2):
+            for angle in range(0, 180):
+                for servoNum in range(0, 16):
+                    servodriver.servo[servoNum].angle = angle
+                    time.sleep(0.5)
+            threading.Thread(target=LGCD_sequence, args=([0,1,2], LG_OUT), daemon=True).start()
+            RuheModus()
 
 #-------------------------------------------------------------------------------------------------------------------
 # Main Loop
@@ -201,7 +206,7 @@ while True:
         exit(1)
     setpulsewidth() # only important for digital Servos used in this project
     while True:
-        receivedData = client_socket.recv(32)
+        receivedData = client_socket.recv(16) # We receive 16 bytes
         if not receivedData:
             break
 
@@ -216,7 +221,7 @@ while True:
         angleAB = receivedData[AB]
         angleLF = receivedData[LF]
         angleRF = receivedData[RF]
-        fractionLGLG = receivedData[LG]
+        fractionLG = receivedData[LG]
         
 
         if receivedData[MODE] == 0: # Aus / RuheModus
@@ -232,7 +237,7 @@ while True:
         #elif receivedData[MODE] == 1:
             #print("LED-Steuerung")
             #PWMsetLEDs()
-        elif receivedData[MODE] == 2:  # RemoteModus, Servos fahren (schnell) in Position
+        elif receivedData[MODE] == 1:  # RemoteModus, Servos fahren (schnell) in Position
             print("Remote-Mode")
             PWMsetServo_EF()
         elif receivedData[MODE] == 3:   # Servotest
