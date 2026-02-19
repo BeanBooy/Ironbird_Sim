@@ -18,7 +18,7 @@ I2CSERVO = 0x40
 I2CLED = 0x41
 
 # TCP Port
-PORT_CONST = 4444
+PORT_CONST = 4443
 
 # Konstanten fuer die Indexe der empfangenden Daten
 MODE = 0

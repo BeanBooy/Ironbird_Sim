@@ -58,12 +58,12 @@ def LGCD_sequence(channels,state):
 
         print("LG Out")
         LG.move_LG(LG_OUT) # after CD open LG
-
+        #time.sleep(delay)
     elif state == LG_IN:
 
         print("LG IN") # First close LG
         LG.move_LG(LG_IN)
-
+        time.sleep(delay)
         for channel in channels:
            print("Servochannel ", channels," | to angle 0")
            CD.move(channel,0,False)
@@ -72,10 +72,9 @@ def LGCD_sequence(channels,state):
         
 
 
-LGCD_sequence([0,5,10],LG_OUT)
+LGCD_sequence([0,1,2],LG_IN)
+time.sleep(delay)
 print("Out erfolgreich, jetzt 3 sek warten")
-time.sleep(3)
-LGCD_sequence([0,5,10],LG_IN)
 idle()
 
 

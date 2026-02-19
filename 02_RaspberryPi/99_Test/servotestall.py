@@ -1,6 +1,6 @@
 import time
 from adafruit_servokit import ServoKit
-from LGCD_Sequence import Servo
+import LGCD_Sequence
 
 # Initialisiere das ServoKit-Objekt mit der I2C-Adresse 0x40 (Default)
 dServo = ServoKit(channels=16, address=0x40,frequency=333) # frequency 300-333Hz ONLY for DIGITAL SERVOS!
@@ -12,7 +12,7 @@ max_position = 180
 mid_position = int((max_position+min_position) / 2)
 
 positions = [min_position,mid_position,max_position]
-channelsOccupied = [0,5,10,15] # can be deleted if you want to go through every channel (here only for testingpurpose)
+#channelsOccupied = [0,5,10,15] # can be deleted if you want to go through every channel (here only for testingpurpose)
 
 # Zeitverzögerung zwischen den Schritten (in Sekunden)
 delay = 1
@@ -77,7 +77,7 @@ def idle_Servo():
      dServo.servo[15].angle = 90
 
      LGServo.servo[0].angle = min_position
-     time.sleep(LGdelay)
+     time.sleep(LGdelay/5)
      for servo in range(16):
           dServo.servo[servo].angle = None # detach
           LGServo.servo[0].angle = None
