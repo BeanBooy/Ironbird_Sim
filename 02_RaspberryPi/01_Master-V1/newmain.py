@@ -13,8 +13,14 @@ I2CSERVO = 0x40
 I2CLG = 0x41
 LG_OUT = 1
 LG_IN = 0
+LG_INMOTION = 1
+LG_INorOUT = 0
+
 delay = 6 # Delay in seconds for LG-Sequence
+
 stop_thread = threading.Event() # set flag for threads to handle exit
+lg_lock = threading.Lock() # threads dont interrupt each other
+
 
 # TCP-Port
 PORT_CONST = 4443
@@ -129,31 +135,38 @@ LaG = Servo("LandingGear")       # Initialize Classobjects
 CaD = Servo("CabinDoor")
 
 def LGCD_sequence(channels,state):
+    global flag_LG
+
     if stop_thread.is_set():
         return
-    if state == LG_OUT:
-        if isinstance(channels, int):
-           channels = [channels]
+    
+    with lg_lock:
+        flag_LG = LG_INMOTION
+        try:
+            if state == LG_OUT:
+                if isinstance(channels, int):
+                    channels = [channels]
 
-        # open CD for selected channels
+                # open CD for selected channels
 
-        for channel in channels:
-           CaD.move(channel,180,False)
-        safe_sleep(delay/2)
+                for channel in channels:
+                    CaD.move(channel,180,False)
+                safe_sleep(delay/2)
 
-        #print("LG Out")
-        LaG.move_LG(LG_OUT) # after CD open LG
+                #print("LG Out")
+                LaG.move_LG(LG_OUT) # after CD open LG
 
-    elif state == LG_IN:
-        # First close LG
-        #print("LG IN") 
-        LaG.move_LG(LG_IN)
+            elif state == LG_IN:
+                # First close LG
+                #print("LG IN") 
+                LaG.move_LG(LG_IN)
 
-        for channel in channels:
-           CaD.move(channel,90,False)
-        safe_sleep(delay/2)
-        #print("ERFOLG!!!")
-        
+                for channel in channels:
+                    CaD.move(channel,90,False)
+                safe_sleep(delay/2)
+        finally:
+            if flag_LG == LG_INMOTION:
+                flag_LG = LG_INorOUT
 
 
 def setpulsewidth():
@@ -184,7 +197,6 @@ def PWMsetServo_EF():
         servodriver.servo[15].angle = 90 # Triebwerksbeleuchtung (beide an Port 12)
 
         start_thread(LGCD_sequence, [0,1,2], fractionLG)
-
     except Exception as e:
         print(f"(EF) Fehler beim Ansteuern der Servos: {e}")
 
