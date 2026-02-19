@@ -23,15 +23,19 @@ namespace EurofighterCockpit
         // logger
         private readonly Logger logger = Logger.Instance;
 
+        // network
+        private TcpConnectionManager tcpCon;
+
         // controller
         private JoystickController joystickController;
         private Timer timer;
+        private JoystickData prevData = new JoystickData();  // needed to skip updates when data == prevData
 
         // screens
-        private readonly Screen[] screens;
-        private readonly int screenCount;
+        private Screen[] screens;
+        private int screenCount;
         private bool showScreenIndicator;
-        private readonly ScreenIndicator[] screenIndicators;
+        private ScreenIndicator[] screenIndicators;
 
         // windows
         private VideoPlayer videoPlayer;
@@ -67,8 +71,10 @@ namespace EurofighterCockpit
 
         public ConfigSettings() {
             InitializeComponent();
-
             logger.setLogBox(tb_logs);
+        }
+
+        private void ConfigSettings_Load(object sender, EventArgs e) {
 
             // initialize screens
             screens = Screen.AllScreens;
@@ -77,12 +83,11 @@ namespace EurofighterCockpit
             for (int i = 0; i < screenCount; i++) {
                 screenIndicators[i] = new ScreenIndicator(screens[i], i);
             }
-            
-            // launch windows
-            // TODO: move to LibVLCSharp instead of MediaPlayer
+
+            // launch windows    ######### TODO: move to LibVLCSharp instead of MediaPlayer
             videoPlayer = launchWindow(ref videoPlayer, videoPlayerScreenIndex, btn_videoPlayer, vp => {
                 VideoPath = VideoPath == null ? defaultVideoPath : VideoPath;
-                vp.setSource(VideoPath); 
+                vp.setSource(VideoPath);
             });
             infotainment = launchWindow(ref infotainment, infotainmentScreenIndex, btn_infotainment);
             infotainmentSub = launchWindow(ref infotainmentSub, infotainmentSubScreenIndex, btn_infotainmentSub, inf => inf.hidePanel());
@@ -91,28 +96,38 @@ namespace EurofighterCockpit
             populateScreenSelectors(tlp_infotainment, infotainment, screenCount);
             populateScreenSelectors(tlp_infotainmentSub, infotainmentSub, screenCount);
 
+            // initialize the joysticks
             joystickController = new JoystickController();
             joystickController.initJoystick();
             joystickController.initThrottle();
 
+            // controller polling
             timer = new Timer();
-            timer.Interval = 10;  // update every 10ms
+            timer.Interval = 10;  // 10ms
             timer.Tick += Timer_Tick;
             timer.Start();
-            //delayToSend.Interval = 20;
-            //delayToSend.Start();
+
+            // connection loop for raspberry  ##### TODO: config file for ip and port
+            tcpCon = new TcpConnectionManager("192.168.178.65", 4443);
+            tcpCon.ConnectionStatusChanged += onConnectionStatusChanged;
+            tcpCon.start();
 
             logger.logToBox("...ready!");
 
             // testing section !!!!!!!!!!!
 
             infotainment.ShowSlide(new Slide1());
-            bpb_joystickXpos.Progress = 33;
+
         }
+
 
         private void Timer_Tick(object sender, EventArgs e) {
             //displayMessage("tick");
             JoystickData data = joystickController.poll();
+            if (data.Equals(prevData))
+                return;
+            else
+                prevData = data;
             // update the UI
             bpb_joystickXpos.Progress = Convert.ToInt32(data.JoystickXPercent * 100);
             bpb_joystickXneg.Progress = Convert.ToInt32(data.JoystickXPercent * -100);
@@ -127,6 +142,31 @@ namespace EurofighterCockpit
             bpb_rudderL.Progress = data.RudderLeft ? 100 : 0;
             bpb_rudderR.Progress = data.RudderRight ? 100 : 0;
             bpb_rudderReset.Progress = data.RudderReset ? 100 : 0;
+            bpb_gear.Progress = data.LandingGear ? 100 : 0;
+            bpb_positionLights.Progress = data.PositionalLights ? 100 : 0;
+            bpb_landingLights.Progress = data.LandingLights ? 100 : 0;
+
+            byte[] payload = new byte[] {
+                1,  // TODO
+                0,
+                0,
+                0,
+                0,
+                EurofighterControl.flapLeft(data.JoystickY),
+                EurofighterControl.flapRight(data.JoystickY),
+                0,
+                Convert.ToByte(data.LandingGear),  // gear
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            };
+
+            bool logPayload = ck_showNetworkTraffic.Checked;
+            tcpCon.sendAsync(payload, logPayload);
         }
 
         private T launchWindow<T>(ref T window, int screenIndex, Button toggleButton, Action<T> postInit = null) where T : Form, new() {
@@ -270,6 +310,21 @@ namespace EurofighterCockpit
             base.WndProc(ref m);
         }
 
+        private void onConnectionStatusChanged(bool connected) {
+            // update info box ui according to pi connection status
+            if (InvokeRequired) {
+                Invoke(new Action(() => onConnectionStatusChanged(connected)));
+                return;
+            }
+            cb_connectionState.Text = connected ? "Connected" : "Not Connected";
+            cb_connectionState.BackColor = connected ? colGreen : colRed;
+        }
+
+        private void ConfigSettings_FormClosing(object sender, FormClosingEventArgs e) {
+            tcpCon?.Dispose();
+        }
+
         #endregion
+
     }
 }

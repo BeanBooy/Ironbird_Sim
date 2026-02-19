@@ -47,6 +47,22 @@
             this.label9 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -54,19 +70,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.ck_showNetworkTraffic = new System.Windows.Forms.CheckBox();
+            this.cb_connectionState = new System.Windows.Forms.CheckBox();
+            this.asdf = new System.Windows.Forms.Label();
+            this.bpb_landingLights = new EurofighterCockpit.BetterProgressBar();
+            this.bpb_positionLights = new EurofighterCockpit.BetterProgressBar();
+            this.bpb_gear = new EurofighterCockpit.BetterProgressBar();
             this.bpb_rudderReset = new EurofighterCockpit.BetterProgressBar();
             this.bpb_rudderL = new EurofighterCockpit.BetterProgressBar();
             this.bpb_rudderR = new EurofighterCockpit.BetterProgressBar();
@@ -84,9 +94,10 @@
             this.tableLayoutPanel8.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel6.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.panel6.SuspendLayout();
+            this.panel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // screenIndicator
@@ -107,15 +118,15 @@
             this.tb_videoFilePath.Margin = new System.Windows.Forms.Padding(2);
             this.tb_videoFilePath.Name = "tb_videoFilePath";
             this.tb_videoFilePath.ReadOnly = true;
-            this.tb_videoFilePath.Size = new System.Drawing.Size(485, 20);
+            this.tb_videoFilePath.Size = new System.Drawing.Size(292, 20);
             this.tb_videoFilePath.TabIndex = 1;
             // 
             // btn_browseVideoFile
             // 
-            this.btn_browseVideoFile.Location = new System.Drawing.Point(500, 51);
+            this.btn_browseVideoFile.Location = new System.Drawing.Point(307, 51);
             this.btn_browseVideoFile.Margin = new System.Windows.Forms.Padding(2);
             this.btn_browseVideoFile.Name = "btn_browseVideoFile";
-            this.btn_browseVideoFile.Size = new System.Drawing.Size(50, 22);
+            this.btn_browseVideoFile.Size = new System.Drawing.Size(54, 22);
             this.btn_browseVideoFile.TabIndex = 2;
             this.btn_browseVideoFile.Text = "browse";
             this.btn_browseVideoFile.UseVisualStyleBackColor = true;
@@ -355,6 +366,12 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Gray;
+            this.panel2.Controls.Add(this.label25);
+            this.panel2.Controls.Add(this.label24);
+            this.panel2.Controls.Add(this.bpb_landingLights);
+            this.panel2.Controls.Add(this.bpb_positionLights);
+            this.panel2.Controls.Add(this.label23);
+            this.panel2.Controls.Add(this.bpb_gear);
             this.panel2.Controls.Add(this.label22);
             this.panel2.Controls.Add(this.bpb_rudderReset);
             this.panel2.Controls.Add(this.label21);
@@ -380,6 +397,186 @@
             this.panel2.Size = new System.Drawing.Size(563, 285);
             this.panel2.TabIndex = 29;
             // 
+            // label25
+            // 
+            this.label25.BackColor = System.Drawing.Color.Transparent;
+            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.Location = new System.Drawing.Point(305, 149);
+            this.label25.Margin = new System.Windows.Forms.Padding(1);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(42, 24);
+            this.label25.TabIndex = 59;
+            this.label25.Text = "LED2";
+            this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label24
+            // 
+            this.label24.BackColor = System.Drawing.Color.Transparent;
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(258, 149);
+            this.label24.Margin = new System.Windows.Forms.Padding(1);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(42, 24);
+            this.label24.TabIndex = 58;
+            this.label24.Text = "LED1";
+            this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label23
+            // 
+            this.label23.BackColor = System.Drawing.Color.Transparent;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Location = new System.Drawing.Point(213, 149);
+            this.label23.Margin = new System.Windows.Forms.Padding(1);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(39, 24);
+            this.label23.TabIndex = 55;
+            this.label23.Text = "Gear";
+            this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label22
+            // 
+            this.label22.Location = new System.Drawing.Point(311, 82);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(31, 19);
+            this.label22.TabIndex = 53;
+            this.label22.Text = "reset";
+            this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label21
+            // 
+            this.label21.Location = new System.Drawing.Point(219, 82);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(29, 19);
+            this.label21.TabIndex = 50;
+            this.label21.Text = "left";
+            this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label20
+            // 
+            this.label20.Location = new System.Drawing.Point(264, 82);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(31, 19);
+            this.label20.TabIndex = 39;
+            this.label20.Text = "right";
+            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label19
+            // 
+            this.label19.BackColor = System.Drawing.Color.Transparent;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(217, 55);
+            this.label19.Margin = new System.Windows.Forms.Padding(1);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(125, 26);
+            this.label19.TabIndex = 49;
+            this.label19.Text = "Rudder";
+            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label18
+            // 
+            this.label18.BackColor = System.Drawing.Color.Transparent;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(287, 215);
+            this.label18.Margin = new System.Windows.Forms.Padding(1);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(55, 24);
+            this.label18.TabIndex = 47;
+            this.label18.Text = "Sound";
+            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label17
+            // 
+            this.label17.BackColor = System.Drawing.Color.Transparent;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(216, 215);
+            this.label17.Margin = new System.Windows.Forms.Padding(1);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(55, 24);
+            this.label17.TabIndex = 46;
+            this.label17.Text = "Trigger";
+            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label16
+            // 
+            this.label16.BackColor = System.Drawing.Color.Transparent;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(359, 55);
+            this.label16.Margin = new System.Windows.Forms.Padding(1);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(88, 26);
+            this.label16.TabIndex = 42;
+            this.label16.Text = "Airbrake";
+            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label15
+            // 
+            this.label15.BackColor = System.Drawing.Color.Transparent;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(462, 55);
+            this.label15.Margin = new System.Windows.Forms.Padding(1);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(88, 26);
+            this.label15.TabIndex = 40;
+            this.label15.Text = "Throttle";
+            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label6
+            // 
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(13, 55);
+            this.label6.Margin = new System.Windows.Forms.Padding(1);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(187, 26);
+            this.label6.TabIndex = 31;
+            this.label6.Text = "Joystick";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label5
+            // 
+            this.label5.BackColor = System.Drawing.Color.Gray;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(1, 16);
+            this.label5.Margin = new System.Windows.Forms.Padding(1);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(561, 37);
+            this.label5.TabIndex = 31;
+            this.label5.Text = "Controller";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.label8);
+            this.panel6.Controls.Add(this.label7);
+            this.panel6.Controls.Add(this.bpb_joystickTorque);
+            this.panel6.Controls.Add(this.betterProgressBar1);
+            this.panel6.Controls.Add(this.bpb_joystickXpos);
+            this.panel6.Controls.Add(this.bpb_joystickXneg);
+            this.panel6.Controls.Add(this.bpb_joystickYpos);
+            this.panel6.Controls.Add(this.bpb_joystickYneg);
+            this.panel6.Location = new System.Drawing.Point(13, 85);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(187, 187);
+            this.panel6.TabIndex = 39;
+            // 
+            // label8
+            // 
+            this.label8.Location = new System.Drawing.Point(122, 17);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(50, 19);
+            this.label8.TabIndex = 38;
+            this.label8.Text = "twist";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label7
+            // 
+            this.label7.Location = new System.Drawing.Point(16, 17);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(50, 19);
+            this.label7.TabIndex = 31;
+            this.label7.Text = "twist";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Gray;
@@ -389,7 +586,7 @@
             this.panel3.Location = new System.Drawing.Point(13, 289);
             this.panel3.Margin = new System.Windows.Forms.Padding(6);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(563, 85);
+            this.panel3.Size = new System.Drawing.Size(373, 85);
             this.panel3.TabIndex = 30;
             // 
             // label3
@@ -399,7 +596,7 @@
             this.label3.Location = new System.Drawing.Point(1, 10);
             this.label3.Margin = new System.Windows.Forms.Padding(1);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(561, 37);
+            this.label3.Size = new System.Drawing.Size(371, 37);
             this.label3.TabIndex = 28;
             this.label3.Text = "Video";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -445,7 +642,7 @@
             this.panel5.Location = new System.Drawing.Point(590, 12);
             this.panel5.Margin = new System.Windows.Forms.Padding(6);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(486, 264);
+            this.panel5.Size = new System.Drawing.Size(664, 264);
             this.panel5.TabIndex = 30;
             // 
             // label4
@@ -455,155 +652,99 @@
             this.label4.Location = new System.Drawing.Point(591, 20);
             this.label4.Margin = new System.Windows.Forms.Padding(1);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(484, 37);
+            this.label4.Size = new System.Drawing.Size(662, 37);
             this.label4.TabIndex = 28;
             this.label4.Text = "Controller";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label5
+            // panel7
             // 
-            this.label5.BackColor = System.Drawing.Color.Gray;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(1, 16);
-            this.label5.Margin = new System.Windows.Forms.Padding(1);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(561, 37);
-            this.label5.TabIndex = 31;
-            this.label5.Text = "Controller";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.panel7.BackColor = System.Drawing.Color.Gray;
+            this.panel7.Controls.Add(this.ck_showNetworkTraffic);
+            this.panel7.Controls.Add(this.cb_connectionState);
+            this.panel7.Controls.Add(this.asdf);
+            this.panel7.Location = new System.Drawing.Point(400, 289);
+            this.panel7.Margin = new System.Windows.Forms.Padding(6);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(175, 85);
+            this.panel7.TabIndex = 31;
             // 
-            // panel6
+            // ck_showNetworkTraffic
             // 
-            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel6.Controls.Add(this.label8);
-            this.panel6.Controls.Add(this.label7);
-            this.panel6.Controls.Add(this.bpb_joystickTorque);
-            this.panel6.Controls.Add(this.betterProgressBar1);
-            this.panel6.Controls.Add(this.bpb_joystickXpos);
-            this.panel6.Controls.Add(this.bpb_joystickXneg);
-            this.panel6.Controls.Add(this.bpb_joystickYpos);
-            this.panel6.Controls.Add(this.bpb_joystickYneg);
-            this.panel6.Location = new System.Drawing.Point(13, 85);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(187, 187);
-            this.panel6.TabIndex = 39;
+            this.ck_showNetworkTraffic.Checked = true;
+            this.ck_showNetworkTraffic.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ck_showNetworkTraffic.Location = new System.Drawing.Point(111, 44);
+            this.ck_showNetworkTraffic.Margin = new System.Windows.Forms.Padding(2);
+            this.ck_showNetworkTraffic.Name = "ck_showNetworkTraffic";
+            this.ck_showNetworkTraffic.Size = new System.Drawing.Size(52, 35);
+            this.ck_showNetworkTraffic.TabIndex = 28;
+            this.ck_showNetworkTraffic.Text = "show traffic";
+            this.ck_showNetworkTraffic.UseVisualStyleBackColor = true;
             // 
-            // label6
+            // cb_connectionState
             // 
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(13, 55);
-            this.label6.Margin = new System.Windows.Forms.Padding(1);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(187, 26);
-            this.label6.TabIndex = 31;
-            this.label6.Text = "Joystick";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cb_connectionState.Appearance = System.Windows.Forms.Appearance.Button;
+            this.cb_connectionState.BackColor = System.Drawing.Color.Orange;
+            this.cb_connectionState.Enabled = false;
+            this.cb_connectionState.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cb_connectionState.Location = new System.Drawing.Point(12, 48);
+            this.cb_connectionState.Name = "cb_connectionState";
+            this.cb_connectionState.Size = new System.Drawing.Size(91, 24);
+            this.cb_connectionState.TabIndex = 30;
+            this.cb_connectionState.Text = "Loading...";
+            this.cb_connectionState.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cb_connectionState.UseVisualStyleBackColor = false;
             // 
-            // label7
+            // asdf
             // 
-            this.label7.Location = new System.Drawing.Point(16, 17);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(50, 19);
-            this.label7.TabIndex = 31;
-            this.label7.Text = "twist";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.asdf.BackColor = System.Drawing.Color.Transparent;
+            this.asdf.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.asdf.Location = new System.Drawing.Point(1, 10);
+            this.asdf.Margin = new System.Windows.Forms.Padding(1);
+            this.asdf.Name = "asdf";
+            this.asdf.Size = new System.Drawing.Size(173, 37);
+            this.asdf.TabIndex = 29;
+            this.asdf.Text = "Eurofighter";
+            this.asdf.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label8
+            // bpb_landingLights
             // 
-            this.label8.Location = new System.Drawing.Point(122, 17);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(50, 19);
-            this.label8.TabIndex = 38;
-            this.label8.Text = "twist";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.bpb_landingLights.BackColor = System.Drawing.Color.White;
+            this.bpb_landingLights.ColorProg = System.Drawing.Color.Orange;
+            this.bpb_landingLights.Direction = EurofighterCockpit.Direction.bottomToTop;
+            this.bpb_landingLights.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.bpb_landingLights.Location = new System.Drawing.Point(311, 175);
+            this.bpb_landingLights.Margin = new System.Windows.Forms.Padding(8);
+            this.bpb_landingLights.Name = "bpb_landingLights";
+            this.bpb_landingLights.Progress = 0;
+            this.bpb_landingLights.Size = new System.Drawing.Size(31, 31);
+            this.bpb_landingLights.TabIndex = 57;
             // 
-            // label15
+            // bpb_positionLights
             // 
-            this.label15.BackColor = System.Drawing.Color.Transparent;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(462, 55);
-            this.label15.Margin = new System.Windows.Forms.Padding(1);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(88, 26);
-            this.label15.TabIndex = 40;
-            this.label15.Text = "Throttle";
-            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.bpb_positionLights.BackColor = System.Drawing.Color.White;
+            this.bpb_positionLights.ColorProg = System.Drawing.Color.Orange;
+            this.bpb_positionLights.Direction = EurofighterCockpit.Direction.bottomToTop;
+            this.bpb_positionLights.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.bpb_positionLights.Location = new System.Drawing.Point(264, 175);
+            this.bpb_positionLights.Margin = new System.Windows.Forms.Padding(8);
+            this.bpb_positionLights.Name = "bpb_positionLights";
+            this.bpb_positionLights.Progress = 0;
+            this.bpb_positionLights.Size = new System.Drawing.Size(31, 31);
+            this.bpb_positionLights.TabIndex = 56;
             // 
-            // label16
+            // bpb_gear
             // 
-            this.label16.BackColor = System.Drawing.Color.Transparent;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(359, 55);
-            this.label16.Margin = new System.Windows.Forms.Padding(1);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(88, 26);
-            this.label16.TabIndex = 42;
-            this.label16.Text = "Airbrake";
-            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label17
-            // 
-            this.label17.BackColor = System.Drawing.Color.Transparent;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(216, 215);
-            this.label17.Margin = new System.Windows.Forms.Padding(1);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(55, 24);
-            this.label17.TabIndex = 46;
-            this.label17.Text = "Trigger";
-            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label18
-            // 
-            this.label18.BackColor = System.Drawing.Color.Transparent;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(287, 215);
-            this.label18.Margin = new System.Windows.Forms.Padding(1);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(55, 24);
-            this.label18.TabIndex = 47;
-            this.label18.Text = "Sound";
-            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label19
-            // 
-            this.label19.BackColor = System.Drawing.Color.Transparent;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(216, 55);
-            this.label19.Margin = new System.Windows.Forms.Padding(1);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(126, 26);
-            this.label19.TabIndex = 49;
-            this.label19.Text = "Rudder";
-            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label20
-            // 
-            this.label20.Location = new System.Drawing.Point(287, 82);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(55, 19);
-            this.label20.TabIndex = 39;
-            this.label20.Text = "right";
-            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label21
-            // 
-            this.label21.Location = new System.Drawing.Point(219, 82);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(55, 19);
-            this.label21.TabIndex = 50;
-            this.label21.Text = "left";
-            this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label22
-            // 
-            this.label22.Location = new System.Drawing.Point(219, 137);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(123, 19);
-            this.label22.TabIndex = 53;
-            this.label22.Text = "reset";
-            this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.bpb_gear.BackColor = System.Drawing.Color.White;
+            this.bpb_gear.ColorProg = System.Drawing.Color.Orange;
+            this.bpb_gear.Direction = EurofighterCockpit.Direction.bottomToTop;
+            this.bpb_gear.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.bpb_gear.Location = new System.Drawing.Point(217, 175);
+            this.bpb_gear.Margin = new System.Windows.Forms.Padding(8);
+            this.bpb_gear.Name = "bpb_gear";
+            this.bpb_gear.Progress = 0;
+            this.bpb_gear.Size = new System.Drawing.Size(31, 31);
+            this.bpb_gear.TabIndex = 54;
             // 
             // bpb_rudderReset
             // 
@@ -611,11 +752,11 @@
             this.bpb_rudderReset.ColorProg = System.Drawing.Color.Orange;
             this.bpb_rudderReset.Direction = EurofighterCockpit.Direction.bottomToTop;
             this.bpb_rudderReset.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.bpb_rudderReset.Location = new System.Drawing.Point(219, 158);
+            this.bpb_rudderReset.Location = new System.Drawing.Point(311, 103);
             this.bpb_rudderReset.Margin = new System.Windows.Forms.Padding(8);
             this.bpb_rudderReset.Name = "bpb_rudderReset";
             this.bpb_rudderReset.Progress = 0;
-            this.bpb_rudderReset.Size = new System.Drawing.Size(123, 19);
+            this.bpb_rudderReset.Size = new System.Drawing.Size(31, 31);
             this.bpb_rudderReset.TabIndex = 52;
             // 
             // bpb_rudderL
@@ -624,11 +765,11 @@
             this.bpb_rudderL.ColorProg = System.Drawing.Color.Orange;
             this.bpb_rudderL.Direction = EurofighterCockpit.Direction.bottomToTop;
             this.bpb_rudderL.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.bpb_rudderL.Location = new System.Drawing.Point(219, 103);
+            this.bpb_rudderL.Location = new System.Drawing.Point(217, 103);
             this.bpb_rudderL.Margin = new System.Windows.Forms.Padding(8);
             this.bpb_rudderL.Name = "bpb_rudderL";
             this.bpb_rudderL.Progress = 0;
-            this.bpb_rudderL.Size = new System.Drawing.Size(55, 31);
+            this.bpb_rudderL.Size = new System.Drawing.Size(31, 31);
             this.bpb_rudderL.TabIndex = 51;
             // 
             // bpb_rudderR
@@ -637,11 +778,11 @@
             this.bpb_rudderR.ColorProg = System.Drawing.Color.Orange;
             this.bpb_rudderR.Direction = EurofighterCockpit.Direction.bottomToTop;
             this.bpb_rudderR.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.bpb_rudderR.Location = new System.Drawing.Point(287, 103);
+            this.bpb_rudderR.Location = new System.Drawing.Point(264, 103);
             this.bpb_rudderR.Margin = new System.Windows.Forms.Padding(8);
             this.bpb_rudderR.Name = "bpb_rudderR";
             this.bpb_rudderR.Progress = 0;
-            this.bpb_rudderR.Size = new System.Drawing.Size(55, 31);
+            this.bpb_rudderR.Size = new System.Drawing.Size(31, 31);
             this.bpb_rudderR.TabIndex = 48;
             // 
             // bpb_trigger
@@ -650,11 +791,11 @@
             this.bpb_trigger.ColorProg = System.Drawing.Color.Orange;
             this.bpb_trigger.Direction = EurofighterCockpit.Direction.bottomToTop;
             this.bpb_trigger.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.bpb_trigger.Location = new System.Drawing.Point(216, 241);
+            this.bpb_trigger.Location = new System.Drawing.Point(217, 241);
             this.bpb_trigger.Margin = new System.Windows.Forms.Padding(8);
             this.bpb_trigger.Name = "bpb_trigger";
             this.bpb_trigger.Progress = 0;
-            this.bpb_trigger.Size = new System.Drawing.Size(55, 31);
+            this.bpb_trigger.Size = new System.Drawing.Size(54, 31);
             this.bpb_trigger.TabIndex = 45;
             // 
             // bpb_sound
@@ -792,7 +933,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
-            this.ClientSize = new System.Drawing.Size(1582, 684);
+            this.ClientSize = new System.Drawing.Size(1269, 684);
+            this.Controls.Add(this.panel7);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
@@ -803,16 +945,19 @@
             this.Name = "ConfigSettings";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ConfigSettings";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ConfigSettings_FormClosing);
+            this.Load += new System.EventHandler(this.ConfigSettings_Load);
             this.tableLayoutPanel8.ResumeLayout(false);
             this.tableLayoutPanel8.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            this.panel6.ResumeLayout(false);
+            this.panel7.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -872,5 +1017,15 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label19;
         private BetterProgressBar bpb_rudderR;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Label asdf;
+        private System.Windows.Forms.CheckBox cb_connectionState;
+        private System.Windows.Forms.CheckBox ck_showNetworkTraffic;
+        private System.Windows.Forms.Label label23;
+        private BetterProgressBar bpb_gear;
+        private BetterProgressBar bpb_landingLights;
+        private BetterProgressBar bpb_positionLights;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label24;
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace EurofighterCockpit
 {
@@ -20,11 +21,14 @@ namespace EurofighterCockpit
         private bool trigger;
 
         // throttle
-        private ushort throttle = ushort.MaxValue;
+        private ushort throttle = ushort.MaxValue;  // not needed for the modell
         private bool rudderLeft;
         private bool rudderRight;
         private bool rudderReset;
         private bool sound;
+        private bool landingGear;
+        private bool positionalLights;
+        private bool landingLights;
 
         public bool ThrottleConnected { get => throttleConnected; set => throttleConnected = value; }
         public bool JoystickConnected { get => joystickConnected; set => joystickConnected = value; }
@@ -38,9 +42,36 @@ namespace EurofighterCockpit
         public bool RudderRight { get => rudderRight; set => rudderRight = value; }
         public bool RudderReset { get => rudderReset; set => rudderReset = value; }
         public bool Sound { get => sound; set => sound = value; }
-        public double JoystickXPercent { get => (Convert.ToDouble(joystickX) - ushort.MaxValue / 2) / ushort.MaxValue * -2; }
+        public bool LandingGear { get => landingGear; set => landingGear = value; }
+        public bool PositionalLights { get => positionalLights; set => positionalLights = value; }
+        public bool LandingLights { get => landingLights; set => landingLights = value; }
+        public double JoystickXPercent { get => (Convert.ToDouble(joystickX) - ushort.MaxValue / 2) / ushort.MaxValue * 2; }
         public double JoystickYPercent { get => (Convert.ToDouble(joystickY) - ushort.MaxValue / 2) / ushort.MaxValue * -2; }
         public double JoystickTorquePercent { get => (joystickTorque - ushort.MaxValue / 2) / ushort.MaxValue; }
         public double ThrottlePercent { get => (Convert.ToDouble(throttle) - ushort.MaxValue) / -ushort.MaxValue; }
+
+        public override bool Equals(object obj) {
+            if (obj is JoystickData other) {
+                return throttleConnected == other.throttleConnected &&
+                    joystickConnected == other.joystickConnected &&
+                    joystickX == other.joystickX &&
+                    joystickY == other.joystickY &&
+                    joystickTorque == other.joystickTorque &&
+                    airbrake == other.airbrake &&
+                    trigger == other.trigger &&
+                    throttle == other.throttle &&
+                    rudderLeft == other.rudderLeft &&
+                    rudderRight == other.rudderRight &&
+                    rudderReset == other.rudderReset &&
+                    sound == other.sound &&
+                    landingGear == other.landingGear &&
+                    positionalLights == other.positionalLights &&
+                    landingLights == other.landingLights;
+
+            }
+            else
+                return false;
+        }
+
     }
 }
