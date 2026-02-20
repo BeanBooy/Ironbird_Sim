@@ -16,6 +16,10 @@ LG_IN = 0
 LG_INMOTION = 1
 LG_INorOUT = 0
 
+current_thread = None # thread lags for LG
+current_event = None
+
+
 delay = 6 # Delay in seconds for LG-Sequence
 
 stop_thread = threading.Event() # set flag for threads to handle exit
@@ -70,20 +74,38 @@ def safe_sleep(seconds):
             return 
         time.sleep(0.1)
 
-threads = [] # collect all threads to end them simultaniously
-def start_thread(target, *args): 
-    t = threading.Thread(target=target, args=args) 
+def start_thread(target, *args):
+    global current_thread, current_event
+
+    # dont start a new thread
+    if current_thread is not None and current_thread.is_alive():
+        return current_thread
+
+    # stop old threads
+    if current_event is not None:
+        current_event.set()
+
+    current_event = threading.Event()
+
+    # start a new thread
+    t = threading.Thread(target=target, args=(current_event, *args))
     t.start()
-    threads.append(t) 
+
+    current_thread = t
     return t
+
+
 
 # cleans sockets and ends the programm
 def handle_exit(signum, frame):
-    print(f"Disconnecting...".ljust(50), end="\r")
+    print(f"Disconnecting... | {threading.active_count()} threads still running".ljust(50), end="\r")
     stop_thread.set() # handling threads
 
-    for t in threads:
-        t.join(timeout=1)
+    if current_event is not None: # softly closes remaining threads
+        current_event.set()
+    
+    if current_thread is not None and current_event.is_set():
+        current_thread.join(timeout=1)
 
     if 'client_socket' in globals() and client_socket is not None:
         client_socket.close()
@@ -134,10 +156,10 @@ class Servo():
 LaG = Servo("LandingGear")       # Initialize Classobjects
 CaD = Servo("CabinDoor")
 
-def LGCD_sequence(channels,state):
+def LGCD_sequence(stop_event, channels, state):
     global flag_LG
 
-    if stop_thread.is_set():
+    if stop_event.is_set():
         return
     
     with lg_lock:
@@ -147,23 +169,25 @@ def LGCD_sequence(channels,state):
                 if isinstance(channels, int):
                     channels = [channels]
 
-                # open CD for selected channels
-
                 for channel in channels:
+                    if stop_event.is_set(): return
                     CaD.move(channel,180,False)
-                safe_sleep(delay/2)
 
-                #print("LG Out")
-                LaG.move_LG(LG_OUT) # after CD open LG
+                safe_sleep(delay/2)
+                if stop_event.is_set(): return
+
+                LaG.move_LG(LG_OUT)
 
             elif state == LG_IN:
-                # First close LG
-                #print("LG IN") 
+                if stop_event.is_set(): return
                 LaG.move_LG(LG_IN)
 
                 for channel in channels:
+                    if stop_event.is_set(): return
                     CaD.move(channel,90,False)
+
                 safe_sleep(delay/2)
+
         finally:
             if flag_LG == LG_INMOTION:
                 flag_LG = LG_INorOUT
@@ -226,9 +250,10 @@ def ServoTest():
                 for servoNum in range(0, 16):
                     servodriver.servo[servoNum].angle = angle
                     safe_sleep(0.5)
-            if start_thread.is_set():
-                start_thread(LGCD_sequence, [0,1,2], LG_OUT)
-            RuheModus()
+
+            # Beispiel: LG ausfahren während Test
+            start_thread(LGCD_sequence, [0,1,2], LG_OUT)
+        RuheModus()
 
 #-------------------------------------------------------------------------------------------------------------------
 # Main Loop
@@ -253,7 +278,7 @@ while not stop_thread.is_set():
         printData = ','.join(str(byte) for byte in receivedData)
         print(f"Received data: {printData}")
 
-        # Save received angles in range 0 to 256, will be transformed to degrees later
+        # received angles in range 0 to 256, will be transformed to degrees later
         angleLC = receivedData[LC]
         angleRC = receivedData[RC]
         angleLO = receivedData[LO]
@@ -262,7 +287,9 @@ while not stop_thread.is_set():
         angleLF = receivedData[LF]
         angleRF = receivedData[RF]
         fractionLG = receivedData[LG]
-        
+        start_thread(LGCD_sequence, [0,1,2], fractionLG)
+
+        print(threading.active_count(), "threads")
 
         if receivedData[MODE] == 0: # Aus / RuheModus
             print("RuheModus")
