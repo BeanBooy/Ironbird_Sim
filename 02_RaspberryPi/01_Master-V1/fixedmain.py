@@ -4,6 +4,7 @@ import socket
 import argparse
 import threading
 import time
+from LEDdriver import LG_LIGHT, OTHER_LIGHTS
 from adafruit_servokit import ServoKit
 
 
@@ -16,7 +17,8 @@ LG_IN = 0
 LG_INMOTION = 1
 LG_INorOUT = 0
 
-current_thread = None # thread lags for LG
+# thread flags for LG
+current_thread = None
 current_event = None
 
 
@@ -31,7 +33,6 @@ PORT_CONST = 4443
 
 MODE = 0 # equals idle
 
-# signal 1 - 3 reserved for Cabindoor
 LC = 1  # Left Canards
 RC = 2  # Right Canards
 LO = 3  # Left Aileron (Outboard, Querruder)
@@ -39,7 +40,7 @@ RO = 4  # Right Aileron
 LF = 5	# Flaps Inboard
 RF = 6 # Flaps Outboard
 AB = 7 # Airbrakes
-LG = 8 # Landing Gear
+LG = 8 # Landing Gear | Board 0x41 channel 0
 
 # Angles
 
@@ -47,7 +48,7 @@ angleLC = 128 # as one byte signal, equals 90 degrees later on
 angleRC = 128
 angleLO = 128
 angleRO = 128
-angleAB = 128
+angleAB = 0 # is closed in default
 angleLF = 128
 angleRF = 128
 fractionLG = LG_IN
@@ -77,7 +78,7 @@ def safe_sleep(seconds):                # short sleeptime to assure correct exit
 def start_thread(target, *args):
     global current_thread, current_event
 
-    # dont start a new thread
+    # dont start a new thread if an old one is running
     if current_thread is not None and current_thread.is_alive():
         return current_thread
 
@@ -111,7 +112,7 @@ def handle_exit(signum, frame):
         client_socket.close()
     if 'server_socket' in globals() and server_socket is not None:
         server_socket.close()
-    RuheModus()
+    IdleMode()
     print(f"Disconnected successfully".ljust(50))
     sys.exit(0)
 
@@ -158,7 +159,7 @@ CaD = Servo("CabinDoor")
 
 def LGCD_sequence(stop_event, channels, state):
     global flag_LG
-
+    LG_LIGHT()
     if stop_event.is_set():
         return
     
@@ -222,11 +223,11 @@ def PWMsetServo_EF():
 
         start_thread(LGCD_sequence, [0,1,2], fractionLG)
     except Exception as e:
-        print(f"(EF) Fehler beim Ansteuern der Servos: {e}")
+        print(f"(EF) cant connect to Servos: {e}")
 
 
 
-def RuheModus():
+def IdleMode():
     try:
         LGdriver.servo[0].fraction = 0 # first close LG
         for numservo in range(3,16):
@@ -238,10 +239,11 @@ def RuheModus():
         LGdriver.servo[0].fraction = None
         safe_sleep(delay)
         CaD.move([0,1,2],None,False)
+        OTHER_LIGHTS(False) # NOTE im not shure yet
 
 
     except Exception as e:
-        print(f"Fehler beim Ansteuern der Servos: {e}")
+        print(f"Error with controlling Servos: {e}")
 
 def ServoTest():
     while receivedData[MODE] == 3 and not stop_thread.is_set():
@@ -250,7 +252,7 @@ def ServoTest():
                 for servoNum in range(0, 16):
                     servodriver.servo[servoNum].angle = angle
                     safe_sleep(0.5)
-        RuheModus()
+        IdleMode()
 
 #-------------------------------------------------------------------------------------------------------------------
 # Main Loop
@@ -258,6 +260,7 @@ def ServoTest():
 signal.signal(signal.SIGINT, handle_exit) # signal-handling for STRG+C (ends Software correctly)
 
 while not stop_thread.is_set():
+    start_thread(OTHER_LIGHTS,True)
     try:
         print("Wait for Connection...")
         client_socket, addr = server_socket.accept() #succsesfull connected to server
@@ -288,9 +291,9 @@ while not stop_thread.is_set():
 
         print(threading.active_count(), "threads")
 
-        if receivedData[MODE] == 0: # Aus / RuheModus
-            print("RuheModus")
-            RuheModus()
+        if receivedData[MODE] == 0: # Aus / IdleMode
+            print("IdleMode")
+            IdleMode()
 
         # NOTE: Showmodus entfernt, da nicht mehr benoetigt
         #        elif receivedData[MODE] == 1: # Showmodus, Servos fahren langsam in Position
@@ -309,6 +312,6 @@ while not stop_thread.is_set():
             ServoTest()
         elif receivedData[MODE] > 3 or receivedData[MODE] < 0:
             print("Received cooruped data")
-            RuheModus()
+            IdleMode()
 
     client_socket.close()
