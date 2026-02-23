@@ -14,8 +14,8 @@ time.sleep(3)
 
 try:
     while True:
-        led_LG.toggle()
-        sleep(2)
+        LED_LG.toggle()
+        time.sleep(2)
         
 except KeyboardInterrupt:
     LED_LG.off()
