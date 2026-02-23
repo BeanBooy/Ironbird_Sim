@@ -75,6 +75,12 @@
     <Compile Include="JoystickData.cs" />
     <Compile Include="JoystickController.cs" />
     <Compile Include="Logger.cs" />
+    <Compile Include="ServoDisplay.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ServoDisplay.Designer.cs">
+      <DependentUpon>ServoDisplay.cs</DependentUpon>
+    </Compile>
     <Compile Include="TcpConnectionManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -116,6 +122,9 @@
     </Compile>
     <EmbeddedResource Include="ScreenIndicator.resx">
       <DependentUpon>ScreenIndicator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ServoDisplay.resx">
+      <DependentUpon>ServoDisplay.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Slides\Slide1.resx">
       <DependentUpon>Slide1.cs</DependentUpon>

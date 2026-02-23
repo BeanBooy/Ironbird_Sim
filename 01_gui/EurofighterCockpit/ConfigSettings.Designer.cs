@@ -47,6 +47,8 @@
             this.label9 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
@@ -55,7 +57,6 @@
             this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -63,19 +64,35 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.tb_logs = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel = new System.Windows.Forms.Panel();
+            this.cb_useController = new System.Windows.Forms.CheckBox();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.ck_showNetworkTraffic = new System.Windows.Forms.CheckBox();
             this.cb_connectionState = new System.Windows.Forms.CheckBox();
             this.asdf = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
+            this.sd_gear = new EurofighterCockpit.ServoDisplay();
+            this.sd_airbrake = new EurofighterCockpit.ServoDisplay();
+            this.sd_flapRight = new EurofighterCockpit.ServoDisplay();
+            this.sd_flapLeft = new EurofighterCockpit.ServoDisplay();
+            this.sd_aileronRight = new EurofighterCockpit.ServoDisplay();
+            this.sd_aileronLeft = new EurofighterCockpit.ServoDisplay();
+            this.sd_canardRight = new EurofighterCockpit.ServoDisplay();
+            this.sd_canardLeft = new EurofighterCockpit.ServoDisplay();
             this.bpb_strobeLights = new EurofighterCockpit.BetterProgressBar();
             this.bpb_landingLights = new EurofighterCockpit.BetterProgressBar();
             this.bpb_positionLights = new EurofighterCockpit.BetterProgressBar();
@@ -100,6 +117,7 @@
             this.panel6.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.panel.SuspendLayout();
             this.panel7.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -369,6 +387,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Gray;
+            this.panel2.Controls.Add(this.cb_useController);
             this.panel2.Controls.Add(this.label27);
             this.panel2.Controls.Add(this.bpb_strobeLights);
             this.panel2.Controls.Add(this.label26);
@@ -400,6 +419,30 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(563, 285);
             this.panel2.TabIndex = 29;
+            // 
+            // label27
+            // 
+            this.label27.BackColor = System.Drawing.Color.Transparent;
+            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.label27.Location = new System.Drawing.Point(336, 215);
+            this.label27.Margin = new System.Windows.Forms.Padding(1);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(46, 24);
+            this.label27.TabIndex = 62;
+            this.label27.Text = "Strobe";
+            this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label26
+            // 
+            this.label26.BackColor = System.Drawing.Color.Transparent;
+            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.Location = new System.Drawing.Point(286, 143);
+            this.label26.Margin = new System.Windows.Forms.Padding(8);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(92, 26);
+            this.label26.TabIndex = 60;
+            this.label26.Text = "Lights";
+            this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label25
             // 
@@ -488,18 +531,6 @@
             this.label18.Text = "Sound";
             this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label17
-            // 
-            this.label17.BackColor = System.Drawing.Color.Transparent;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(12, 120);
-            this.label17.Margin = new System.Windows.Forms.Padding(1);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(55, 24);
-            this.label17.TabIndex = 46;
-            this.label17.Text = "Trigger";
-            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // label16
             // 
             this.label16.BackColor = System.Drawing.Color.Transparent;
@@ -584,6 +615,18 @@
             this.label7.Text = "twist";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // label17
+            // 
+            this.label17.BackColor = System.Drawing.Color.Transparent;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(12, 120);
+            this.label17.Margin = new System.Windows.Forms.Padding(1);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(55, 24);
+            this.label17.TabIndex = 46;
+            this.label17.Text = "Trigger";
+            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Gray;
@@ -613,10 +656,10 @@
             this.panel4.BackColor = System.Drawing.Color.Gray;
             this.panel4.Controls.Add(this.tb_logs);
             this.panel4.Controls.Add(this.label1);
-            this.panel4.Location = new System.Drawing.Point(590, 289);
+            this.panel4.Location = new System.Drawing.Point(590, 386);
             this.panel4.Margin = new System.Windows.Forms.Padding(6);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(664, 382);
+            this.panel4.Size = new System.Drawing.Size(609, 285);
             this.panel4.TabIndex = 30;
             // 
             // tb_logs
@@ -628,7 +671,7 @@
             this.tb_logs.Name = "tb_logs";
             this.tb_logs.ReadOnly = true;
             this.tb_logs.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tb_logs.Size = new System.Drawing.Size(633, 308);
+            this.tb_logs.Size = new System.Drawing.Size(580, 211);
             this.tb_logs.TabIndex = 29;
             // 
             // label1
@@ -638,19 +681,144 @@
             this.label1.Location = new System.Drawing.Point(1, 9);
             this.label1.Margin = new System.Windows.Forms.Padding(1);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(657, 37);
+            this.label1.Size = new System.Drawing.Size(607, 37);
             this.label1.TabIndex = 28;
             this.label1.Text = "Logs";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // panel5
+            // panel
             // 
-            this.panel5.BackColor = System.Drawing.Color.Gray;
-            this.panel5.Location = new System.Drawing.Point(590, 12);
-            this.panel5.Margin = new System.Windows.Forms.Padding(6);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(664, 264);
-            this.panel5.TabIndex = 30;
+            this.panel.BackColor = System.Drawing.Color.Gray;
+            this.panel.Controls.Add(this.label34);
+            this.panel.Controls.Add(this.sd_gear);
+            this.panel.Controls.Add(this.label35);
+            this.panel.Controls.Add(this.sd_airbrake);
+            this.panel.Controls.Add(this.label32);
+            this.panel.Controls.Add(this.sd_flapRight);
+            this.panel.Controls.Add(this.label33);
+            this.panel.Controls.Add(this.sd_flapLeft);
+            this.panel.Controls.Add(this.label30);
+            this.panel.Controls.Add(this.sd_aileronRight);
+            this.panel.Controls.Add(this.label31);
+            this.panel.Controls.Add(this.sd_aileronLeft);
+            this.panel.Controls.Add(this.label29);
+            this.panel.Controls.Add(this.sd_canardRight);
+            this.panel.Controls.Add(this.label28);
+            this.panel.Controls.Add(this.sd_canardLeft);
+            this.panel.Location = new System.Drawing.Point(590, 12);
+            this.panel.Margin = new System.Windows.Forms.Padding(6);
+            this.panel.Name = "panel";
+            this.panel.Size = new System.Drawing.Size(609, 362);
+            this.panel.TabIndex = 30;
+            // 
+            // cb_useController
+            // 
+            this.cb_useController.Checked = true;
+            this.cb_useController.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cb_useController.Location = new System.Drawing.Point(13, 16);
+            this.cb_useController.Margin = new System.Windows.Forms.Padding(2);
+            this.cb_useController.Name = "cb_useController";
+            this.cb_useController.Size = new System.Drawing.Size(109, 20);
+            this.cb_useController.TabIndex = 31;
+            this.cb_useController.Text = "Use Controller";
+            this.cb_useController.UseVisualStyleBackColor = true;
+            this.cb_useController.CheckedChanged += new System.EventHandler(this.cb_overwrite_CheckedChanged);
+            // 
+            // label34
+            // 
+            this.label34.BackColor = System.Drawing.Color.Transparent;
+            this.label34.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label34.Location = new System.Drawing.Point(315, 229);
+            this.label34.Margin = new System.Windows.Forms.Padding(1);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(280, 26);
+            this.label34.TabIndex = 55;
+            this.label34.Text = "Gear";
+            this.label34.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label35
+            // 
+            this.label35.BackColor = System.Drawing.Color.Transparent;
+            this.label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label35.Location = new System.Drawing.Point(15, 229);
+            this.label35.Margin = new System.Windows.Forms.Padding(1);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(280, 26);
+            this.label35.TabIndex = 53;
+            this.label35.Text = "Airbrake";
+            this.label35.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label32
+            // 
+            this.label32.BackColor = System.Drawing.Color.Transparent;
+            this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label32.Location = new System.Drawing.Point(315, 169);
+            this.label32.Margin = new System.Windows.Forms.Padding(1);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(280, 26);
+            this.label32.TabIndex = 51;
+            this.label32.Text = "Flap Right";
+            this.label32.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label33
+            // 
+            this.label33.BackColor = System.Drawing.Color.Transparent;
+            this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label33.Location = new System.Drawing.Point(15, 169);
+            this.label33.Margin = new System.Windows.Forms.Padding(1);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(280, 26);
+            this.label33.TabIndex = 49;
+            this.label33.Text = "Flap Left";
+            this.label33.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label30
+            // 
+            this.label30.BackColor = System.Drawing.Color.Transparent;
+            this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label30.Location = new System.Drawing.Point(315, 109);
+            this.label30.Margin = new System.Windows.Forms.Padding(1);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(280, 26);
+            this.label30.TabIndex = 47;
+            this.label30.Text = "Aileron Right";
+            this.label30.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label31
+            // 
+            this.label31.BackColor = System.Drawing.Color.Transparent;
+            this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label31.Location = new System.Drawing.Point(15, 109);
+            this.label31.Margin = new System.Windows.Forms.Padding(1);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(280, 26);
+            this.label31.TabIndex = 45;
+            this.label31.Text = "Aileron Left";
+            this.label31.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label29
+            // 
+            this.label29.BackColor = System.Drawing.Color.Transparent;
+            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label29.Location = new System.Drawing.Point(315, 49);
+            this.label29.Margin = new System.Windows.Forms.Padding(1);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(280, 26);
+            this.label29.TabIndex = 43;
+            this.label29.Text = "Canard Right";
+            this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label28
+            // 
+            this.label28.BackColor = System.Drawing.Color.Transparent;
+            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.Location = new System.Drawing.Point(15, 49);
+            this.label28.Margin = new System.Windows.Forms.Padding(1);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(280, 26);
+            this.label28.TabIndex = 41;
+            this.label28.Text = "Canard Left";
+            this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label4
             // 
@@ -659,9 +827,9 @@
             this.label4.Location = new System.Drawing.Point(591, 20);
             this.label4.Margin = new System.Windows.Forms.Padding(1);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(662, 37);
+            this.label4.Size = new System.Drawing.Size(607, 37);
             this.label4.TabIndex = 28;
-            this.label4.Text = "Controller";
+            this.label4.Text = "Servos";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel7
@@ -714,29 +882,93 @@
             this.asdf.Text = "Eurofighter";
             this.asdf.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label26
+            // sd_gear
             // 
-            this.label26.BackColor = System.Drawing.Color.Transparent;
-            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.Location = new System.Drawing.Point(286, 143);
-            this.label26.Margin = new System.Windows.Forms.Padding(8);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(92, 26);
-            this.label26.TabIndex = 60;
-            this.label26.Text = "Lights";
-            this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.sd_gear.Location = new System.Drawing.Point(315, 259);
+            this.sd_gear.Max = 1;
+            this.sd_gear.Min = 0;
+            this.sd_gear.Name = "sd_gear";
+            this.sd_gear.Size = new System.Drawing.Size(280, 26);
+            this.sd_gear.TabIndex = 54;
+            this.sd_gear.Value = ((byte)(0));
+            this.sd_gear.ValueChanged += new System.EventHandler(this.servoOverright_ValueChanged);
             // 
-            // label27
+            // sd_airbrake
             // 
-            this.label27.BackColor = System.Drawing.Color.Transparent;
-            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.label27.Location = new System.Drawing.Point(336, 215);
-            this.label27.Margin = new System.Windows.Forms.Padding(1);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(46, 24);
-            this.label27.TabIndex = 62;
-            this.label27.Text = "Strobe";
-            this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.sd_airbrake.Location = new System.Drawing.Point(15, 259);
+            this.sd_airbrake.Max = 255;
+            this.sd_airbrake.Min = 0;
+            this.sd_airbrake.Name = "sd_airbrake";
+            this.sd_airbrake.Size = new System.Drawing.Size(280, 26);
+            this.sd_airbrake.TabIndex = 52;
+            this.sd_airbrake.Value = ((byte)(0));
+            this.sd_airbrake.ValueChanged += new System.EventHandler(this.servoOverright_ValueChanged);
+            // 
+            // sd_flapRight
+            // 
+            this.sd_flapRight.Location = new System.Drawing.Point(315, 199);
+            this.sd_flapRight.Max = 255;
+            this.sd_flapRight.Min = 0;
+            this.sd_flapRight.Name = "sd_flapRight";
+            this.sd_flapRight.Size = new System.Drawing.Size(280, 26);
+            this.sd_flapRight.TabIndex = 50;
+            this.sd_flapRight.Value = ((byte)(0));
+            this.sd_flapRight.ValueChanged += new System.EventHandler(this.servoOverright_ValueChanged);
+            // 
+            // sd_flapLeft
+            // 
+            this.sd_flapLeft.Location = new System.Drawing.Point(15, 199);
+            this.sd_flapLeft.Max = 255;
+            this.sd_flapLeft.Min = 0;
+            this.sd_flapLeft.Name = "sd_flapLeft";
+            this.sd_flapLeft.Size = new System.Drawing.Size(280, 26);
+            this.sd_flapLeft.TabIndex = 48;
+            this.sd_flapLeft.Value = ((byte)(0));
+            this.sd_flapLeft.ValueChanged += new System.EventHandler(this.servoOverright_ValueChanged);
+            // 
+            // sd_aileronRight
+            // 
+            this.sd_aileronRight.Location = new System.Drawing.Point(315, 139);
+            this.sd_aileronRight.Max = 255;
+            this.sd_aileronRight.Min = 0;
+            this.sd_aileronRight.Name = "sd_aileronRight";
+            this.sd_aileronRight.Size = new System.Drawing.Size(280, 26);
+            this.sd_aileronRight.TabIndex = 46;
+            this.sd_aileronRight.Value = ((byte)(0));
+            this.sd_aileronRight.ValueChanged += new System.EventHandler(this.servoOverright_ValueChanged);
+            // 
+            // sd_aileronLeft
+            // 
+            this.sd_aileronLeft.Location = new System.Drawing.Point(15, 139);
+            this.sd_aileronLeft.Max = 255;
+            this.sd_aileronLeft.Min = 0;
+            this.sd_aileronLeft.Name = "sd_aileronLeft";
+            this.sd_aileronLeft.Size = new System.Drawing.Size(280, 26);
+            this.sd_aileronLeft.TabIndex = 44;
+            this.sd_aileronLeft.Value = ((byte)(0));
+            this.sd_aileronLeft.ValueChanged += new System.EventHandler(this.servoOverright_ValueChanged);
+            // 
+            // sd_canardRight
+            // 
+            this.sd_canardRight.Location = new System.Drawing.Point(315, 79);
+            this.sd_canardRight.Max = 255;
+            this.sd_canardRight.Min = 0;
+            this.sd_canardRight.Name = "sd_canardRight";
+            this.sd_canardRight.Size = new System.Drawing.Size(280, 26);
+            this.sd_canardRight.TabIndex = 42;
+            this.sd_canardRight.Value = ((byte)(0));
+            this.sd_canardRight.ValueChanged += new System.EventHandler(this.servoOverright_ValueChanged);
+            // 
+            // sd_canardLeft
+            // 
+            this.sd_canardLeft.Location = new System.Drawing.Point(15, 79);
+            this.sd_canardLeft.Max = 255;
+            this.sd_canardLeft.Min = 0;
+            this.sd_canardLeft.Name = "sd_canardLeft";
+            this.sd_canardLeft.Size = new System.Drawing.Size(280, 26);
+            this.sd_canardLeft.TabIndex = 0;
+            this.sd_canardLeft.Value = ((byte)(0));
+            this.sd_canardLeft.ValueChanged += new System.EventHandler(this.servoOverright_ValueChanged);
             // 
             // bpb_strobeLights
             // 
@@ -977,10 +1209,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
-            this.ClientSize = new System.Drawing.Size(1269, 684);
+            this.ClientSize = new System.Drawing.Size(1211, 684);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.panel5);
+            this.Controls.Add(this.panel);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -1001,6 +1233,7 @@
             this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.panel.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -1032,7 +1265,7 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.TextBox tb_logs;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel panel;
         private System.Windows.Forms.Label label4;
         private BetterProgressBar bpb_joystickXpos;
         private BetterProgressBar bpb_joystickXneg;
@@ -1074,5 +1307,22 @@
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label27;
         private BetterProgressBar bpb_strobeLights;
+        private System.Windows.Forms.Label label28;
+        private ServoDisplay sd_canardLeft;
+        private System.Windows.Forms.Label label29;
+        private ServoDisplay sd_canardRight;
+        private System.Windows.Forms.Label label32;
+        private ServoDisplay sd_flapRight;
+        private System.Windows.Forms.Label label33;
+        private ServoDisplay sd_flapLeft;
+        private System.Windows.Forms.Label label30;
+        private ServoDisplay sd_aileronRight;
+        private System.Windows.Forms.Label label31;
+        private ServoDisplay sd_aileronLeft;
+        private System.Windows.Forms.Label label34;
+        private ServoDisplay sd_gear;
+        private System.Windows.Forms.Label label35;
+        private ServoDisplay sd_airbrake;
+        private System.Windows.Forms.CheckBox cb_useController;
     }
 }

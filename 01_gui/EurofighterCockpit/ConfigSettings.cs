@@ -30,6 +30,7 @@ namespace EurofighterCockpit
         private JoystickController joystickController;
         private Timer timer;
         private JoystickData prevData = new JoystickData();  // needed to skip updates when data == prevData
+        private byte[] prevPayload = new byte[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 
         // screens
         private Screen[] screens;
@@ -103,7 +104,7 @@ namespace EurofighterCockpit
 
             // controller polling
             timer = new Timer();
-            timer.Interval = 10;  // 10ms
+            timer.Interval = 30;  // ms
             timer.Tick += Timer_Tick;
             timer.Start();
 
@@ -117,33 +118,44 @@ namespace EurofighterCockpit
             // testing section !!!!!!!!!!!
 
             infotainment.ShowSlide(new Slide1());
+            //servoDisplay1.setValue(90);
 
         }
 
-        byte[] prevPayload = new byte[0];
         private void Timer_Tick(object sender, EventArgs e) {
+            // fetch
             JoystickData data = joystickController.poll();
-            
-            updateUiWithInputData(data);
-
+            updateControllerDisplay(data);
             // build payload
-            byte[] payload = preparePayload(data);
+            byte[] payload = buildPayload(data);
+            updateServoDisplay(payload);
+            // send to the pi
+            validateAndSendPayload(payload);
+        }
+
+        private void validateAndSendPayload(byte[] payload) {
             // check if previous payload differs
             // if it's exactly the same, don't send new data
             if (Enumerable.SequenceEqual(payload, prevPayload))
                 return;
-            prevPayload = payload;
-
-            logger.logToBox(
-                string.Join(", ", payload.Select(b => Convert.ToString(b, 2).PadLeft(8, '0')))
-            );
-            bool logPayload = ck_showNetworkTraffic.Checked;
-            tcpCon.sendAsync(payload, logPayload);
+            prevPayload = (byte[])payload.Clone();
+            tcpCon.sendAsync(payload, ck_showNetworkTraffic.Checked);
         }
 
-        private void updateUiWithInputData(JoystickData data) {
+        private void updateServoDisplay(byte[] payload) {
+            sd_canardLeft.Value = payload[1];
+            sd_canardRight.Value = payload[2];
+            sd_aileronLeft.Value = payload[3];
+            sd_aileronRight.Value = payload[4];
+            sd_flapLeft.Value = payload[5];
+            sd_flapRight.Value = payload[6];
+            sd_airbrake.Value = payload[7];
+            sd_gear.Value = payload[8];
+        }
+
+        private void updateControllerDisplay(JoystickData data) {
             // check if dataset is the same to prevent ui update spamming
-            if (data.Equals(prevPayload))
+            if (data.Equals(prevData))
                 return;
             prevData = data;
             // update all elements
@@ -166,7 +178,7 @@ namespace EurofighterCockpit
             bpb_landingLights.Progress = data.LandingLights ? 100 : 0;
         }
 
-        private byte[] preparePayload(JoystickData data) {
+        private byte[] buildPayload(JoystickData data) {
             return new byte[] {
                 1,  // TODO
                 EurofighterControl.canardLeft(data.JoystickY, data.JoystickX),
@@ -342,7 +354,32 @@ namespace EurofighterCockpit
             tcpCon?.Dispose();
         }
 
+        private void servoOverright_ValueChanged(object sender, EventArgs e) {
+            if (cb_useController.Checked)
+                return;
+            // create payload
+            byte[] payload = new byte[16];
+            payload[0] = 1;
+            payload[1] = sd_canardLeft.Value;
+            payload[2] = sd_canardRight.Value;
+            payload[3] = sd_aileronLeft.Value;
+            payload[4] = sd_aileronRight.Value;
+            payload[5] = sd_flapLeft.Value;
+            payload[6] = sd_flapRight.Value;
+            payload[7] = sd_airbrake.Value;
+            payload[8] = sd_gear.Value;
+            // send to the pi
+            validateAndSendPayload(payload);
+        }
+
+        private void cb_overwrite_CheckedChanged(object sender, EventArgs e) {
+            timer.Enabled = cb_useController.Checked;
+        }
+
         #endregion
 
+        private void sd_canardRight_ValueChanged(object sender, EventArgs e) {
+
+        }
     }
 }
