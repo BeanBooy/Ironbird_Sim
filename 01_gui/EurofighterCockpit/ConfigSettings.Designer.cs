@@ -710,7 +710,7 @@
             // bpb_landingLights
             // 
             this.bpb_landingLights.BackColor = System.Drawing.Color.White;
-            this.bpb_landingLights.ColorProg = System.Drawing.Color.Orange;
+            this.bpb_landingLights.ColorProg = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(32)))), ((int)(((byte)(91)))));
             this.bpb_landingLights.Direction = EurofighterCockpit.Direction.bottomToTop;
             this.bpb_landingLights.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.bpb_landingLights.Location = new System.Drawing.Point(311, 175);
@@ -723,7 +723,7 @@
             // bpb_positionLights
             // 
             this.bpb_positionLights.BackColor = System.Drawing.Color.White;
-            this.bpb_positionLights.ColorProg = System.Drawing.Color.Orange;
+            this.bpb_positionLights.ColorProg = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(32)))), ((int)(((byte)(91)))));
             this.bpb_positionLights.Direction = EurofighterCockpit.Direction.bottomToTop;
             this.bpb_positionLights.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.bpb_positionLights.Location = new System.Drawing.Point(264, 175);
@@ -736,7 +736,7 @@
             // bpb_gear
             // 
             this.bpb_gear.BackColor = System.Drawing.Color.White;
-            this.bpb_gear.ColorProg = System.Drawing.Color.Orange;
+            this.bpb_gear.ColorProg = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(32)))), ((int)(((byte)(91)))));
             this.bpb_gear.Direction = EurofighterCockpit.Direction.bottomToTop;
             this.bpb_gear.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.bpb_gear.Location = new System.Drawing.Point(217, 175);
@@ -749,7 +749,7 @@
             // bpb_rudderReset
             // 
             this.bpb_rudderReset.BackColor = System.Drawing.Color.White;
-            this.bpb_rudderReset.ColorProg = System.Drawing.Color.Orange;
+            this.bpb_rudderReset.ColorProg = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(32)))), ((int)(((byte)(91)))));
             this.bpb_rudderReset.Direction = EurofighterCockpit.Direction.bottomToTop;
             this.bpb_rudderReset.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.bpb_rudderReset.Location = new System.Drawing.Point(311, 103);
@@ -762,7 +762,7 @@
             // bpb_rudderL
             // 
             this.bpb_rudderL.BackColor = System.Drawing.Color.White;
-            this.bpb_rudderL.ColorProg = System.Drawing.Color.Orange;
+            this.bpb_rudderL.ColorProg = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(32)))), ((int)(((byte)(91)))));
             this.bpb_rudderL.Direction = EurofighterCockpit.Direction.bottomToTop;
             this.bpb_rudderL.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.bpb_rudderL.Location = new System.Drawing.Point(217, 103);
@@ -775,7 +775,7 @@
             // bpb_rudderR
             // 
             this.bpb_rudderR.BackColor = System.Drawing.Color.White;
-            this.bpb_rudderR.ColorProg = System.Drawing.Color.Orange;
+            this.bpb_rudderR.ColorProg = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(32)))), ((int)(((byte)(91)))));
             this.bpb_rudderR.Direction = EurofighterCockpit.Direction.bottomToTop;
             this.bpb_rudderR.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.bpb_rudderR.Location = new System.Drawing.Point(264, 103);
@@ -788,7 +788,7 @@
             // bpb_trigger
             // 
             this.bpb_trigger.BackColor = System.Drawing.Color.White;
-            this.bpb_trigger.ColorProg = System.Drawing.Color.Orange;
+            this.bpb_trigger.ColorProg = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(32)))), ((int)(((byte)(91)))));
             this.bpb_trigger.Direction = EurofighterCockpit.Direction.bottomToTop;
             this.bpb_trigger.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.bpb_trigger.Location = new System.Drawing.Point(217, 241);
@@ -801,7 +801,7 @@
             // bpb_sound
             // 
             this.bpb_sound.BackColor = System.Drawing.Color.White;
-            this.bpb_sound.ColorProg = System.Drawing.Color.Orange;
+            this.bpb_sound.ColorProg = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(32)))), ((int)(((byte)(91)))));
             this.bpb_sound.Direction = EurofighterCockpit.Direction.bottomToTop;
             this.bpb_sound.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.bpb_sound.Location = new System.Drawing.Point(287, 241);
@@ -814,7 +814,7 @@
             // bpb_airbrakeBool
             // 
             this.bpb_airbrakeBool.BackColor = System.Drawing.Color.White;
-            this.bpb_airbrakeBool.ColorProg = System.Drawing.Color.Orange;
+            this.bpb_airbrakeBool.ColorProg = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(32)))), ((int)(((byte)(91)))));
             this.bpb_airbrakeBool.Direction = EurofighterCockpit.Direction.bottomToTop;
             this.bpb_airbrakeBool.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.bpb_airbrakeBool.Location = new System.Drawing.Point(358, 241);
@@ -827,7 +827,7 @@
             // bpb_airbrake
             // 
             this.bpb_airbrake.BackColor = System.Drawing.Color.White;
-            this.bpb_airbrake.ColorProg = System.Drawing.Color.Orange;
+            this.bpb_airbrake.ColorProg = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(32)))), ((int)(((byte)(91)))));
             this.bpb_airbrake.Direction = EurofighterCockpit.Direction.bottomToTop;
             this.bpb_airbrake.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.bpb_airbrake.Location = new System.Drawing.Point(358, 85);
@@ -840,7 +840,7 @@
             // bpb_throttle
             // 
             this.bpb_throttle.BackColor = System.Drawing.Color.White;
-            this.bpb_throttle.ColorProg = System.Drawing.Color.Orange;
+            this.bpb_throttle.ColorProg = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(32)))), ((int)(((byte)(91)))));
             this.bpb_throttle.Direction = EurofighterCockpit.Direction.bottomToTop;
             this.bpb_throttle.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.bpb_throttle.Location = new System.Drawing.Point(462, 85);
@@ -853,7 +853,7 @@
             // bpb_joystickTorque
             // 
             this.bpb_joystickTorque.BackColor = System.Drawing.Color.White;
-            this.bpb_joystickTorque.ColorProg = System.Drawing.Color.Orange;
+            this.bpb_joystickTorque.ColorProg = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(32)))), ((int)(((byte)(91)))));
             this.bpb_joystickTorque.Direction = EurofighterCockpit.Direction.rightToLeft;
             this.bpb_joystickTorque.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.bpb_joystickTorque.Location = new System.Drawing.Point(16, 36);
@@ -866,7 +866,7 @@
             // betterProgressBar1
             // 
             this.betterProgressBar1.BackColor = System.Drawing.Color.White;
-            this.betterProgressBar1.ColorProg = System.Drawing.Color.Orange;
+            this.betterProgressBar1.ColorProg = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(32)))), ((int)(((byte)(91)))));
             this.betterProgressBar1.Direction = EurofighterCockpit.Direction.leftToRight;
             this.betterProgressBar1.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.betterProgressBar1.Location = new System.Drawing.Point(122, 36);
@@ -879,7 +879,7 @@
             // bpb_joystickXpos
             // 
             this.bpb_joystickXpos.BackColor = System.Drawing.Color.White;
-            this.bpb_joystickXpos.ColorProg = System.Drawing.Color.Orange;
+            this.bpb_joystickXpos.ColorProg = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(32)))), ((int)(((byte)(91)))));
             this.bpb_joystickXpos.Direction = EurofighterCockpit.Direction.leftToRight;
             this.bpb_joystickXpos.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.bpb_joystickXpos.Location = new System.Drawing.Point(106, 79);
@@ -892,7 +892,7 @@
             // bpb_joystickXneg
             // 
             this.bpb_joystickXneg.BackColor = System.Drawing.Color.White;
-            this.bpb_joystickXneg.ColorProg = System.Drawing.Color.Orange;
+            this.bpb_joystickXneg.ColorProg = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(32)))), ((int)(((byte)(91)))));
             this.bpb_joystickXneg.Direction = EurofighterCockpit.Direction.rightToLeft;
             this.bpb_joystickXneg.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.bpb_joystickXneg.Location = new System.Drawing.Point(-1, 79);
@@ -905,7 +905,7 @@
             // bpb_joystickYpos
             // 
             this.bpb_joystickYpos.BackColor = System.Drawing.Color.White;
-            this.bpb_joystickYpos.ColorProg = System.Drawing.Color.Orange;
+            this.bpb_joystickYpos.ColorProg = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(32)))), ((int)(((byte)(91)))));
             this.bpb_joystickYpos.Direction = EurofighterCockpit.Direction.bottomToTop;
             this.bpb_joystickYpos.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.bpb_joystickYpos.Location = new System.Drawing.Point(79, -1);
@@ -918,7 +918,7 @@
             // bpb_joystickYneg
             // 
             this.bpb_joystickYneg.BackColor = System.Drawing.Color.White;
-            this.bpb_joystickYneg.ColorProg = System.Drawing.Color.Orange;
+            this.bpb_joystickYneg.ColorProg = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(32)))), ((int)(((byte)(91)))));
             this.bpb_joystickYneg.Direction = EurofighterCockpit.Direction.topToBottom;
             this.bpb_joystickYneg.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.bpb_joystickYneg.Location = new System.Drawing.Point(79, 106);
