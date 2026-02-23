@@ -1,10 +1,19 @@
-from gpiozero import LED
-import threading
+#from gpiozero import LED
+#import threading
+#import time
+
+
+from gpiozero import LED, Device 
+from gpiozero.pins.lgpio import LGPIOFactory
+import threading 
 import time
+
+Device.pin_factory = LGPIOFactory()
+
 # LED(GPIO-Port)
 LED_NAV = LED(17) # bowfaced wingtip: rightside green, leftside red -> lit the hole time
-LED_STROBE = LED(22) # white flashing lights (stern-faced)
-LED_BEACON = LED(10) # read anticollision light beneight and above the hull -> blinks
+LED_STROBE = LED(17) # white flashing lights (stern-faced)
+LED_BEACON = LED(22) # read anticollision light beneight and above the hull -> blinks
 LED_LG = LED(27) # is only lit with open/opening LG
 LG_INMOTION = 1
 
