@@ -305,14 +305,17 @@ namespace EurofighterCockpit
             if (rb.Parent == tlp_videoPlayer) {
                 videoPlayerScreenIndex = screenIndex;
                 moveWindowToScreen(videoPlayer, screenIndex);
+                videoPlayer.Activate();  // bring to focus
             }
             if (rb.Parent == tlp_infotainment) {
                 infotainmentScreenIndex = screenIndex;
                 moveWindowToScreen(infotainment, infotainmentScreenIndex);
+                infotainment.Activate();  // bring to focus
             }
             if (rb.Parent == tlp_infotainmentSub) {
                 infotainmentSubScreenIndex = screenIndex;
                 moveWindowToScreen(infotainmentSub, infotainmentSubScreenIndex);
+                infotainmentSub.Activate();  // bring to focus
             }
         }
 
