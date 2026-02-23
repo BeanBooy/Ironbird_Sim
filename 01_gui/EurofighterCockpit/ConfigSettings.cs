@@ -120,22 +120,40 @@ namespace EurofighterCockpit
 
         }
 
-
+        byte[] prevPayload = new byte[0];
         private void Timer_Tick(object sender, EventArgs e) {
-            //displayMessage("tick");
             JoystickData data = joystickController.poll();
-            if (data.Equals(prevData))
+            
+            updateUiWithInputData(data);
+
+            // build payload
+            byte[] payload = preparePayload(data);
+            // check if previous payload differs
+            // if it's exactly the same, don't send new data
+            if (Enumerable.SequenceEqual(payload, prevPayload))
                 return;
-            else
-                prevData = data;
-            // update the UI
+            prevPayload = payload;
+
+            logger.logToBox(
+                string.Join(", ", payload.Select(b => Convert.ToString(b, 2).PadLeft(8, '0')))
+            );
+            bool logPayload = ck_showNetworkTraffic.Checked;
+            tcpCon.sendAsync(payload, logPayload);
+        }
+
+        private void updateUiWithInputData(JoystickData data) {
+            // check if dataset is the same to prevent ui update spamming
+            if (data.Equals(prevPayload))
+                return;
+            prevData = data;
+            // update all elements
             bpb_joystickXpos.Progress = Convert.ToInt32(data.JoystickXPercent * 100);
             bpb_joystickXneg.Progress = Convert.ToInt32(data.JoystickXPercent * -100);
             bpb_joystickYpos.Progress = Convert.ToInt32(data.JoystickYPercent * 100);
             bpb_joystickYneg.Progress = Convert.ToInt32(data.JoystickYPercent * -100);
             bpb_joystickTorque.Progress = Convert.ToInt32(data.JoystickTorquePercent * 100);
             bpb_airbrakeBool.Progress = data.Airbrake ? 100 : 0;
-            // TODO: airbrake trigger curve
+            bpb_airbrake.Progress = 0;  // TODO: airbrake trigger curve
             bpb_throttle.Progress = Convert.ToInt32(data.ThrottlePercent * 100);
             bpb_trigger.Progress = data.Trigger ? 100 : 0;
             bpb_sound.Progress = data.Sound ? 100 : 0;
@@ -144,19 +162,22 @@ namespace EurofighterCockpit
             bpb_rudderReset.Progress = data.RudderReset ? 100 : 0;
             bpb_gear.Progress = data.LandingGear ? 100 : 0;
             bpb_positionLights.Progress = data.PositionalLights ? 100 : 0;
+            bpb_strobeLights.Progress = data.StrobeLights ? 100 : 0;
             bpb_landingLights.Progress = data.LandingLights ? 100 : 0;
+        }
 
-            byte[] payload = new byte[] {
+        private byte[] preparePayload(JoystickData data) {
+            return new byte[] {
                 1,  // TODO
-                0,
-                0,
-                0,
-                0,
+                EurofighterControl.canardLeft(data.JoystickY, data.JoystickX),
+                EurofighterControl.canardRight(data.JoystickY, data.JoystickX),
+                EurofighterControl.aileronLeft(data.JoystickX, data.JoystickY),
+                EurofighterControl.aileronRight(data.JoystickX, data.JoystickY),
                 EurofighterControl.flapLeft(data.JoystickY),
                 EurofighterControl.flapRight(data.JoystickY),
-                0,
-                Convert.ToByte(data.LandingGear),  // gear
-                0,
+                0,  // TODO airbrake
+                Convert.ToByte(data.LandingGear),
+                EurofighterControl.lights(data.PositionalLights, data.StrobeLights, data.LandingLights),
                 0,
                 0,
                 0,
@@ -164,9 +185,6 @@ namespace EurofighterCockpit
                 0,
                 0
             };
-
-            bool logPayload = ck_showNetworkTraffic.Checked;
-            tcpCon.sendAsync(payload, logPayload);
         }
 
         private T launchWindow<T>(ref T window, int screenIndex, Button toggleButton, Action<T> postInit = null) where T : Form, new() {

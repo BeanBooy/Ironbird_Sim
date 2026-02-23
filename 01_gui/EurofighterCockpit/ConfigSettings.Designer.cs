@@ -74,13 +74,15 @@
             this.ck_showNetworkTraffic = new System.Windows.Forms.CheckBox();
             this.cb_connectionState = new System.Windows.Forms.CheckBox();
             this.asdf = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.bpb_strobeLights = new EurofighterCockpit.BetterProgressBar();
             this.bpb_landingLights = new EurofighterCockpit.BetterProgressBar();
             this.bpb_positionLights = new EurofighterCockpit.BetterProgressBar();
             this.bpb_gear = new EurofighterCockpit.BetterProgressBar();
             this.bpb_rudderReset = new EurofighterCockpit.BetterProgressBar();
             this.bpb_rudderL = new EurofighterCockpit.BetterProgressBar();
             this.bpb_rudderR = new EurofighterCockpit.BetterProgressBar();
-            this.bpb_trigger = new EurofighterCockpit.BetterProgressBar();
             this.bpb_sound = new EurofighterCockpit.BetterProgressBar();
             this.bpb_airbrakeBool = new EurofighterCockpit.BetterProgressBar();
             this.bpb_airbrake = new EurofighterCockpit.BetterProgressBar();
@@ -91,6 +93,7 @@
             this.bpb_joystickXneg = new EurofighterCockpit.BetterProgressBar();
             this.bpb_joystickYpos = new EurofighterCockpit.BetterProgressBar();
             this.bpb_joystickYneg = new EurofighterCockpit.BetterProgressBar();
+            this.bpb_trigger = new EurofighterCockpit.BetterProgressBar();
             this.tableLayoutPanel8.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -366,6 +369,9 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Gray;
+            this.panel2.Controls.Add(this.label27);
+            this.panel2.Controls.Add(this.bpb_strobeLights);
+            this.panel2.Controls.Add(this.label26);
             this.panel2.Controls.Add(this.label25);
             this.panel2.Controls.Add(this.label24);
             this.panel2.Controls.Add(this.bpb_landingLights);
@@ -380,8 +386,6 @@
             this.panel2.Controls.Add(this.label19);
             this.panel2.Controls.Add(this.bpb_rudderR);
             this.panel2.Controls.Add(this.label18);
-            this.panel2.Controls.Add(this.label17);
-            this.panel2.Controls.Add(this.bpb_trigger);
             this.panel2.Controls.Add(this.bpb_sound);
             this.panel2.Controls.Add(this.bpb_airbrakeBool);
             this.panel2.Controls.Add(this.label16);
@@ -400,35 +404,35 @@
             // label25
             // 
             this.label25.BackColor = System.Drawing.Color.Transparent;
-            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(305, 149);
+            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.label25.Location = new System.Drawing.Point(282, 159);
             this.label25.Margin = new System.Windows.Forms.Padding(1);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(42, 24);
+            this.label25.Size = new System.Drawing.Size(46, 24);
             this.label25.TabIndex = 59;
-            this.label25.Text = "LED2";
+            this.label25.Text = "Landing";
             this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label24
             // 
             this.label24.BackColor = System.Drawing.Color.Transparent;
-            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(258, 149);
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.label24.Location = new System.Drawing.Point(283, 215);
             this.label24.Margin = new System.Windows.Forms.Padding(1);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(42, 24);
+            this.label24.Size = new System.Drawing.Size(45, 24);
             this.label24.TabIndex = 58;
-            this.label24.Text = "LED1";
+            this.label24.Text = "Position";
             this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label23
             // 
             this.label23.BackColor = System.Drawing.Color.Transparent;
             this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(213, 149);
+            this.label23.Location = new System.Drawing.Point(216, 214);
             this.label23.Margin = new System.Windows.Forms.Padding(1);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(39, 24);
+            this.label23.Size = new System.Drawing.Size(54, 24);
             this.label23.TabIndex = 55;
             this.label23.Text = "Gear";
             this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -476,10 +480,10 @@
             // 
             this.label18.BackColor = System.Drawing.Color.Transparent;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(287, 215);
+            this.label18.Location = new System.Drawing.Point(216, 149);
             this.label18.Margin = new System.Windows.Forms.Padding(1);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(55, 24);
+            this.label18.Size = new System.Drawing.Size(54, 24);
             this.label18.TabIndex = 47;
             this.label18.Text = "Sound";
             this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -488,7 +492,7 @@
             // 
             this.label17.BackColor = System.Drawing.Color.Transparent;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(216, 215);
+            this.label17.Location = new System.Drawing.Point(12, 120);
             this.label17.Margin = new System.Windows.Forms.Padding(1);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(55, 24);
@@ -500,10 +504,10 @@
             // 
             this.label16.BackColor = System.Drawing.Color.Transparent;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(359, 55);
+            this.label16.Location = new System.Drawing.Point(394, 55);
             this.label16.Margin = new System.Windows.Forms.Padding(1);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(88, 26);
+            this.label16.Size = new System.Drawing.Size(70, 26);
             this.label16.TabIndex = 42;
             this.label16.Text = "Airbrake";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -512,10 +516,10 @@
             // 
             this.label15.BackColor = System.Drawing.Color.Transparent;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(462, 55);
+            this.label15.Location = new System.Drawing.Point(480, 55);
             this.label15.Margin = new System.Windows.Forms.Padding(1);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(88, 26);
+            this.label15.Size = new System.Drawing.Size(70, 26);
             this.label15.TabIndex = 40;
             this.label15.Text = "Throttle";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -546,6 +550,7 @@
             // 
             // panel6
             // 
+            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel6.Controls.Add(this.label8);
             this.panel6.Controls.Add(this.label7);
             this.panel6.Controls.Add(this.bpb_joystickTorque);
@@ -554,6 +559,8 @@
             this.panel6.Controls.Add(this.bpb_joystickXneg);
             this.panel6.Controls.Add(this.bpb_joystickYpos);
             this.panel6.Controls.Add(this.bpb_joystickYneg);
+            this.panel6.Controls.Add(this.bpb_trigger);
+            this.panel6.Controls.Add(this.label17);
             this.panel6.Location = new System.Drawing.Point(13, 85);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(187, 187);
@@ -621,7 +628,7 @@
             this.tb_logs.Name = "tb_logs";
             this.tb_logs.ReadOnly = true;
             this.tb_logs.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tb_logs.Size = new System.Drawing.Size(633, 309);
+            this.tb_logs.Size = new System.Drawing.Size(633, 308);
             this.tb_logs.TabIndex = 29;
             // 
             // label1
@@ -707,17 +714,54 @@
             this.asdf.Text = "Eurofighter";
             this.asdf.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // label26
+            // 
+            this.label26.BackColor = System.Drawing.Color.Transparent;
+            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.Location = new System.Drawing.Point(286, 143);
+            this.label26.Margin = new System.Windows.Forms.Padding(8);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(92, 26);
+            this.label26.TabIndex = 60;
+            this.label26.Text = "Lights";
+            this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label27
+            // 
+            this.label27.BackColor = System.Drawing.Color.Transparent;
+            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.label27.Location = new System.Drawing.Point(336, 215);
+            this.label27.Margin = new System.Windows.Forms.Padding(1);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(46, 24);
+            this.label27.TabIndex = 62;
+            this.label27.Text = "Strobe";
+            this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // bpb_strobeLights
+            // 
+            this.bpb_strobeLights.BackColor = System.Drawing.Color.White;
+            this.bpb_strobeLights.ColorProg = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(32)))), ((int)(((byte)(91)))));
+            this.bpb_strobeLights.Direction = EurofighterCockpit.Direction.bottomToTop;
+            this.bpb_strobeLights.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.bpb_strobeLights.Location = new System.Drawing.Point(340, 241);
+            this.bpb_strobeLights.Margin = new System.Windows.Forms.Padding(8);
+            this.bpb_strobeLights.Name = "bpb_strobeLights";
+            this.bpb_strobeLights.Progress = 0;
+            this.bpb_strobeLights.Size = new System.Drawing.Size(38, 31);
+            this.bpb_strobeLights.TabIndex = 61;
+            // 
             // bpb_landingLights
             // 
             this.bpb_landingLights.BackColor = System.Drawing.Color.White;
             this.bpb_landingLights.ColorProg = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(32)))), ((int)(((byte)(91)))));
             this.bpb_landingLights.Direction = EurofighterCockpit.Direction.bottomToTop;
             this.bpb_landingLights.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.bpb_landingLights.Location = new System.Drawing.Point(311, 175);
+            this.bpb_landingLights.Location = new System.Drawing.Point(286, 185);
             this.bpb_landingLights.Margin = new System.Windows.Forms.Padding(8);
             this.bpb_landingLights.Name = "bpb_landingLights";
             this.bpb_landingLights.Progress = 0;
-            this.bpb_landingLights.Size = new System.Drawing.Size(31, 31);
+            this.bpb_landingLights.Size = new System.Drawing.Size(38, 31);
             this.bpb_landingLights.TabIndex = 57;
             // 
             // bpb_positionLights
@@ -726,11 +770,11 @@
             this.bpb_positionLights.ColorProg = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(32)))), ((int)(((byte)(91)))));
             this.bpb_positionLights.Direction = EurofighterCockpit.Direction.bottomToTop;
             this.bpb_positionLights.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.bpb_positionLights.Location = new System.Drawing.Point(264, 175);
+            this.bpb_positionLights.Location = new System.Drawing.Point(286, 241);
             this.bpb_positionLights.Margin = new System.Windows.Forms.Padding(8);
             this.bpb_positionLights.Name = "bpb_positionLights";
             this.bpb_positionLights.Progress = 0;
-            this.bpb_positionLights.Size = new System.Drawing.Size(31, 31);
+            this.bpb_positionLights.Size = new System.Drawing.Size(38, 31);
             this.bpb_positionLights.TabIndex = 56;
             // 
             // bpb_gear
@@ -739,11 +783,11 @@
             this.bpb_gear.ColorProg = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(32)))), ((int)(((byte)(91)))));
             this.bpb_gear.Direction = EurofighterCockpit.Direction.bottomToTop;
             this.bpb_gear.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.bpb_gear.Location = new System.Drawing.Point(217, 175);
+            this.bpb_gear.Location = new System.Drawing.Point(216, 241);
             this.bpb_gear.Margin = new System.Windows.Forms.Padding(8);
             this.bpb_gear.Name = "bpb_gear";
             this.bpb_gear.Progress = 0;
-            this.bpb_gear.Size = new System.Drawing.Size(31, 31);
+            this.bpb_gear.Size = new System.Drawing.Size(54, 31);
             this.bpb_gear.TabIndex = 54;
             // 
             // bpb_rudderReset
@@ -785,30 +829,17 @@
             this.bpb_rudderR.Size = new System.Drawing.Size(31, 31);
             this.bpb_rudderR.TabIndex = 48;
             // 
-            // bpb_trigger
-            // 
-            this.bpb_trigger.BackColor = System.Drawing.Color.White;
-            this.bpb_trigger.ColorProg = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(32)))), ((int)(((byte)(91)))));
-            this.bpb_trigger.Direction = EurofighterCockpit.Direction.bottomToTop;
-            this.bpb_trigger.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.bpb_trigger.Location = new System.Drawing.Point(217, 241);
-            this.bpb_trigger.Margin = new System.Windows.Forms.Padding(8);
-            this.bpb_trigger.Name = "bpb_trigger";
-            this.bpb_trigger.Progress = 0;
-            this.bpb_trigger.Size = new System.Drawing.Size(54, 31);
-            this.bpb_trigger.TabIndex = 45;
-            // 
             // bpb_sound
             // 
             this.bpb_sound.BackColor = System.Drawing.Color.White;
             this.bpb_sound.ColorProg = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(32)))), ((int)(((byte)(91)))));
             this.bpb_sound.Direction = EurofighterCockpit.Direction.bottomToTop;
             this.bpb_sound.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.bpb_sound.Location = new System.Drawing.Point(287, 241);
+            this.bpb_sound.Location = new System.Drawing.Point(216, 175);
             this.bpb_sound.Margin = new System.Windows.Forms.Padding(8);
             this.bpb_sound.Name = "bpb_sound";
             this.bpb_sound.Progress = 0;
-            this.bpb_sound.Size = new System.Drawing.Size(55, 31);
+            this.bpb_sound.Size = new System.Drawing.Size(54, 31);
             this.bpb_sound.TabIndex = 44;
             // 
             // bpb_airbrakeBool
@@ -817,11 +848,11 @@
             this.bpb_airbrakeBool.ColorProg = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(32)))), ((int)(((byte)(91)))));
             this.bpb_airbrakeBool.Direction = EurofighterCockpit.Direction.bottomToTop;
             this.bpb_airbrakeBool.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.bpb_airbrakeBool.Location = new System.Drawing.Point(358, 241);
+            this.bpb_airbrakeBool.Location = new System.Drawing.Point(394, 241);
             this.bpb_airbrakeBool.Margin = new System.Windows.Forms.Padding(8);
             this.bpb_airbrakeBool.Name = "bpb_airbrakeBool";
             this.bpb_airbrakeBool.Progress = 0;
-            this.bpb_airbrakeBool.Size = new System.Drawing.Size(88, 31);
+            this.bpb_airbrakeBool.Size = new System.Drawing.Size(70, 30);
             this.bpb_airbrakeBool.TabIndex = 43;
             // 
             // bpb_airbrake
@@ -830,11 +861,11 @@
             this.bpb_airbrake.ColorProg = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(32)))), ((int)(((byte)(91)))));
             this.bpb_airbrake.Direction = EurofighterCockpit.Direction.bottomToTop;
             this.bpb_airbrake.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.bpb_airbrake.Location = new System.Drawing.Point(358, 85);
+            this.bpb_airbrake.Location = new System.Drawing.Point(394, 85);
             this.bpb_airbrake.Margin = new System.Windows.Forms.Padding(8);
             this.bpb_airbrake.Name = "bpb_airbrake";
             this.bpb_airbrake.Progress = 0;
-            this.bpb_airbrake.Size = new System.Drawing.Size(88, 150);
+            this.bpb_airbrake.Size = new System.Drawing.Size(70, 150);
             this.bpb_airbrake.TabIndex = 41;
             // 
             // bpb_throttle
@@ -843,11 +874,11 @@
             this.bpb_throttle.ColorProg = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(32)))), ((int)(((byte)(91)))));
             this.bpb_throttle.Direction = EurofighterCockpit.Direction.bottomToTop;
             this.bpb_throttle.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.bpb_throttle.Location = new System.Drawing.Point(462, 85);
+            this.bpb_throttle.Location = new System.Drawing.Point(480, 85);
             this.bpb_throttle.Margin = new System.Windows.Forms.Padding(8);
             this.bpb_throttle.Name = "bpb_throttle";
             this.bpb_throttle.Progress = 0;
-            this.bpb_throttle.Size = new System.Drawing.Size(88, 187);
+            this.bpb_throttle.Size = new System.Drawing.Size(70, 187);
             this.bpb_throttle.TabIndex = 33;
             // 
             // bpb_joystickTorque
@@ -927,6 +958,19 @@
             this.bpb_joystickYneg.Progress = 0;
             this.bpb_joystickYneg.Size = new System.Drawing.Size(27, 80);
             this.bpb_joystickYneg.TabIndex = 35;
+            // 
+            // bpb_trigger
+            // 
+            this.bpb_trigger.BackColor = System.Drawing.Color.White;
+            this.bpb_trigger.ColorProg = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(32)))), ((int)(((byte)(91)))));
+            this.bpb_trigger.Direction = EurofighterCockpit.Direction.bottomToTop;
+            this.bpb_trigger.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.bpb_trigger.Location = new System.Drawing.Point(24, 146);
+            this.bpb_trigger.Margin = new System.Windows.Forms.Padding(8);
+            this.bpb_trigger.Name = "bpb_trigger";
+            this.bpb_trigger.Progress = 0;
+            this.bpb_trigger.Size = new System.Drawing.Size(31, 31);
+            this.bpb_trigger.TabIndex = 45;
             // 
             // ConfigSettings
             // 
@@ -1027,5 +1071,8 @@
         private BetterProgressBar bpb_positionLights;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label27;
+        private BetterProgressBar bpb_strobeLights;
     }
 }

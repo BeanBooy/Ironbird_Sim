@@ -100,7 +100,8 @@ namespace EurofighterCockpit
                     data.Sound = stateThrottle.Buttons[19];
                     data.LandingGear = stateThrottle.Buttons[16];
                     data.PositionalLights = stateThrottle.Buttons[23];
-                    data.LandingLights = stateThrottle.Buttons[24];
+                    data.StrobeLights = stateThrottle.Buttons[24];
+                    data.LandingLights = stateThrottle.Buttons[15];
                 }
             }
             catch (SharpDXException ex) {
