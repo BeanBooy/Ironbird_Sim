@@ -21,7 +21,6 @@ namespace EurofighterCockpit
 
         private DeviceInstance getMatchingInputDevice(string filter) {
             // loop over all devices to find joystick and throttle
-            DirectInput directInput = new DirectInput();
             foreach (var deviceInstance in directInput.GetDevices(DeviceType.Joystick, DeviceEnumerationFlags.AllDevices)) {
                 if (deviceInstance.ProductName.Contains(filter))
                     return deviceInstance;
