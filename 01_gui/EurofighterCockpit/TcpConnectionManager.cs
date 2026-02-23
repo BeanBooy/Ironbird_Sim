@@ -109,7 +109,7 @@ namespace EurofighterCockpit
             }
             // log to logBox
             if (logMessage)
-                logger.logToBox($"sent: {string.Join(", ", payload)}");
+                logger.logToBox($"sent: {string.Join(" ", payload.Select(b => Convert.ToString(b).PadLeft(3, ' ')))}");
         }
 
         private void handleDisconnect() {
