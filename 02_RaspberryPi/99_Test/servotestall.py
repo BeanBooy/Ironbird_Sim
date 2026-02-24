@@ -12,7 +12,7 @@ max_position = 180
 mid_position = int((max_position+min_position) / 2)
 
 positions = [min_position,mid_position,max_position]
-#channelsOccupied = [0,5,10,15] # can be deleted if you want to go through every channel (here only for testingpurpose)
+channelsOccupied = [0,1,2,7,8,9] # can be deleted if you want to go through every channel (here only for testingpurpose)
 
 # Zeitverzögerung zwischen den Schritten (in Sekunden)
 delay = 1
@@ -55,7 +55,7 @@ def test_allServos():
                         print(f"Servochannel {servo} | to angle {positions[angle]}".ljust(50), end="\r")
                         move_dServo(servo,positions[angle])
     test_dServo()
-    test_LGServo()
+    #test_LGServo()
 
 def idle_Servo():
      print("idling Servos...")
