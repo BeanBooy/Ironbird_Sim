@@ -2,69 +2,56 @@ import threading
 from concurrent.futures import ThreadPoolExecutor
 import time
 
-# -------------------------
-# Last-value buffer
-# -------------------------
+# small buffer to handle high frequency input
 class LastValueBuffer:
-    """Thread-safe buffer that always keeps the latest value (with timestamp)."""
-    __slots__ = ("_lock", "_value", "_ts")
+
+    __slots__ = ("lock", "value") # reserves memory for these attributes
 
     def __init__(self):
-        self._lock = threading.Lock()
-        self._value = None
-        self._ts = 0.0
+        self.lock = threading.Lock()
+        self.value = None
 
     def set(self, v):
-        with self._lock:
-            self._value = v
-            self._ts = time.time()
+        with self.lock:
+            self.value = v
 
     def get(self):
-        with self._lock:
-            return self._value, self._ts
+        with self.lock:
+            return self.value
 
     def swap(self):
-        """Atomically take the current value and clear it."""
-        with self._lock:
-            v, t = self._value, self._ts
-            self._value = None
-            self._ts = 0.0
-            return v, t
+        with self.lock:
+            v = self.value
+            self.value = None # clear the current value
+            return v
 
-# -------------------------
-# Deine vorhandenen Variablen (angepasst)
-# -------------------------
+# Variables for LG
 I2CLG = 0x41
 LG_IN = 0
 LG_OUT = 1
 
+# declared driver as None at beginning for errorhandling
 LGdriver = None
 oldstate = LG_IN
 
 executor = ThreadPoolExecutor(max_workers=1)
 stop_event = threading.Event()
 
-# Buffer für eingehende Requests (nur letzter Wert zählt)
+# Init bufferobject
 lg_request_buffer = LastValueBuffer()
 
-# Beispiel: servodriver initialisiert du wie gehabt
+# Only for testing. would be in main
 from adafruit_servokit import ServoKit
 servodriver = ServoKit(channels=16, address=0x40, frequency=333)
 
-# -------------------------
-# safe_sleep wie gehabt
-# -------------------------
+# safe sleep to exit threads faster
 def safe_sleep(seconds):
     for i in range(seconds*50):
         if stop_event.is_set():
             return
         time.sleep(0.02)
 
-    #stop_event.wait(timeout=seconds)
-
-# -------------------------
-# LG Sequencer (unverändert, nur Name angepasst)
-# -------------------------
+# Servosequence itself
 def LGCD_Sequence(state, CDchannel, CDdriver=servodriver):
     global LGdriver
     if CDchannel is None:
@@ -101,62 +88,45 @@ def LGCD_Sequence(state, CDchannel, CDdriver=servodriver):
     except Exception as e:
         print("Error with controlling LG:", e)
 
-# -------------------------
-# Manager-Thread: liest Buffer und startet Sequenzen nur für den letzten Wert
-# -------------------------
+# Threadmanager
 def lg_manager_thread(CDchannel=None, CDdriver=servodriver):
-    """
-    Läuft im Hintergrund:
-    - wartet auf einen neuen Wunsch im Buffer
-    - startet die Sequenz (über executor) und wartet auf deren Ende
-    - nach Ende liest er erneut den Buffer (swap) und startet ggf. die nächste Sequenz
-    """
+
     global oldstate
     while not stop_event.is_set():
-        # Warte aktiv auf eine neue Anforderung (polling mit kurzem Sleep)
-        val, ts = lg_request_buffer.get()
+        # Wait for new arguments
+        val = lg_request_buffer.get()
         if val is None:
-            # kein Request vorhanden -> kurz schlafen
-            time.sleep(0.05)
+            # if None, no argument got passed
+            time.sleep(0.05) # we dont need safes_sleep here for such short pauses
             continue
 
-        # Nimm die aktuellste Anforderung atomar (clear)
-        desired, _ = lg_request_buffer.swap()
+        # Only take the last/current argument
+        desired = lg_request_buffer.swap()
         if desired is None:
             continue
 
-        # Wenn Wunsch gleich aktuellem Zustand, überspringen
+        # check for difference in new and past state
         if desired == oldstate:
-            # setze oldstate trotzdem, falls None etc.
             oldstate = desired
             continue
 
-        # Wenn Executor bereits eine Aufgabe hat, warten bis sie fertig (max_workers=1 sorgt dafür)
-        # Wir submitten die Sequenz und warten auf deren Ende, danach prüfen wir erneut den Buffer.
+        # Wait for the executor to finish
         future = executor.submit(LGCD_Sequence, desired, CDchannel, CDdriver)
         try:
-            # blockierend warten, aber mit Timeout, damit stop_event geprüft werden kann
+            # block new threads but wait for timeout
             while not future.done():
                 if stop_event.wait(timeout=0.1):
                     break
-            # nach Ende: update oldstate
+            # after thread is finished: update oldstate
             oldstate = desired
         except Exception as e:
-            print("Error in manager waiting for future:", e)
+            print("Error in manager waiting for current thread to exit:", e)
 
-# -------------------------
-# API: statt direkt submitten -> setze Buffer
-# -------------------------
+# Set Buffer
 def request_lg(state):
-    """
-    Aufrufe aus TCP/GUI/Joystick sollten request_lg(state) verwenden.
-    Das schreibt nur den letzten Wunsch in den Buffer.
-    """
     lg_request_buffer.set(state)
 
-# -------------------------
-# Start/Stop Hilfsfunktionen
-# -------------------------
+# Threadhandling
 def start_manager(CDchannel=None, CDdriver=servodriver):
     t = threading.Thread(target=lg_manager_thread, args=(CDchannel, CDdriver), daemon=True)
     t.start()
@@ -165,25 +135,3 @@ def start_manager(CDchannel=None, CDdriver=servodriver):
 def shutdown():
     stop_event.set()
     executor.shutdown(wait=True)
-
-# -------------------------
-# Beispiel: initialisieren
-# -------------------------
-if __name__ == "__main__":
-    # Manager starten (z.B. mit default CDchannel)
-    manager_thread = start_manager(CDchannel=[0,1,2], CDdriver=servodriver)
-
-    # Beispiel: mehrere schnelle Requests
-    request_lg(LG_OUT)
-    time.sleep(0.1)
-    request_lg(LG_IN)
-    time.sleep(0.1)
-    request_lg(LG_OUT)
-    # nur der letzte Wert bleibt im Buffer; der Manager startet nacheinander Sequenzen,
-    # aber immer nur für den jeweils aktuellsten Wunsch nach Abschluss der laufenden Sequenz.
-
-    try:
-        while True:
-            time.sleep(0.5)
-    except KeyboardInterrupt:
-        shutdown()

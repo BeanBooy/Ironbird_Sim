@@ -1,265 +1,216 @@
-#------------------------------------------------*
-# Autor: Noah Gerstlauer                          |
-# Department: THGM-TL1                            |
-# Email: Noah.Gerstlauer@airbus.com               |
-# Date: 2023-09                                   |
-#------------------------------------------------*/
-
+#!/usr/bin/env python3
 import sys
 import signal
 import socket
-import argparse
+import threading
+import time
+import LGCDdriver
+from LGCDdriver import LG_IN, LG_OUT, safe_sleep, stop_event
 from adafruit_servokit import ServoKit
-from time import sleep
 
-
-# Adresse des Servo Treibers
+# I2C Adresses
 I2CSERVO = 0x40
-I2CLED = 0x41
+I2CLG = 0x41
 
-# TCP Port
+current_thread = None
+current_event = None
+
+delay = 6 # Delay in seconds for LG-Sequence
+lg_lock = threading.Lock()
+# TCP-Port
 PORT_CONST = 4443
+MODE = 0 # Idle as default
 
-# Konstanten fuer die Indexe der empfangenden Daten
-MODE = 0
+# signal 1 - 3 reserved for Cabindoor
 LC = 1  # Left Canards
 RC = 2  # Right Canards
-LS = 3  # Left Slats (Vorflügel)
-RS = 4  # Right Slats
-LO = 5  # Left Aileron (Outboard, Querruder)
-RO = 6  # Right Aileron
-LI = 7  # Left Inboard (Querruder innen)
-RI = 8  # Right Inboard
-#LE = 9  # Left Engine	# Engine entfällt da im aktuellen Modell keine Engine-Servos
-#RE = 10 # Right Engine
-AB = 11 # Airbrakes
-FI = 12	# Flaps Inboard	
-LED = 13
-LED_LE = 14 # LED Left Engine (dynamisch) .  ACHTUNG: Wird nicht verwendet, da Triebwerksbeleuchtung über RE
-LED_RE = 15 # LED Right Engine (dynamisch) . ACHTUNG: Wird nicht verwendet, da Triebwerksbeleuchtung über RE
-LDP_H = 16 # LDP Servo Horizontal
-LDP_V = 17 # LDP vertikal
-LDP_L = 18 # LDP Laserpointer
+LO = 3  # Left Aileron (Outboard, Querruder)
+RO = 4  # Right Aileron
+LF = 5	# Flaps Inboard
+RF = 6 # Flaps Outboard
+AB = 7 # Airbrakes
+LG = 8 # Landing Gear
 
-
-# Pulslaengen fuer die Servos
-pulselenLC = 0
-pulselenRC = 0
-pulselenLS = 0
-pulselenRS = 0
-pulselenAB = 0
-pulselenFI = 0
-pulselenLO = 0
-pulselenLI = 0
-pulselenRI = 0
-pulselenRO = 0
-#pulselenLE = 0
-#pulselenRE = 0
-pulselenLED_ENGINE = 0
-pulselenLDP_V = 0
-pulselenLDP_H = 0
-pulselenLDP_L = 0
+# Defaultangles
+angleLC = 128
+angleRC = 128
+angleLO = 128
+angleRO = 128
+angleAB = 128
+angleLF = 128
+angleRF = 128
+fractionLG = LG_IN
 
 try:
-    # Initialisierung des Netzwerksockets
-    HOST = '' # '' represents INADDR_ANY, which is used to bind to all interfaces -> We are the Server, we deliver
+    # initialize socket
+    HOST = '' # We are the Server
     PORT = PORT_CONST
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
     server_socket.bind((HOST, PORT))
-    server_socket.listen(5) # 5 equals to 5 connection-tests. aftwerwards the server refuses to connect
-    print(f"Server lauscht auf {HOST}:{PORT}")
-
+    server_socket.listen(5)
+    print(f"Server waits for {HOST}:{PORT}")
 except Exception as e:
-    print(f"Server konnte nicht gestartet werden: {e}")
-    exit(1)
+    print(f"Server could not be started: {e}")
+    sys.exit(1)
 
+# init ServoKitobjects
 try:
-    # Initialisierung des ServoKit-Objekts fuer die Servos TODO: Adresse anpassen
-    servodriver = ServoKit(channels=16, address=I2CSERVO)
-    # Declare frequenzy for PWM-signals (Only use for digital Servos except Landing Gear!!!!)
-    servodriver._pca.frequency = 333
-
+    # NOTE Frequency only 333Hz for digital servos! Read your servo-datasheet to avoid damage
+    servodriver = ServoKit(channels=16, address=I2CSERVO, frequency=333)
 except Exception as e:
-    print(f"(SERVO) ServoKit konnte nicht initialisiert werden: {e}")
+    print(f"(SERVO) ServoKit could not be initialized: {e}")
+    servodriver = None
 
+# init LGdriver and start thread-manager
 try:
-    #Initialisierung des ServoKit-Objekts fuer die LEDs TODO: Adresse anpassen
-    leddriver = ServoKit(channels=16, address=I2CLED)
-
+    LGdriver = ServoKit(channels=16, address=0x41,frequency=30)
+    LGCDdriver.start_manager(CDchannel=[0,1,2], CDdriver=servodriver)
 except Exception as e:
-    print(f"(LED) ServoKit konnte nicht initialisiert werden: {e}")
+    print(f"(LG) Error starting LG-Managers: {e}")
 
+def setpulsewidth():
+    # for digital servos here but the values are default for many other servos
+    for channel in range(16):
+        try:
+            servodriver.servo[channel].set_pulse_width_range(1000,2000)
+        except Exception:
+            pass
+# We receive 8 bytes (0 - 256) for each servo, except LG
+def signaltoangle(signal_byte):
+    return int(signal_byte * 0.703125)
 
-# Servos in die vorgegebene Position fahren
 def PWMsetServo_EF():
     try:
-        servodriver.servo[0].angle = pulselenLC
-        servodriver.servo[1].angle = pulselenRC
-        servodriver.servo[2].angle = pulselenLS
-        servodriver.servo[3].angle = pulselenRS
-        servodriver.servo[4].angle = pulselenAB
-        servodriver.servo[5].angle = pulselenFI
-        servodriver.servo[6].angle = pulselenLO
-        servodriver.servo[7].angle = pulselenLI
-        servodriver.servo[8].angle = pulselenRI
-        servodriver.servo[9].angle = pulselenRO
-        #servodriver.servo[10].angle = pulselenLE
-        #servodriver.servo[11].angle = pulselenRE
-        
-        servodriver.servo[12].angle = pulselenLED_ENGINE # Triebwerksbeleuchtung (beide an Port 12)
-        servodriver.servo[13].angle = pulselenLDP_L # Laserpointer
-
-        servodriver.servo[14].angle = pulselenLDP_H # Horizontal
-        servodriver.servo[15].angle = pulselenLDP_V # Vertikal
-
+        # channel 0 - 2 reserved for cabindoors
+        servodriver.servo[3].angle = signaltoangle(angleLC)
+        servodriver.servo[4].angle = signaltoangle(angleRC)
+        servodriver.servo[5].angle = signaltoangle(angleLO)
+        servodriver.servo[6].angle = signaltoangle(angleRO)
+        servodriver.servo[7].angle = signaltoangle(angleAB)
+        servodriver.servo[8].angle = signaltoangle(angleLF)
+        servodriver.servo[9].angle = signaltoangle(angleRF)
+        servodriver.servo[10].angle = 90
+        servodriver.servo[11].angle = 90
+        servodriver.servo[12].angle = 90
+        servodriver.servo[13].angle = 90
+        servodriver.servo[14].angle = 90
+        servodriver.servo[15].angle = 90
     except Exception as e:
-        print(f"(EF) Fehler beim Ansteuern der Servos: {e}")
+        print(f"(EF) Error controlling servos: {e}")
 
 
-def RuheModus():
+def IdleMode():
     try:
-        for numservo in range(servodriver._channels):
-            servodriver.servo[numservo].angle = 0
-        # servodriver.servo[0].angle = 0
-        # servodriver.servo[1].angle = 0
-        # servodriver.servo[2].angle = 0
-        # servodriver.servo[3].angle = 0
-        # servodriver.servo[4].angle = 0
-        # servodriver.servo[5].angle = 0
-        # servodriver.servo[6].angle = 0
-        # servodriver.servo[7].angle = 0
-        # servodriver.servo[8].angle = 0
-        # servodriver.servo[9].angle = 0
-        # servodriver.servo[10].angle = 0
-        # servodriver.servo[11].angle = 0
-        # servodriver.servo[12].angle = 0
-        # servodriver.servo[13].angle = 0
-        # servodriver.servo[14].angle = 0
-        # servodriver.servo[15].angle = 0
+        for numservo in range(3,16):
+            servodriver.servo[numservo].angle = 90
+        # set LG to idle (LG_IN)
+        LGCDdriver.request_lg(LG_IN)
+        safe_sleep(delay)
+        for numservo in range(3):
+            servodriver.servo[numservo].angle = 90
+        # Detach all servos to avoid longtime-damage
+        for numservo in range(16):
+            try:
+                servodriver.servo[numservo].angle = None
+            except Exception:
+                pass
+        LGCDdriver.request_lg(None)
+        safe_sleep(delay)
     except Exception as e:
-        print(f"Fehler beim Ansteuern der Servos: {e}")
-
-
-# Ansteuern der LEDs mithilfe von PWM Signalen, NOTE: 180 ist 100%
-def PWMsetLEDs():
-    try:  
-        # Triebwerksbeleuchtung
-        #LE_LED = map(receivedData[LE], 135, 104, 0, 4096)
-        #leddriver.servo[0].angle = (LE_LED + (4096 // 16) * 16) % 4096
-
-        #RE_LED = map(receivedData[RE], 127, 103, 0, 4096)
-        #leddriver.servo[0].angle = (RE_LED + (4096 // 16) * 16) % 4096
-
-        # Cockpit
-        leddriver.servo[5].angle = 180
-
-        # Achtung: Werte uebernommen von vorheriger Software:
-        led = receivedData[LED]
-        for i in range(0, 10):
-            leddriver.servo[i].angle = 0
-
-        if led == 0:  # Alles aus
-            pass
-        elif led == 1:  # Laserwarner
-            leddriver.servo[1].angle = 180
-        elif led == 2:  # Missilewarner
-            leddriver.servo[2].angle = 180
-        elif led == 3:  # Radarwarner
-            leddriver.servo[3].angle = 180
-        elif led == 4:  # ESM/ECM
-            leddriver.servo[4].angle = 180
-        elif led == 5:  # FLIR
-            leddriver.servo[6].angle = 180
-        elif led == 6:
-            leddriver.servo[7].angle = 180
-    except Exception as e:
-        print(f"Fehler beim Ansteuern der LEDs: {e}")
-
+        print(f"FError controlling servos: {e}")
 
 def ServoTest():
-    for cylce in range(2):
-        for angle in range(0, 170):
-            for servoNum in range(0, 16):
-                servodriver.servo[servoNum].angle = angle
-                sleep(0.001)
-        RuheModus()
+    # NOTE need to be reimplemented
+    while receivedData[MODE] == 3:
+        for cylce in range(2):
+            for angle in range(0, 180):
+                for servoNum in range(0, 16):
+                    servodriver.servo[servoNum].angle = angle
+                    safe_sleep(0.5)
+            LGCDdriver.request_lg(LG_OUT)
+        IdleMode()
 
-
-# Bereinigt Sockets und beendet Programm
-def handle_exit(signum, frame):
-    print("Beenden...")
-    if 'client_socket' in globals() and client_socket is not None:
-        client_socket.close()
-    if 'server_socket' in globals() and server_socket is not None:
-        server_socket.close()
+def handle_exit(signum, frame): # signum, frame needed to call via signal.signal
+    print("Exiting. Please wait", end="\r")
+    IdleMode()
+    stop_event.set() # set the thread-flag to stop starting new threads
+    # close TCP-PORT
+    try:
+        if 'client_socket' in globals() and client_socket is not None:
+            client_socket.close()
+    except Exception:
+        pass
+    try:
+        if 'server_socket' in globals() and server_socket is not None:
+            server_socket.close()
+    except Exception:
+        pass
+    try:
+        # stop remaining threads
+        LGCDdriver.shutdown()
+    except Exception:
+        pass
+    print("Disconnected successfully".ljust(50))
     sys.exit(0)
 
-#-------------------------------------------------------------------------------------------------------------------
-# Main Loop
-
-signal.signal(signal.SIGINT, handle_exit) # Signalhandler fuer STRG+C (Software korrekt beenden)
-
-
-
-while True:
+# handle exit for Keyboardinterrupt-event
+signal.signal(signal.SIGINT, handle_exit)
+#-------------------------------------------------------------------------------------------
+# Main server loop
+while not stop_event.is_set():
     try:
-        print("Warte auf Verbindung...")
-        client_socket, addr = server_socket.accept() #succsesfull connected to server
-        print(f"Verbindung von {addr} hergestellt")
+        print("Wait for Connection...")
+        client_socket, addr = server_socket.accept()
+        print(f"Connected to {addr} succesfull")
+    except Exception as e:
+        print(f"Connection cannot be established: {e}")
+        break
+
+    setpulsewidth()
+    try:
+        while True:
+            receivedData = client_socket.recv(16)
+            if not receivedData:
+                break
+
+            printData = ','.join(str(byte) for byte in receivedData)
+            print(f"Received data: {printData}")
+
+            angleLC = receivedData[LC]
+            angleRC = receivedData[RC]
+            angleLO = receivedData[LO]
+            angleRO = receivedData[RO]
+            angleAB = receivedData[AB]
+            angleLF = receivedData[LF]
+            angleRF = receivedData[RF]
+            fractionLG = receivedData[LG]
+
+            print(threading.active_count(), "threads")
+
+            if receivedData[MODE] == 0:
+                print("IdleMode")
+                IdleMode()
+
+            elif receivedData[MODE] == 1:
+                print("Remote-Mode")
+                # map fraction to LG state and request it (last-value buffer)
+                state = fractionLG
+                LGCDdriver.request_lg(state)
+                PWMsetServo_EF()
+
+            elif receivedData[MODE] == 3:
+                print("Servotest")
+                ServoTest()
+
+            else:
+                print("Received corrupted data")
+                IdleMode()
 
     except Exception as e:
-        print(f"Verbindung konnte nicht hergestellt werden: {e}")
-        exit(1)
-
-    while True:
-        receivedData = client_socket.recv(32)
-        if not receivedData:
-            break
-
-        printData = ','.join(str(byte) for byte in receivedData)
-        print(f"Empfangene Daten: {printData}")
-
-        # Empfangende Pulslaengen in Variablen speichern
-        pulselenLC = receivedData[LC]
-        pulselenRC = receivedData[RC]
-        pulselenLS = receivedData[LS]
-        pulselenRS = receivedData[RS]
-        pulselenAB = receivedData[AB]
-        pulselenFI = receivedData[FI]
-        pulselenLO = receivedData[LO]
-        pulselenLI = receivedData[LI]
-        pulselenRI = receivedData[RI]
-        pulselenRO = receivedData[RO]
-        #pulselenLE = receivedData[LE]
-        #pulselenRE = receivedData[RE]
-        pulselenLDP_H = receivedData[LDP_H]
-        pulselenLDP_V = receivedData[LDP_V]
-        pulselenLDP_L = receivedData[LDP_L]
-        #pulselenLED_ENGINE = receivedData[RE] # Triebwerksbeleuchtung bekommt selbe Pulslaenge wie Engine weil Right=Left
-
-
-
-        if receivedData[MODE] == 0: # Aus / RuheModus
-            print("RuheModus")
-            RuheModus()
-
-        # NOTE: Showmodus entfernt, da nicht mehr benoetigt
-        #        elif receivedData[MODE] == 1: # Showmodus, Servos fahren langsam in Position
-        #           print("Showmodus")
-        #           #PWMsetServo_EF_SLOW()
-        #           PWMsetLEDs()
-
-        elif receivedData[MODE] == 1:
-            print("LED-Steuerung")
-            PWMsetLEDs()
-        elif receivedData[MODE] == 2:  # RemoteModus, Servos fahren (schnell) in Position
-            print("RemoteModus")
-            PWMsetServo_EF()
-        elif receivedData[MODE] == 3:   # Servotest
-            print("Servotest")
-            ServoTest()
-        elif receivedData[MODE] > 3 or receivedData[MODE] < 0:
-            print("Fehlerhafte Daten empfangen")
-            RuheModus()
-
-    client_socket.close()
+        print(f"Connection error: {e}")
+    finally:
+        try:
+            client_socket.close()
+        except Exception:
+            pass
