@@ -59,6 +59,12 @@
     <Compile Include="BetterProgressBar.Designer.cs">
       <DependentUpon>BetterProgressBar.cs</DependentUpon>
     </Compile>
+    <Compile Include="BetterToggle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BetterToggle.Designer.cs">
+      <DependentUpon>BetterToggle.cs</DependentUpon>
+    </Compile>
     <Compile Include="ConfigSettings.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +110,9 @@
     </Compile>
     <EmbeddedResource Include="BetterProgressBar.resx">
       <DependentUpon>BetterProgressBar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BetterToggle.resx">
+      <DependentUpon>BetterToggle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ConfigSettings.resx">
       <DependentUpon>ConfigSettings.cs</DependentUpon>

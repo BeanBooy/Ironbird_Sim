@@ -17,8 +17,9 @@ namespace EurofighterCockpit
     public partial class ConfigSettings : Form
     {
         // colors
-        public readonly Color colRed = Color.FromName("Crimson");
-        public readonly Color colGreen = Color.FromArgb(40, 209, 43);
+        public readonly Color colGreen = Color.FromArgb(132, 189, 0);
+        public readonly Color colRed = Color.FromArgb(228, 0, 43);
+        public readonly Color colBlue = Color.FromArgb(0, 174, 199);
 
         // logger
         private readonly Logger logger = Logger.Instance;
@@ -65,7 +66,7 @@ namespace EurofighterCockpit
             set {
                 videoPath = value;
                 tb_videoFilePath.Text = value;
-                tb_videoFilePath.BackColor = File.Exists(value) ? Color.FromName("Control") : colRed;
+                cb_videoPathValid.BackColor = File.Exists(value) ? colGreen : colRed;
                 videoPlayer?.setSource(value);
             }
         }
@@ -86,12 +87,12 @@ namespace EurofighterCockpit
             }
 
             // launch windows    ######### TODO: move to LibVLCSharp instead of MediaPlayer
-            videoPlayer = launchWindow(ref videoPlayer, videoPlayerScreenIndex, btn_videoPlayer, vp => {
+            videoPlayer = launchWindow(ref videoPlayer, videoPlayerScreenIndex, bt_videoPlayer, vp => {
                 VideoPath = VideoPath == null ? defaultVideoPath : VideoPath;
                 vp.setSource(VideoPath);
             });
-            infotainment = launchWindow(ref infotainment, infotainmentScreenIndex, btn_infotainment);
-            infotainmentSub = launchWindow(ref infotainmentSub, infotainmentSubScreenIndex, btn_infotainmentSub, inf => inf.hidePanel());
+            infotainment = launchWindow(ref infotainment, infotainmentScreenIndex, bt_infotainment);
+            infotainmentSub = launchWindow(ref infotainmentSub, infotainmentSubScreenIndex, bt_infotainmentSub, inf => inf.hidePanel());
 
             populateScreenSelectors(tlp_videoPlayer, videoPlayer, screenCount);
             populateScreenSelectors(tlp_infotainment, infotainment, screenCount);
@@ -139,7 +140,7 @@ namespace EurofighterCockpit
             if (Enumerable.SequenceEqual(payload, prevPayload))
                 return;
             prevPayload = (byte[])payload.Clone();
-            tcpCon.sendAsync(payload, ck_showNetworkTraffic.Checked);
+            tcpCon.sendAsync(payload, bt_showNetworkTraffic.IsChecked);
         }
 
         private void updateServoDisplay(byte[] payload) {
@@ -199,14 +200,14 @@ namespace EurofighterCockpit
             };
         }
 
-        private T launchWindow<T>(ref T window, int screenIndex, Button toggleButton, Action<T> postInit = null) where T : Form, new() {
+        private T launchWindow<T>(ref T window, int screenIndex, BetterToggle toggleButton, Action<T> postInit = null) where T : Form, new() {
             if (window != null) return window;
             window = new T();
-            window.Load += (s, e) => toggleBtn(toggleButton, true);
+            window.Load += (s, e) => { toggleButton.IsChecked = true; };
             // capture window in local variable for safe closure
             Form localWindow = window;
             window.FormClosed += (s, e) => {
-                toggleBtn(toggleButton, false);
+                toggleButton.IsChecked = false;
                 // set the correct field to null
                 if (localWindow == videoPlayer) videoPlayer = null;
                 else if (localWindow == infotainment) infotainment = null;
@@ -219,11 +220,6 @@ namespace EurofighterCockpit
             return window;
         }
 
-        private void toggleBtn(Button btn, bool state) {
-            btn.BackColor = state ? colGreen : colRed;
-            btn.Text = state ? "ON" : "OFF";
-        }
-        
         private void toggleScreenIndicator() {
             if (ShowScreenIndicator) {
                 Array.ForEach(screenIndicators, obj => obj.Show());
@@ -251,7 +247,8 @@ namespace EurofighterCockpit
                 rb.Appearance = Appearance.Button;
                 rb.BackColor = Color.FromName("Control");
                 rb.FlatStyle = FlatStyle.Flat;
-                rb.FlatAppearance.CheckedBackColor = Color.Orange;
+                rb.FlatAppearance.CheckedBackColor = Color.FromArgb(0, 174, 199);
+                rb.FlatAppearance.BorderSize = 1;
                 rb.Click += new EventHandler(anyScreenSelector_Click);
                 // add radio button to parent and justify the width
                 tly.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100f / columns));
@@ -268,35 +265,29 @@ namespace EurofighterCockpit
         }
 
         #region event handler
-        private void screenIndicator_CheckedChanged(object sender, EventArgs e) {
-            ShowScreenIndicator = screenIndicator.Checked;
+        private void bt_showSceenIndicators_UserClick(object sender, EventArgs e) {
+            ShowScreenIndicator = bt_showSceenIndicators.IsChecked;
         }
 
-        private void anyWindowToggle_Click(object sender, EventArgs e) {
-            if (sender == btn_videoPlayer) {
-                if (videoPlayer == null) {
-                    videoPlayer = launchWindow(ref videoPlayer, videoPlayerScreenIndex, btn_videoPlayer, vp => vp.setSource(VideoPath));
-                }
-                else {
-                    videoPlayer.Close();
-                }
-            }
-            else if (sender == btn_infotainment) {
-                if (infotainment == null) {
-                    infotainment = launchWindow(ref infotainment, infotainmentScreenIndex, btn_infotainment);
-                }
-                else {
-                    infotainment.Close();
-                }
-            }
-            else if (sender == btn_infotainmentSub) {
-                if (infotainmentSub == null) {
-                    infotainmentSub = launchWindow(ref infotainmentSub, infotainmentSubScreenIndex, btn_infotainmentSub, inf => inf.hidePanel());
-                }
-                else {
-                    infotainmentSub.Close();
-                }
-            }
+        private void bt_videoPlayer_UserClick(object sender, EventArgs e) {
+            if (videoPlayer == null)
+                videoPlayer = launchWindow(ref videoPlayer, videoPlayerScreenIndex, bt_videoPlayer, vp => vp.setSource(VideoPath));
+            else
+                videoPlayer.Close();
+        }
+
+        private void bt_infotainment_UserClick(object sender, EventArgs e) {
+            if (infotainment == null)
+                infotainment = launchWindow(ref infotainment, infotainmentScreenIndex, bt_infotainment);
+            else
+                infotainment.Close();
+        }
+
+        private void bt_infotainmentSub_UserClick(object sender, EventArgs e) {
+            if (infotainmentSub == null)
+                infotainmentSub = launchWindow(ref infotainmentSub, infotainmentSubScreenIndex, bt_infotainmentSub, inf => inf.hidePanel());
+            else
+                infotainmentSub.Close();
         }
 
         private void anyScreenSelector_Click(object sender, EventArgs e) {
@@ -349,7 +340,7 @@ namespace EurofighterCockpit
                 Invoke(new Action(() => onConnectionStatusChanged(connected)));
                 return;
             }
-            cb_connectionState.Text = connected ? "Connected" : "Not Connected";
+            cb_connectionState.Text = connected ? "CONNECTED" : "NOT CONNECTED";
             cb_connectionState.BackColor = connected ? colGreen : colRed;
         }
 
@@ -384,5 +375,6 @@ namespace EurofighterCockpit
         private void sd_canardRight_ValueChanged(object sender, EventArgs e) {
 
         }
+
     }
 }
