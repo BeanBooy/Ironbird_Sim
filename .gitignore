@@ -12,6 +12,7 @@
 *.env
 *.venv/
 lg/
+*.Identifier
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
