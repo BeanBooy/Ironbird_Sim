@@ -80,6 +80,11 @@ def setpulsewidth():
 def signaltoangle(signal_byte):
     return int(signal_byte * 0.703125)
 
+# For inverted servos to behave normal. NOTE needs to be added manualy for each servochannel where an inverted servo is connected
+def signal_inverter(receivedDATA):
+    angle = (180 - receivedDATA)
+    return angle
+
 def PWMsetServo_EF():
     try:
         # channel 0 - 2 reserved for cabindoors
@@ -103,20 +108,17 @@ def PWMsetServo_EF():
 def IdleMode():
     try:
         for numservo in range(3,16):
-            servodriver.servo[numservo].angle = 90
+            if servodriver.servo[numservo].angle is not None:
+                servodriver.servo[numservo].angle = 90
         # set LG to idle (LG_IN)
-        LGCDdriver.request_lg(LG_IN)
-        safe_sleep(delay)
-        for numservo in range(3):
-            servodriver.servo[numservo].angle = 90
-        # Detach all servos to avoid longtime-damage
+        if servodriver.servo[0].angle is not None:
+            LGCDdriver.request_lg(LG_IN)
         for numservo in range(16):
             try:
                 servodriver.servo[numservo].angle = None
             except Exception:
                 pass
         LGCDdriver.request_lg(None)
-        safe_sleep(delay)
     except Exception as e:
         print(f"FError controlling servos: {e}")
 
@@ -184,7 +186,7 @@ while not stop_event.is_set():
             angleAB = receivedData[AB]
             angleLF = receivedData[LF]
             angleRF = receivedData[RF]
-            fractionLG = receivedData[LG]
+            fractionLG = receivedData[LG] # 0 is min, 1 max pulsewidth (LG dooesnt need in beteen)
 
             print(threading.active_count(), "threads")
 
@@ -214,3 +216,4 @@ while not stop_event.is_set():
             client_socket.close()
         except Exception:
             pass
+handle_exit(None,None)
