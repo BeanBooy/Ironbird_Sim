@@ -1,101 +1,189 @@
 import threading
-from adafruit_servokit import ServoKit
+from concurrent.futures import ThreadPoolExecutor
 import time
 
-I2CSERVO = 0x40
+# -------------------------
+# Last-value buffer
+# -------------------------
+class LastValueBuffer:
+    """Thread-safe buffer that always keeps the latest value (with timestamp)."""
+    __slots__ = ("_lock", "_value", "_ts")
+
+    def __init__(self):
+        self._lock = threading.Lock()
+        self._value = None
+        self._ts = 0.0
+
+    def set(self, v):
+        with self._lock:
+            self._value = v
+            self._ts = time.time()
+
+    def get(self):
+        with self._lock:
+            return self._value, self._ts
+
+    def swap(self):
+        """Atomically take the current value and clear it."""
+        with self._lock:
+            v, t = self._value, self._ts
+            self._value = None
+            self._ts = 0.0
+            return v, t
+
+# -------------------------
+# Deine vorhandenen Variablen (angepasst)
+# -------------------------
 I2CLG = 0x41
-
-LG_OUT = 1
 LG_IN = 0
+LG_OUT = 1
 
-delay = 6
+LGdriver = None
+oldstate = LG_IN
 
-stop_thread = threading.Event()
-lock = threading.Lock()
-lgcd_thread = None
-lgcd_event = None
-lgcd_state = LG_IN
-lgcd_channels = [0,1,2]
+executor = ThreadPoolExecutor(max_workers=1)
+stop_event = threading.Event()
 
-LGdriver = ServoKit(channels=16,address=I2CLG,frequency=30)
-servodriver = ServoKit(channels=16, address=I2CSERVO, frequency=333)
+# Buffer für eingehende Requests (nur letzter Wert zählt)
+lg_request_buffer = LastValueBuffer()
 
-def start_LGCD_thread(channels, state=LG_IN):
-    global lgcd_thread, lgcd_event, lgcd_state
+# Beispiel: servodriver initialisiert du wie gehabt
+from adafruit_servokit import ServoKit
+servodriver = ServoKit(channels=16, address=0x40, frequency=333)
 
-    # if input equals thread, return current thread
-    if lgcd_thread is not None and lgcd_thread.is_alive():
-        lgcd_event.state = state
-        return lgcd_thread
+# -------------------------
+# safe_sleep wie gehabt
+# -------------------------
+def safe_sleep(seconds):
+    for i in range(seconds*50):
+        if stop_event.is_set():
+            return
+        time.sleep(0.02)
 
-    # new input and no current thread, start new thread
-    lgcd_event = threading.Event()
-    lgcd_event.state = state
+    #stop_event.wait(timeout=seconds)
 
-    lgcd_thread = threading.Thread(target=LGCD_sequence, args=(lgcd_event, channels))
-    lgcd_thread.start()
+# -------------------------
+# LG Sequencer (unverändert, nur Name angepasst)
+# -------------------------
+def LGCD_Sequence(state, CDchannel, CDdriver=servodriver):
+    global LGdriver
+    if CDchannel is None:
+        CDchannel = [0,1,2]
 
-    return lgcd_thread
+    if LGdriver is None:
+        try:
+            LGdriver = ServoKit(channels=16, address=I2CLG, frequency=30)
+        except Exception as e:
+            print(f"(LG) ServoKit could not be initialized: {e}")
+            return
 
+    if isinstance(CDchannel, int):
+        CDchannel = [CDchannel]
 
-def safe_sleep(seconds):                # short sleeptime to assure correct exit of thread
-     for i in range(int(seconds * 10)): 
-        if stop_thread.is_set(): 
-            return 
-        time.sleep(0.1)
-
-class LGCD():
-    def __init__(self, name):
-        self.name = name
-
-    def move_LG(self, state):
+    try:
         if state == LG_OUT:
-            LGdriver.servo[0].fraction = LG_OUT # frction can be min 0 or max 1
-            safe_sleep(delay)
+            for channel in CDchannel:
+                CDdriver.servo[channel].angle = 180
+            safe_sleep(3)
+            LGdriver.servo[0].fraction = LG_OUT
+            safe_sleep(6)
         elif state == LG_IN:
             LGdriver.servo[0].fraction = LG_IN
-            safe_sleep(delay)
-        elif state == None:
+            safe_sleep(6)
+            for channel in CDchannel:
+                CDdriver.servo[channel].angle = 90
+            safe_sleep(3)
+        elif state is None:
             LGdriver.servo[0].fraction = None
-        
-    def move(self,servo,angle,pause=True):
-        if isinstance(servo, int): # if only one channel given: channel -> list of channel(s)
-            servo = [servo]
-        for channel in servo:
-            servodriver.servo[channel].angle = angle
-        if pause == True:
-          safe_sleep(delay/2)
+            safe_sleep(6)
+            for channel in CDchannel:
+                CDdriver.servo[channel].angle = None
+    except Exception as e:
+        print("Error with controlling LG:", e)
 
-LaG = LGCD("LandingGear")       # Initialize Classobjects
-CaD = LGCD("CabinDoor")
+# -------------------------
+# Manager-Thread: liest Buffer und startet Sequenzen nur für den letzten Wert
+# -------------------------
+def lg_manager_thread(CDchannel=None, CDdriver=servodriver):
+    """
+    Läuft im Hintergrund:
+    - wartet auf einen neuen Wunsch im Buffer
+    - startet die Sequenz (über executor) und wartet auf deren Ende
+    - nach Ende liest er erneut den Buffer (swap) und startet ggf. die nächste Sequenz
+    """
+    global oldstate
+    while not stop_event.is_set():
+        # Warte aktiv auf eine neue Anforderung (polling mit kurzem Sleep)
+        val, ts = lg_request_buffer.get()
+        if val is None:
+            # kein Request vorhanden -> kurz schlafen
+            time.sleep(0.05)
+            continue
 
-def LGCD_sequence(channels):
-    global lgcd_event
+        # Nimm die aktuellste Anforderung atomar (clear)
+        desired, _ = lg_request_buffer.swap()
+        if desired is None:
+            continue
 
-    if stop_thread.is_set():
-        return
-    
-    with lock:
+        # Wenn Wunsch gleich aktuellem Zustand, überspringen
+        if desired == oldstate:
+            # setze oldstate trotzdem, falls None etc.
+            oldstate = desired
+            continue
 
-        if isinstance(channels, int):
-            channels = [channels]
-            
-        if lgcd_event == LG_OUT:
-            for channel in channels:
-                if stop_thread.is_set(): return
-                CaD.move(channel,180,False)
+        # Wenn Executor bereits eine Aufgabe hat, warten bis sie fertig (max_workers=1 sorgt dafür)
+        # Wir submitten die Sequenz und warten auf deren Ende, danach prüfen wir erneut den Buffer.
+        future = executor.submit(LGCD_Sequence, desired, CDchannel, CDdriver)
+        try:
+            # blockierend warten, aber mit Timeout, damit stop_event geprüft werden kann
+            while not future.done():
+                if stop_event.wait(timeout=0.1):
+                    break
+            # nach Ende: update oldstate
+            oldstate = desired
+        except Exception as e:
+            print("Error in manager waiting for future:", e)
 
-            safe_sleep(delay/2)
-            if stop_thread.is_set(): return
+# -------------------------
+# API: statt direkt submitten -> setze Buffer
+# -------------------------
+def request_lg(state):
+    """
+    Aufrufe aus TCP/GUI/Joystick sollten request_lg(state) verwenden.
+    Das schreibt nur den letzten Wunsch in den Buffer.
+    """
+    lg_request_buffer.set(state)
 
-            LaG.move_LG(LG_OUT)
+# -------------------------
+# Start/Stop Hilfsfunktionen
+# -------------------------
+def start_manager(CDchannel=None, CDdriver=servodriver):
+    t = threading.Thread(target=lg_manager_thread, args=(CDchannel, CDdriver), daemon=True)
+    t.start()
+    return t
 
-        elif lgcd_event == LG_IN:
-            if stop_thread.is_set(): return
-            LaG.move_LG(LG_IN)
+def shutdown():
+    stop_event.set()
+    executor.shutdown(wait=True)
 
-            for channel in channels:
-                if stop_thread.is_set(): return
-                CaD.move(channel,90,False)
+# -------------------------
+# Beispiel: initialisieren
+# -------------------------
+if __name__ == "__main__":
+    # Manager starten (z.B. mit default CDchannel)
+    manager_thread = start_manager(CDchannel=[0,1,2], CDdriver=servodriver)
 
+    # Beispiel: mehrere schnelle Requests
+    request_lg(LG_OUT)
+    time.sleep(0.1)
+    request_lg(LG_IN)
+    time.sleep(0.1)
+    request_lg(LG_OUT)
+    # nur der letzte Wert bleibt im Buffer; der Manager startet nacheinander Sequenzen,
+    # aber immer nur für den jeweils aktuellsten Wunsch nach Abschluss der laufenden Sequenz.
 
+    try:
+        while True:
+            time.sleep(0.5)
+    except KeyboardInterrupt:
+        shutdown()
