@@ -25,6 +25,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Infotainment));
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.p_content = new System.Windows.Forms.Panel();
             this.SuspendLayout();
@@ -34,7 +35,7 @@
             this.flowLayoutPanel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(358, 1080);
             this.flowLayoutPanel1.TabIndex = 0;
@@ -44,7 +45,7 @@
             this.p_content.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.p_content.Dock = System.Windows.Forms.DockStyle.Top;
             this.p_content.Location = new System.Drawing.Point(358, 0);
-            this.p_content.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.p_content.Margin = new System.Windows.Forms.Padding(2);
             this.p_content.Name = "p_content";
             this.p_content.Size = new System.Drawing.Size(1562, 424);
             this.p_content.TabIndex = 1;
@@ -57,7 +58,8 @@
             this.Controls.Add(this.p_content);
             this.Controls.Add(this.flowLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Infotainment";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Infotainment";

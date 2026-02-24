@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfigSettings));
             this.screenIndicator = new System.Windows.Forms.CheckBox();
             this.tb_videoFilePath = new System.Windows.Forms.TextBox();
             this.btn_browseVideoFile = new System.Windows.Forms.Button();
@@ -47,6 +48,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.cb_useController = new System.Windows.Forms.CheckBox();
             this.label27 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
@@ -71,7 +73,6 @@
             this.tb_logs = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel = new System.Windows.Forms.Panel();
-            this.cb_useController = new System.Windows.Forms.CheckBox();
             this.label34 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
@@ -420,6 +421,19 @@
             this.panel2.Size = new System.Drawing.Size(563, 285);
             this.panel2.TabIndex = 29;
             // 
+            // cb_useController
+            // 
+            this.cb_useController.Checked = true;
+            this.cb_useController.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cb_useController.Location = new System.Drawing.Point(13, 16);
+            this.cb_useController.Margin = new System.Windows.Forms.Padding(2);
+            this.cb_useController.Name = "cb_useController";
+            this.cb_useController.Size = new System.Drawing.Size(109, 20);
+            this.cb_useController.TabIndex = 31;
+            this.cb_useController.Text = "Use Controller";
+            this.cb_useController.UseVisualStyleBackColor = true;
+            this.cb_useController.CheckedChanged += new System.EventHandler(this.cb_overwrite_CheckedChanged);
+            // 
             // label27
             // 
             this.label27.BackColor = System.Drawing.Color.Transparent;
@@ -710,19 +724,6 @@
             this.panel.Name = "panel";
             this.panel.Size = new System.Drawing.Size(609, 362);
             this.panel.TabIndex = 30;
-            // 
-            // cb_useController
-            // 
-            this.cb_useController.Checked = true;
-            this.cb_useController.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cb_useController.Location = new System.Drawing.Point(13, 16);
-            this.cb_useController.Margin = new System.Windows.Forms.Padding(2);
-            this.cb_useController.Name = "cb_useController";
-            this.cb_useController.Size = new System.Drawing.Size(109, 20);
-            this.cb_useController.TabIndex = 31;
-            this.cb_useController.Text = "Use Controller";
-            this.cb_useController.UseVisualStyleBackColor = true;
-            this.cb_useController.CheckedChanged += new System.EventHandler(this.cb_overwrite_CheckedChanged);
             // 
             // label34
             // 
@@ -1217,10 +1218,11 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel3);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ConfigSettings";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ConfigSettings";
+            this.Text = "Settings";
             this.TopMost = true;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ConfigSettings_FormClosing);
             this.Load += new System.EventHandler(this.ConfigSettings_Load);
