@@ -62,17 +62,19 @@ def LGCD_Sequence(state, CDchannel, CDdriver=servodriver):
 
     try:
         if state == LG_OUT:
-            for channel in CDchannel:
-                CDdriver.servo[channel].angle = 180
+            for angle in range(0,180):
+                for channel in CDchannel:
+                    CDdriver.servo[channel].angle = angle
             safe_sleep(1)
             servodriver.servo[15].fraction = LG_OUT
             safe_sleep(3)
         elif state == LG_IN:
             servodriver.servo[15].fraction = LG_IN
             safe_sleep(3)
-            for channel in CDchannel:
-                CDdriver.servo[channel].angle = 0
-            safe_sleep(1)
+            for angle in range(180,0,-1):
+                for channel in CDchannel:
+                    CDdriver.servo[channel].angle = angle
+            safe_sleep(2)
         elif state is None:
             servodriver.servo[15].fraction = None
             safe_sleep(3)
