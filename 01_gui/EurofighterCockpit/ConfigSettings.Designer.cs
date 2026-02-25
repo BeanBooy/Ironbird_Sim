@@ -634,22 +634,23 @@
             this.panel4.BackColor = System.Drawing.Color.White;
             this.panel4.Controls.Add(this.tb_logs);
             this.panel4.Controls.Add(this.label1);
-            this.panel4.Location = new System.Drawing.Point(590, 390);
+            this.panel4.Location = new System.Drawing.Point(590, 374);
             this.panel4.Margin = new System.Windows.Forms.Padding(8);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(609, 281);
+            this.panel4.Size = new System.Drawing.Size(609, 325);
             this.panel4.TabIndex = 30;
             // 
             // tb_logs
             // 
+            this.tb_logs.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tb_logs.Font = new System.Drawing.Font("Consolas", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_logs.Location = new System.Drawing.Point(15, 60);
+            this.tb_logs.Location = new System.Drawing.Point(10, 60);
             this.tb_logs.Margin = new System.Windows.Forms.Padding(2);
             this.tb_logs.Multiline = true;
             this.tb_logs.Name = "tb_logs";
             this.tb_logs.ReadOnly = true;
             this.tb_logs.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tb_logs.Size = new System.Drawing.Size(580, 126);
+            this.tb_logs.Size = new System.Drawing.Size(589, 253);
             this.tb_logs.TabIndex = 29;
             // 
             // label1
@@ -689,21 +690,22 @@
             this.panel.Location = new System.Drawing.Point(590, 17);
             this.panel.Margin = new System.Windows.Forms.Padding(8);
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(609, 357);
+            this.panel.Size = new System.Drawing.Size(609, 341);
             this.panel.TabIndex = 30;
             // 
             // btn_startServoTest
             // 
+            this.btn_startServoTest.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(199)))));
             this.btn_startServoTest.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_startServoTest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_startServoTest.Font = new System.Drawing.Font("Leelawadee UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_startServoTest.Location = new System.Drawing.Point(421, 319);
+            this.btn_startServoTest.Location = new System.Drawing.Point(10, 300);
             this.btn_startServoTest.Margin = new System.Windows.Forms.Padding(10);
             this.btn_startServoTest.Name = "btn_startServoTest";
-            this.btn_startServoTest.Size = new System.Drawing.Size(162, 25);
+            this.btn_startServoTest.Size = new System.Drawing.Size(162, 30);
             this.btn_startServoTest.TabIndex = 33;
-            this.btn_startServoTest.Text = "Servo Test (tbd)";
-            this.btn_startServoTest.UseVisualStyleBackColor = true;
+            this.btn_startServoTest.Text = "Test all servos";
+            this.btn_startServoTest.UseVisualStyleBackColor = false;
             this.btn_startServoTest.Click += new System.EventHandler(this.btn_startServoTest_Click);
             // 
             // label34

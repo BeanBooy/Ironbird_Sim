@@ -257,6 +257,7 @@ namespace EurofighterCockpit
                 rb.FlatStyle = FlatStyle.Flat;
                 rb.FlatAppearance.CheckedBackColor = Color.FromArgb(0, 174, 199);
                 rb.FlatAppearance.BorderSize = 1;
+                rb.Cursor = Cursors.Hand;
                 rb.Click += new EventHandler(anyScreenSelector_Click);
                 // add radio button to parent and justify the width
                 tly.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100f / columns));
@@ -299,6 +300,23 @@ namespace EurofighterCockpit
         }
 
         private void anyScreenSelector_Click(object sender, EventArgs e) {
+            RadioButton rb = sender as RadioButton;
+            int screenIndex = Convert.ToInt32(rb.Text);
+            if (rb.Parent == tlp_videoPlayer) {
+                videoPlayerScreenIndex = screenIndex;
+                moveWindowToScreen(videoPlayer, screenIndex);
+                videoPlayer.Activate();  // bring to focus
+            }
+            if (rb.Parent == tlp_infotainment) {
+                infotainmentScreenIndex = screenIndex;
+                moveWindowToScreen(infotainment, infotainmentScreenIndex);
+                infotainment.Activate();  // bring to focus
+            }
+            if (rb.Parent == tlp_infotainmentSub) {
+                infotainmentSubScreenIndex = screenIndex;
+                moveWindowToScreen(infotainmentSub, infotainmentSubScreenIndex);
+                infotainmentSub.Activate();  // bring to focus
+            }
 
         }
 
