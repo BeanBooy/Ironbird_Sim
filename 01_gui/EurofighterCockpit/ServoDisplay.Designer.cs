@@ -47,21 +47,25 @@
             // 
             // tb_bin
             // 
+            this.tb_bin.BackColor = System.Drawing.Color.Gainsboro;
+            this.tb_bin.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tb_bin.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_bin.Location = new System.Drawing.Point(157, 4);
+            this.tb_bin.Location = new System.Drawing.Point(159, 7);
             this.tb_bin.Name = "tb_bin";
             this.tb_bin.ReadOnly = true;
-            this.tb_bin.Size = new System.Drawing.Size(55, 20);
+            this.tb_bin.Size = new System.Drawing.Size(48, 13);
             this.tb_bin.TabIndex = 2;
             this.tb_bin.Text = "00000000";
             this.tb_bin.WordWrap = false;
             // 
             // tb_dec
             // 
-            this.tb_dec.Location = new System.Drawing.Point(249, 3);
+            this.tb_dec.BackColor = System.Drawing.Color.Gainsboro;
+            this.tb_dec.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tb_dec.Location = new System.Drawing.Point(245, 7);
             this.tb_dec.Name = "tb_dec";
             this.tb_dec.ReadOnly = true;
-            this.tb_dec.Size = new System.Drawing.Size(24, 20);
+            this.tb_dec.Size = new System.Drawing.Size(20, 13);
             this.tb_dec.TabIndex = 3;
             this.tb_dec.Text = "255";
             this.tb_dec.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -70,7 +74,8 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(222, 6);
+            this.label2.Font = new System.Drawing.Font("Leelawadee UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(217, 6);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(25, 13);
             this.label2.TabIndex = 4;
@@ -79,9 +84,10 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Leelawadee UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(133, 6);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(21, 13);
+            this.label3.Size = new System.Drawing.Size(24, 13);
             this.label3.TabIndex = 5;
             this.label3.Text = "bin";
             // 

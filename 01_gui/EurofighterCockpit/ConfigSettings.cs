@@ -53,6 +53,11 @@ namespace EurofighterCockpit
         private const string defaultVideoPath = "E:\\Dev\\Ironbird_Sim\\demoVid.mp4";
         private string videoPath;
 
+        // eurofighter
+        private int mode = 1;  // 0: sleep, 1: normal opperation, 2: servo test
+        private bool sleep;
+        private bool useController;
+
         // properties
         public bool ShowScreenIndicator { 
             get => showScreenIndicator;
@@ -68,6 +73,17 @@ namespace EurofighterCockpit
                 tb_videoFilePath.Text = value;
                 cb_videoPathValid.BackColor = File.Exists(value) ? colGreen : colRed;
                 videoPlayer?.setSource(value);
+            }
+        }
+
+        public int Mode {
+            get => mode;
+            set {
+                mode = value;
+                if (mode == 0)
+                    timer.Enabled = false;
+                else
+                    timer.Enabled = true;
             }
         }
 
@@ -99,7 +115,7 @@ namespace EurofighterCockpit
             populateScreenSelectors(tlp_infotainmentSub, infotainmentSub, screenCount);
 
             // initialize the joysticks
-            joystickController = new JoystickController();
+            joystickController = new JoystickController(cb_joystickConnected, cb_throttleConnected);
             joystickController.initJoystick();
             joystickController.initThrottle();
 
@@ -111,6 +127,7 @@ namespace EurofighterCockpit
 
             // connection loop for raspberry  ##### TODO: config file for ip and port
             tcpCon = new TcpConnectionManager("192.168.178.65", 4443);
+            //tcpCon = new TcpConnectionManager("192.168.178.80", 4443);
             tcpCon.ConnectionStatusChanged += onConnectionStatusChanged;
             tcpCon.start();
 
@@ -135,6 +152,7 @@ namespace EurofighterCockpit
         }
 
         private void validateAndSendPayload(byte[] payload) {
+            if (Mode == 0) return;
             // check if previous payload differs
             // if it's exactly the same, don't send new data
             if (Enumerable.SequenceEqual(payload, prevPayload))
@@ -155,6 +173,7 @@ namespace EurofighterCockpit
         }
 
         private void updateControllerDisplay(JoystickData data) {
+            bpb_airbrakeCurve.Progress = Convert.ToInt32(EurofighterControl.AirbrakeValue * 100 / byte.MaxValue);
             // check if dataset is the same to prevent ui update spamming
             if (data.Equals(prevData))
                 return;
@@ -165,8 +184,8 @@ namespace EurofighterCockpit
             bpb_joystickYpos.Progress = Convert.ToInt32(data.JoystickYPercent * 100);
             bpb_joystickYneg.Progress = Convert.ToInt32(data.JoystickYPercent * -100);
             bpb_joystickTorque.Progress = Convert.ToInt32(data.JoystickTorquePercent * 100);
-            bpb_airbrakeBool.Progress = data.Airbrake ? 100 : 0;
-            bpb_airbrake.Progress = 0;  // TODO: airbrake trigger curve
+            bpb_airbrake.Progress = data.Airbrake ? 100 : 0;
+            //bpb_airbrake.Progress = 0;  // TODO: airbrake trigger curve
             bpb_throttle.Progress = Convert.ToInt32(data.ThrottlePercent * 100);
             bpb_trigger.Progress = data.Trigger ? 100 : 0;
             bpb_sound.Progress = data.Sound ? 100 : 0;
@@ -181,14 +200,14 @@ namespace EurofighterCockpit
 
         private byte[] buildPayload(JoystickData data) {
             return new byte[] {
-                1,  // TODO
+                Convert.ToByte(Mode),
                 EurofighterControl.canardLeft(data.JoystickY, data.JoystickX),
                 EurofighterControl.canardRight(data.JoystickY, data.JoystickX),
                 EurofighterControl.aileronLeft(data.JoystickX, data.JoystickY),
                 EurofighterControl.aileronRight(data.JoystickX, data.JoystickY),
                 EurofighterControl.flapLeft(data.JoystickY),
                 EurofighterControl.flapRight(data.JoystickY),
-                0,  // TODO airbrake
+                EurofighterControl.airbrake(data.Airbrake),
                 Convert.ToByte(data.LandingGear),
                 EurofighterControl.lights(data.PositionalLights, data.StrobeLights, data.LandingLights),
                 0,
@@ -349,7 +368,7 @@ namespace EurofighterCockpit
         }
 
         private void servoOverright_ValueChanged(object sender, EventArgs e) {
-            if (cb_useController.Checked)
+            if (bt_useController.IsChecked)
                 return;
             // create payload
             byte[] payload = new byte[16];
@@ -366,15 +385,22 @@ namespace EurofighterCockpit
             validateAndSendPayload(payload);
         }
 
-        private void cb_overwrite_CheckedChanged(object sender, EventArgs e) {
-            timer.Enabled = cb_useController.Checked;
+        private void bt_useController_UserClick(object sender, EventArgs e) {
+            timer.Enabled = bt_useController.IsChecked;
+        }
+
+        private void bt_sleep_UserClick(object sender, EventArgs e) {
+            if (bt_sleep.IsChecked) {
+                byte[] payload = new byte[16];
+                validateAndSendPayload(payload);
+                Mode = 0;
+            }
+            else {
+                Mode = 1;
+            }
         }
 
         #endregion
-
-        private void sd_canardRight_ValueChanged(object sender, EventArgs e) {
-
-        }
 
     }
 }

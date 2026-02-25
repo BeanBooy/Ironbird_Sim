@@ -2,6 +2,7 @@
 using SharpDX.DirectInput;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,8 +17,18 @@ namespace EurofighterCockpit
         private Joystick joystick = null;
         private Joystick throttle = null;
 
+        private CheckBox joystickStatus = null;
+        private CheckBox throttleStatus = null;
+        public readonly Color colGreen = Color.FromArgb(132, 189, 0);
+        public readonly Color colRed = Color.FromArgb(228, 0, 43);
+
         // logger
         private readonly Logger logger = Logger.Instance;
+
+        public JoystickController(CheckBox joystickStatus, CheckBox throttleStatus) {
+            this.joystickStatus = joystickStatus;
+            this.throttleStatus = throttleStatus;
+        }
 
         private DeviceInstance getMatchingInputDevice(string filter) {
             // loop over all devices to find joystick and throttle
@@ -35,6 +46,7 @@ namespace EurofighterCockpit
             // connect to joystick device
             if (joystickDI == null) {
                 logger.log("No joystick device found.");
+                joystickStatus.BackColor = colRed;
                 return;
             }
             // aquire joystick device
@@ -42,9 +54,11 @@ namespace EurofighterCockpit
                 joystick = new Joystick(directInput, joystickDI.InstanceGuid);
                 joystick.Acquire();
                 logger.log($"joystick device '{joystickDI.InstanceName}' successfully connected");
+                joystickStatus.BackColor = colGreen;
             }
             catch (Exception ex) {
                 logger.log($"ERROR while connecting to joystick: {ex.ToString()}");
+                joystickStatus.BackColor = colRed;
             }
         }
 
@@ -55,6 +69,7 @@ namespace EurofighterCockpit
             // conenct to throttle device
             if (throttleDI == null) {
                 logger.log("No throttle device found");
+                throttleStatus.BackColor = colRed;
                 return;
             }
             // aquire throttle device
@@ -62,9 +77,11 @@ namespace EurofighterCockpit
                 throttle = new Joystick(directInput, throttleDI.InstanceGuid);
                 throttle.Acquire();
                 logger.log($"throttle device '{throttleDI.InstanceName}' successfully connected");
+                throttleStatus.BackColor = colGreen;
             }
             catch (Exception ex) {
                 logger.log($"ERROR while connecting to throttle: {ex.ToString()}");
+                throttleStatus.BackColor = colRed;
             }
         }
 
@@ -84,6 +101,7 @@ namespace EurofighterCockpit
             catch (SharpDXException ex) {
                 if (ex.ResultCode == ResultCode.InputLost || ex.ResultCode == ResultCode.NotAcquired) {
                     logger.log($"joystick device '{joystick.Properties.InstanceName}' disconnected");
+                    joystickStatus.BackColor = colRed;
                     joystick?.Dispose();
                     joystick = null;
                 }
@@ -106,6 +124,7 @@ namespace EurofighterCockpit
             catch (SharpDXException ex) {
                 if (ex.ResultCode == ResultCode.InputLost || ex.ResultCode == ResultCode.NotAcquired) {
                     logger.log($"throttle device '{throttle.Properties.InstanceName}' disconnected");
+                    throttleStatus.BackColor = colRed;
                     throttle?.Dispose();
                     throttle = null;
                 }

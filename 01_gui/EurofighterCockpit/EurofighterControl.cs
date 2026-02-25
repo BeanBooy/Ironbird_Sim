@@ -9,8 +9,9 @@ namespace EurofighterCockpit
 {
     internal static class EurofighterControl
     {
-        private const byte maxValue = byte.MaxValue;
-        private const byte neutralValue = byte.MaxValue / 2;
+        private static byte airbrakeValue = 0;
+
+        public static byte AirbrakeValue { get => airbrakeValue; }
 
         public static byte flapRight(ushort joystickY) {
             return scaleUShortToByte(joystickY);
@@ -50,7 +51,6 @@ namespace EurofighterCockpit
             return (byte)(Byte.MaxValue - scaleUShortToByte((ushort)(joystickY + adjustment)));
         }
 
-        // Seitenruder (Rudder)
         public static byte rudder(bool rudderLeft, bool rudderRight, bool rudderReset) {
             if (rudderLeft)
                 return Byte.MinValue;
@@ -60,7 +60,21 @@ namespace EurofighterCockpit
                 return Byte.MaxValue >> 1;
         }
 
-        // lighting
+        public static byte airbrake(bool airbrake) {
+            // logic for airbrake linear curve,
+            // cause using it as a bool would be way to snappy
+            if (airbrake) {
+                if (airbrakeValue < byte.MaxValue)
+                    airbrakeValue += 3;
+            }
+            else {
+                if (airbrakeValue > 0)
+                    airbrakeValue -= 3;
+            }
+
+            return airbrakeValue;
+        }
+
         public static byte lights(bool positionLights, bool strobeLights, bool landingLight) {
             byte packed = (byte)(
                 (positionLights ? 1 : 0) << 0 |
@@ -69,7 +83,6 @@ namespace EurofighterCockpit
             );
             return packed;
         }
-
 
         private static byte scaleUShortToByte(ushort value) {
             // linear transformation: 65535 / 255 = 257 exactly
