@@ -53,16 +53,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BetterProgressBar.cs">
+    <Compile Include="UserControls\BetterProgressBar.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="BetterProgressBar.Designer.cs">
+    <Compile Include="UserControls\BetterProgressBar.Designer.cs">
       <DependentUpon>BetterProgressBar.cs</DependentUpon>
     </Compile>
-    <Compile Include="BetterToggle.cs">
+    <Compile Include="UserControls\BetterToggle.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="BetterToggle.Designer.cs">
+    <Compile Include="UserControls\BetterToggle.Designer.cs">
       <DependentUpon>BetterToggle.cs</DependentUpon>
     </Compile>
     <Compile Include="ConfigSettings.cs">
@@ -81,10 +81,10 @@
     <Compile Include="JoystickData.cs" />
     <Compile Include="JoystickController.cs" />
     <Compile Include="Logger.cs" />
-    <Compile Include="ServoDisplay.cs">
+    <Compile Include="UserControls\ServoDisplay.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ServoDisplay.Designer.cs">
+    <Compile Include="UserControls\ServoDisplay.Designer.cs">
       <DependentUpon>ServoDisplay.cs</DependentUpon>
     </Compile>
     <Compile Include="TcpConnectionManager.cs" />
@@ -108,10 +108,10 @@
     <Compile Include="VideoPlayer.Designer.cs">
       <DependentUpon>VideoPlayer.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="BetterProgressBar.resx">
+    <EmbeddedResource Include="UserControls\BetterProgressBar.resx">
       <DependentUpon>BetterProgressBar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BetterToggle.resx">
+    <EmbeddedResource Include="UserControls\BetterToggle.resx">
       <DependentUpon>BetterToggle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ConfigSettings.resx">
@@ -133,7 +133,7 @@
     <EmbeddedResource Include="ScreenIndicator.resx">
       <DependentUpon>ScreenIndicator.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ServoDisplay.resx">
+    <EmbeddedResource Include="UserControls\ServoDisplay.resx">
       <DependentUpon>ServoDisplay.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Slides\Slide1.resx">
