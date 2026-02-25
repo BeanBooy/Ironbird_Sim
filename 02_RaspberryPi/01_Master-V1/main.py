@@ -89,7 +89,7 @@ def PWMsetServo_EF():
         servodriver.servo[3].angle = signaltoangle(angleLC)
         servodriver.servo[4].angle = signaltoangle(angleRC)
         servodriver.servo[5].angle = signaltoangle(angleLO)
-        servodriver.servo[6].angle = signaltoangle(angleRO)
+        servodriver.servo[6].angle = signal_inverter(signaltoangle(angleRO))
         servodriver.servo[7].angle = signaltoangle(angleAB)
         servodriver.servo[8].angle = signaltoangle(angleLF)
         servodriver.servo[9].angle = signaltoangle(angleRF)
@@ -121,17 +121,6 @@ def IdleMode():
                 pass
     except Exception as e:
         print(f"FError controlling servos: {e}")
-
-#def ServoTest():
-    # NOTE need to be reimplemented
-    #while receivedData[MODE] == 3:
-        #for cylce in range(2):
-            #for angle in range(0, 180):
-                #for servoNum in range(0, 16):
-                    #servodriver.servo[servoNum].angle = angle
-                    #safe_sleep(0.5)
-            #LGCDdriver.request_lg(LG_OUT)
-        #IdleMode()
 
 def handle_exit(signum, frame): # signum, frame needed to call via signal.signal
     print("Exiting. Please wait", end="\r")

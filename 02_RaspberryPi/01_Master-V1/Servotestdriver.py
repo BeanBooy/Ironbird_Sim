@@ -42,25 +42,6 @@ def move_LG(fraction):
 
 def show_move():
     # movement out
-    for angle in range(0, 180):
-        if stop_test.is_set():
-            break
-        servodriver.servo[LC].angle = angle
-        servodriver.servo[RC].angle = signal_inverter(angle)
-        servodriver.servo[LO].angle = angle
-        servodriver.servo[RO].angle = signal_inverter(angle)
-        servodriver.servo[LF].angle = angle
-        servodriver.servo[RF].angle = signal_inverter(angle)
-        servodriver.servo[AB].angle = angle
-        time.sleep(0.0014)
-
-    for angle in range(0, 180,1):
-        servodriver.servo[0].angle = angle
-        servodriver.servo[1].angle = angle
-        servodriver.servo[2].angle = angle
-    safe_sleep(2)
-    move_LG(1)
-    # movement in
     for angle in range(180, 0, -1):
         if stop_test.is_set():
             break
@@ -79,6 +60,25 @@ def show_move():
         servodriver.servo[2].angle = angle
         time.sleep(0.001)
     safe_sleep(2)
+    for angle in range(0, 180):
+        if stop_test.is_set():
+            break
+        servodriver.servo[LC].angle = angle
+        servodriver.servo[RC].angle = signal_inverter(angle)
+        servodriver.servo[LO].angle = angle
+        servodriver.servo[RO].angle = signal_inverter(angle)
+        servodriver.servo[LF].angle = angle
+        servodriver.servo[RF].angle = signal_inverter(angle)
+        servodriver.servo[AB].angle = angle
+        time.sleep(0.0014)
+
+    for angle in range(0, 180):
+        servodriver.servo[0].angle = angle
+        servodriver.servo[1].angle = angle
+        servodriver.servo[2].angle = angle
+    safe_sleep(2)
+    move_LG(1)
+    # movement in
 
 def idle():
     move_LG(0)

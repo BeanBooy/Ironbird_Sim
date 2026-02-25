@@ -57,13 +57,6 @@ def LGCD_Sequence(state, CDchannel, CDdriver=servodriver):
     if CDchannel is None:
         CDchannel = [0,1,2]
 
-    #if LGdriver is None:
-        #try:
-            #LGdriver = ServoKit(channels=16, address=I2CLG, frequency=30)
-        #except Exception as e:
-            #print(f"(LG) ServoKit could not be initialized: {e}")
-            #return
-
     if isinstance(CDchannel, int):
         CDchannel = [CDchannel]
 
