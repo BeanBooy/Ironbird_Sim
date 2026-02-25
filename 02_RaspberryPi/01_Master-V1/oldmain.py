@@ -1,10 +1,3 @@
-#------------------------------------------------*
-# Autor: Noah Gerstlauer                          |
-# Department: THGM-TL1                            |
-# Email: Noah.Gerstlauer@airbus.com               |
-# Date: 2023-09                                   |
-#------------------------------------------------*/
-
 import sys
 import signal
 import socket

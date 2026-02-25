@@ -3,9 +3,9 @@ from adafruit_servokit import ServoKit
 
 # Initialisiere das ServoKit-Objekt mit der I2C-Adresse 0x41
 channel = 0
-kit = ServoKit(channels=16, address=0x40,frequency=333)
+kit = ServoKit(channels=16, address=0x40,frequency=30)
 
-LG = ServoKit(channels=16, address=0x41,frequency=30)
+#LG = ServoKit(channels=16, address=0x41,frequency=30)
 for channel in range(16):
             kit.servo[channel].set_pulse_width_range(1000,2000)
 # Setze die minimale und maximale Position des Servos
@@ -27,7 +27,9 @@ def move_servo(angle):
 
 try:
 
-    kit.servo[7].angle = 0
+    kit.servo[15].angle = 180
+    time.sleep(3)
+    kit.servo[15].angle = 0
     time.sleep(3)
  
 
