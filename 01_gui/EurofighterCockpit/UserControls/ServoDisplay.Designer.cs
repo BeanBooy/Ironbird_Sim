@@ -77,9 +77,9 @@
             this.label2.Font = new System.Drawing.Font("Leelawadee UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(217, 6);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(25, 13);
+            this.label2.Size = new System.Drawing.Size(26, 13);
             this.label2.TabIndex = 4;
-            this.label2.Text = "dec";
+            this.label2.Text = "Dec";
             // 
             // label3
             // 
@@ -89,7 +89,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(24, 13);
             this.label3.TabIndex = 5;
-            this.label3.Text = "bin";
+            this.label3.Text = "Bin";
             // 
             // ServoDisplay
             // 

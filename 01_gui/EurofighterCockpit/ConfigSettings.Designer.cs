@@ -86,6 +86,10 @@
             this.label10 = new System.Windows.Forms.Label();
             this.cb_connectionState = new System.Windows.Forms.CheckBox();
             this.asdf = new System.Windows.Forms.Label();
+            this.tb_ip = new System.Windows.Forms.TextBox();
+            this.tb_port = new System.Windows.Forms.TextBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label40 = new System.Windows.Forms.Label();
             this.bt_sleep = new EurofighterCockpit.BetterToggle();
             this.bt_overwriteControllerInput = new EurofighterCockpit.BetterToggle();
             this.bt_showNetworkTraffic = new EurofighterCockpit.BetterToggle();
@@ -137,7 +141,7 @@
             this.tb_videoFilePath.Margin = new System.Windows.Forms.Padding(10);
             this.tb_videoFilePath.Name = "tb_videoFilePath";
             this.tb_videoFilePath.ReadOnly = true;
-            this.tb_videoFilePath.Size = new System.Drawing.Size(433, 15);
+            this.tb_videoFilePath.Size = new System.Drawing.Size(220, 15);
             this.tb_videoFilePath.TabIndex = 1;
             this.tb_videoFilePath.Text = "The path will be set during runtime";
             // 
@@ -146,7 +150,7 @@
             this.btn_browseVideoFile.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_browseVideoFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_browseVideoFile.Font = new System.Drawing.Font("Leelawadee UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_browseVideoFile.Location = new System.Drawing.Point(490, 60);
+            this.btn_browseVideoFile.Location = new System.Drawing.Point(273, 60);
             this.btn_browseVideoFile.Margin = new System.Windows.Forms.Padding(10);
             this.btn_browseVideoFile.Name = "btn_browseVideoFile";
             this.btn_browseVideoFile.Size = new System.Drawing.Size(59, 25);
@@ -595,7 +599,7 @@
             this.panel3.Location = new System.Drawing.Point(17, 263);
             this.panel3.Margin = new System.Windows.Forms.Padding(8);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(559, 95);
+            this.panel3.Size = new System.Drawing.Size(342, 95);
             this.panel3.TabIndex = 30;
             // 
             // cb_videoPathValid
@@ -624,7 +628,7 @@
             this.label3.Margin = new System.Windows.Forms.Padding(10);
             this.label3.Name = "label3";
             this.label3.Padding = new System.Windows.Forms.Padding(0, 0, 0, 2);
-            this.label3.Size = new System.Drawing.Size(539, 40);
+            this.label3.Size = new System.Drawing.Size(322, 40);
             this.label3.TabIndex = 28;
             this.label3.Text = "VIDEO";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -821,6 +825,10 @@
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.White;
+            this.panel7.Controls.Add(this.label40);
+            this.panel7.Controls.Add(this.label26);
+            this.panel7.Controls.Add(this.tb_port);
+            this.panel7.Controls.Add(this.tb_ip);
             this.panel7.Controls.Add(this.label22);
             this.panel7.Controls.Add(this.label20);
             this.panel7.Controls.Add(this.bt_sleep);
@@ -874,10 +882,10 @@
             this.cb_connectionState.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cb_connectionState.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cb_connectionState.ForeColor = System.Drawing.Color.Black;
-            this.cb_connectionState.Location = new System.Drawing.Point(10, 155);
+            this.cb_connectionState.Location = new System.Drawing.Point(10, 180);
             this.cb_connectionState.Margin = new System.Windows.Forms.Padding(10);
             this.cb_connectionState.Name = "cb_connectionState";
-            this.cb_connectionState.Size = new System.Drawing.Size(179, 60);
+            this.cb_connectionState.Size = new System.Drawing.Size(179, 35);
             this.cb_connectionState.TabIndex = 30;
             this.cb_connectionState.Text = "LOADING";
             this.cb_connectionState.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -896,6 +904,52 @@
             this.asdf.TabIndex = 29;
             this.asdf.Text = "EUROFIGHTER";
             this.asdf.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tb_ip
+            // 
+            this.tb_ip.BackColor = System.Drawing.Color.Gainsboro;
+            this.tb_ip.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tb_ip.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_ip.Location = new System.Drawing.Point(29, 154);
+            this.tb_ip.Name = "tb_ip";
+            this.tb_ip.ReadOnly = true;
+            this.tb_ip.Size = new System.Drawing.Size(91, 13);
+            this.tb_ip.TabIndex = 32;
+            this.tb_ip.Text = "000.000.000.000";
+            this.tb_ip.WordWrap = false;
+            // 
+            // tb_port
+            // 
+            this.tb_port.BackColor = System.Drawing.Color.Gainsboro;
+            this.tb_port.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tb_port.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_port.Location = new System.Drawing.Point(164, 154);
+            this.tb_port.Name = "tb_port";
+            this.tb_port.ReadOnly = true;
+            this.tb_port.Size = new System.Drawing.Size(25, 13);
+            this.tb_port.TabIndex = 72;
+            this.tb_port.Text = "0000";
+            this.tb_port.WordWrap = false;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Leelawadee UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.Location = new System.Drawing.Point(7, 154);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(16, 13);
+            this.label26.TabIndex = 32;
+            this.label26.Text = "IP";
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Font = new System.Drawing.Font("Leelawadee UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label40.Location = new System.Drawing.Point(130, 154);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(28, 13);
+            this.label40.TabIndex = 73;
+            this.label40.Text = "Port";
             // 
             // bt_sleep
             // 
@@ -926,7 +980,7 @@
             // 
             this.bt_showNetworkTraffic.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(189)))), ((int)(((byte)(0)))));
             this.bt_showNetworkTraffic.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bt_showNetworkTraffic.IsChecked = false;
+            this.bt_showNetworkTraffic.IsChecked = true;
             this.bt_showNetworkTraffic.Location = new System.Drawing.Point(10, 60);
             this.bt_showNetworkTraffic.Margin = new System.Windows.Forms.Padding(10);
             this.bt_showNetworkTraffic.Name = "bt_showNetworkTraffic";
@@ -1321,6 +1375,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel3);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ConfigSettings";
@@ -1339,6 +1394,7 @@
             this.panel4.PerformLayout();
             this.panel.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1434,5 +1490,9 @@
         private System.Windows.Forms.Label label20;
         private BetterToggle bt_overwriteControllerInput;
         private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.TextBox tb_port;
+        private System.Windows.Forms.TextBox tb_ip;
+        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.Label label26;
     }
 }

@@ -24,6 +24,9 @@ namespace EurofighterCockpit
         // logger
         private readonly Logger logger = Logger.Instance;
 
+        // config
+        private readonly Config config = Config.Instance;
+
         // network
         private TcpConnectionManager tcpCon;
 
@@ -75,6 +78,7 @@ namespace EurofighterCockpit
         public ConfigSettings() {
             InitializeComponent();
             logger.setLogBox(tb_logs);
+            config.setConfig(Path.Combine(Environment.CurrentDirectory, "EurofighterCockpitConfig.json"));
         }
 
         private void ConfigSettings_Load(object sender, EventArgs e) {
@@ -110,11 +114,18 @@ namespace EurofighterCockpit
             timer.Tick += Timer_Tick;
             timer.Start();
 
-            // connection loop for raspberry  ##### TODO: config file for ip and port
-            tcpCon = new TcpConnectionManager("192.168.178.65", 4443);
-            //tcpCon = new TcpConnectionManager("192.168.178.80", 4443);
-            tcpCon.ConnectionStatusChanged += onConnectionStatusChanged;
-            tcpCon.start();
+            // connection loop for raspberry
+            tb_ip.Text = config.Dict["ipAddress"];
+            tb_port.Text = config.Dict["port"];
+            try {
+                tcpCon = new TcpConnectionManager(config.Dict["ipAddress"], Convert.ToInt32(config.Dict["port"]));
+                tcpCon.ConnectionStatusChanged += onConnectionStatusChanged;
+                tcpCon.start();
+            }
+            catch (Exception ex) {
+                logger.log("ERROR in TCP connection: Please check your network configuration");
+                logger.logToFile(ex.Message);
+            }            
 
             logger.logToBox("...ready!");
 
@@ -147,7 +158,7 @@ namespace EurofighterCockpit
         }
 
         private void sendPayload(byte[] payload) {
-            _ = tcpCon.sendAsync(payload, bt_showNetworkTraffic.IsChecked);
+            _ = tcpCon?.sendAsync(payload, bt_showNetworkTraffic.IsChecked);
         }
 
         private void updateServoDisplay(byte[] payload) {
@@ -390,12 +401,14 @@ namespace EurofighterCockpit
                 byte[] payload = new byte[16];
                 sendPayload(payload);
                 timer.Enabled = false;
+                logger.log("Eurofighter set to sleep");
             }
             else {
                 if (bt_overwriteControllerInput.IsChecked)
                     timer.Enabled = false;
                 else
                     timer.Enabled = true;
+                logger.log("Eurofighter woken up from sleep");
             }
         }
 
@@ -403,6 +416,7 @@ namespace EurofighterCockpit
             byte[] payload = (byte[])prevPayload.Clone();
             payload[0] = 2;
             sendPayload(payload);
+            logger.log("Servo test started");
         }
 
         #endregion
