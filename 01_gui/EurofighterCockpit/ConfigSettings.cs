@@ -53,9 +53,6 @@ namespace EurofighterCockpit
         private const string defaultVideoPath = "E:\\Dev\\Ironbird_Sim\\demoVid.mp4";
         private string videoPath;
 
-        // eurofighter
-        private int mode = 1;  // 0: sleep, 1: normal opperation, 2: servo test
-
         // properties
         public bool ShowScreenIndicator { 
             get => showScreenIndicator;
@@ -72,17 +69,6 @@ namespace EurofighterCockpit
                 tb_videoFilePath.Text = value;
                 cb_videoPathValid.BackColor = File.Exists(value) ? colGreen : colRed;
                 videoPlayer?.setSource(value);
-            }
-        }
-
-        public int Mode {
-            get => mode;
-            set {
-                mode = value;
-                if (mode == 0)
-                    timer.Enabled = false;
-                else
-                    timer.Enabled = true;
             }
         }
 
@@ -151,7 +137,6 @@ namespace EurofighterCockpit
         }
 
         private void validateAndSendPayload(byte[] payload) {
-            if (Mode == 0) return;
             // check if previous payload differs (ignores mode byte)
             // if it's exactly the same, don't send new data
             if (Enumerable.SequenceEqual(payload.Skip(1), prevPayload.Skip(1))) {
@@ -204,7 +189,7 @@ namespace EurofighterCockpit
 
         private byte[] buildPayload(JoystickData data) {
             return new byte[] {
-                Convert.ToByte(Mode),
+                1,  // always 1, normal mode
                 EurofighterControl.canardLeft(data.JoystickY, data.JoystickX),
                 EurofighterControl.canardRight(data.JoystickY, data.JoystickX),
                 EurofighterControl.aileronLeft(data.JoystickX, data.JoystickY),
@@ -314,23 +299,7 @@ namespace EurofighterCockpit
         }
 
         private void anyScreenSelector_Click(object sender, EventArgs e) {
-            RadioButton rb = sender as RadioButton;
-            int screenIndex = Convert.ToInt32(rb.Text);
-            if (rb.Parent == tlp_videoPlayer) {
-                videoPlayerScreenIndex = screenIndex;
-                moveWindowToScreen(videoPlayer, screenIndex);
-                videoPlayer.Activate();  // bring to focus
-            }
-            if (rb.Parent == tlp_infotainment) {
-                infotainmentScreenIndex = screenIndex;
-                moveWindowToScreen(infotainment, infotainmentScreenIndex);
-                infotainment.Activate();  // bring to focus
-            }
-            if (rb.Parent == tlp_infotainmentSub) {
-                infotainmentSubScreenIndex = screenIndex;
-                moveWindowToScreen(infotainmentSub, infotainmentSubScreenIndex);
-                infotainmentSub.Activate();  // bring to focus
-            }
+
         }
 
         private void btn_browseVideoFile_Click(object sender, EventArgs e) {
@@ -375,7 +344,7 @@ namespace EurofighterCockpit
         }
 
         private void servoOverright_ValueChanged(object sender, EventArgs e) {
-            if (bt_useController.IsChecked)
+            if (bt_overwriteControllerInput.IsChecked == false)
                 return;
             // create payload
             byte[] payload = new byte[16];
@@ -392,18 +361,24 @@ namespace EurofighterCockpit
             validateAndSendPayload(payload);
         }
 
-        private void bt_useController_UserClick(object sender, EventArgs e) {
-            timer.Enabled = bt_useController.IsChecked;
+        private void bt_overwriteControllerInput_UserClick(object sender, EventArgs e) {
+            if (bt_overwriteControllerInput.IsChecked || bt_sleep.IsChecked) 
+                timer.Enabled = false;
+            else
+                timer.Enabled = true;
         }
 
         private void bt_sleep_UserClick(object sender, EventArgs e) {
             if (bt_sleep.IsChecked) {
                 byte[] payload = new byte[16];
-                validateAndSendPayload(payload);
-                Mode = 0;
+                sendPayload(payload);
+                timer.Enabled = false;
             }
             else {
-                Mode = 1;
+                if (bt_overwriteControllerInput.IsChecked)
+                    timer.Enabled = false;
+                else
+                    timer.Enabled = true;
             }
         }
 
