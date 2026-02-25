@@ -317,7 +317,6 @@ namespace EurofighterCockpit
                 moveWindowToScreen(infotainmentSub, infotainmentSubScreenIndex);
                 infotainmentSub.Activate();  // bring to focus
             }
-
         }
 
         private void btn_browseVideoFile_Click(object sender, EventArgs e) {
