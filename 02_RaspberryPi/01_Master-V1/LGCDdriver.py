@@ -26,12 +26,12 @@ class LastValueBuffer:
             return v
 
 # Variables for LG
-I2CLG = 0x41
+#I2CLG = 0x41
 LG_IN = 0
 LG_OUT = 1
 
 # declared driver as None at beginning for errorhandling
-LGdriver = None
+#LGdriver = None
 oldstate = LG_IN
 
 executor = ThreadPoolExecutor(max_workers=1)
@@ -42,7 +42,7 @@ lg_request_buffer = LastValueBuffer()
 
 # Only for testing. would be in main
 from adafruit_servokit import ServoKit
-servodriver = ServoKit(channels=16, address=0x40, frequency=333)
+servodriver = ServoKit(channels=16, address=0x40, frequency=30)
 
 # safe sleep to exit threads faster
 def safe_sleep(seconds):
@@ -57,12 +57,12 @@ def LGCD_Sequence(state, CDchannel, CDdriver=servodriver):
     if CDchannel is None:
         CDchannel = [0,1,2]
 
-    if LGdriver is None:
-        try:
-            LGdriver = ServoKit(channels=16, address=I2CLG, frequency=30)
-        except Exception as e:
-            print(f"(LG) ServoKit could not be initialized: {e}")
-            return
+    #if LGdriver is None:
+        #try:
+            #LGdriver = ServoKit(channels=16, address=I2CLG, frequency=30)
+        #except Exception as e:
+            #print(f"(LG) ServoKit could not be initialized: {e}")
+            #return
 
     if isinstance(CDchannel, int):
         CDchannel = [CDchannel]
@@ -71,18 +71,18 @@ def LGCD_Sequence(state, CDchannel, CDdriver=servodriver):
         if state == LG_OUT:
             for channel in CDchannel:
                 CDdriver.servo[channel].angle = 180
+            safe_sleep(1)
+            servodriver.servo[15].fraction = LG_OUT
             safe_sleep(3)
-            LGdriver.servo[0].fraction = LG_OUT
-            safe_sleep(6)
         elif state == LG_IN:
-            LGdriver.servo[0].fraction = LG_IN
-            safe_sleep(6)
+            servodriver.servo[15].fraction = LG_IN
+            safe_sleep(3)
             for channel in CDchannel:
                 CDdriver.servo[channel].angle = 90
-            safe_sleep(3)
+            safe_sleep(1)
         elif state is None:
-            LGdriver.servo[0].fraction = None
-            safe_sleep(6)
+            servodriver.servo[15].fraction = None
+            safe_sleep(3)
             for channel in CDchannel:
                 CDdriver.servo[channel].angle = None
     except Exception as e:
