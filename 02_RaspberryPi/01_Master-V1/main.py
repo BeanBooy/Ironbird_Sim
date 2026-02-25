@@ -4,6 +4,7 @@ import signal
 import socket
 import threading
 import time
+from Servotestdriver import ServoTest, signal_inverter
 import LGCDdriver
 from LGCDdriver import LG_IN, LG_OUT, safe_sleep, stop_event
 from adafruit_servokit import ServoKit
@@ -16,7 +17,7 @@ current_thread = None
 current_event = None
 
 delay = 6 # Delay in seconds for LG-Sequence
-lg_lock = threading.Lock()
+lock = threading.Lock()
 # TCP-Port
 PORT_CONST = 4443
 MODE = 0 # Idle as default
@@ -57,7 +58,7 @@ except Exception as e:
 # init ServoKitobjects
 try:
     # NOTE Frequency only 333Hz for digital servos! Read your servo-datasheet to avoid damage
-    servodriver = ServoKit(channels=16, address=I2CSERVO, frequency=333)
+    servodriver = ServoKit(channels=16, address=I2CSERVO, frequency=30)
 except Exception as e:
     print(f"(SERVO) ServoKit could not be initialized: {e}")
     servodriver = None
@@ -81,9 +82,7 @@ def signaltoangle(signal_byte):
     return int(signal_byte * 0.703125)
 
 # For inverted servos to behave normal. NOTE needs to be added manualy for each servochannel where an inverted servo is connected
-def signal_inverter(receivedDATA):
-    angle = (180 - receivedDATA)
-    return angle
+# see signal_inverter in Servotestdriver
 
 def PWMsetServo_EF():
     try:
@@ -122,16 +121,16 @@ def IdleMode():
     except Exception as e:
         print(f"FError controlling servos: {e}")
 
-def ServoTest():
+#def ServoTest():
     # NOTE need to be reimplemented
-    while receivedData[MODE] == 3:
-        for cylce in range(2):
-            for angle in range(0, 180):
-                for servoNum in range(0, 16):
-                    servodriver.servo[servoNum].angle = angle
-                    safe_sleep(0.5)
-            LGCDdriver.request_lg(LG_OUT)
-        IdleMode()
+    #while receivedData[MODE] == 3:
+        #for cylce in range(2):
+            #for angle in range(0, 180):
+                #for servoNum in range(0, 16):
+                    #servodriver.servo[servoNum].angle = angle
+                    #safe_sleep(0.5)
+            #LGCDdriver.request_lg(LG_OUT)
+        #IdleMode()
 
 def handle_exit(signum, frame): # signum, frame needed to call via signal.signal
     print("Exiting. Please wait", end="\r")
@@ -204,7 +203,7 @@ while not stop_event.is_set():
             elif receivedData[MODE] == 3:
                 print("Servotest")
                 ServoTest()
-
+                IdleMode()
             else:
                 print("Received corrupted data")
                 IdleMode()
