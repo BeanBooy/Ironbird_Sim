@@ -40,29 +40,51 @@
             this.label38 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.bt_infotainmentSub = new EurofighterCockpit.BetterToggle();
+            this.bt_infotainment = new EurofighterCockpit.BetterToggle();
+            this.bt_videoPlayer = new EurofighterCockpit.BetterToggle();
             this.label36 = new System.Windows.Forms.Label();
+            this.bt_showSceenIndicators = new EurofighterCockpit.BetterToggle();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label19 = new System.Windows.Forms.Label();
+            this.bpb_airbrake = new EurofighterCockpit.BetterProgressBar();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
+            this.bpb_sound = new EurofighterCockpit.BetterProgressBar();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.cb_throttleConnected = new System.Windows.Forms.CheckBox();
             this.cb_joystickConnected = new System.Windows.Forms.CheckBox();
             this.label12 = new System.Windows.Forms.Label();
+            this.bpb_airbrakeCurve = new EurofighterCockpit.BetterProgressBar();
             this.label11 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
+            this.bpb_strobeLights = new EurofighterCockpit.BetterProgressBar();
             this.label25 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
+            this.bpb_landingLights = new EurofighterCockpit.BetterProgressBar();
+            this.bpb_positionLights = new EurofighterCockpit.BetterProgressBar();
             this.label23 = new System.Windows.Forms.Label();
+            this.bpb_trigger = new EurofighterCockpit.BetterProgressBar();
+            this.bpb_gear = new EurofighterCockpit.BetterProgressBar();
+            this.bpb_rudderReset = new EurofighterCockpit.BetterProgressBar();
             this.label21 = new System.Windows.Forms.Label();
+            this.bpb_rudderL = new EurofighterCockpit.BetterProgressBar();
+            this.bpb_rudderR = new EurofighterCockpit.BetterProgressBar();
+            this.bpb_throttle = new EurofighterCockpit.BetterProgressBar();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.bpb_joystickTorque = new EurofighterCockpit.BetterProgressBar();
+            this.betterProgressBar1 = new EurofighterCockpit.BetterProgressBar();
+            this.bpb_joystickXpos = new EurofighterCockpit.BetterProgressBar();
+            this.bpb_joystickXneg = new EurofighterCockpit.BetterProgressBar();
+            this.bpb_joystickYpos = new EurofighterCockpit.BetterProgressBar();
+            this.bpb_joystickYneg = new EurofighterCockpit.BetterProgressBar();
             this.panel3 = new System.Windows.Forms.Panel();
             this.cb_videoPathValid = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -70,55 +92,33 @@
             this.tb_logs = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_startServoTest = new System.Windows.Forms.Button();
             this.label34 = new System.Windows.Forms.Label();
+            this.sd_gear = new EurofighterCockpit.ServoDisplay();
             this.label35 = new System.Windows.Forms.Label();
+            this.sd_airbrake = new EurofighterCockpit.ServoDisplay();
             this.label32 = new System.Windows.Forms.Label();
+            this.sd_flapRight = new EurofighterCockpit.ServoDisplay();
             this.label33 = new System.Windows.Forms.Label();
+            this.sd_flapLeft = new EurofighterCockpit.ServoDisplay();
             this.label30 = new System.Windows.Forms.Label();
+            this.sd_aileronRight = new EurofighterCockpit.ServoDisplay();
             this.label31 = new System.Windows.Forms.Label();
+            this.sd_aileronLeft = new EurofighterCockpit.ServoDisplay();
             this.label29 = new System.Windows.Forms.Label();
+            this.sd_canardRight = new EurofighterCockpit.ServoDisplay();
             this.label28 = new System.Windows.Forms.Label();
+            this.sd_canardLeft = new EurofighterCockpit.ServoDisplay();
             this.label4 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.cb_connectionState = new System.Windows.Forms.CheckBox();
-            this.asdf = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
             this.bt_sleep = new EurofighterCockpit.BetterToggle();
             this.bt_useController = new EurofighterCockpit.BetterToggle();
+            this.label10 = new System.Windows.Forms.Label();
             this.bt_showNetworkTraffic = new EurofighterCockpit.BetterToggle();
-            this.sd_gear = new EurofighterCockpit.ServoDisplay();
-            this.sd_airbrake = new EurofighterCockpit.ServoDisplay();
-            this.sd_flapRight = new EurofighterCockpit.ServoDisplay();
-            this.sd_flapLeft = new EurofighterCockpit.ServoDisplay();
-            this.sd_aileronRight = new EurofighterCockpit.ServoDisplay();
-            this.sd_aileronLeft = new EurofighterCockpit.ServoDisplay();
-            this.sd_canardRight = new EurofighterCockpit.ServoDisplay();
-            this.sd_canardLeft = new EurofighterCockpit.ServoDisplay();
-            this.bpb_airbrake = new EurofighterCockpit.BetterProgressBar();
-            this.bpb_sound = new EurofighterCockpit.BetterProgressBar();
-            this.bpb_airbrakeCurve = new EurofighterCockpit.BetterProgressBar();
-            this.bpb_strobeLights = new EurofighterCockpit.BetterProgressBar();
-            this.bpb_landingLights = new EurofighterCockpit.BetterProgressBar();
-            this.bpb_positionLights = new EurofighterCockpit.BetterProgressBar();
-            this.bpb_trigger = new EurofighterCockpit.BetterProgressBar();
-            this.bpb_gear = new EurofighterCockpit.BetterProgressBar();
-            this.bpb_rudderReset = new EurofighterCockpit.BetterProgressBar();
-            this.bpb_rudderL = new EurofighterCockpit.BetterProgressBar();
-            this.bpb_rudderR = new EurofighterCockpit.BetterProgressBar();
-            this.bpb_throttle = new EurofighterCockpit.BetterProgressBar();
-            this.bpb_joystickTorque = new EurofighterCockpit.BetterProgressBar();
-            this.betterProgressBar1 = new EurofighterCockpit.BetterProgressBar();
-            this.bpb_joystickXpos = new EurofighterCockpit.BetterProgressBar();
-            this.bpb_joystickXneg = new EurofighterCockpit.BetterProgressBar();
-            this.bpb_joystickYpos = new EurofighterCockpit.BetterProgressBar();
-            this.bpb_joystickYneg = new EurofighterCockpit.BetterProgressBar();
-            this.bt_infotainmentSub = new EurofighterCockpit.BetterToggle();
-            this.bt_infotainment = new EurofighterCockpit.BetterToggle();
-            this.bt_videoPlayer = new EurofighterCockpit.BetterToggle();
-            this.bt_showSceenIndicators = new EurofighterCockpit.BetterToggle();
+            this.cb_connectionState = new System.Windows.Forms.CheckBox();
+            this.asdf = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -276,6 +276,45 @@
             this.label9.Text = "Video Player";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // bt_infotainmentSub
+            // 
+            this.bt_infotainmentSub.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(189)))), ((int)(((byte)(0)))));
+            this.bt_infotainmentSub.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bt_infotainmentSub.IsChecked = false;
+            this.bt_infotainmentSub.Location = new System.Drawing.Point(10, 190);
+            this.bt_infotainmentSub.Margin = new System.Windows.Forms.Padding(10);
+            this.bt_infotainmentSub.Name = "bt_infotainmentSub";
+            this.bt_infotainmentSub.Padding = new System.Windows.Forms.Padding(3);
+            this.bt_infotainmentSub.Size = new System.Drawing.Size(40, 20);
+            this.bt_infotainmentSub.TabIndex = 61;
+            this.bt_infotainmentSub.UserClick += new System.EventHandler(this.bt_infotainmentSub_UserClick);
+            // 
+            // bt_infotainment
+            // 
+            this.bt_infotainment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(189)))), ((int)(((byte)(0)))));
+            this.bt_infotainment.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bt_infotainment.IsChecked = false;
+            this.bt_infotainment.Location = new System.Drawing.Point(10, 150);
+            this.bt_infotainment.Margin = new System.Windows.Forms.Padding(10);
+            this.bt_infotainment.Name = "bt_infotainment";
+            this.bt_infotainment.Padding = new System.Windows.Forms.Padding(3);
+            this.bt_infotainment.Size = new System.Drawing.Size(40, 20);
+            this.bt_infotainment.TabIndex = 60;
+            this.bt_infotainment.UserClick += new System.EventHandler(this.bt_infotainment_UserClick);
+            // 
+            // bt_videoPlayer
+            // 
+            this.bt_videoPlayer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(189)))), ((int)(((byte)(0)))));
+            this.bt_videoPlayer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bt_videoPlayer.IsChecked = false;
+            this.bt_videoPlayer.Location = new System.Drawing.Point(10, 110);
+            this.bt_videoPlayer.Margin = new System.Windows.Forms.Padding(10);
+            this.bt_videoPlayer.Name = "bt_videoPlayer";
+            this.bt_videoPlayer.Padding = new System.Windows.Forms.Padding(3);
+            this.bt_videoPlayer.Size = new System.Drawing.Size(40, 20);
+            this.bt_videoPlayer.TabIndex = 59;
+            this.bt_videoPlayer.UserClick += new System.EventHandler(this.bt_videoPlayer_UserClick);
+            // 
             // label36
             // 
             this.label36.AutoSize = true;
@@ -285,6 +324,19 @@
             this.label36.Size = new System.Drawing.Size(126, 13);
             this.label36.TabIndex = 58;
             this.label36.Text = "Show screen indicators";
+            // 
+            // bt_showSceenIndicators
+            // 
+            this.bt_showSceenIndicators.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(189)))), ((int)(((byte)(0)))));
+            this.bt_showSceenIndicators.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bt_showSceenIndicators.IsChecked = false;
+            this.bt_showSceenIndicators.Location = new System.Drawing.Point(10, 60);
+            this.bt_showSceenIndicators.Margin = new System.Windows.Forms.Padding(10);
+            this.bt_showSceenIndicators.Name = "bt_showSceenIndicators";
+            this.bt_showSceenIndicators.Padding = new System.Windows.Forms.Padding(3);
+            this.bt_showSceenIndicators.Size = new System.Drawing.Size(40, 20);
+            this.bt_showSceenIndicators.TabIndex = 57;
+            this.bt_showSceenIndicators.UserClick += new System.EventHandler(this.bt_showSceenIndicators_UserClick);
             // 
             // panel2
             // 
@@ -338,6 +390,19 @@
             this.label19.Text = "Others";
             this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // bpb_airbrake
+            // 
+            this.bpb_airbrake.BackColor = System.Drawing.Color.Gainsboro;
+            this.bpb_airbrake.ColorProg = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(199)))));
+            this.bpb_airbrake.Direction = EurofighterCockpit.Direction.bottomToTop;
+            this.bpb_airbrake.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.bpb_airbrake.Location = new System.Drawing.Point(225, 255);
+            this.bpb_airbrake.Margin = new System.Windows.Forms.Padding(8);
+            this.bpb_airbrake.Name = "bpb_airbrake";
+            this.bpb_airbrake.Progress = 0;
+            this.bpb_airbrake.Size = new System.Drawing.Size(40, 20);
+            this.bpb_airbrake.TabIndex = 73;
+            // 
             // label17
             // 
             this.label17.BackColor = System.Drawing.Color.Transparent;
@@ -373,6 +438,19 @@
             this.label16.TabIndex = 71;
             this.label16.Text = "Thrust";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // bpb_sound
+            // 
+            this.bpb_sound.BackColor = System.Drawing.Color.Gainsboro;
+            this.bpb_sound.ColorProg = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(199)))));
+            this.bpb_sound.Direction = EurofighterCockpit.Direction.bottomToTop;
+            this.bpb_sound.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.bpb_sound.Location = new System.Drawing.Point(355, 255);
+            this.bpb_sound.Margin = new System.Windows.Forms.Padding(8);
+            this.bpb_sound.Name = "bpb_sound";
+            this.bpb_sound.Progress = 0;
+            this.bpb_sound.Size = new System.Drawing.Size(40, 20);
+            this.bpb_sound.TabIndex = 44;
             // 
             // label15
             // 
@@ -454,6 +532,19 @@
             this.label12.Text = "Airbrake";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // bpb_airbrakeCurve
+            // 
+            this.bpb_airbrakeCurve.BackColor = System.Drawing.Color.Gainsboro;
+            this.bpb_airbrakeCurve.ColorProg = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(199)))));
+            this.bpb_airbrakeCurve.Direction = EurofighterCockpit.Direction.bottomToTop;
+            this.bpb_airbrakeCurve.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.bpb_airbrakeCurve.Location = new System.Drawing.Point(225, 144);
+            this.bpb_airbrakeCurve.Margin = new System.Windows.Forms.Padding(8);
+            this.bpb_airbrakeCurve.Name = "bpb_airbrakeCurve";
+            this.bpb_airbrakeCurve.Progress = 0;
+            this.bpb_airbrakeCurve.Size = new System.Drawing.Size(40, 106);
+            this.bpb_airbrakeCurve.TabIndex = 64;
+            // 
             // label11
             // 
             this.label11.BackColor = System.Drawing.Color.Transparent;
@@ -477,6 +568,19 @@
             this.label27.TabIndex = 62;
             this.label27.Text = "Strobe";
             this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // bpb_strobeLights
+            // 
+            this.bpb_strobeLights.BackColor = System.Drawing.Color.Gainsboro;
+            this.bpb_strobeLights.ColorProg = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(199)))));
+            this.bpb_strobeLights.Direction = EurofighterCockpit.Direction.bottomToTop;
+            this.bpb_strobeLights.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.bpb_strobeLights.Location = new System.Drawing.Point(415, 182);
+            this.bpb_strobeLights.Margin = new System.Windows.Forms.Padding(8);
+            this.bpb_strobeLights.Name = "bpb_strobeLights";
+            this.bpb_strobeLights.Progress = 0;
+            this.bpb_strobeLights.Size = new System.Drawing.Size(40, 20);
+            this.bpb_strobeLights.TabIndex = 61;
             // 
             // label25
             // 
@@ -502,6 +606,32 @@
             this.label24.Text = "Position";
             this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // bpb_landingLights
+            // 
+            this.bpb_landingLights.BackColor = System.Drawing.Color.Gainsboro;
+            this.bpb_landingLights.ColorProg = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(199)))));
+            this.bpb_landingLights.Direction = EurofighterCockpit.Direction.bottomToTop;
+            this.bpb_landingLights.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.bpb_landingLights.Location = new System.Drawing.Point(295, 182);
+            this.bpb_landingLights.Margin = new System.Windows.Forms.Padding(8);
+            this.bpb_landingLights.Name = "bpb_landingLights";
+            this.bpb_landingLights.Progress = 0;
+            this.bpb_landingLights.Size = new System.Drawing.Size(40, 20);
+            this.bpb_landingLights.TabIndex = 57;
+            // 
+            // bpb_positionLights
+            // 
+            this.bpb_positionLights.BackColor = System.Drawing.Color.Gainsboro;
+            this.bpb_positionLights.ColorProg = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(199)))));
+            this.bpb_positionLights.Direction = EurofighterCockpit.Direction.bottomToTop;
+            this.bpb_positionLights.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.bpb_positionLights.Location = new System.Drawing.Point(355, 182);
+            this.bpb_positionLights.Margin = new System.Windows.Forms.Padding(8);
+            this.bpb_positionLights.Name = "bpb_positionLights";
+            this.bpb_positionLights.Progress = 0;
+            this.bpb_positionLights.Size = new System.Drawing.Size(40, 20);
+            this.bpb_positionLights.TabIndex = 56;
+            // 
             // label23
             // 
             this.label23.BackColor = System.Drawing.Color.Transparent;
@@ -514,6 +644,45 @@
             this.label23.Text = "Gear";
             this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // bpb_trigger
+            // 
+            this.bpb_trigger.BackColor = System.Drawing.Color.Gainsboro;
+            this.bpb_trigger.ColorProg = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(199)))));
+            this.bpb_trigger.Direction = EurofighterCockpit.Direction.bottomToTop;
+            this.bpb_trigger.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.bpb_trigger.Location = new System.Drawing.Point(225, 85);
+            this.bpb_trigger.Margin = new System.Windows.Forms.Padding(8);
+            this.bpb_trigger.Name = "bpb_trigger";
+            this.bpb_trigger.Progress = 0;
+            this.bpb_trigger.Size = new System.Drawing.Size(40, 20);
+            this.bpb_trigger.TabIndex = 45;
+            // 
+            // bpb_gear
+            // 
+            this.bpb_gear.BackColor = System.Drawing.Color.Gainsboro;
+            this.bpb_gear.ColorProg = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(199)))));
+            this.bpb_gear.Direction = EurofighterCockpit.Direction.bottomToTop;
+            this.bpb_gear.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.bpb_gear.Location = new System.Drawing.Point(295, 255);
+            this.bpb_gear.Margin = new System.Windows.Forms.Padding(8);
+            this.bpb_gear.Name = "bpb_gear";
+            this.bpb_gear.Progress = 0;
+            this.bpb_gear.Size = new System.Drawing.Size(40, 20);
+            this.bpb_gear.TabIndex = 54;
+            // 
+            // bpb_rudderReset
+            // 
+            this.bpb_rudderReset.BackColor = System.Drawing.Color.Gainsboro;
+            this.bpb_rudderReset.ColorProg = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(199)))));
+            this.bpb_rudderReset.Direction = EurofighterCockpit.Direction.bottomToTop;
+            this.bpb_rudderReset.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.bpb_rudderReset.Location = new System.Drawing.Point(415, 105);
+            this.bpb_rudderReset.Margin = new System.Windows.Forms.Padding(8);
+            this.bpb_rudderReset.Name = "bpb_rudderReset";
+            this.bpb_rudderReset.Progress = 0;
+            this.bpb_rudderReset.Size = new System.Drawing.Size(40, 20);
+            this.bpb_rudderReset.TabIndex = 52;
+            // 
             // label21
             // 
             this.label21.Font = new System.Drawing.Font("Leelawadee UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -523,6 +692,45 @@
             this.label21.TabIndex = 50;
             this.label21.Text = "Left";
             this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // bpb_rudderL
+            // 
+            this.bpb_rudderL.BackColor = System.Drawing.Color.Gainsboro;
+            this.bpb_rudderL.ColorProg = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(199)))));
+            this.bpb_rudderL.Direction = EurofighterCockpit.Direction.bottomToTop;
+            this.bpb_rudderL.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.bpb_rudderL.Location = new System.Drawing.Point(295, 105);
+            this.bpb_rudderL.Margin = new System.Windows.Forms.Padding(8);
+            this.bpb_rudderL.Name = "bpb_rudderL";
+            this.bpb_rudderL.Progress = 0;
+            this.bpb_rudderL.Size = new System.Drawing.Size(40, 20);
+            this.bpb_rudderL.TabIndex = 51;
+            // 
+            // bpb_rudderR
+            // 
+            this.bpb_rudderR.BackColor = System.Drawing.Color.Gainsboro;
+            this.bpb_rudderR.ColorProg = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(199)))));
+            this.bpb_rudderR.Direction = EurofighterCockpit.Direction.bottomToTop;
+            this.bpb_rudderR.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.bpb_rudderR.Location = new System.Drawing.Point(355, 105);
+            this.bpb_rudderR.Margin = new System.Windows.Forms.Padding(8);
+            this.bpb_rudderR.Name = "bpb_rudderR";
+            this.bpb_rudderR.Progress = 0;
+            this.bpb_rudderR.Size = new System.Drawing.Size(40, 20);
+            this.bpb_rudderR.TabIndex = 48;
+            // 
+            // bpb_throttle
+            // 
+            this.bpb_throttle.BackColor = System.Drawing.Color.Gainsboro;
+            this.bpb_throttle.ColorProg = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(199)))));
+            this.bpb_throttle.Direction = EurofighterCockpit.Direction.bottomToTop;
+            this.bpb_throttle.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.bpb_throttle.Location = new System.Drawing.Point(474, 85);
+            this.bpb_throttle.Margin = new System.Windows.Forms.Padding(8);
+            this.bpb_throttle.Name = "bpb_throttle";
+            this.bpb_throttle.Progress = 0;
+            this.bpb_throttle.Size = new System.Drawing.Size(70, 190);
+            this.bpb_throttle.TabIndex = 33;
             // 
             // label6
             // 
@@ -584,6 +792,84 @@
             this.label7.TabIndex = 31;
             this.label7.Text = "Twist left";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // bpb_joystickTorque
+            // 
+            this.bpb_joystickTorque.BackColor = System.Drawing.Color.Gainsboro;
+            this.bpb_joystickTorque.ColorProg = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(199)))));
+            this.bpb_joystickTorque.Direction = EurofighterCockpit.Direction.rightToLeft;
+            this.bpb_joystickTorque.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.bpb_joystickTorque.Location = new System.Drawing.Point(15, 44);
+            this.bpb_joystickTorque.Margin = new System.Windows.Forms.Padding(0);
+            this.bpb_joystickTorque.Name = "bpb_joystickTorque";
+            this.bpb_joystickTorque.Progress = 0;
+            this.bpb_joystickTorque.Size = new System.Drawing.Size(50, 20);
+            this.bpb_joystickTorque.TabIndex = 37;
+            // 
+            // betterProgressBar1
+            // 
+            this.betterProgressBar1.BackColor = System.Drawing.Color.Gainsboro;
+            this.betterProgressBar1.ColorProg = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(199)))));
+            this.betterProgressBar1.Direction = EurofighterCockpit.Direction.leftToRight;
+            this.betterProgressBar1.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.betterProgressBar1.Location = new System.Drawing.Point(121, 44);
+            this.betterProgressBar1.Margin = new System.Windows.Forms.Padding(0);
+            this.betterProgressBar1.Name = "betterProgressBar1";
+            this.betterProgressBar1.Progress = 0;
+            this.betterProgressBar1.Size = new System.Drawing.Size(50, 20);
+            this.betterProgressBar1.TabIndex = 36;
+            // 
+            // bpb_joystickXpos
+            // 
+            this.bpb_joystickXpos.BackColor = System.Drawing.Color.Gainsboro;
+            this.bpb_joystickXpos.ColorProg = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(199)))));
+            this.bpb_joystickXpos.Direction = EurofighterCockpit.Direction.leftToRight;
+            this.bpb_joystickXpos.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.bpb_joystickXpos.Location = new System.Drawing.Point(109, 79);
+            this.bpb_joystickXpos.Margin = new System.Windows.Forms.Padding(0);
+            this.bpb_joystickXpos.Name = "bpb_joystickXpos";
+            this.bpb_joystickXpos.Progress = 0;
+            this.bpb_joystickXpos.Size = new System.Drawing.Size(80, 30);
+            this.bpb_joystickXpos.TabIndex = 31;
+            // 
+            // bpb_joystickXneg
+            // 
+            this.bpb_joystickXneg.BackColor = System.Drawing.Color.Gainsboro;
+            this.bpb_joystickXneg.ColorProg = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(199)))));
+            this.bpb_joystickXneg.Direction = EurofighterCockpit.Direction.rightToLeft;
+            this.bpb_joystickXneg.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.bpb_joystickXneg.Location = new System.Drawing.Point(-1, 79);
+            this.bpb_joystickXneg.Margin = new System.Windows.Forms.Padding(0);
+            this.bpb_joystickXneg.Name = "bpb_joystickXneg";
+            this.bpb_joystickXneg.Progress = 0;
+            this.bpb_joystickXneg.Size = new System.Drawing.Size(80, 30);
+            this.bpb_joystickXneg.TabIndex = 32;
+            // 
+            // bpb_joystickYpos
+            // 
+            this.bpb_joystickYpos.BackColor = System.Drawing.Color.Gainsboro;
+            this.bpb_joystickYpos.ColorProg = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(199)))));
+            this.bpb_joystickYpos.Direction = EurofighterCockpit.Direction.bottomToTop;
+            this.bpb_joystickYpos.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.bpb_joystickYpos.Location = new System.Drawing.Point(79, -1);
+            this.bpb_joystickYpos.Margin = new System.Windows.Forms.Padding(0);
+            this.bpb_joystickYpos.Name = "bpb_joystickYpos";
+            this.bpb_joystickYpos.Progress = 0;
+            this.bpb_joystickYpos.Size = new System.Drawing.Size(30, 80);
+            this.bpb_joystickYpos.TabIndex = 34;
+            // 
+            // bpb_joystickYneg
+            // 
+            this.bpb_joystickYneg.BackColor = System.Drawing.Color.Gainsboro;
+            this.bpb_joystickYneg.ColorProg = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(199)))));
+            this.bpb_joystickYneg.Direction = EurofighterCockpit.Direction.topToBottom;
+            this.bpb_joystickYneg.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.bpb_joystickYneg.Location = new System.Drawing.Point(79, 109);
+            this.bpb_joystickYneg.Margin = new System.Windows.Forms.Padding(0);
+            this.bpb_joystickYneg.Name = "bpb_joystickYneg";
+            this.bpb_joystickYneg.Progress = 0;
+            this.bpb_joystickYneg.Size = new System.Drawing.Size(30, 80);
+            this.bpb_joystickYneg.TabIndex = 35;
             // 
             // panel3
             // 
@@ -669,7 +955,7 @@
             // panel
             // 
             this.panel.BackColor = System.Drawing.Color.White;
-            this.panel.Controls.Add(this.button1);
+            this.panel.Controls.Add(this.btn_startServoTest);
             this.panel.Controls.Add(this.label34);
             this.panel.Controls.Add(this.sd_gear);
             this.panel.Controls.Add(this.label35);
@@ -692,18 +978,19 @@
             this.panel.Size = new System.Drawing.Size(609, 357);
             this.panel.TabIndex = 30;
             // 
-            // button1
+            // btn_startServoTest
             // 
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Leelawadee UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(421, 319);
-            this.button1.Margin = new System.Windows.Forms.Padding(10);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(162, 25);
-            this.button1.TabIndex = 33;
-            this.button1.Text = "Servo Test (tbd)";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btn_startServoTest.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_startServoTest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_startServoTest.Font = new System.Drawing.Font("Leelawadee UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_startServoTest.Location = new System.Drawing.Point(421, 319);
+            this.btn_startServoTest.Margin = new System.Windows.Forms.Padding(10);
+            this.btn_startServoTest.Name = "btn_startServoTest";
+            this.btn_startServoTest.Size = new System.Drawing.Size(162, 25);
+            this.btn_startServoTest.TabIndex = 33;
+            this.btn_startServoTest.Text = "Servo Test (tbd)";
+            this.btn_startServoTest.UseVisualStyleBackColor = true;
+            this.btn_startServoTest.Click += new System.EventHandler(this.btn_startServoTest_Click);
             // 
             // label34
             // 
@@ -717,6 +1004,17 @@
             this.label34.Text = "Gear";
             this.label34.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // sd_gear
+            // 
+            this.sd_gear.Location = new System.Drawing.Point(315, 259);
+            this.sd_gear.Max = 1;
+            this.sd_gear.Min = 0;
+            this.sd_gear.Name = "sd_gear";
+            this.sd_gear.Size = new System.Drawing.Size(280, 26);
+            this.sd_gear.TabIndex = 54;
+            this.sd_gear.Value = ((byte)(0));
+            this.sd_gear.ValueChanged += new System.EventHandler(this.servoOverright_ValueChanged);
+            // 
             // label35
             // 
             this.label35.BackColor = System.Drawing.Color.Transparent;
@@ -728,6 +1026,17 @@
             this.label35.TabIndex = 53;
             this.label35.Text = "Airbrake";
             this.label35.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // sd_airbrake
+            // 
+            this.sd_airbrake.Location = new System.Drawing.Point(15, 259);
+            this.sd_airbrake.Max = 255;
+            this.sd_airbrake.Min = 0;
+            this.sd_airbrake.Name = "sd_airbrake";
+            this.sd_airbrake.Size = new System.Drawing.Size(280, 26);
+            this.sd_airbrake.TabIndex = 52;
+            this.sd_airbrake.Value = ((byte)(0));
+            this.sd_airbrake.ValueChanged += new System.EventHandler(this.servoOverright_ValueChanged);
             // 
             // label32
             // 
@@ -741,6 +1050,17 @@
             this.label32.Text = "Flap Right";
             this.label32.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // sd_flapRight
+            // 
+            this.sd_flapRight.Location = new System.Drawing.Point(315, 199);
+            this.sd_flapRight.Max = 255;
+            this.sd_flapRight.Min = 0;
+            this.sd_flapRight.Name = "sd_flapRight";
+            this.sd_flapRight.Size = new System.Drawing.Size(280, 26);
+            this.sd_flapRight.TabIndex = 50;
+            this.sd_flapRight.Value = ((byte)(0));
+            this.sd_flapRight.ValueChanged += new System.EventHandler(this.servoOverright_ValueChanged);
+            // 
             // label33
             // 
             this.label33.BackColor = System.Drawing.Color.Transparent;
@@ -752,6 +1072,17 @@
             this.label33.TabIndex = 49;
             this.label33.Text = "Flap Left";
             this.label33.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // sd_flapLeft
+            // 
+            this.sd_flapLeft.Location = new System.Drawing.Point(15, 199);
+            this.sd_flapLeft.Max = 255;
+            this.sd_flapLeft.Min = 0;
+            this.sd_flapLeft.Name = "sd_flapLeft";
+            this.sd_flapLeft.Size = new System.Drawing.Size(280, 26);
+            this.sd_flapLeft.TabIndex = 48;
+            this.sd_flapLeft.Value = ((byte)(0));
+            this.sd_flapLeft.ValueChanged += new System.EventHandler(this.servoOverright_ValueChanged);
             // 
             // label30
             // 
@@ -765,6 +1096,17 @@
             this.label30.Text = "Aileron Right";
             this.label30.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // sd_aileronRight
+            // 
+            this.sd_aileronRight.Location = new System.Drawing.Point(315, 139);
+            this.sd_aileronRight.Max = 255;
+            this.sd_aileronRight.Min = 0;
+            this.sd_aileronRight.Name = "sd_aileronRight";
+            this.sd_aileronRight.Size = new System.Drawing.Size(280, 26);
+            this.sd_aileronRight.TabIndex = 46;
+            this.sd_aileronRight.Value = ((byte)(0));
+            this.sd_aileronRight.ValueChanged += new System.EventHandler(this.servoOverright_ValueChanged);
+            // 
             // label31
             // 
             this.label31.BackColor = System.Drawing.Color.Transparent;
@@ -776,6 +1118,17 @@
             this.label31.TabIndex = 45;
             this.label31.Text = "Aileron Left";
             this.label31.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // sd_aileronLeft
+            // 
+            this.sd_aileronLeft.Location = new System.Drawing.Point(15, 139);
+            this.sd_aileronLeft.Max = 255;
+            this.sd_aileronLeft.Min = 0;
+            this.sd_aileronLeft.Name = "sd_aileronLeft";
+            this.sd_aileronLeft.Size = new System.Drawing.Size(280, 26);
+            this.sd_aileronLeft.TabIndex = 44;
+            this.sd_aileronLeft.Value = ((byte)(0));
+            this.sd_aileronLeft.ValueChanged += new System.EventHandler(this.servoOverright_ValueChanged);
             // 
             // label29
             // 
@@ -789,6 +1142,17 @@
             this.label29.Text = "Canard Right";
             this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // sd_canardRight
+            // 
+            this.sd_canardRight.Location = new System.Drawing.Point(315, 79);
+            this.sd_canardRight.Max = 255;
+            this.sd_canardRight.Min = 0;
+            this.sd_canardRight.Name = "sd_canardRight";
+            this.sd_canardRight.Size = new System.Drawing.Size(280, 26);
+            this.sd_canardRight.TabIndex = 42;
+            this.sd_canardRight.Value = ((byte)(0));
+            this.sd_canardRight.ValueChanged += new System.EventHandler(this.servoOverright_ValueChanged);
+            // 
             // label28
             // 
             this.label28.BackColor = System.Drawing.Color.Transparent;
@@ -800,6 +1164,17 @@
             this.label28.TabIndex = 41;
             this.label28.Text = "Canard Left";
             this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // sd_canardLeft
+            // 
+            this.sd_canardLeft.Location = new System.Drawing.Point(15, 79);
+            this.sd_canardLeft.Max = 255;
+            this.sd_canardLeft.Min = 0;
+            this.sd_canardLeft.Name = "sd_canardLeft";
+            this.sd_canardLeft.Size = new System.Drawing.Size(280, 26);
+            this.sd_canardLeft.TabIndex = 0;
+            this.sd_canardLeft.Value = ((byte)(0));
+            this.sd_canardLeft.ValueChanged += new System.EventHandler(this.servoOverright_ValueChanged);
             // 
             // label4
             // 
@@ -832,6 +1207,16 @@
             this.panel7.Size = new System.Drawing.Size(200, 210);
             this.panel7.TabIndex = 31;
             // 
+            // label22
+            // 
+            this.label22.Font = new System.Drawing.Font("Leelawadee UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(60, 120);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(126, 20);
+            this.label22.TabIndex = 71;
+            this.label22.Text = "Sleep";
+            this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // label20
             // 
             this.label20.Font = new System.Drawing.Font("Leelawadee UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -842,6 +1227,31 @@
             this.label20.Text = "Use controller as input";
             this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // bt_sleep
+            // 
+            this.bt_sleep.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(189)))), ((int)(((byte)(0)))));
+            this.bt_sleep.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bt_sleep.IsChecked = false;
+            this.bt_sleep.Location = new System.Drawing.Point(10, 120);
+            this.bt_sleep.Name = "bt_sleep";
+            this.bt_sleep.Padding = new System.Windows.Forms.Padding(3);
+            this.bt_sleep.Size = new System.Drawing.Size(40, 20);
+            this.bt_sleep.TabIndex = 56;
+            this.bt_sleep.UserClick += new System.EventHandler(this.bt_sleep_UserClick);
+            // 
+            // bt_useController
+            // 
+            this.bt_useController.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(189)))), ((int)(((byte)(0)))));
+            this.bt_useController.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bt_useController.IsChecked = true;
+            this.bt_useController.Location = new System.Drawing.Point(10, 90);
+            this.bt_useController.Margin = new System.Windows.Forms.Padding(10);
+            this.bt_useController.Name = "bt_useController";
+            this.bt_useController.Padding = new System.Windows.Forms.Padding(3);
+            this.bt_useController.Size = new System.Drawing.Size(40, 20);
+            this.bt_useController.TabIndex = 69;
+            this.bt_useController.UserClick += new System.EventHandler(this.bt_useController_UserClick);
+            // 
             // label10
             // 
             this.label10.Font = new System.Drawing.Font("Leelawadee UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -851,6 +1261,18 @@
             this.label10.TabIndex = 68;
             this.label10.Text = "Show network traffic";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // bt_showNetworkTraffic
+            // 
+            this.bt_showNetworkTraffic.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(189)))), ((int)(((byte)(0)))));
+            this.bt_showNetworkTraffic.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bt_showNetworkTraffic.IsChecked = true;
+            this.bt_showNetworkTraffic.Location = new System.Drawing.Point(10, 60);
+            this.bt_showNetworkTraffic.Margin = new System.Windows.Forms.Padding(10);
+            this.bt_showNetworkTraffic.Name = "bt_showNetworkTraffic";
+            this.bt_showNetworkTraffic.Padding = new System.Windows.Forms.Padding(3);
+            this.bt_showNetworkTraffic.Size = new System.Drawing.Size(40, 20);
+            this.bt_showNetworkTraffic.TabIndex = 57;
             // 
             // cb_connectionState
             // 
@@ -883,427 +1305,6 @@
             this.asdf.TabIndex = 29;
             this.asdf.Text = "EUROFIGHTER";
             this.asdf.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label22
-            // 
-            this.label22.Font = new System.Drawing.Font("Leelawadee UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(60, 120);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(126, 20);
-            this.label22.TabIndex = 71;
-            this.label22.Text = "Sleep";
-            this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // bt_sleep
-            // 
-            this.bt_sleep.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(189)))), ((int)(((byte)(0)))));
-            this.bt_sleep.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bt_sleep.IsChecked = false;
-            this.bt_sleep.Location = new System.Drawing.Point(10, 120);
-            this.bt_sleep.Name = "bt_sleep";
-            this.bt_sleep.Padding = new System.Windows.Forms.Padding(3);
-            this.bt_sleep.Size = new System.Drawing.Size(40, 20);
-            this.bt_sleep.TabIndex = 56;
-            this.bt_sleep.UserClick += new System.EventHandler(this.bt_sleep_UserClick);
-            // 
-            // bt_useController
-            // 
-            this.bt_useController.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(189)))), ((int)(((byte)(0)))));
-            this.bt_useController.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bt_useController.IsChecked = true;
-            this.bt_useController.Location = new System.Drawing.Point(10, 90);
-            this.bt_useController.Margin = new System.Windows.Forms.Padding(10);
-            this.bt_useController.Name = "bt_useController";
-            this.bt_useController.Padding = new System.Windows.Forms.Padding(3);
-            this.bt_useController.Size = new System.Drawing.Size(40, 20);
-            this.bt_useController.TabIndex = 69;
-            this.bt_useController.UserClick += new System.EventHandler(this.bt_useController_UserClick);
-            // 
-            // bt_showNetworkTraffic
-            // 
-            this.bt_showNetworkTraffic.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(189)))), ((int)(((byte)(0)))));
-            this.bt_showNetworkTraffic.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bt_showNetworkTraffic.IsChecked = true;
-            this.bt_showNetworkTraffic.Location = new System.Drawing.Point(10, 60);
-            this.bt_showNetworkTraffic.Margin = new System.Windows.Forms.Padding(10);
-            this.bt_showNetworkTraffic.Name = "bt_showNetworkTraffic";
-            this.bt_showNetworkTraffic.Padding = new System.Windows.Forms.Padding(3);
-            this.bt_showNetworkTraffic.Size = new System.Drawing.Size(40, 20);
-            this.bt_showNetworkTraffic.TabIndex = 57;
-            // 
-            // sd_gear
-            // 
-            this.sd_gear.Location = new System.Drawing.Point(315, 259);
-            this.sd_gear.Max = 1;
-            this.sd_gear.Min = 0;
-            this.sd_gear.Name = "sd_gear";
-            this.sd_gear.Size = new System.Drawing.Size(280, 26);
-            this.sd_gear.TabIndex = 54;
-            this.sd_gear.Value = ((byte)(0));
-            this.sd_gear.ValueChanged += new System.EventHandler(this.servoOverright_ValueChanged);
-            // 
-            // sd_airbrake
-            // 
-            this.sd_airbrake.Location = new System.Drawing.Point(15, 259);
-            this.sd_airbrake.Max = 255;
-            this.sd_airbrake.Min = 0;
-            this.sd_airbrake.Name = "sd_airbrake";
-            this.sd_airbrake.Size = new System.Drawing.Size(280, 26);
-            this.sd_airbrake.TabIndex = 52;
-            this.sd_airbrake.Value = ((byte)(0));
-            this.sd_airbrake.ValueChanged += new System.EventHandler(this.servoOverright_ValueChanged);
-            // 
-            // sd_flapRight
-            // 
-            this.sd_flapRight.Location = new System.Drawing.Point(315, 199);
-            this.sd_flapRight.Max = 255;
-            this.sd_flapRight.Min = 0;
-            this.sd_flapRight.Name = "sd_flapRight";
-            this.sd_flapRight.Size = new System.Drawing.Size(280, 26);
-            this.sd_flapRight.TabIndex = 50;
-            this.sd_flapRight.Value = ((byte)(0));
-            this.sd_flapRight.ValueChanged += new System.EventHandler(this.servoOverright_ValueChanged);
-            // 
-            // sd_flapLeft
-            // 
-            this.sd_flapLeft.Location = new System.Drawing.Point(15, 199);
-            this.sd_flapLeft.Max = 255;
-            this.sd_flapLeft.Min = 0;
-            this.sd_flapLeft.Name = "sd_flapLeft";
-            this.sd_flapLeft.Size = new System.Drawing.Size(280, 26);
-            this.sd_flapLeft.TabIndex = 48;
-            this.sd_flapLeft.Value = ((byte)(0));
-            this.sd_flapLeft.ValueChanged += new System.EventHandler(this.servoOverright_ValueChanged);
-            // 
-            // sd_aileronRight
-            // 
-            this.sd_aileronRight.Location = new System.Drawing.Point(315, 139);
-            this.sd_aileronRight.Max = 255;
-            this.sd_aileronRight.Min = 0;
-            this.sd_aileronRight.Name = "sd_aileronRight";
-            this.sd_aileronRight.Size = new System.Drawing.Size(280, 26);
-            this.sd_aileronRight.TabIndex = 46;
-            this.sd_aileronRight.Value = ((byte)(0));
-            this.sd_aileronRight.ValueChanged += new System.EventHandler(this.servoOverright_ValueChanged);
-            // 
-            // sd_aileronLeft
-            // 
-            this.sd_aileronLeft.Location = new System.Drawing.Point(15, 139);
-            this.sd_aileronLeft.Max = 255;
-            this.sd_aileronLeft.Min = 0;
-            this.sd_aileronLeft.Name = "sd_aileronLeft";
-            this.sd_aileronLeft.Size = new System.Drawing.Size(280, 26);
-            this.sd_aileronLeft.TabIndex = 44;
-            this.sd_aileronLeft.Value = ((byte)(0));
-            this.sd_aileronLeft.ValueChanged += new System.EventHandler(this.servoOverright_ValueChanged);
-            // 
-            // sd_canardRight
-            // 
-            this.sd_canardRight.Location = new System.Drawing.Point(315, 79);
-            this.sd_canardRight.Max = 255;
-            this.sd_canardRight.Min = 0;
-            this.sd_canardRight.Name = "sd_canardRight";
-            this.sd_canardRight.Size = new System.Drawing.Size(280, 26);
-            this.sd_canardRight.TabIndex = 42;
-            this.sd_canardRight.Value = ((byte)(0));
-            this.sd_canardRight.ValueChanged += new System.EventHandler(this.servoOverright_ValueChanged);
-            // 
-            // sd_canardLeft
-            // 
-            this.sd_canardLeft.Location = new System.Drawing.Point(15, 79);
-            this.sd_canardLeft.Max = 255;
-            this.sd_canardLeft.Min = 0;
-            this.sd_canardLeft.Name = "sd_canardLeft";
-            this.sd_canardLeft.Size = new System.Drawing.Size(280, 26);
-            this.sd_canardLeft.TabIndex = 0;
-            this.sd_canardLeft.Value = ((byte)(0));
-            this.sd_canardLeft.ValueChanged += new System.EventHandler(this.servoOverright_ValueChanged);
-            // 
-            // bpb_airbrake
-            // 
-            this.bpb_airbrake.BackColor = System.Drawing.Color.Gainsboro;
-            this.bpb_airbrake.ColorProg = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(199)))));
-            this.bpb_airbrake.Direction = EurofighterCockpit.Direction.bottomToTop;
-            this.bpb_airbrake.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.bpb_airbrake.Location = new System.Drawing.Point(225, 255);
-            this.bpb_airbrake.Margin = new System.Windows.Forms.Padding(8);
-            this.bpb_airbrake.Name = "bpb_airbrake";
-            this.bpb_airbrake.Progress = 0;
-            this.bpb_airbrake.Size = new System.Drawing.Size(40, 20);
-            this.bpb_airbrake.TabIndex = 73;
-            // 
-            // bpb_sound
-            // 
-            this.bpb_sound.BackColor = System.Drawing.Color.Gainsboro;
-            this.bpb_sound.ColorProg = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(199)))));
-            this.bpb_sound.Direction = EurofighterCockpit.Direction.bottomToTop;
-            this.bpb_sound.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.bpb_sound.Location = new System.Drawing.Point(355, 255);
-            this.bpb_sound.Margin = new System.Windows.Forms.Padding(8);
-            this.bpb_sound.Name = "bpb_sound";
-            this.bpb_sound.Progress = 0;
-            this.bpb_sound.Size = new System.Drawing.Size(40, 20);
-            this.bpb_sound.TabIndex = 44;
-            // 
-            // bpb_airbrakeCurve
-            // 
-            this.bpb_airbrakeCurve.BackColor = System.Drawing.Color.Gainsboro;
-            this.bpb_airbrakeCurve.ColorProg = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(199)))));
-            this.bpb_airbrakeCurve.Direction = EurofighterCockpit.Direction.bottomToTop;
-            this.bpb_airbrakeCurve.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.bpb_airbrakeCurve.Location = new System.Drawing.Point(225, 144);
-            this.bpb_airbrakeCurve.Margin = new System.Windows.Forms.Padding(8);
-            this.bpb_airbrakeCurve.Name = "bpb_airbrakeCurve";
-            this.bpb_airbrakeCurve.Progress = 0;
-            this.bpb_airbrakeCurve.Size = new System.Drawing.Size(40, 106);
-            this.bpb_airbrakeCurve.TabIndex = 64;
-            // 
-            // bpb_strobeLights
-            // 
-            this.bpb_strobeLights.BackColor = System.Drawing.Color.Gainsboro;
-            this.bpb_strobeLights.ColorProg = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(199)))));
-            this.bpb_strobeLights.Direction = EurofighterCockpit.Direction.bottomToTop;
-            this.bpb_strobeLights.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.bpb_strobeLights.Location = new System.Drawing.Point(415, 182);
-            this.bpb_strobeLights.Margin = new System.Windows.Forms.Padding(8);
-            this.bpb_strobeLights.Name = "bpb_strobeLights";
-            this.bpb_strobeLights.Progress = 0;
-            this.bpb_strobeLights.Size = new System.Drawing.Size(40, 20);
-            this.bpb_strobeLights.TabIndex = 61;
-            // 
-            // bpb_landingLights
-            // 
-            this.bpb_landingLights.BackColor = System.Drawing.Color.Gainsboro;
-            this.bpb_landingLights.ColorProg = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(199)))));
-            this.bpb_landingLights.Direction = EurofighterCockpit.Direction.bottomToTop;
-            this.bpb_landingLights.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.bpb_landingLights.Location = new System.Drawing.Point(295, 182);
-            this.bpb_landingLights.Margin = new System.Windows.Forms.Padding(8);
-            this.bpb_landingLights.Name = "bpb_landingLights";
-            this.bpb_landingLights.Progress = 0;
-            this.bpb_landingLights.Size = new System.Drawing.Size(40, 20);
-            this.bpb_landingLights.TabIndex = 57;
-            // 
-            // bpb_positionLights
-            // 
-            this.bpb_positionLights.BackColor = System.Drawing.Color.Gainsboro;
-            this.bpb_positionLights.ColorProg = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(199)))));
-            this.bpb_positionLights.Direction = EurofighterCockpit.Direction.bottomToTop;
-            this.bpb_positionLights.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.bpb_positionLights.Location = new System.Drawing.Point(355, 182);
-            this.bpb_positionLights.Margin = new System.Windows.Forms.Padding(8);
-            this.bpb_positionLights.Name = "bpb_positionLights";
-            this.bpb_positionLights.Progress = 0;
-            this.bpb_positionLights.Size = new System.Drawing.Size(40, 20);
-            this.bpb_positionLights.TabIndex = 56;
-            // 
-            // bpb_trigger
-            // 
-            this.bpb_trigger.BackColor = System.Drawing.Color.Gainsboro;
-            this.bpb_trigger.ColorProg = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(199)))));
-            this.bpb_trigger.Direction = EurofighterCockpit.Direction.bottomToTop;
-            this.bpb_trigger.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.bpb_trigger.Location = new System.Drawing.Point(225, 85);
-            this.bpb_trigger.Margin = new System.Windows.Forms.Padding(8);
-            this.bpb_trigger.Name = "bpb_trigger";
-            this.bpb_trigger.Progress = 0;
-            this.bpb_trigger.Size = new System.Drawing.Size(40, 20);
-            this.bpb_trigger.TabIndex = 45;
-            // 
-            // bpb_gear
-            // 
-            this.bpb_gear.BackColor = System.Drawing.Color.Gainsboro;
-            this.bpb_gear.ColorProg = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(199)))));
-            this.bpb_gear.Direction = EurofighterCockpit.Direction.bottomToTop;
-            this.bpb_gear.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.bpb_gear.Location = new System.Drawing.Point(295, 255);
-            this.bpb_gear.Margin = new System.Windows.Forms.Padding(8);
-            this.bpb_gear.Name = "bpb_gear";
-            this.bpb_gear.Progress = 0;
-            this.bpb_gear.Size = new System.Drawing.Size(40, 20);
-            this.bpb_gear.TabIndex = 54;
-            // 
-            // bpb_rudderReset
-            // 
-            this.bpb_rudderReset.BackColor = System.Drawing.Color.Gainsboro;
-            this.bpb_rudderReset.ColorProg = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(199)))));
-            this.bpb_rudderReset.Direction = EurofighterCockpit.Direction.bottomToTop;
-            this.bpb_rudderReset.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.bpb_rudderReset.Location = new System.Drawing.Point(415, 105);
-            this.bpb_rudderReset.Margin = new System.Windows.Forms.Padding(8);
-            this.bpb_rudderReset.Name = "bpb_rudderReset";
-            this.bpb_rudderReset.Progress = 0;
-            this.bpb_rudderReset.Size = new System.Drawing.Size(40, 20);
-            this.bpb_rudderReset.TabIndex = 52;
-            // 
-            // bpb_rudderL
-            // 
-            this.bpb_rudderL.BackColor = System.Drawing.Color.Gainsboro;
-            this.bpb_rudderL.ColorProg = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(199)))));
-            this.bpb_rudderL.Direction = EurofighterCockpit.Direction.bottomToTop;
-            this.bpb_rudderL.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.bpb_rudderL.Location = new System.Drawing.Point(295, 105);
-            this.bpb_rudderL.Margin = new System.Windows.Forms.Padding(8);
-            this.bpb_rudderL.Name = "bpb_rudderL";
-            this.bpb_rudderL.Progress = 0;
-            this.bpb_rudderL.Size = new System.Drawing.Size(40, 20);
-            this.bpb_rudderL.TabIndex = 51;
-            // 
-            // bpb_rudderR
-            // 
-            this.bpb_rudderR.BackColor = System.Drawing.Color.Gainsboro;
-            this.bpb_rudderR.ColorProg = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(199)))));
-            this.bpb_rudderR.Direction = EurofighterCockpit.Direction.bottomToTop;
-            this.bpb_rudderR.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.bpb_rudderR.Location = new System.Drawing.Point(355, 105);
-            this.bpb_rudderR.Margin = new System.Windows.Forms.Padding(8);
-            this.bpb_rudderR.Name = "bpb_rudderR";
-            this.bpb_rudderR.Progress = 0;
-            this.bpb_rudderR.Size = new System.Drawing.Size(40, 20);
-            this.bpb_rudderR.TabIndex = 48;
-            // 
-            // bpb_throttle
-            // 
-            this.bpb_throttle.BackColor = System.Drawing.Color.Gainsboro;
-            this.bpb_throttle.ColorProg = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(199)))));
-            this.bpb_throttle.Direction = EurofighterCockpit.Direction.bottomToTop;
-            this.bpb_throttle.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.bpb_throttle.Location = new System.Drawing.Point(474, 85);
-            this.bpb_throttle.Margin = new System.Windows.Forms.Padding(8);
-            this.bpb_throttle.Name = "bpb_throttle";
-            this.bpb_throttle.Progress = 0;
-            this.bpb_throttle.Size = new System.Drawing.Size(70, 190);
-            this.bpb_throttle.TabIndex = 33;
-            // 
-            // bpb_joystickTorque
-            // 
-            this.bpb_joystickTorque.BackColor = System.Drawing.Color.Gainsboro;
-            this.bpb_joystickTorque.ColorProg = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(199)))));
-            this.bpb_joystickTorque.Direction = EurofighterCockpit.Direction.rightToLeft;
-            this.bpb_joystickTorque.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.bpb_joystickTorque.Location = new System.Drawing.Point(15, 44);
-            this.bpb_joystickTorque.Margin = new System.Windows.Forms.Padding(0);
-            this.bpb_joystickTorque.Name = "bpb_joystickTorque";
-            this.bpb_joystickTorque.Progress = 0;
-            this.bpb_joystickTorque.Size = new System.Drawing.Size(50, 20);
-            this.bpb_joystickTorque.TabIndex = 37;
-            // 
-            // betterProgressBar1
-            // 
-            this.betterProgressBar1.BackColor = System.Drawing.Color.Gainsboro;
-            this.betterProgressBar1.ColorProg = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(199)))));
-            this.betterProgressBar1.Direction = EurofighterCockpit.Direction.leftToRight;
-            this.betterProgressBar1.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.betterProgressBar1.Location = new System.Drawing.Point(121, 44);
-            this.betterProgressBar1.Margin = new System.Windows.Forms.Padding(0);
-            this.betterProgressBar1.Name = "betterProgressBar1";
-            this.betterProgressBar1.Progress = 0;
-            this.betterProgressBar1.Size = new System.Drawing.Size(50, 20);
-            this.betterProgressBar1.TabIndex = 36;
-            // 
-            // bpb_joystickXpos
-            // 
-            this.bpb_joystickXpos.BackColor = System.Drawing.Color.Gainsboro;
-            this.bpb_joystickXpos.ColorProg = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(199)))));
-            this.bpb_joystickXpos.Direction = EurofighterCockpit.Direction.leftToRight;
-            this.bpb_joystickXpos.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.bpb_joystickXpos.Location = new System.Drawing.Point(109, 79);
-            this.bpb_joystickXpos.Margin = new System.Windows.Forms.Padding(0);
-            this.bpb_joystickXpos.Name = "bpb_joystickXpos";
-            this.bpb_joystickXpos.Progress = 0;
-            this.bpb_joystickXpos.Size = new System.Drawing.Size(80, 30);
-            this.bpb_joystickXpos.TabIndex = 31;
-            // 
-            // bpb_joystickXneg
-            // 
-            this.bpb_joystickXneg.BackColor = System.Drawing.Color.Gainsboro;
-            this.bpb_joystickXneg.ColorProg = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(199)))));
-            this.bpb_joystickXneg.Direction = EurofighterCockpit.Direction.rightToLeft;
-            this.bpb_joystickXneg.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.bpb_joystickXneg.Location = new System.Drawing.Point(-1, 79);
-            this.bpb_joystickXneg.Margin = new System.Windows.Forms.Padding(0);
-            this.bpb_joystickXneg.Name = "bpb_joystickXneg";
-            this.bpb_joystickXneg.Progress = 0;
-            this.bpb_joystickXneg.Size = new System.Drawing.Size(80, 30);
-            this.bpb_joystickXneg.TabIndex = 32;
-            // 
-            // bpb_joystickYpos
-            // 
-            this.bpb_joystickYpos.BackColor = System.Drawing.Color.Gainsboro;
-            this.bpb_joystickYpos.ColorProg = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(199)))));
-            this.bpb_joystickYpos.Direction = EurofighterCockpit.Direction.bottomToTop;
-            this.bpb_joystickYpos.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.bpb_joystickYpos.Location = new System.Drawing.Point(79, -1);
-            this.bpb_joystickYpos.Margin = new System.Windows.Forms.Padding(0);
-            this.bpb_joystickYpos.Name = "bpb_joystickYpos";
-            this.bpb_joystickYpos.Progress = 0;
-            this.bpb_joystickYpos.Size = new System.Drawing.Size(30, 80);
-            this.bpb_joystickYpos.TabIndex = 34;
-            // 
-            // bpb_joystickYneg
-            // 
-            this.bpb_joystickYneg.BackColor = System.Drawing.Color.Gainsboro;
-            this.bpb_joystickYneg.ColorProg = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(199)))));
-            this.bpb_joystickYneg.Direction = EurofighterCockpit.Direction.topToBottom;
-            this.bpb_joystickYneg.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.bpb_joystickYneg.Location = new System.Drawing.Point(79, 109);
-            this.bpb_joystickYneg.Margin = new System.Windows.Forms.Padding(0);
-            this.bpb_joystickYneg.Name = "bpb_joystickYneg";
-            this.bpb_joystickYneg.Progress = 0;
-            this.bpb_joystickYneg.Size = new System.Drawing.Size(30, 80);
-            this.bpb_joystickYneg.TabIndex = 35;
-            // 
-            // bt_infotainmentSub
-            // 
-            this.bt_infotainmentSub.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(189)))), ((int)(((byte)(0)))));
-            this.bt_infotainmentSub.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bt_infotainmentSub.IsChecked = false;
-            this.bt_infotainmentSub.Location = new System.Drawing.Point(10, 190);
-            this.bt_infotainmentSub.Margin = new System.Windows.Forms.Padding(10);
-            this.bt_infotainmentSub.Name = "bt_infotainmentSub";
-            this.bt_infotainmentSub.Padding = new System.Windows.Forms.Padding(3);
-            this.bt_infotainmentSub.Size = new System.Drawing.Size(40, 20);
-            this.bt_infotainmentSub.TabIndex = 61;
-            this.bt_infotainmentSub.UserClick += new System.EventHandler(this.bt_infotainmentSub_UserClick);
-            // 
-            // bt_infotainment
-            // 
-            this.bt_infotainment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(189)))), ((int)(((byte)(0)))));
-            this.bt_infotainment.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bt_infotainment.IsChecked = false;
-            this.bt_infotainment.Location = new System.Drawing.Point(10, 150);
-            this.bt_infotainment.Margin = new System.Windows.Forms.Padding(10);
-            this.bt_infotainment.Name = "bt_infotainment";
-            this.bt_infotainment.Padding = new System.Windows.Forms.Padding(3);
-            this.bt_infotainment.Size = new System.Drawing.Size(40, 20);
-            this.bt_infotainment.TabIndex = 60;
-            this.bt_infotainment.UserClick += new System.EventHandler(this.bt_infotainment_UserClick);
-            // 
-            // bt_videoPlayer
-            // 
-            this.bt_videoPlayer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(189)))), ((int)(((byte)(0)))));
-            this.bt_videoPlayer.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bt_videoPlayer.IsChecked = false;
-            this.bt_videoPlayer.Location = new System.Drawing.Point(10, 110);
-            this.bt_videoPlayer.Margin = new System.Windows.Forms.Padding(10);
-            this.bt_videoPlayer.Name = "bt_videoPlayer";
-            this.bt_videoPlayer.Padding = new System.Windows.Forms.Padding(3);
-            this.bt_videoPlayer.Size = new System.Drawing.Size(40, 20);
-            this.bt_videoPlayer.TabIndex = 59;
-            this.bt_videoPlayer.UserClick += new System.EventHandler(this.bt_videoPlayer_UserClick);
-            // 
-            // bt_showSceenIndicators
-            // 
-            this.bt_showSceenIndicators.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(189)))), ((int)(((byte)(0)))));
-            this.bt_showSceenIndicators.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bt_showSceenIndicators.IsChecked = false;
-            this.bt_showSceenIndicators.Location = new System.Drawing.Point(10, 60);
-            this.bt_showSceenIndicators.Margin = new System.Windows.Forms.Padding(10);
-            this.bt_showSceenIndicators.Name = "bt_showSceenIndicators";
-            this.bt_showSceenIndicators.Padding = new System.Windows.Forms.Padding(3);
-            this.bt_showSceenIndicators.Size = new System.Drawing.Size(40, 20);
-            this.bt_showSceenIndicators.TabIndex = 57;
-            this.bt_showSceenIndicators.UserClick += new System.EventHandler(this.bt_showSceenIndicators_UserClick);
             // 
             // ConfigSettings
             // 
@@ -1415,7 +1416,7 @@
         private System.Windows.Forms.Label label10;
         private BetterToggle bt_showNetworkTraffic;
         private System.Windows.Forms.CheckBox cb_videoPathValid;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_startServoTest;
         private System.Windows.Forms.CheckBox cb_joystickConnected;
         private System.Windows.Forms.Label label12;
         private BetterProgressBar bpb_airbrakeCurve;

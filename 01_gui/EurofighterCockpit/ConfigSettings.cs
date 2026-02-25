@@ -55,8 +55,6 @@ namespace EurofighterCockpit
 
         // eurofighter
         private int mode = 1;  // 0: sleep, 1: normal opperation, 2: servo test
-        private bool sleep;
-        private bool useController;
 
         // properties
         public bool ShowScreenIndicator { 
@@ -66,6 +64,7 @@ namespace EurofighterCockpit
                 toggleScreenIndicator();
             }
         }
+
         public string VideoPath {
             get => videoPath;
             set {
@@ -153,12 +152,17 @@ namespace EurofighterCockpit
 
         private void validateAndSendPayload(byte[] payload) {
             if (Mode == 0) return;
-            // check if previous payload differs
+            // check if previous payload differs (ignores mode byte)
             // if it's exactly the same, don't send new data
-            if (Enumerable.SequenceEqual(payload, prevPayload))
+            if (Enumerable.SequenceEqual(payload.Skip(1), prevPayload.Skip(1))) {
                 return;
+            }
             prevPayload = (byte[])payload.Clone();
-            tcpCon.sendAsync(payload, bt_showNetworkTraffic.IsChecked);
+            sendPayload(payload);
+        }
+
+        private void sendPayload(byte[] payload) {
+            _ = tcpCon.sendAsync(payload, bt_showNetworkTraffic.IsChecked);
         }
 
         private void updateServoDisplay(byte[] payload) {
@@ -364,6 +368,9 @@ namespace EurofighterCockpit
         }
 
         private void ConfigSettings_FormClosing(object sender, FormClosingEventArgs e) {
+            // send 0 pulse when disconnect
+            byte[] payload = new byte[16];
+            sendPayload(payload);
             tcpCon?.Dispose();
         }
 
@@ -398,6 +405,12 @@ namespace EurofighterCockpit
             else {
                 Mode = 1;
             }
+        }
+
+        private void btn_startServoTest_Click(object sender, EventArgs e) {
+            byte[] payload = (byte[])prevPayload.Clone();
+            payload[0] = 2;
+            sendPayload(payload);
         }
 
         #endregion
