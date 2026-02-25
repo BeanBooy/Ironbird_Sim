@@ -11,7 +11,7 @@ from adafruit_servokit import ServoKit
 
 # I2C Adresses
 I2CSERVO = 0x40
-I2CLG = 0x41
+
 
 current_thread = None
 current_event = None
@@ -65,14 +65,13 @@ except Exception as e:
 
 # init LGdriver and start thread-manager
 try:
-    LGdriver = ServoKit(channels=16, address=0x41,frequency=30)
     LGCDdriver.start_manager(CDchannel=[0,1,2], CDdriver=servodriver)
 except Exception as e:
     print(f"(LG) Error starting LG-Managers: {e}")
 
 def setpulsewidth():
-    # for digital servos here but the values are default for many other servos
-    for channel in range(16):
+    # for digital servos here but the values are default for many other servos, ignore channel 15 (LG)
+    for channel in range(15):
         try:
             servodriver.servo[channel].set_pulse_width_range(1000,2000)
         except Exception:
@@ -99,25 +98,27 @@ def PWMsetServo_EF():
         servodriver.servo[12].angle = 90
         servodriver.servo[13].angle = 90
         servodriver.servo[14].angle = 90
-        servodriver.servo[15].angle = 90
+        #servodriver.servo[15].fraction = receivedData[15]
     except Exception as e:
         print(f"(EF) Error controlling servos: {e}")
 
 
 def IdleMode():
     try:
-        for numservo in range(3,16):
+        for numservo in range(3,15):
             if servodriver.servo[numservo].angle is not None:
-                servodriver.servo[numservo].angle = 90
+                if numservo == 7:
+                    servodriver.servo[7].angle = 0
+                else:
+                    servodriver.servo[numservo].angle = 90
         # set LG to idle (LG_IN)
-        if servodriver.servo[0].angle is not None:
-            LGCDdriver.request_lg(LG_IN)
+        #if servodriver.servo[15].angle is not None:
+        LGCDdriver.request_lg(LG_IN)
         for numservo in range(16):
             try:
                 servodriver.servo[numservo].angle = None
             except Exception:
                 pass
-        LGCDdriver.request_lg(None)
     except Exception as e:
         print(f"FError controlling servos: {e}")
 
@@ -161,6 +162,7 @@ signal.signal(signal.SIGINT, handle_exit)
 # Main server loop
 while not stop_event.is_set():
     try:
+        IdleMode()
         print("Wait for Connection...")
         client_socket, addr = server_socket.accept()
         print(f"Connected to {addr} succesfull")
@@ -200,7 +202,7 @@ while not stop_event.is_set():
                 LGCDdriver.request_lg(state)
                 PWMsetServo_EF()
 
-            elif receivedData[MODE] == 3:
+            elif receivedData[MODE] == 2:
                 print("Servotest")
                 ServoTest()
                 IdleMode()
