@@ -40,7 +40,7 @@ stop_event = threading.Event()
 # Init bufferobject
 lg_request_buffer = LastValueBuffer()
 
-# Only for testing. would be in main
+# NOTE Only for testing. would be in main
 from adafruit_servokit import ServoKit
 servodriver = ServoKit(channels=16, address=0x40, frequency=30)
 
@@ -78,7 +78,7 @@ def LGCD_Sequence(state, CDchannel, CDdriver=servodriver):
             servodriver.servo[15].fraction = LG_IN
             safe_sleep(3)
             for channel in CDchannel:
-                CDdriver.servo[channel].angle = 90
+                CDdriver.servo[channel].angle = 0
             safe_sleep(1)
         elif state is None:
             servodriver.servo[15].fraction = None
