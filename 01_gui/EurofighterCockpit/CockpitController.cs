@@ -77,12 +77,12 @@ namespace EurofighterCockpit
         private byte[] BuildPayload(JoystickData data) {
             return new byte[] {
                 1,
-                EurofighterControl.CanardLeft(data.JoystickY, data.JoystickX),
-                EurofighterControl.CanardRight(data.JoystickY, data.JoystickX),
+                EurofighterControl.CanardLeft(data.JoystickY),
+                EurofighterControl.CanardRight(data.JoystickY),
                 EurofighterControl.AileronLeft(data.JoystickX, data.JoystickY),
                 EurofighterControl.AileronRight(data.JoystickX, data.JoystickY),
-                EurofighterControl.FlapLeft(data.JoystickY),
-                EurofighterControl.FlapRight(data.JoystickY),
+                EurofighterControl.FlapLeft(data.JoystickX, data.JoystickY),
+                EurofighterControl.FlapRight(data.JoystickX, data.JoystickY),
                 EurofighterControl.Airbrake(data.Airbrake),
                 EurofighterControl.Rudder(data.RudderLeft, data.RudderRight, data.RudderReset),
                 Convert.ToByte(data.LandingGear),
