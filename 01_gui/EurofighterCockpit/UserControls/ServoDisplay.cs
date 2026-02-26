@@ -51,5 +51,9 @@ namespace EurofighterCockpit
             ValueChanged?.Invoke(this, e);
         }
 
+        public void isLocked(bool locked) {
+            trackBar.Enabled = locked;
+        }
+
     }
 }

@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Web.Script.Serialization;
 
 namespace EurofighterCockpit
@@ -33,7 +30,7 @@ namespace EurofighterCockpit
 
         public void setConfig(string configPath) {
             if (File.Exists(configPath) == false) {
-                logger.log($"Unvalid config path: {configPath}");
+                logger.Log($"Unvalid config path: {configPath}");
                 return;
             }
             try {
@@ -42,8 +39,8 @@ namespace EurofighterCockpit
                 dict = serializer.Deserialize<Dictionary<string, string>>(json);
             }
             catch (Exception ex) {
-                logger.log($"ERROR while reading config file: {configPath}");
-                logger.log(ex.Message);
+                logger.Log($"ERROR while reading config file: {configPath}");
+                logger.Log(ex.Message);
             }
         }
 

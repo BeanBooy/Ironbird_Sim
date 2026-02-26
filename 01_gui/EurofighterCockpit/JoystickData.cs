@@ -1,10 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Xml.Linq;
 
 namespace EurofighterCockpit
 {
@@ -21,7 +15,7 @@ namespace EurofighterCockpit
         private bool trigger;
 
         // throttle
-        private ushort throttle = ushort.MaxValue;  // not needed for the modell
+        private ushort throttle = ushort.MaxValue;  // actually not needed for the model
         private bool rudderLeft;
         private bool rudderRight;
         private bool rudderReset;
@@ -73,6 +67,11 @@ namespace EurofighterCockpit
             }
             else
                 return false;
+        }
+
+        public override int GetHashCode() {
+            // needs to be overwritten to prevent warning
+            return 0;
         }
 
     }

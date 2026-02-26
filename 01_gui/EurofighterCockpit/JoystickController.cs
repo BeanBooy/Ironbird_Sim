@@ -1,13 +1,6 @@
 ﻿using SharpDX;
 using SharpDX.DirectInput;
 using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
 
 namespace EurofighterCockpit
 {
@@ -17,20 +10,15 @@ namespace EurofighterCockpit
         private Joystick joystick = null;
         private Joystick throttle = null;
 
-        private CheckBox joystickStatus = null;
-        private CheckBox throttleStatus = null;
-        public readonly Color colGreen = Color.FromArgb(132, 189, 0);
-        public readonly Color colRed = Color.FromArgb(228, 0, 43);
+        //public readonly Color colGreen = Color.FromArgb(132, 189, 0);
+        //public readonly Color colRed = Color.FromArgb(228, 0, 43);
 
-        // logger
+        public event Action<bool> JoystickConnectionChanged;
+        public event Action<bool> ThrottleConnectionChanged;
+
         private readonly Logger logger = Logger.Instance;
 
-        public JoystickController(CheckBox joystickStatus, CheckBox throttleStatus) {
-            this.joystickStatus = joystickStatus;
-            this.throttleStatus = throttleStatus;
-        }
-
-        private DeviceInstance getMatchingInputDevice(string filter) {
+        private DeviceInstance GetMatchingInputDevice(string filter) {
             // loop over all devices to find joystick and throttle
             foreach (var deviceInstance in directInput.GetDevices(DeviceType.Joystick, DeviceEnumerationFlags.AllDevices)) {
                 if (deviceInstance.ProductName.Contains(filter))
@@ -39,55 +27,55 @@ namespace EurofighterCockpit
             return null;
         }
 
-        public void initJoystick() {
+        public void InitJoystick() {
             if (joystick != null) return;
             // get joystick device
-            DeviceInstance joystickDI = getMatchingInputDevice("Joystick");
+            DeviceInstance joystickDI = GetMatchingInputDevice("Joystick");
             // connect to joystick device
             if (joystickDI == null) {
-                logger.log("No joystick device found.");
-                joystickStatus.BackColor = colRed;
+                logger.Log("No joystick device found.");
+                JoystickConnectionChanged?.Invoke(false);
                 return;
             }
             // aquire joystick device
             try {
                 joystick = new Joystick(directInput, joystickDI.InstanceGuid);
                 joystick.Acquire();
-                logger.log($"joystick device '{joystickDI.InstanceName}' successfully connected");
-                joystickStatus.BackColor = colGreen;
+                logger.Log($"joystick device '{joystickDI.InstanceName}' successfully connected");
+                JoystickConnectionChanged?.Invoke(true);
             }
             catch (Exception ex) {
-                logger.log($"ERROR while connecting to joystick: {ex.ToString()}");
-                joystickStatus.BackColor = colRed;
+                logger.Log($"ERROR while connecting to joystick: {ex.ToString()}");
+                JoystickConnectionChanged?.Invoke(false);
             }
         }
 
-        public void initThrottle() {
+        public void InitThrottle() {
             if (throttle != null) return;
             // get throttle device
-            DeviceInstance throttleDI = getMatchingInputDevice("Throttle");
+            DeviceInstance throttleDI = GetMatchingInputDevice("Throttle");
             // conenct to throttle device
             if (throttleDI == null) {
-                logger.log("No throttle device found");
-                throttleStatus.BackColor = colRed;
+                logger.Log("No throttle device found");
+                ThrottleConnectionChanged?.Invoke(false);
                 return;
             }
             // aquire throttle device
             try {
                 throttle = new Joystick(directInput, throttleDI.InstanceGuid);
                 throttle.Acquire();
-                logger.log($"throttle device '{throttleDI.InstanceName}' successfully connected");
-                throttleStatus.BackColor = colGreen;
+                logger.Log($"throttle device '{throttleDI.InstanceName}' successfully connected");
+                ThrottleConnectionChanged?.Invoke(true);
             }
             catch (Exception ex) {
-                logger.log($"ERROR while connecting to throttle: {ex.ToString()}");
-                throttleStatus.BackColor = colRed;
+                logger.Log($"ERROR while connecting to throttle: {ex.ToString()}");
+                ThrottleConnectionChanged?.Invoke(false);
             }
         }
 
-        public JoystickData poll() {
+        public JoystickData Poll() {
             JoystickData data = new JoystickData();
-            // read out joystick input
+            // get joystick input
             try {
                 JoystickState stateJoystick = joystick?.GetCurrentState();
                 if (stateJoystick != null) {
@@ -100,13 +88,13 @@ namespace EurofighterCockpit
             }
             catch (SharpDXException ex) {
                 if (ex.ResultCode == ResultCode.InputLost || ex.ResultCode == ResultCode.NotAcquired) {
-                    logger.log($"joystick device '{joystick.Properties.InstanceName}' disconnected");
-                    joystickStatus.BackColor = colRed;
+                    logger.Log($"joystick device '{joystick.Properties.InstanceName}' disconnected");
+                    JoystickConnectionChanged?.Invoke(false);
                     joystick?.Dispose();
                     joystick = null;
                 }
             }
-            // read out throttle input
+            // get throttle input
             try {
                 JoystickState stateThrottle = throttle?.GetCurrentState();
                 if (stateThrottle != null) {
@@ -123,8 +111,8 @@ namespace EurofighterCockpit
             }
             catch (SharpDXException ex) {
                 if (ex.ResultCode == ResultCode.InputLost || ex.ResultCode == ResultCode.NotAcquired) {
-                    logger.log($"throttle device '{throttle.Properties.InstanceName}' disconnected");
-                    throttleStatus.BackColor = colRed;
+                    logger.Log($"throttle device '{throttle.Properties.InstanceName}' disconnected");
+                    ThrottleConnectionChanged?.Invoke(false);
                     throttle?.Dispose();
                     throttle = null;
                 }
