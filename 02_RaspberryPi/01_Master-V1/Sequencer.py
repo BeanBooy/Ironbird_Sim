@@ -1,4 +1,3 @@
-import LGCDdriver
 from adafruit_servokit import ServoKit
 import time
 from LGCDdriver import LG_IN, LG_OUT, safe_sleep, stop_event
@@ -15,15 +14,17 @@ class Servo:
         self.max_pos = actuation_range
         self.mid_pos = int(self.max_pos/2)
         self.current_pos = idle
-        self.min_pulsewidth = min_pulsewidth
-        self.max_pulsewidth = max_pulsewidth
-        self.pulsewidth = servodriver.servo[self.channel].set_pulse_width_range(self.min_pulsewidth, self.max_pulsewidth)
+        self.pulsewidth = servodriver.servo[self.channel].set_pulse_width_range(min_pulsewidth, max_pulsewidth)
 
     def signal_inverter(self,receivedDATA):
         angle = (180 - receivedDATA)
         return angle
     
-    def move(self, angle, seconds=1):
+    def move(self, angle):
+        if angle == None: # detach servo, nothing more
+            servodriver.servo[self.channel].angle = None
+            return
+        angle = int(angle*0.703125) # NOTE: from 0 to 256 -> 0° to 180°
         start = self.current_pos
         end = angle
         step = 1
@@ -33,11 +34,6 @@ class Servo:
             step = -1
         if steps == 0:
             return
-
-        delay = seconds/steps
-        if delay < 0:
-            delay *= -1
-
 
         if self.inverted == True:
             for angle in range(start,end,step):
@@ -49,7 +45,6 @@ class Servo:
                 #time.sleep(delay)
 
         self.current_pos = end
-        #time.sleep(1)
 
 #LC = 3  # Left Canards
 #RC = 4  # Right Canards
@@ -59,32 +54,3 @@ class Servo:
 #RF = 8 # Right Flaps
 #AB = 9 # Airbrakes
 #LG = 15 # Landing Gear
-
-LC = Servo(channel=3,idle=90)
-RC = Servo(channel=4,idle=90)
-LO = Servo(channel=5,idle=90)
-RO = Servo(channel=6,idle=90)
-LF = Servo(channel=7,idle=90)
-RF = Servo(channel=8,idle=90)
-AB = Servo(channel=9,idle=0)
-LG = Servo(channel=15,idle=0,min_pulsewidth=500, max_pulsewidth=2250)
-
-for angle in range(180):
-    LC.move(angle)
-    RC.move(angle)
-    LO.move(angle)
-    RO.move(angle)
-    LF.move(angle)
-    RF.move(angle)
-    AB.move(angle)
-    #time.sleep(0.005)
-
-for angle in range(180,0,-1):
-    LC.move(angle)
-    RC.move(angle)
-    LO.move(angle)
-    RO.move(angle)
-    LF.move(angle)
-    RF.move(angle)
-    AB.move(angle)
-    #time.sleep(0.005)
