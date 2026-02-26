@@ -29,7 +29,8 @@ RO = 4  # Right Aileron
 LF = 5	# Flaps Inboard
 RF = 6 # Flaps Outboard
 AB = 7 # Airbrakes
-LG = 8 # Landing Gear
+RU = 8 # Rudder
+LG = 9 # Landing Gear
 
 # Defaultangles
 angleLC = 128
@@ -39,6 +40,7 @@ angleRO = 128
 angleAB = 128
 angleLF = 128
 angleRF = 128
+angleRU = 128
 fractionLG = LG_IN
 
 try:
@@ -64,7 +66,7 @@ except Exception as e:
 
 # init LGdriver, Servotestdriver and start thread-manager
 try:
-    LGCDdriver.start_manager(CDchannel=[0,1,2], CDdriver=servodriver)
+    LGCDdriver.start_manager(CDchannel=[0,1], CDdriver=servodriver)
 except Exception as e:
     print(f"(LG) Error starting LG-Managers: {e}")
 
@@ -84,7 +86,8 @@ def signaltoangle(signal_byte):
 
 def PWMsetServo_EF():
     try:
-        # channel 0 - 2 reserved for cabindoors
+        # channel 0 - 1 reserved for cabindoors
+        servodriver.servo[2].angle = signaltoangle(angleRU) # NOTE for testing now
         servodriver.servo[3].angle = signaltoangle(angleLC)
         servodriver.servo[4].angle = signaltoangle(angleRC)
         servodriver.servo[5].angle = signaltoangle(angleLO)
@@ -94,7 +97,7 @@ def PWMsetServo_EF():
         servodriver.servo[9].angle = signaltoangle(angleRF)
         servodriver.servo[10].angle = 90
         servodriver.servo[11].angle = 90
-        servodriver.servo[12].angle = 90
+        servodriver.servo[12].angle = 90 
         servodriver.servo[13].angle = 90
         servodriver.servo[14].angle = 90
         #servodriver.servo[15].fraction = receivedData[15]
@@ -169,14 +172,15 @@ while not stop_event.is_set():
 
             printData = ','.join(str(byte) for byte in receivedData)
             print(f"Received data: {printData}")
-
+            # 0 Mode, 1 LC, 2 RC, 3 LO, 4 RO, 5 AB
             angleLC = receivedData[LC]
             angleRC = receivedData[RC]
             angleLO = receivedData[LO]
             angleRO = receivedData[RO]
-            angleAB = receivedData[AB]
             angleLF = receivedData[LF]
             angleRF = receivedData[RF]
+            angleAB = receivedData[AB]
+            angleRU = receivedData[RU]
             fractionLG = receivedData[LG] # 0 is min, 1 max pulsewidth (LG dooesnt need in beteen)
 
             print(threading.active_count(), "threads")
