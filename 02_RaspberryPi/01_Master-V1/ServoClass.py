@@ -1,6 +1,4 @@
 from adafruit_servokit import ServoKit
-import time
-from LGCDdriver import LG_IN, LG_OUT, safe_sleep, stop_event
 
 servodriver = ServoKit(channels=16,address=0x40,frequency=30)
 

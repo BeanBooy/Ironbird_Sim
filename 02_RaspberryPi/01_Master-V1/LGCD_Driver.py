@@ -1,8 +1,10 @@
 import threading
 from concurrent.futures import ThreadPoolExecutor
 import time
+from ServoClass import Servo
 
 # small buffer to handle high frequency input
+
 class LastValueBuffer:
 
     __slots__ = ("lock", "value") # reserves memory for these attributes
@@ -44,6 +46,9 @@ lg_request_buffer = LastValueBuffer()
 from adafruit_servokit import ServoKit
 servodriver = ServoKit(channels=16, address=0x40, frequency=30)
 
+RCD = Servo(channel=0,idle=0)
+LCD = Servo(channel=1,idle=0)
+
 # safe sleep to exit threads faster
 def safe_sleep(seconds):
     for i in range(seconds*50):
@@ -52,39 +57,34 @@ def safe_sleep(seconds):
         time.sleep(0.02)
 
 # Servosequence itself
-def LGCD_Sequence(state, CDchannel, CDdriver=servodriver):
+def LGCD_Sequence(state):
     global LGdriver
-    if CDchannel is None:
-        CDchannel = [0,1,2]
-
-    if isinstance(CDchannel, int):
-        CDchannel = [CDchannel]
 
     try:
         if state == LG_OUT:
-            for angle in range(0,180):
-                for channel in CDchannel:
-                    CDdriver.servo[channel].angle = angle
+            for angle in range(0,257):
+                RCD.move(angle)
+                LCD.move(angle)
             safe_sleep(1)
             servodriver.servo[15].fraction = LG_OUT
             safe_sleep(3)
         elif state == LG_IN:
             servodriver.servo[15].fraction = LG_IN
             safe_sleep(3)
-            for angle in range(180,0,-1):
-                for channel in CDchannel:
-                    CDdriver.servo[channel].angle = angle
+            for angle in range(256,0,-1):
+                RCD.move(angle)
+                LCD.move(angle)
             safe_sleep(2)
         elif state is None:
             servodriver.servo[15].fraction = None
             safe_sleep(3)
-            for channel in CDchannel:
-                CDdriver.servo[channel].angle = None
+            RCD.move(None)
+            LCD.move(None)
     except Exception as e:
         print("Error with controlling LG:", e)
 
 # Threadmanager
-def lg_manager_thread(CDchannel=None, CDdriver=servodriver):
+def lg_manager_thread():
 
     global oldstate
     while not stop_event.is_set():
@@ -106,7 +106,7 @@ def lg_manager_thread(CDchannel=None, CDdriver=servodriver):
             continue
 
         # Wait for the executor to finish
-        future = executor.submit(LGCD_Sequence, desired, CDchannel, CDdriver)
+        future = executor.submit(LGCD_Sequence, desired)
         try:
             # block new threads but wait for timeout
             while not future.done():
@@ -123,7 +123,7 @@ def request_lg(state):
 
 # Threadhandling
 def start_manager(CDchannel=None, CDdriver=servodriver):
-    t = threading.Thread(target=lg_manager_thread, args=(CDchannel, CDdriver), daemon=True)
+    t = threading.Thread(target=lg_manager_thread, daemon=True)
     t.start()
     return t
 

@@ -2,7 +2,7 @@ import time
 from adafruit_servokit import ServoKit
 from concurrent.futures import ThreadPoolExecutor
 import threading
-from Sequencer import Servo
+from ServoClass import Servo
 
 LG_OUT = 1
 LG_IN = 0
@@ -96,7 +96,7 @@ def stop_servo_test():
     with future_lock:
         stop_test.set()
         if LG.current_pos == LG_IN and RCD.current_pos == RCD.max_pos:
-            time.sleep(3)
+            time.sleep(2)
             RCD.move(RCD.idle)
             LCD.move(LCD.idle)
         if current_test_future:
