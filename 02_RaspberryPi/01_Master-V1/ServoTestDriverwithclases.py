@@ -30,7 +30,7 @@ LG = Servo(channel=14,idle=0) # in reality channel 15. Object used only for chec
 def safe_sleep(seconds):
     for i in range(seconds*50):
         if stop_test.is_set():
-            return
+            return 
         time.sleep(0.02)
 
 def test_move():
@@ -75,6 +75,7 @@ def test_move():
             if LG.current_pos == LG_IN and not stop_test.is_set():
                 RCD.move(RCD.idle)
                 LCD.move(LCD.idle)
+    print(f"End of Servotest, went through {cycles+1} cycle")
 
 def start_servo_test():
     global current_test_future
@@ -94,6 +95,10 @@ def stop_servo_test():
 
     with future_lock:
         stop_test.set()
+        if LG.current_pos == LG_IN and RCD.current_pos == RCD.max_pos:
+            time.sleep(3)
+            RCD.move(RCD.idle)
+            LCD.move(LCD.idle)
         if current_test_future:
             current_test_future.cancel()
 
