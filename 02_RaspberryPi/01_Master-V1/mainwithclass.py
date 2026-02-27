@@ -28,6 +28,8 @@ iRU = 8 # Rudder
 iLG = 9 # Landing Gear
 
 # Defaultangles
+RCD = Servo(channel=0,idle=0)
+LCD = Servo(channel=1,idle=0)
 RU = Servo(channel=2,idle=90)
 LC = Servo(channel=3,idle=128)
 RC = Servo(channel=4,idle=128)
@@ -57,12 +59,11 @@ except Exception as e:
     print(f"(SERVO) ServoKit could not be initialized: {e}")
     servodriver = None
 
+# init LGdriver, Servotestdriver and start thread-manager
 try:
-
-    # init LGdriver and start thread-manager
     LGCDdriver.start_manager(CDchannel=[0,1], CDdriver=servodriver)
 except Exception as e:
-    print(f"(LG) Error starting LG-Manager: {e}")
+    print(f"(LG) Error starting LG-Managers: {e}")
 
 def PWMsetServo_EF():
     try:
@@ -99,6 +100,8 @@ def IdleMode():
         RF.move(None)
         AB.move(None)
         RU.move(None)
+        LCD.move(None)
+        RCD.move(None)
         #LG.move(None)
     except Exception as e:
         print(f"FError controlling servos: {e}")
@@ -171,8 +174,7 @@ while not stop_event.is_set():
                 Servotestdriver.stop_servo_test()
                 print("Remote-Mode")
                 # map fraction to LG state and request it (last-value buffer)
-                state = fractionLG
-                LGCDdriver.request_lg(state)
+                LGCDdriver.request_lg(fractionLG)
                 PWMsetServo_EF()
 
             elif receivedData[MODE] == 2:
