@@ -6,7 +6,7 @@ servodriver = ServoKit(channels=16,address=0x40,frequency=30)
 
 
 class Servo:
-    def __init__(self, channel, idle, actuation_range = 180, min_pulsewidth = 1000, max_pulsewidth = 2000, inverted = False):
+    def __init__(self, channel, idle, actuation_range = 256, min_pulsewidth = 1000, max_pulsewidth = 2000, inverted = False):
         self.channel = channel
         self.idle = idle
         self.inverted = inverted
@@ -30,6 +30,8 @@ class Servo:
         step = 1
         steps = end-start
 
+        #delay = int(seconds / steps)
+
         if start > end:
             step = -1
         if steps == 0:
@@ -44,7 +46,7 @@ class Servo:
                 servodriver.servo[self.channel].angle = angle
                 #time.sleep(delay)
 
-        self.current_pos = end
+        self.current_pos = int(end/0.703125)
 
 #LC = 3  # Left Canards
 #RC = 4  # Right Canards
