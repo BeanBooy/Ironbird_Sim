@@ -15,22 +15,23 @@ class Servo:
         self.mid_pos = int(self.max_pos/2)
         self.current_pos = idle
         self.pulsewidth = servodriver.servo[self.channel].set_pulse_width_range(min_pulsewidth, max_pulsewidth)
+        servodriver.servo[self.channel].actuation_range = actuation_range
 
     def signal_inverter(self,receivedDATA):
-        angle = (180 - receivedDATA)
+        angle = (256 - receivedDATA)
         return angle
     
     def move(self, angle):
         if angle == None: # detach servo, nothing more
             servodriver.servo[self.channel].angle = None
             return
-        angle = int(angle*0.703125) # NOTE: from 0 to 256 -> 0° to 180°
+        #angle = int(angle*0.703125) # NOTE: from 0 to 256 -> 0° to 180°
         start = self.current_pos
         end = angle
         step = 1
         steps = end-start
 
-        #delay = int(seconds / steps)
+        #delay = int(seconds / steps) # NOTE if you want to declare the movementspeed
 
         if start > end:
             step = -1
@@ -38,15 +39,13 @@ class Servo:
             return
 
         if self.inverted == True:
-            for angle in range(start,end,step):
-                servodriver.servo[self.channel].angle = self.signal_inverter(angle)
+            servodriver.servo[self.channel].angle = self.signal_inverter(angle)
                 #time.sleep(delay)
         else:
-            for angle in range(start,end,step):
-                servodriver.servo[self.channel].angle = angle
+            servodriver.servo[self.channel].angle = angle
                 #time.sleep(delay)
 
-        self.current_pos = int(end/0.703125)
+        self.current_pos = end
 
 #LC = 3  # Left Canards
 #RC = 4  # Right Canards
