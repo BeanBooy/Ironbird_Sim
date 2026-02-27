@@ -1,0 +1,93 @@
+#!/usr/bin/env python3
+
+import socket
+from gpiozero import LED, Device
+from gpiozero.pins.lgpio import LGPIOFactory
+
+# --------------------------------
+# GPIOZERO SETUP
+# --------------------------------
+
+Device.pin_factory = LGPIOFactory()
+
+LED_rot = LED(17)    # rot
+LED_grün = LED(27)   # grün
+LED_LG1 = LED(16)    # landing gear 1 und 2
+LED_LG2 = LED(26)
+
+# --------------------------------
+# SERVER SETUP
+# --------------------------------
+
+HOST = ""
+PORT = 4443
+
+server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+server_socket.bind((HOST, PORT))
+server_socket.listen(1)
+
+print(f"Server läuft auf Port {PORT}...")
+print("Warte auf Verbindung...")
+
+# --------------------------------
+# HAUPTSCHLEIFE
+# --------------------------------
+
+while True:
+    client_socket, addr = server_socket.accept()
+    print(f"Verbunden mit {addr}")
+
+    try:
+        while True:
+            receivedData = client_socket.recv(16)
+
+            if not receivedData:
+                break
+
+            # Sicherheitscheck
+            if len(receivedData) < 10:
+                continue
+
+            # 11. Zahl = Index 10
+            byte11 = receivedData[10]
+
+            print("Empfangen:", list(receivedData))
+            print("Byte11 (dez):", byte11)
+            print("Byte11 (bin):", format(byte11, '08b'))
+
+            # --------------------------------
+            # BIT-LOGIK 0–7
+            # --------------------------------
+
+            if byte11 == 1:
+                LED_rot.on()
+                LED_grün.on()
+                LED_LG1.off()
+                LED_LG2.off()
+
+            elif byte11 == 4:
+                LED_rot.off()
+                LED_grün.off()
+                LED_LG1.on()
+                LED_LG2.on()
+
+            elif byte11 == 5:
+                LED_rot.on()
+                LED_grün.on()
+                LED_LG1.on()
+                LED_LG2.on()
+
+            else:
+                LED_rot.off()
+                LED_grün.off()
+                LED_LG1.off()
+                LED_LG2.off()    
+
+
+    except Exception as e:
+        print("Fehler:", e)
+
+    finally:
+        client_socket.close()
+        print("Verbindung geschlossen")
