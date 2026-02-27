@@ -2,7 +2,7 @@ import sys
 import signal
 import socket
 import threading
-import Servotestdriver
+import ServoTestDriverwithclases
 import time
 import LGCDdriver
 from Sequencer import Servo
@@ -14,7 +14,7 @@ I2CSERVO = 0x40
 
 # TCP-Port
 PORT_CONST = 4443
-MODE = 0 # Idle as default
+MODE = 0 # Idle as default / first BUS-Element
 
 # index for each TCP-Bus-Part
 iLC = 1  # Left Canards
@@ -59,7 +59,7 @@ except Exception as e:
     print(f"(SERVO) ServoKit could not be initialized: {e}")
     servodriver = None
 
-# init LGdriver, Servotestdriver and start thread-manager
+# init LGdriver and start thread-manager
 try:
     LGCDdriver.start_manager(CDchannel=[0,1], CDdriver=servodriver)
 except Exception as e:
@@ -110,7 +110,7 @@ def handle_exit(signum, frame): # signum, frame needed for call via signal.signa
     print("Stopping... Please wait", end="\r")
     IdleMode()
     stop_event.set() # set the thread-flag to stop starting new threads
-    Servotestdriver.stop_servo_test()
+    ServoTestDriverwithclases.stop_servo_test()
     # close TCP-PORT
     try:
         if 'client_socket' in globals() and client_socket is not None:
@@ -125,7 +125,6 @@ def handle_exit(signum, frame): # signum, frame needed for call via signal.signa
     try:
         # stop remaining threads
         LGCDdriver.shutdown()
-        Servotestdriver.shutdown_test()
     except Exception:
         pass
     print("Disconnected successfully".ljust(50))
@@ -166,12 +165,12 @@ while not stop_event.is_set():
             print(threading.active_count(), "threads")
 
             if receivedData[MODE] == 0:
-                Servotestdriver.stop_servo_test()
+                ServoTestDriverwithclases.stop_servo_test()
                 print("IdleMode")
                 IdleMode()
                 time.sleep(0.02)
             elif receivedData[MODE] == 1:
-                Servotestdriver.stop_servo_test()
+                ServoTestDriverwithclases.stop_servo_test()
                 print("Remote-Mode")
                 # map fraction to LG state and request it (last-value buffer)
                 LGCDdriver.request_lg(fractionLG)
@@ -179,7 +178,7 @@ while not stop_event.is_set():
 
             elif receivedData[MODE] == 2:
                 print("Servotest")
-                Servotestdriver.start_servo_test()
+                ServoTestDriverwithclases.start_servo_test()
                 IdleMode()
             else:
                 print("Received corrupted data")
