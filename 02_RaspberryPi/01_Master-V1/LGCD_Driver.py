@@ -1,7 +1,9 @@
-import threading
-from concurrent.futures import ThreadPoolExecutor
 import time
+import threading
+import LED_Driver
+from LED_Driver import LED_LG_ON, LED_LG_OFF
 from ServoClass import Servo
+from concurrent.futures import ThreadPoolExecutor
 
 # small buffer to handle high frequency input
 
@@ -62,6 +64,7 @@ def LGCD_Sequence(state):
 
     try:
         if state == LG_OUT:
+            LED_Driver.LED_LG_manager(LED_LG_ON)
             for angle in range(0,257):
                 RCD.move(angle)
                 LCD.move(angle)

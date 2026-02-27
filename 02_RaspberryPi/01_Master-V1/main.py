@@ -1,11 +1,13 @@
 import sys
+import time
 import signal
 import socket
 import threading
-import ServoTest_Driver
-import time
+import LED_Driver
 import LGCD_Driver
+import ServoTest_Driver
 from ServoClass import Servo
+from LED_Driver import LED_ALL_OFF
 from LGCD_Driver import LG_IN,stop_event
 from adafruit_servokit import ServoKit
 
@@ -15,6 +17,7 @@ I2CSERVO = 0x40
 # TCP-Port
 PORT_CONST = 4443
 MODE = 0 # Idle as default / first BUS-Element
+LED = 10
 
 # index for each TCP-Bus-Part
 iLC = 1  # Left Canards
@@ -76,6 +79,7 @@ def PWMsetServo_EF():
         RF.move(angleRF)
         AB.move(angleAB)
         RU.move(angleRU)
+        # NOTE LEDMANAGER needs to be fixed!
     except Exception as e:
         print(f"(EF) Error controlling servos: {e}")
 
@@ -102,7 +106,7 @@ def IdleMode():
         RU.move(None)
         LCD.move(None)
         RCD.move(None)
-        #LG.move(None)
+        LED_Driver.LED_manager(LED_ALL_OFF)
     except Exception as e:
         print(f"FError controlling servos: {e}")
 
@@ -161,6 +165,7 @@ while not stop_event.is_set():
             angleRF = receivedData[iRF]
             angleRU = receivedData[iRU]
             fractionLG = receivedData[iLG] # 0 is min, 1 max pulsewidth (LG dooesnt need in between)
+            toggleLED = receivedData[LED]
 
             print(threading.active_count(), "threads")
 

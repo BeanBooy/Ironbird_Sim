@@ -2,6 +2,8 @@ import time
 from adafruit_servokit import ServoKit
 from concurrent.futures import ThreadPoolExecutor
 import threading
+import LED_Driver
+from LED_Driver import LED_ALL_OFF, LED_ALL_ON
 from ServoClass import Servo
 
 LG_OUT = 1
@@ -36,6 +38,7 @@ def safe_sleep(seconds):
 
 def test_move():
     for cycles in range(NUMCYCLES):
+        LED_Driver.LED_manager(LED_ALL_ON)
         if not stop_test.is_set():
             for byte_value in range(0,256+1):
                 if stop_test.is_set():
@@ -76,6 +79,7 @@ def test_move():
             if LG.current_pos == LG_IN and not stop_test.is_set():
                 RCD.move(RCD.idle)
                 LCD.move(LCD.idle)
+            LED_Driver.LED_manager(LED_ALL_OFF)
     # set rest to idle again
     RU.move(RU.idle)
     LC.move(LC.idle)
@@ -105,6 +109,7 @@ def stop_servo_test():
 
     with future_lock:
         stop_test.set()
+        LED_Driver.LED_manager(LED_ALL_OFF)
         if LG.current_pos == LG_IN and RCD.current_pos == RCD.max_pos:
             time.sleep(2)
             RCD.move(RCD.idle)
