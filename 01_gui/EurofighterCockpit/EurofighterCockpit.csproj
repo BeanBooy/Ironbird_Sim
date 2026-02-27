@@ -42,6 +42,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -53,11 +54,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BetterProgressBar.cs">
+    <Compile Include="CockpitController.cs" />
+    <Compile Include="Config.cs" />
+    <Compile Include="UserControls\BetterProgressBar.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="BetterProgressBar.Designer.cs">
+    <Compile Include="UserControls\BetterProgressBar.Designer.cs">
       <DependentUpon>BetterProgressBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\BetterToggle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\BetterToggle.Designer.cs">
+      <DependentUpon>BetterToggle.cs</DependentUpon>
     </Compile>
     <Compile Include="ConfigSettings.cs">
       <SubType>Form</SubType>
@@ -75,6 +84,12 @@
     <Compile Include="JoystickData.cs" />
     <Compile Include="JoystickController.cs" />
     <Compile Include="Logger.cs" />
+    <Compile Include="UserControls\ServoDisplay.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ServoDisplay.Designer.cs">
+      <DependentUpon>ServoDisplay.cs</DependentUpon>
+    </Compile>
     <Compile Include="TcpConnectionManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -96,8 +111,11 @@
     <Compile Include="VideoPlayer.Designer.cs">
       <DependentUpon>VideoPlayer.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="BetterProgressBar.resx">
+    <EmbeddedResource Include="UserControls\BetterProgressBar.resx">
       <DependentUpon>BetterProgressBar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\BetterToggle.resx">
+      <DependentUpon>BetterToggle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ConfigSettings.resx">
       <DependentUpon>ConfigSettings.cs</DependentUpon>
@@ -113,9 +131,13 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="ScreenIndicator.resx">
       <DependentUpon>ScreenIndicator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ServoDisplay.resx">
+      <DependentUpon>ServoDisplay.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Slides\Slide1.resx">
       <DependentUpon>Slide1.cs</DependentUpon>
@@ -173,6 +195,10 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Assets\EurofighterCockpitLogo.ico" />
+    <Content Include="Resources\Assets\EurofighterCockpitLogo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

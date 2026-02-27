@@ -1,10 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Xml.Linq;
 
 namespace EurofighterCockpit
 {
@@ -21,13 +15,14 @@ namespace EurofighterCockpit
         private bool trigger;
 
         // throttle
-        private ushort throttle = ushort.MaxValue;  // not needed for the modell
+        private ushort throttle = ushort.MaxValue;  // actually not needed for the model
         private bool rudderLeft;
         private bool rudderRight;
         private bool rudderReset;
         private bool sound;
         private bool landingGear;
         private bool positionalLights;
+        private bool strobeLights;
         private bool landingLights;
 
         public bool ThrottleConnected { get => throttleConnected; set => throttleConnected = value; }
@@ -44,6 +39,7 @@ namespace EurofighterCockpit
         public bool Sound { get => sound; set => sound = value; }
         public bool LandingGear { get => landingGear; set => landingGear = value; }
         public bool PositionalLights { get => positionalLights; set => positionalLights = value; }
+        public bool StrobeLights { get => strobeLights; set => strobeLights = value; }
         public bool LandingLights { get => landingLights; set => landingLights = value; }
         public double JoystickXPercent { get => (Convert.ToDouble(joystickX) - ushort.MaxValue / 2) / ushort.MaxValue * 2; }
         public double JoystickYPercent { get => (Convert.ToDouble(joystickY) - ushort.MaxValue / 2) / ushort.MaxValue * -2; }
@@ -66,11 +62,16 @@ namespace EurofighterCockpit
                     sound == other.sound &&
                     landingGear == other.landingGear &&
                     positionalLights == other.positionalLights &&
+                    strobeLights == other.strobeLights &&
                     landingLights == other.landingLights;
-
             }
             else
                 return false;
+        }
+
+        public override int GetHashCode() {
+            // needs to be overwritten to prevent warning
+            return 0;
         }
 
     }

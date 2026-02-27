@@ -1,29 +1,22 @@
 ﻿using EurofighterCockpit.Slides;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace EurofighterCockpit
 {
     public partial class Infotainment : Form
     {
+        private Slide1 currentSlide;
+
         public Infotainment() {
             InitializeComponent();
         }
 
-        public void hidePanel() {
+        public void HidePanel() {
             flowLayoutPanel1.Width = 0;
             p_content.Dock = DockStyle.Fill;
         }
-
-        private Slide1 currentSlide;
-
 
         public void ShowSlide(Slide1 slide) {
             p_content.Controls.Clear();
@@ -40,7 +33,6 @@ namespace EurofighterCockpit
             if (currentSlide == null) return;
 
             Size baseSize = currentSlide.OriginalSize;
-
             float scaleX = (float)p_content.ClientSize.Width / baseSize.Width;
             float scaleY = (float)p_content.ClientSize.Height / baseSize.Height;
             float scale = Math.Min(scaleX, scaleY);
@@ -52,7 +44,6 @@ namespace EurofighterCockpit
                 (p_content.ClientSize.Height - currentSlide.Height) / 2
             );
         }
-
 
     }
 }

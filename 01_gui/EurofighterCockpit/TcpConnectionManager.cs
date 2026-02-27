@@ -22,6 +22,8 @@ namespace EurofighterCockpit
         private readonly object padlock = new object();
         private Task connectionTask;
 
+        public event Action<bool> ConnectionStatusChanged;
+
         public bool IsConnected {
             get {
                 try {
@@ -39,19 +41,16 @@ namespace EurofighterCockpit
             }
         }
 
-
-        public event Action<bool> ConnectionStatusChanged;
-
         public TcpConnectionManager(string ipAddress, int port) {
             this.ipAddress = ipAddress;
             this.port = port;
         }
 
-        public void start() {
-            connectionTask = Task.Run(connectionLoopAsync);
+        public void Start() {
+            connectionTask = Task.Run(ConnectionLoopAsync);
         }
 
-        private async Task connectionLoopAsync() {
+        private async Task ConnectionLoopAsync() {
             try {
                 // loop until program end
                 while (!cts.Token.IsCancellationRequested) {
@@ -77,7 +76,7 @@ namespace EurofighterCockpit
                                 stream = newStream;
                             }
 
-                            logger.log($"TCP connected successfully to {ipAddress}:{port}");
+                            logger.Log($"TCP connected successfully to {ipAddress}:{port}");
                             ConnectionStatusChanged?.Invoke(true);
                         }
                         catch {
@@ -89,14 +88,14 @@ namespace EurofighterCockpit
                 }
             }
             catch (TaskCanceledException) {
-                logger.logToBox("Connection loop canceled.");
+                logger.LogToBox("Connection loop canceled.");
             }
             catch (Exception ex) {
-                logger.logToBox("Connection loop crashed: " + ex.Message);
+                logger.LogToBox("Connection loop crashed: " + ex.Message);
             }
         }
 
-        public async Task sendAsync(byte[] payload, bool logMessage) {
+        public async Task SendAsync(byte[] payload, bool logMessage) {
             if (!IsConnected)
                 return;
 
@@ -104,15 +103,15 @@ namespace EurofighterCockpit
                 await stream.WriteAsync(payload, 0, payload.Length);
             }
             catch {
-                handleDisconnect();
+                HandleDisconnect();
                 return;
             }
             // log to logBox
             if (logMessage)
-                logger.logToBox($"sent: {string.Join(", ", payload)}");
+                logger.LogToBox($"sent: {string.Join(" ", payload.Select(b => Convert.ToString(b).PadLeft(3, ' ')))}");
         }
 
-        private void handleDisconnect() {
+        private void HandleDisconnect() {
             lock (padlock) {
                 try { stream?.Close(); } catch { }
                 try { client?.Close(); } catch { }
@@ -120,13 +119,13 @@ namespace EurofighterCockpit
                 stream = null;
                 client = null;
             }
-            logger.logToBox("handle disconnect");
+            logger.LogToBox("handle disconnect");
             ConnectionStatusChanged?.Invoke(false);
         }
 
         public void Dispose() {
             cts.Cancel();
-            handleDisconnect();
+            HandleDisconnect();
         }
 
     }

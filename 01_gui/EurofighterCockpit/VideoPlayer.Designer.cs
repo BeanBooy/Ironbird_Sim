@@ -35,7 +35,7 @@
             this.windowsMediaPlayer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.windowsMediaPlayer.Enabled = true;
             this.windowsMediaPlayer.Location = new System.Drawing.Point(0, 0);
-            this.windowsMediaPlayer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.windowsMediaPlayer.Margin = new System.Windows.Forms.Padding(2);
             this.windowsMediaPlayer.Name = "windowsMediaPlayer";
             this.windowsMediaPlayer.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("windowsMediaPlayer.OcxState")));
             this.windowsMediaPlayer.Size = new System.Drawing.Size(1069, 482);
@@ -48,7 +48,8 @@
             this.ClientSize = new System.Drawing.Size(1069, 482);
             this.Controls.Add(this.windowsMediaPlayer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "VideoPlayer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "VideoPlayer";
