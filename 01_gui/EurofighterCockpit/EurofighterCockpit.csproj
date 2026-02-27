@@ -56,6 +56,28 @@
   <ItemGroup>
     <Compile Include="CockpitController.cs" />
     <Compile Include="Config.cs" />
+    <Compile Include="SlideNavigationEventArgs.cs" />
+    <Compile Include="Slides\Slide1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Slides\Slide1.Designer.cs">
+      <DependentUpon>Slide1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Slides\Slide2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Slides\Slide2.Designer.cs">
+      <DependentUpon>Slide2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Slides\Slide3.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Slides\Slide3.Designer.cs">
+      <DependentUpon>Slide3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Slides\BaseSlide.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="UserControls\BetterProgressBar.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -99,18 +121,21 @@
     <Compile Include="ScreenIndicator.Designer.cs">
       <DependentUpon>ScreenIndicator.cs</DependentUpon>
     </Compile>
-    <Compile Include="Slides\Slide1.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Slides\Slide1.Designer.cs">
-      <DependentUpon>Slide1.cs</DependentUpon>
-    </Compile>
     <Compile Include="VideoPlayer.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="VideoPlayer.Designer.cs">
       <DependentUpon>VideoPlayer.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Slides\Slide1.resx">
+      <DependentUpon>Slide1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Slides\Slide2.resx">
+      <DependentUpon>Slide2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Slides\Slide3.resx">
+      <DependentUpon>Slide3.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\BetterProgressBar.resx">
       <DependentUpon>BetterProgressBar.cs</DependentUpon>
     </EmbeddedResource>
@@ -138,9 +163,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ServoDisplay.resx">
       <DependentUpon>ServoDisplay.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Slides\Slide1.resx">
-      <DependentUpon>Slide1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VideoPlayer.resx">
       <DependentUpon>VideoPlayer.cs</DependentUpon>
@@ -197,6 +219,7 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\Assets\BackroundPanelSelectButtons.jpg" />
     <Content Include="Resources\Assets\EurofighterCockpitLogo.ico" />
     <Content Include="Resources\Assets\EurofighterCockpitLogo.png" />
   </ItemGroup>

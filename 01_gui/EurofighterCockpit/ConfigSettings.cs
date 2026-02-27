@@ -33,6 +33,9 @@ namespace EurofighterCockpit
         private int infotainmentScreenIndex = 0;
         private int infotainmentSubScreenIndex = 0;
 
+        // slides
+        private BaseSlide[] mainSlides = null;
+        private BaseSlide[] subSlides = null;
 
         // properties
         public bool ShowScreenIndicator { 
@@ -70,20 +73,24 @@ namespace EurofighterCockpit
                 Environment.Exit(1);
             }
 
+            mainSlides = new BaseSlide[] {
+                new Slide2(),
+                new Slide3(),
+            };
+            subSlides = new BaseSlide[] {
+                new Slide1(),
+            };
+
             initializeScreens();
             initializeWindows();
             initializeController();
 
             logger.LogToBox("...ready!");
-
-            // testing section !!!!!!!!!!!
-
-            infotainment.ShowSlide(new Slide1());
-
         }
 
         private bool isConfigFileValid() {
-            if (config.Dict.ContainsKey("ipAddress") && 
+            if (config.Dict != null &&
+                config.Dict.ContainsKey("ipAddress") && 
                 config.Dict.ContainsKey("port") &&
                 config.Dict.ContainsKey("defaultVideoPath"))
                 return true;
@@ -236,11 +243,21 @@ namespace EurofighterCockpit
             videoPlayer = launchWindow(ref videoPlayer, videoPlayerScreenIndex, bt_videoPlayer, vp => {
                 vp.SetSource(VideoPath);
             });
-            infotainment = launchWindow(ref infotainment, infotainmentScreenIndex, bt_infotainment);
-            infotainmentSub = launchWindow(ref infotainmentSub, infotainmentSubScreenIndex, bt_infotainmentSub, inf => inf.HidePanel());
+            infotainment = launchWindow(ref infotainment, infotainmentScreenIndex, bt_infotainment, i => {
+                i.SetSlidePool(mainSlides);
+                //i.ShowSlide(0);
+            });
+            infotainmentSub = launchWindow(ref infotainmentSub, infotainmentSubScreenIndex, bt_infotainmentSub, i => {
+                i.HidePanel();
+                i.SetSlidePool(subSlides);
+                //i.ShowSlide(0);
+            });
             populateScreenSelectors(tlp_videoPlayer, videoPlayer, screenCount);
             populateScreenSelectors(tlp_infotainment, infotainment, screenCount);
             populateScreenSelectors(tlp_infotainmentSub, infotainmentSub, screenCount);
+
+            ShowMainSlide(0);
+            ShowSubSlide(0);
         }
 
         private void toggleScreenIndicator() {
@@ -343,17 +360,17 @@ namespace EurofighterCockpit
             if (rb.Parent == tlp_videoPlayer) {
                 videoPlayerScreenIndex = screenIndex;
                 moveWindowToScreen(videoPlayer, screenIndex);
-                videoPlayer.Activate();  // bring to focus
+                videoPlayer?.Activate();  // bring to focus
             }
             if (rb.Parent == tlp_infotainment) {
                 infotainmentScreenIndex = screenIndex;
                 moveWindowToScreen(infotainment, infotainmentScreenIndex);
-                infotainment.Activate();  // bring to focus
+                infotainment?.Activate();  // bring to focus
             }
             if (rb.Parent == tlp_infotainmentSub) {
                 infotainmentSubScreenIndex = screenIndex;
                 moveWindowToScreen(infotainmentSub, infotainmentSubScreenIndex);
-                infotainmentSub.Activate();  // bring to focus
+                infotainmentSub?.Activate();  // bring to focus
             }
         }
 
@@ -380,9 +397,27 @@ namespace EurofighterCockpit
             base.WndProc(ref m);
         }
 
-
-
         #endregion
 
+        public void ShowMainSlide(int slideIndex) {
+            // to prevent index out of range error
+            if (slideIndex < 0 && slideIndex > mainSlides.Length)
+                return;
+            mainSlides[slideIndex].MainSlideRequested += (s, e) => {
+                Console.WriteLine("you have been heard");
+                ShowMainSlide(e.TargetSlide);
+            };
+            infotainment.ShowSlide(slideIndex);
+        }
+
+        public void ShowSubSlide(int slideIndex) {
+            // to prevent index out of range error
+            if (slideIndex < 0 && slideIndex > subSlides.Length)
+                return;
+            subSlides[slideIndex].SubSlideRequested += (s, e) => {
+                ShowSubSlide(e.TargetSlide);
+            };
+            infotainmentSub.ShowSlide(slideIndex);
+        }
     }
 }

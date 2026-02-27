@@ -10,10 +10,14 @@ using System.Windows.Forms;
 
 namespace EurofighterCockpit.Slides
 {
-    public partial class Slide1 : BaseSlide
+    public partial class Slide3 : BaseSlide
     {
-        public Slide1() {
+        public Slide3() {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e) {
+            RequestMainSlide(0);
         }
     }
 }

@@ -7,43 +7,40 @@ namespace EurofighterCockpit
 {
     public partial class Infotainment : Form
     {
-        private Slide1 currentSlide;
+        // slides
+        private BaseSlide[] slides = null;
 
         public Infotainment() {
             InitializeComponent();
         }
 
+        public void SetSlidePool(BaseSlide[] slides) {
+            this.slides = slides;
+        }
+
         public void HidePanel() {
-            flowLayoutPanel1.Width = 0;
+            panel1.Width = 0;
             p_content.Dock = DockStyle.Fill;
         }
 
-        public void ShowSlide(Slide1 slide) {
+        public void ShowSlide(int slideIndex) {
+            // to prevent index out of range error
+            if (slideIndex < 0 && slideIndex > slides.Length)
+                return; 
+            //slides[slideIndex].SlideRequested += (s, e) => {
+            //    ShowSlide(e.TargetSlide);
+            //};
             p_content.Controls.Clear();
-            currentSlide = slide;
-
-            p_content.Controls.Add(slide);
-
-            slide.InitializeScaling();
-
-            ResizeSlide();
+            p_content.Controls.Add(slides[slideIndex]);
         }
 
-        private void ResizeSlide() {
-            if (currentSlide == null) return;
+        private void button1_Click(object sender, EventArgs e) {
+            ShowSlide(0);
 
-            Size baseSize = currentSlide.OriginalSize;
-            float scaleX = (float)p_content.ClientSize.Width / baseSize.Width;
-            float scaleY = (float)p_content.ClientSize.Height / baseSize.Height;
-            float scale = Math.Min(scaleX, scaleY);
-
-            currentSlide.ApplyScale(scale);
-
-            currentSlide.Location = new Point(
-                (p_content.ClientSize.Width - currentSlide.Width) / 2,
-                (p_content.ClientSize.Height - currentSlide.Height) / 2
-            );
         }
 
+        private void button2_Click(object sender, EventArgs e) {
+            ShowSlide(1);
+        }
     }
 }
