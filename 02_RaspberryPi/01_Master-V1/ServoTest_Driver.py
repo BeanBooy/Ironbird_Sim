@@ -7,6 +7,7 @@ from ServoClass import Servo
 LG_OUT = 1
 LG_IN = 0
 
+NUMCYCLES = 2
 I2CSERVO = 0x40
 servodriver = ServoKit(channels=16, address=I2CSERVO, frequency=30)
 
@@ -34,7 +35,7 @@ def safe_sleep(seconds):
         time.sleep(0.02)
 
 def test_move():
-    for cycles in range(2):
+    for cycles in range(NUMCYCLES):
         if not stop_test.is_set():
             for byte_value in range(0,256+1):
                 if stop_test.is_set():
@@ -75,7 +76,16 @@ def test_move():
             if LG.current_pos == LG_IN and not stop_test.is_set():
                 RCD.move(RCD.idle)
                 LCD.move(LCD.idle)
-    print(f"End of Servotest, went through {cycles+1} cycle")
+    # set rest to idle again
+    RU.move(RU.idle)
+    LC.move(LC.idle)
+    RC.move(RC.idle)
+    LO.move(LO.idle)
+    RO.move(RO.idle)
+    LF.move(LF.idle)
+    RF.move(RF.idle)
+    AB.move(AB.idle)
+    print(f"End of Servotest, went through {NUMCYCLES} cycle(s)")
 
 def start_servo_test():
     global current_test_future
