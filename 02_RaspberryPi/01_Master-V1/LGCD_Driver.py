@@ -50,6 +50,7 @@ servodriver = ServoKit(channels=16, address=0x40, frequency=30)
 
 RCD = Servo(channel=0,idle=0)
 LCD = Servo(channel=1,idle=0)
+LG = Servo(channel=14,idle=0) # only for get/set state
 
 # safe sleep to exit threads faster
 def safe_sleep(seconds):
@@ -61,16 +62,16 @@ def safe_sleep(seconds):
 # Servosequence itself
 def LGCD_Sequence(state):
     global LGdriver
-
+    LED_Driver.LED_LG_manager(LED_LG_ON)
     try:
         if state == LG_OUT:
-            LED_Driver.LED_LG_manager(LED_LG_ON)
             for angle in range(0,257):
                 RCD.move(angle)
                 LCD.move(angle)
             safe_sleep(1)
             servodriver.servo[15].fraction = LG_OUT
             safe_sleep(3)
+            LG.current_pos = LG_OUT
         elif state == LG_IN:
             servodriver.servo[15].fraction = LG_IN
             safe_sleep(3)
@@ -78,11 +79,15 @@ def LGCD_Sequence(state):
                 RCD.move(angle)
                 LCD.move(angle)
             safe_sleep(2)
+            LG.current_pos = LG_IN
         elif state is None:
             servodriver.servo[15].fraction = None
             safe_sleep(3)
             RCD.move(None)
             LCD.move(None)
+            LG.current_pos = None
+        if LG.current_pos == LG_IN:
+            LED_Driver.LED_LG_manager(LED_LG_OFF)
     except Exception as e:
         print("Error with controlling LG:", e)
 

@@ -111,7 +111,7 @@ def stop_servo_test():
         stop_test.set()
         LED_Driver.LED_manager(LED_ALL_OFF)
         if LG.current_pos == LG_IN and RCD.current_pos == RCD.max_pos:
-            time.sleep(2)
+            time.sleep(1)
             RCD.move(RCD.idle)
             LCD.move(LCD.idle)
         if current_test_future:
