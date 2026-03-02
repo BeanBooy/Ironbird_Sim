@@ -1,4 +1,5 @@
 ﻿using EurofighterCockpit.Slides;
+using SharpDX;
 using System;
 using System.Drawing;
 using System.IO;
@@ -73,14 +74,7 @@ namespace EurofighterCockpit
                 Environment.Exit(1);
             }
 
-            mainSlides = new BaseSlide[] {
-                new Slide2(),
-                new Slide3(),
-            };
-            subSlides = new BaseSlide[] {
-                new Slide1(),
-            };
-
+            initializeSlides();
             initializeScreens();
             initializeWindows();
             initializeController();
@@ -230,6 +224,25 @@ namespace EurofighterCockpit
         #region screen + window logic
         // ===============================================================
 
+        private void initializeSlides() {
+            mainSlides = new BaseSlide[] {
+                new Slide2(),
+                new Slide3(),
+                new SlideEurofighter(),
+                new SlideSystems(),
+                new SlideWeaponry(),
+                new SlideEngine(),
+            };
+            subSlides = new BaseSlide[] {
+                new Slide1(),
+                new Slide4(),
+            };
+            for (int i = 0; i < mainSlides.Length; i++) {
+                mainSlides[i].MainSlideRequested += MainSlideRequestedHandler;
+                mainSlides[i].SubSlideRequested += SubSlideRequestedHandler;
+            }
+        }
+
         private void initializeScreens() {
             screens = Screen.AllScreens;
             screenCount = screens.Length;
@@ -245,12 +258,10 @@ namespace EurofighterCockpit
             });
             infotainment = launchWindow(ref infotainment, infotainmentScreenIndex, bt_infotainment, i => {
                 i.SetSlidePool(mainSlides);
-                //i.ShowSlide(0);
             });
             infotainmentSub = launchWindow(ref infotainmentSub, infotainmentSubScreenIndex, bt_infotainmentSub, i => {
-                i.HidePanel();
                 i.SetSlidePool(subSlides);
-                //i.ShowSlide(0);
+                i.HidePanel();
             });
             populateScreenSelectors(tlp_videoPlayer, videoPlayer, screenCount);
             populateScreenSelectors(tlp_infotainment, infotainment, screenCount);
@@ -268,7 +279,7 @@ namespace EurofighterCockpit
         }
 
         private T launchWindow<T>(ref T window, int screenIndex, BetterToggle toggleButton, Action<T> postInit = null) where T : Form, new() {
-            if (window != null) return window;
+            if (window != null && !window.IsDisposed) return window;
             window = new T();
             window.Load += (s, e) => { toggleButton.IsChecked = true; };
             // capture window in local variable for safe closure
@@ -335,21 +346,32 @@ namespace EurofighterCockpit
 
         private void bt_videoPlayer_UserClick(object sender, EventArgs e) {
             if (videoPlayer == null)
-                videoPlayer = launchWindow(ref videoPlayer, videoPlayerScreenIndex, bt_videoPlayer, vp => vp.SetSource(VideoPath));
+                videoPlayer = launchWindow(ref videoPlayer, videoPlayerScreenIndex, bt_videoPlayer, vp => {
+                    vp.SetSource(VideoPath);
+                });
             else
                 videoPlayer.Close();
         }
 
         private void bt_infotainment_UserClick(object sender, EventArgs e) {
-            if (infotainment == null)
-                infotainment = launchWindow(ref infotainment, infotainmentScreenIndex, bt_infotainment);
+            if (infotainment == null) {
+                initializeSlides();
+                infotainment = launchWindow(ref infotainment, infotainmentScreenIndex, bt_infotainment, i => {
+                    i.SetSlidePool(mainSlides);
+                });
+            }
             else
                 infotainment.Close();
         }
 
         private void bt_infotainmentSub_UserClick(object sender, EventArgs e) {
-            if (infotainmentSub == null)
-                infotainmentSub = launchWindow(ref infotainmentSub, infotainmentSubScreenIndex, bt_infotainmentSub, inf => inf.HidePanel());
+            if (infotainmentSub == null) {
+                initializeSlides();
+                infotainmentSub = launchWindow(ref infotainmentSub, infotainmentSubScreenIndex, bt_infotainmentSub, i => {
+                    i.SetSlidePool(subSlides);
+                    i.HidePanel();
+                });
+            }
             else
                 infotainmentSub.Close();
         }
@@ -401,23 +423,26 @@ namespace EurofighterCockpit
 
         public void ShowMainSlide(int slideIndex) {
             // to prevent index out of range error
-            if (slideIndex < 0 && slideIndex > mainSlides.Length)
+            if (slideIndex < 0 || slideIndex >= mainSlides.Length)
                 return;
-            mainSlides[slideIndex].MainSlideRequested += (s, e) => {
-                Console.WriteLine("you have been heard");
-                ShowMainSlide(e.TargetSlide);
-            };
             infotainment.ShowSlide(slideIndex);
         }
 
         public void ShowSubSlide(int slideIndex) {
             // to prevent index out of range error
-            if (slideIndex < 0 && slideIndex > subSlides.Length)
+            if (slideIndex < 0 || slideIndex >= subSlides.Length)
                 return;
-            subSlides[slideIndex].SubSlideRequested += (s, e) => {
-                ShowSubSlide(e.TargetSlide);
-            };
             infotainmentSub.ShowSlide(slideIndex);
+        }
+
+        private void MainSlideRequestedHandler(object sender, SlideNavigationEventArgs e) {
+            if (infotainment != null && !infotainment.IsDisposed)
+                ShowMainSlide(e.TargetSlide);
+        }
+
+        private void SubSlideRequestedHandler(object sender, SlideNavigationEventArgs e) {
+            if (infotainmentSub != null && !infotainmentSub.IsDisposed)
+                ShowSubSlide(e.TargetSlide);
         }
     }
 }

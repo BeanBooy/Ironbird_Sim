@@ -78,6 +78,36 @@
     <Compile Include="Slides\BaseSlide.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Slides\Slide4.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Slides\Slide4.Designer.cs">
+      <DependentUpon>Slide4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Slides\SlideEngine.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Slides\SlideEngine.Designer.cs">
+      <DependentUpon>SlideEngine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Slides\SlideEurofighter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Slides\SlideEurofighter.Designer.cs">
+      <DependentUpon>SlideEurofighter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Slides\SlideSystems.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Slides\SlideSystems.Designer.cs">
+      <DependentUpon>SlideSystems.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Slides\SlideWeaponry.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Slides\SlideWeaponry.Designer.cs">
+      <DependentUpon>SlideWeaponry.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\BetterProgressBar.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -135,6 +165,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Slides\Slide3.resx">
       <DependentUpon>Slide3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Slides\Slide4.resx">
+      <DependentUpon>Slide4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Slides\SlideEngine.resx">
+      <DependentUpon>SlideEngine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Slides\SlideEurofighter.resx">
+      <DependentUpon>SlideEurofighter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Slides\SlideSystems.resx">
+      <DependentUpon>SlideSystems.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Slides\SlideWeaponry.resx">
+      <DependentUpon>SlideWeaponry.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\BetterProgressBar.resx">
       <DependentUpon>BetterProgressBar.cs</DependentUpon>
@@ -219,9 +264,13 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\Assets\Eurofighter.jpg" />
+    <Content Include="Resources\Assets\Engine.png" />
+    <Content Include="Resources\Assets\TwoBirds.jpg" />
     <Content Include="Resources\Assets\BackroundPanelSelectButtons.jpg" />
     <Content Include="Resources\Assets\EurofighterCockpitLogo.ico" />
     <Content Include="Resources\Assets\EurofighterCockpitLogo.png" />
+    <Content Include="Resources\Assets\twoEurofighter.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

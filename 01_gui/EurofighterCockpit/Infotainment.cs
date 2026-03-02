@@ -10,6 +10,8 @@ namespace EurofighterCockpit
         // slides
         private BaseSlide[] slides = null;
 
+        private Color highlightCol = Color.FromArgb(0, 32, 91);
+
         public Infotainment() {
             InitializeComponent();
         }
@@ -25,22 +27,29 @@ namespace EurofighterCockpit
 
         public void ShowSlide(int slideIndex) {
             // to prevent index out of range error
-            if (slideIndex < 0 && slideIndex > slides.Length)
+            if (slideIndex < 0 || slideIndex >= slides.Length)
                 return; 
-            //slides[slideIndex].SlideRequested += (s, e) => {
-            //    ShowSlide(e.TargetSlide);
-            //};
             p_content.Controls.Clear();
             p_content.Controls.Add(slides[slideIndex]);
         }
 
-        private void button1_Click(object sender, EventArgs e) {
-            ShowSlide(0);
-
+        private void ResetAllButtons() {
+            btn_Eurofighter.BackColor = Color.Black;
+            btn_Systems.BackColor = Color.Black;
+            btn_Weaponry.BackColor = Color.Black;
+            btn_Joystick.BackColor = Color.Black;
+            btn_Movie.BackColor = Color.Black;
         }
 
-        private void button2_Click(object sender, EventArgs e) {
-            ShowSlide(1);
+        private void btn_Click(object sender, EventArgs e) {
+            ResetAllButtons();
+            ((Button)sender).BackColor = highlightCol;
+            if (sender == btn_Eurofighter) ShowSlide(2);
+            else if (sender == btn_Systems) ShowSlide(3);
+            else if (sender == btn_Weaponry) ShowSlide(4);
+            else if (sender == btn_Joystick) ShowSlide(5);
+            else if (sender == btn_Movie) ShowSlide(6);
         }
+
     }
 }

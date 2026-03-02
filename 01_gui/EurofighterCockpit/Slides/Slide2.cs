@@ -14,7 +14,6 @@ namespace EurofighterCockpit.Slides
     {
         public Slide2() {
             InitializeComponent();
-            Console.WriteLine("slide2 loaded");
         }
 
         private void button1_Click(object sender, EventArgs e) {
@@ -27,6 +26,16 @@ namespace EurofighterCockpit.Slides
 
         private void button3_Click(object sender, EventArgs e) {
             Console.WriteLine("movie started");
+        }
+
+        private void button4_Click(object sender, EventArgs e) {
+            Console.WriteLine("btn pressed");
+            RequestSubSlide(1);
+        }
+
+        private void button5_Click(object sender, EventArgs e) {
+            Console.WriteLine("btn pressed");
+            RequestSubSlide(0);
         }
     }
 }
