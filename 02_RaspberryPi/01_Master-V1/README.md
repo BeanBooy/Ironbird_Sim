@@ -1,12 +1,4 @@
 # Steuerungssoftware für Servo- und LED-Treibersystem
----
-
-**Author:** Noah Gerstlauer
-**Department:** THGM-TL1
-**Email:** Noah.Gerstlauer@airbus.com
-**Date:** 2023-09
-
----
 
 ## Einführung
 Diese Software steuert ein Servo- und LED-Treibersystem über ein das TCP Netzwerkprotokoll. Sie ermöglicht die Fernsteuerung verschiedener Servos und LEDs des Eurofighter-Messemodells.
