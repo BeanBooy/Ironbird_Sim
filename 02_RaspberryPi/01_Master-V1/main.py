@@ -11,7 +11,7 @@ from LED_Driver import LED_ALL_OFF
 from LGCD_Driver import LG_IN,stop_event
 from adafruit_servokit import ServoKit
 
-# I2C Adresses
+# I2C Adresses. If changed and wont work, try also changing adress in *_Driver
 I2CSERVO = 0x40
 
 # TCP-Port
@@ -19,7 +19,7 @@ PORT_CONST = 4443
 MODE = 0 # Idle as default / first BUS-Element
 LED = 10
 
-# index for each TCP-Bus-Part
+# index for each TCP-Bus-Element
 iLC = 1  # Left Canards
 iRC = 2  # Right Canards
 iLO = 3  # Left Aileron (Outboard, Querruder)
@@ -33,7 +33,7 @@ iLG = 9 # Landing Gear
 # Defaultangles
 RCD = Servo(channel=0,idle=0)
 LCD = Servo(channel=1,idle=0)
-RU = Servo(channel=2,idle=90)
+RU = Servo(channel=2,idle=128)
 LC = Servo(channel=3,idle=128)
 RC = Servo(channel=4,idle=128)
 LO = Servo(channel=5,idle=128)
@@ -41,7 +41,6 @@ RO = Servo(channel=6,idle=128)
 LF = Servo(channel=7,idle=128)
 RF = Servo(channel=8,idle=128)
 AB = Servo(channel=9,idle=0)
-#LG = Servo(channel=15,idle=0, min_pulsewidth=500, max_pulsewidth=2250)
 
 try:
     # initialize socket
@@ -79,7 +78,7 @@ def PWMsetServo_EF():
         RF.move(angleRF)
         AB.move(angleAB)
         RU.move(angleRU)
-        # NOTE LEDMANAGER needs to be fixed!
+        LED_Driver.LED_manager(toggleLED)
     except Exception as e:
         print(f"(EF) Error controlling servos: {e}")
 
@@ -170,6 +169,7 @@ while not stop_event.is_set():
             print(threading.active_count(), "threads")
 
             if receivedData[MODE] == 0:
+                LGCD_Driver.request_lg(LG_IN) # to be sure
                 ServoTest_Driver.stop_servo_test()
                 print("IdleMode")
                 IdleMode()
@@ -177,7 +177,6 @@ while not stop_event.is_set():
             elif receivedData[MODE] == 1:
                 ServoTest_Driver.stop_servo_test()
                 print("Remote-Mode")
-                # map fraction to LG state and request it (last-value buffer)
                 LGCD_Driver.request_lg(fractionLG)
                 PWMsetServo_EF()
 

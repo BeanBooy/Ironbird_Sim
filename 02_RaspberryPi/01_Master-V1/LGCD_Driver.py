@@ -1,7 +1,7 @@
 import time
 import threading
 import LED_Driver
-from LED_Driver import LED_LG_ON, LED_LG_OFF
+#from LED_Driver import LED_LG_ON, LED_LG_OFF
 from ServoClass import Servo
 from concurrent.futures import ThreadPoolExecutor
 
@@ -30,12 +30,10 @@ class LastValueBuffer:
             return v
 
 # Variables for LG
-#I2CLG = 0x41
+# I2CLG = 0x41
 LG_IN = 0
 LG_OUT = 1
 
-# declared driver as None at beginning for errorhandling
-#LGdriver = None
 oldstate = LG_IN
 
 executor = ThreadPoolExecutor(max_workers=1)
@@ -61,8 +59,8 @@ def safe_sleep(seconds):
 
 # Servosequence itself
 def LGCD_Sequence(state):
-    global LGdriver
-    LED_Driver.LED_LG_manager(LED_LG_ON)
+    #global LGdriver
+    #LED_Driver.LED_LG_manager(LED_LG_ON)
     try:
         if state == LG_OUT:
             for angle in range(0,257):
@@ -82,19 +80,16 @@ def LGCD_Sequence(state):
             LG.current_pos = LG_IN
         elif state is None:
             servodriver.servo[15].fraction = None
-            safe_sleep(3)
             RCD.move(None)
             LCD.move(None)
             LG.current_pos = None
-        if LG.current_pos == LG_IN:
-            LED_Driver.LED_LG_manager(LED_LG_OFF)
     except Exception as e:
         print("Error with controlling LG:", e)
 
 # Threadmanager
 def lg_manager_thread():
-
     global oldstate
+
     while not stop_event.is_set():
         # Wait for new arguments
         val = lg_request_buffer.get()
@@ -108,7 +103,6 @@ def lg_manager_thread():
         if desired is None:
             continue
 
-        # check for difference in new and past state
         if desired == oldstate:
             oldstate = desired
             continue

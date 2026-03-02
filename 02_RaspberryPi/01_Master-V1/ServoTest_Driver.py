@@ -72,7 +72,7 @@ def test_move():
                 RF.move(byte_value)
                 AB.move(byte_value)
                 time.sleep(0.005) # for smoother movement
-            #if RCD.current_pos is not RCD.idle and LCD.current_pos is not LCD.idle and MODE == 2:
+            # close LG
             servodriver.servo[15].fraction = LG_IN
             LG.current_pos = LG_IN
             safe_sleep(3)
@@ -111,10 +111,11 @@ def stop_servo_test():
         stop_test.set()
         LED_Driver.LED_manager(LED_ALL_OFF)
         if LG.current_pos == LG_IN and RCD.current_pos == RCD.max_pos:
-            time.sleep(1)
+            print("Closing Cabindoors...")
+            time.sleep(2) # blocks input-data but is acceptable because test is not used practical
             RCD.move(RCD.idle)
             LCD.move(LCD.idle)
         if current_test_future:
             current_test_future.cancel()
 
-#test_move(MODE)
+#test_move(MODE) # if you want to test uncommend
