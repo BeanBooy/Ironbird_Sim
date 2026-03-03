@@ -91,7 +91,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="SlideDetailsReader.cs" />
     <Compile Include="SlideNavigationEventArgs.cs" />
     <Compile Include="Slides\Slide1.cs">
       <SubType>UserControl</SubType>

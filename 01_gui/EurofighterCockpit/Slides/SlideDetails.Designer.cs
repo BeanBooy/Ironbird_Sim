@@ -27,9 +27,10 @@
         private void InitializeComponent() {
             this.tb_text = new System.Windows.Forms.TextBox();
             this.tb_data = new System.Windows.Forms.TextBox();
-            this.p_image = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.l_title = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tb_text
@@ -38,11 +39,11 @@
             this.tb_text.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tb_text.Font = new System.Drawing.Font("Leelawadee UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_text.ForeColor = System.Drawing.Color.White;
-            this.tb_text.Location = new System.Drawing.Point(107, 788);
+            this.tb_text.Location = new System.Drawing.Point(107, 799);
             this.tb_text.Multiline = true;
             this.tb_text.Name = "tb_text";
             this.tb_text.ReadOnly = true;
-            this.tb_text.Size = new System.Drawing.Size(1289, 196);
+            this.tb_text.Size = new System.Drawing.Size(1659, 196);
             this.tb_text.TabIndex = 5;
             // 
             // tb_data
@@ -55,16 +56,8 @@
             this.tb_data.Multiline = true;
             this.tb_data.Name = "tb_data";
             this.tb_data.ReadOnly = true;
-            this.tb_data.Size = new System.Drawing.Size(517, 416);
+            this.tb_data.Size = new System.Drawing.Size(599, 416);
             this.tb_data.TabIndex = 3;
-            // 
-            // p_image
-            // 
-            this.p_image.BackColor = System.Drawing.Color.Black;
-            this.p_image.Location = new System.Drawing.Point(107, 201);
-            this.p_image.Name = "p_image";
-            this.p_image.Size = new System.Drawing.Size(892, 489);
-            this.p_image.TabIndex = 2;
             // 
             // label1
             // 
@@ -88,19 +81,29 @@
             this.l_title.TabIndex = 0;
             this.l_title.Text = "Title";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox1.Location = new System.Drawing.Point(107, 201);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(951, 536);
+            this.pictureBox1.TabIndex = 6;
+            this.pictureBox1.TabStop = false;
+            // 
             // SlideDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.tb_text);
             this.Controls.Add(this.tb_data);
-            this.Controls.Add(this.p_image);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.l_title);
             this.Name = "SlideDetails";
             this.Size = new System.Drawing.Size(1920, 1080);
             this.Load += new System.EventHandler(this.SlideDetails_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -110,8 +113,8 @@
 
         private System.Windows.Forms.Label l_title;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel p_image;
         private System.Windows.Forms.TextBox tb_data;
         private System.Windows.Forms.TextBox tb_text;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

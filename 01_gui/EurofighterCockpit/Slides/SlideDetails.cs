@@ -29,30 +29,34 @@ namespace EurofighterCockpit.Slides
             }
 
             string resourceName = "EurofighterCockpit.Resources.SlideDetails." + detail.Image;
-            p_image.BackgroundImage = Image.FromFile(resourceName);
+            //p_image.BackgroundImage = Image.FromFile(resourceName);
 
-            //Assembly assembly = Assembly.GetExecutingAssembly();
-            //Stream stream = assembly.GetManifestResourceStream(resourceName);
+            Assembly assembly = Assembly.GetExecutingAssembly();
+            Stream stream = assembly.GetManifestResourceStream(resourceName);
 
-            //if (stream != null) {
-            //    try {
-            //        // Bild aus Stream laden
-            //        Image img = Image.FromStream(stream);
+            if (stream != null) {
+                try {
+                    MemoryStream ms = new MemoryStream();
+                    stream.CopyTo(ms);
+                    ms.Position = 0;
 
-            //        // In PictureBox anzeigen
-            //        p_image.BackgroundImage = img;
-            //    }
-            //    catch {
-            //        throw new Exception();
-            //    }
-            //    finally {
-            //        // Stream unbedingt schließen
-            //        stream.Dispose();
-            //    }
-            //}
-            //else {
-            //    MessageBox.Show("Bild konnte nicht gefunden werden: " + resourceName);
-            //}
+                    Image img = Image.FromStream(ms);
+
+
+                    // In PictureBox anzeigen
+                    pictureBox1.Image = img;
+                }
+                catch {
+                    throw new Exception();
+                }
+                finally {
+                    // Stream unbedingt schließen
+                    stream.Dispose();
+                }
+            }
+            else {
+                MessageBox.Show("Bild konnte nicht gefunden werden: " + resourceName);
+            }
         }
 
         private void SlideDetails_Load(object sender, EventArgs e) {
