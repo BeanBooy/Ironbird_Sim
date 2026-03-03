@@ -2,6 +2,7 @@
 using System;
 using System.Drawing;
 using System.IO;
+using System.Text;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -18,7 +19,7 @@ namespace EurofighterCockpit
 
         private readonly Logger logger = Logger.Instance;
         private readonly Config config = Config.Instance;
-        
+
         // screens
         private Screen[] screens;
         private int screenCount;
@@ -62,7 +63,6 @@ namespace EurofighterCockpit
         }
 
         private void ConfigSettings_Load(object sender, EventArgs e) {
-
             if (isConfigFileValid()) {
                 tb_ip.Text = config.Dict["ipAddress"];
                 tb_port.Text = config.Dict["port"];
@@ -86,6 +86,20 @@ namespace EurofighterCockpit
             initializeController();
 
             logger.LogToBox("...ready!");
+
+            // create recorder file and or directory
+            logger.LogToBox("Recording.");
+            string RecFileDir = $"{Directory.GetCurrentDirectory()}\\record";
+            string RecFile = $"EurofighterCockpit_MVrecording.txt";
+            if (!Directory.Exists(RecFileDir))
+            {
+                Directory.CreateDirectory(RecFileDir);
+            }
+            string path = Path.Combine(RecFileDir, RecFile);
+            if (!File.Exists(path))
+            {
+                File.Create(path).Close();
+            }
         }
 
         private bool isConfigFileValid() {
@@ -217,6 +231,7 @@ namespace EurofighterCockpit
             payload[7] = sd_airbrake.Value;
             payload[8] = sd_rudder.Value;
             // send to the pi
+
             controller.SendManualPayload(payload);
         }
 
