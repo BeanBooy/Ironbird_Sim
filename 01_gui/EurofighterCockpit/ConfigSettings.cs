@@ -1,9 +1,11 @@
-﻿using EurofighterCockpit.Slides;
+﻿using EurofighterCockpit.Properties;
+using EurofighterCockpit.Slides;
 using SharpDX;
 using System;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Windows.Forms;
 
 namespace EurofighterCockpit
@@ -226,16 +228,17 @@ namespace EurofighterCockpit
 
         private void initializeSlides() {
             mainSlides = new BaseSlide[] {
-                new Slide2(),
-                new Slide3(),
                 new SlideEurofighter(),
                 new SlideSystems(),
                 new SlideWeaponry(),
                 new SlideEngine(),
+                //new Slide2(),
+                //new Slide3(),
             };
             subSlides = new BaseSlide[] {
                 new Slide1(),
                 new Slide4(),
+                new SlideDetails(Resources.Taurus),
             };
             for (int i = 0; i < mainSlides.Length; i++) {
                 mainSlides[i].MainSlideRequested += MainSlideRequestedHandler;

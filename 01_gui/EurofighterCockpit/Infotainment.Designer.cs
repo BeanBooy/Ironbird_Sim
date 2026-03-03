@@ -28,13 +28,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Infotainment));
             this.p_content = new System.Windows.Forms.Panel();
             this.btn_Eurofighter = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.p_SlideSelector = new System.Windows.Forms.Panel();
+            this.btn_Engine = new System.Windows.Forms.Button();
             this.btn_Movie = new System.Windows.Forms.Button();
             this.btn_Joystick = new System.Windows.Forms.Button();
             this.btn_Weaponry = new System.Windows.Forms.Button();
             this.btn_Systems = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.panel1.SuspendLayout();
+            this.p_SlideSelector.SuspendLayout();
             this.SuspendLayout();
             // 
             // p_content
@@ -63,22 +63,38 @@
             this.btn_Eurofighter.UseVisualStyleBackColor = false;
             this.btn_Eurofighter.Click += new System.EventHandler(this.btn_Click);
             // 
-            // panel1
+            // p_SlideSelector
             // 
-            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.btn_Movie);
-            this.panel1.Controls.Add(this.btn_Joystick);
-            this.panel1.Controls.Add(this.btn_Weaponry);
-            this.panel1.Controls.Add(this.btn_Systems);
-            this.panel1.Controls.Add(this.btn_Eurofighter);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2);
-            this.panel1.Name = "panel1";
-            this.panel1.Padding = new System.Windows.Forms.Padding(10);
-            this.panel1.Size = new System.Drawing.Size(320, 1080);
-            this.panel1.TabIndex = 0;
+            this.p_SlideSelector.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("p_SlideSelector.BackgroundImage")));
+            this.p_SlideSelector.Controls.Add(this.btn_Engine);
+            this.p_SlideSelector.Controls.Add(this.btn_Movie);
+            this.p_SlideSelector.Controls.Add(this.btn_Joystick);
+            this.p_SlideSelector.Controls.Add(this.btn_Weaponry);
+            this.p_SlideSelector.Controls.Add(this.btn_Systems);
+            this.p_SlideSelector.Controls.Add(this.btn_Eurofighter);
+            this.p_SlideSelector.Dock = System.Windows.Forms.DockStyle.Left;
+            this.p_SlideSelector.Location = new System.Drawing.Point(0, 0);
+            this.p_SlideSelector.Margin = new System.Windows.Forms.Padding(2);
+            this.p_SlideSelector.Name = "p_SlideSelector";
+            this.p_SlideSelector.Padding = new System.Windows.Forms.Padding(10);
+            this.p_SlideSelector.Size = new System.Drawing.Size(320, 1080);
+            this.p_SlideSelector.TabIndex = 0;
+            // 
+            // btn_Engine
+            // 
+            this.btn_Engine.BackColor = System.Drawing.Color.Black;
+            this.btn_Engine.FlatAppearance.BorderSize = 3;
+            this.btn_Engine.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Engine.Font = new System.Drawing.Font("Leelawadee UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Engine.ForeColor = System.Drawing.Color.White;
+            this.btn_Engine.Location = new System.Drawing.Point(19, 280);
+            this.btn_Engine.Margin = new System.Windows.Forms.Padding(10);
+            this.btn_Engine.Name = "btn_Engine";
+            this.btn_Engine.Size = new System.Drawing.Size(280, 65);
+            this.btn_Engine.TabIndex = 5;
+            this.btn_Engine.Text = "Triebwerk";
+            this.btn_Engine.UseVisualStyleBackColor = false;
+            this.btn_Engine.Click += new System.EventHandler(this.btn_Click);
             // 
             // btn_Movie
             // 
@@ -87,7 +103,7 @@
             this.btn_Movie.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Movie.Font = new System.Drawing.Font("Leelawadee UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Movie.ForeColor = System.Drawing.Color.White;
-            this.btn_Movie.Location = new System.Drawing.Point(19, 460);
+            this.btn_Movie.Location = new System.Drawing.Point(19, 450);
             this.btn_Movie.Margin = new System.Windows.Forms.Padding(10);
             this.btn_Movie.Name = "btn_Movie";
             this.btn_Movie.Size = new System.Drawing.Size(280, 65);
@@ -103,7 +119,7 @@
             this.btn_Joystick.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Joystick.Font = new System.Drawing.Font("Leelawadee UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Joystick.ForeColor = System.Drawing.Color.White;
-            this.btn_Joystick.Location = new System.Drawing.Point(19, 370);
+            this.btn_Joystick.Location = new System.Drawing.Point(19, 365);
             this.btn_Joystick.Margin = new System.Windows.Forms.Padding(10);
             this.btn_Joystick.Name = "btn_Joystick";
             this.btn_Joystick.Size = new System.Drawing.Size(280, 65);
@@ -119,7 +135,7 @@
             this.btn_Weaponry.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Weaponry.Font = new System.Drawing.Font("Leelawadee UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Weaponry.ForeColor = System.Drawing.Color.White;
-            this.btn_Weaponry.Location = new System.Drawing.Point(19, 200);
+            this.btn_Weaponry.Location = new System.Drawing.Point(19, 195);
             this.btn_Weaponry.Margin = new System.Windows.Forms.Padding(10);
             this.btn_Weaponry.Name = "btn_Weaponry";
             this.btn_Weaponry.Size = new System.Drawing.Size(280, 65);
@@ -144,35 +160,20 @@
             this.btn_Systems.UseVisualStyleBackColor = false;
             this.btn_Systems.Click += new System.EventHandler(this.btn_Click);
             // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.Black;
-            this.button1.FlatAppearance.BorderSize = 3;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Leelawadee UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(19, 285);
-            this.button1.Margin = new System.Windows.Forms.Padding(10);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(280, 65);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Triebwerk";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
             // Infotainment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1920, 1080);
             this.Controls.Add(this.p_content);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.p_SlideSelector);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Infotainment";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Infotainment";
-            this.panel1.ResumeLayout(false);
+            this.p_SlideSelector.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -180,11 +181,11 @@
         #endregion
         private System.Windows.Forms.Panel p_content;
         private System.Windows.Forms.Button btn_Eurofighter;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel p_SlideSelector;
         private System.Windows.Forms.Button btn_Systems;
         private System.Windows.Forms.Button btn_Movie;
         private System.Windows.Forms.Button btn_Joystick;
         private System.Windows.Forms.Button btn_Weaponry;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_Engine;
     }
 }

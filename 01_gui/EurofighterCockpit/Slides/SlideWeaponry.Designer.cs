@@ -26,197 +26,200 @@
         /// </summary>
         private void InitializeComponent() {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SlideWeaponry));
-            this.button15 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
+            this.btn_Tank = new System.Windows.Forms.Button();
+            this.btn_Taurus = new System.Windows.Forms.Button();
+            this.btn_Paveway = new System.Windows.Forms.Button();
+            this.btn_RECCE = new System.Windows.Forms.Button();
+            this.btn_Meteor = new System.Windows.Forms.Button();
+            this.btn_Sidewinder = new System.Windows.Forms.Button();
+            this.btn_Harm = new System.Windows.Forms.Button();
+            this.btn_Iris = new System.Windows.Forms.Button();
+            this.btn_Laser = new System.Windows.Forms.Button();
+            this.btn_Amraam = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button15
+            // btn_Tank
             // 
-            this.button15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button15.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button15.FlatAppearance.BorderSize = 0;
-            this.button15.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button15.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button15.Font = new System.Drawing.Font("Leelawadee UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button15.ForeColor = System.Drawing.Color.White;
-            this.button15.Location = new System.Drawing.Point(77, 59);
-            this.button15.Margin = new System.Windows.Forms.Padding(10);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(300, 80);
-            this.button15.TabIndex = 11;
-            this.button15.Text = "1000 Liter Tank";
-            this.button15.UseVisualStyleBackColor = false;
+            this.btn_Tank.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btn_Tank.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Tank.FlatAppearance.BorderSize = 0;
+            this.btn_Tank.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btn_Tank.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btn_Tank.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Tank.Font = new System.Drawing.Font("Leelawadee UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Tank.ForeColor = System.Drawing.Color.White;
+            this.btn_Tank.Location = new System.Drawing.Point(77, 59);
+            this.btn_Tank.Margin = new System.Windows.Forms.Padding(10);
+            this.btn_Tank.Name = "btn_Tank";
+            this.btn_Tank.Size = new System.Drawing.Size(300, 80);
+            this.btn_Tank.TabIndex = 11;
+            this.btn_Tank.Text = "1000 Liter Tank";
+            this.btn_Tank.UseVisualStyleBackColor = false;
+            this.btn_Tank.Click += new System.EventHandler(this.btn_Tank_Click);
             // 
-            // button1
+            // btn_Taurus
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Leelawadee UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(77, 159);
-            this.button1.Margin = new System.Windows.Forms.Padding(10);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(300, 80);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "Taurus";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btn_Taurus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btn_Taurus.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Taurus.FlatAppearance.BorderSize = 0;
+            this.btn_Taurus.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btn_Taurus.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btn_Taurus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Taurus.Font = new System.Drawing.Font("Leelawadee UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Taurus.ForeColor = System.Drawing.Color.White;
+            this.btn_Taurus.Location = new System.Drawing.Point(77, 159);
+            this.btn_Taurus.Margin = new System.Windows.Forms.Padding(10);
+            this.btn_Taurus.Name = "btn_Taurus";
+            this.btn_Taurus.Size = new System.Drawing.Size(300, 80);
+            this.btn_Taurus.TabIndex = 12;
+            this.btn_Taurus.Text = "Taurus";
+            this.btn_Taurus.UseVisualStyleBackColor = false;
+            this.btn_Taurus.Click += new System.EventHandler(this.btn_Taurus_Click);
             // 
-            // button2
+            // btn_Paveway
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Leelawadee UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(77, 254);
-            this.button2.Margin = new System.Windows.Forms.Padding(5);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(300, 80);
-            this.button2.TabIndex = 13;
-            this.button2.Text = "Paveway II";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btn_Paveway.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btn_Paveway.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Paveway.FlatAppearance.BorderSize = 0;
+            this.btn_Paveway.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btn_Paveway.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btn_Paveway.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Paveway.Font = new System.Drawing.Font("Leelawadee UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Paveway.ForeColor = System.Drawing.Color.White;
+            this.btn_Paveway.Location = new System.Drawing.Point(77, 254);
+            this.btn_Paveway.Margin = new System.Windows.Forms.Padding(5);
+            this.btn_Paveway.Name = "btn_Paveway";
+            this.btn_Paveway.Size = new System.Drawing.Size(300, 80);
+            this.btn_Paveway.TabIndex = 13;
+            this.btn_Paveway.Text = "Paveway II";
+            this.btn_Paveway.UseVisualStyleBackColor = false;
+            this.btn_Paveway.Click += new System.EventHandler(this.btn_Paveway_Click);
             // 
-            // button3
+            // btn_RECCE
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Leelawadee UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(77, 544);
-            this.button3.Margin = new System.Windows.Forms.Padding(5);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(300, 80);
-            this.button3.TabIndex = 16;
-            this.button3.Text = "RECCE Pod";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btn_RECCE.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btn_RECCE.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_RECCE.FlatAppearance.BorderSize = 0;
+            this.btn_RECCE.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btn_RECCE.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btn_RECCE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_RECCE.Font = new System.Drawing.Font("Leelawadee UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_RECCE.ForeColor = System.Drawing.Color.White;
+            this.btn_RECCE.Location = new System.Drawing.Point(77, 544);
+            this.btn_RECCE.Margin = new System.Windows.Forms.Padding(5);
+            this.btn_RECCE.Name = "btn_RECCE";
+            this.btn_RECCE.Size = new System.Drawing.Size(300, 80);
+            this.btn_RECCE.TabIndex = 16;
+            this.btn_RECCE.Text = "RECCE Pod";
+            this.btn_RECCE.UseVisualStyleBackColor = false;
             // 
-            // button4
+            // btn_Meteor
             // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Leelawadee UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(77, 449);
-            this.button4.Margin = new System.Windows.Forms.Padding(10);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(300, 80);
-            this.button4.TabIndex = 15;
-            this.button4.Text = "Meteor";
-            this.button4.UseVisualStyleBackColor = false;
+            this.btn_Meteor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btn_Meteor.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Meteor.FlatAppearance.BorderSize = 0;
+            this.btn_Meteor.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btn_Meteor.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btn_Meteor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Meteor.Font = new System.Drawing.Font("Leelawadee UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Meteor.ForeColor = System.Drawing.Color.White;
+            this.btn_Meteor.Location = new System.Drawing.Point(77, 449);
+            this.btn_Meteor.Margin = new System.Windows.Forms.Padding(10);
+            this.btn_Meteor.Name = "btn_Meteor";
+            this.btn_Meteor.Size = new System.Drawing.Size(300, 80);
+            this.btn_Meteor.TabIndex = 15;
+            this.btn_Meteor.Text = "Meteor";
+            this.btn_Meteor.UseVisualStyleBackColor = false;
             // 
-            // button5
+            // btn_Sidewinder
             // 
-            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Leelawadee UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Location = new System.Drawing.Point(77, 349);
-            this.button5.Margin = new System.Windows.Forms.Padding(10);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(300, 80);
-            this.button5.TabIndex = 14;
-            this.button5.Text = "AIM-9 Sidewinder";
-            this.button5.UseVisualStyleBackColor = false;
+            this.btn_Sidewinder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btn_Sidewinder.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Sidewinder.FlatAppearance.BorderSize = 0;
+            this.btn_Sidewinder.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btn_Sidewinder.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btn_Sidewinder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Sidewinder.Font = new System.Drawing.Font("Leelawadee UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Sidewinder.ForeColor = System.Drawing.Color.White;
+            this.btn_Sidewinder.Location = new System.Drawing.Point(77, 349);
+            this.btn_Sidewinder.Margin = new System.Windows.Forms.Padding(10);
+            this.btn_Sidewinder.Name = "btn_Sidewinder";
+            this.btn_Sidewinder.Size = new System.Drawing.Size(300, 80);
+            this.btn_Sidewinder.TabIndex = 14;
+            this.btn_Sidewinder.Text = "AIM-9 Sidewinder";
+            this.btn_Sidewinder.UseVisualStyleBackColor = false;
             // 
-            // button6
+            // btn_Harm
             // 
-            this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Font = new System.Drawing.Font("Leelawadee UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.ForeColor = System.Drawing.Color.White;
-            this.button6.Location = new System.Drawing.Point(77, 839);
-            this.button6.Margin = new System.Windows.Forms.Padding(10);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(300, 80);
-            this.button6.TabIndex = 19;
-            this.button6.Text = "AGM-88 HARM";
-            this.button6.UseVisualStyleBackColor = false;
+            this.btn_Harm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btn_Harm.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Harm.FlatAppearance.BorderSize = 0;
+            this.btn_Harm.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btn_Harm.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btn_Harm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Harm.Font = new System.Drawing.Font("Leelawadee UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Harm.ForeColor = System.Drawing.Color.White;
+            this.btn_Harm.Location = new System.Drawing.Point(77, 839);
+            this.btn_Harm.Margin = new System.Windows.Forms.Padding(10);
+            this.btn_Harm.Name = "btn_Harm";
+            this.btn_Harm.Size = new System.Drawing.Size(300, 80);
+            this.btn_Harm.TabIndex = 19;
+            this.btn_Harm.Text = "AGM-88 HARM";
+            this.btn_Harm.UseVisualStyleBackColor = false;
             // 
-            // button7
+            // btn_Iris
             // 
-            this.button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button7.FlatAppearance.BorderSize = 0;
-            this.button7.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button7.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Font = new System.Drawing.Font("Leelawadee UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.ForeColor = System.Drawing.Color.White;
-            this.button7.Location = new System.Drawing.Point(77, 739);
-            this.button7.Margin = new System.Windows.Forms.Padding(10);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(300, 80);
-            this.button7.TabIndex = 18;
-            this.button7.Text = "IRIS-T";
-            this.button7.UseVisualStyleBackColor = false;
+            this.btn_Iris.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btn_Iris.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Iris.FlatAppearance.BorderSize = 0;
+            this.btn_Iris.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btn_Iris.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btn_Iris.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Iris.Font = new System.Drawing.Font("Leelawadee UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Iris.ForeColor = System.Drawing.Color.White;
+            this.btn_Iris.Location = new System.Drawing.Point(77, 739);
+            this.btn_Iris.Margin = new System.Windows.Forms.Padding(10);
+            this.btn_Iris.Name = "btn_Iris";
+            this.btn_Iris.Size = new System.Drawing.Size(300, 80);
+            this.btn_Iris.TabIndex = 18;
+            this.btn_Iris.Text = "IRIS-T";
+            this.btn_Iris.UseVisualStyleBackColor = false;
             // 
-            // button8
+            // btn_Laser
             // 
-            this.button8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button8.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button8.FlatAppearance.BorderSize = 0;
-            this.button8.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Font = new System.Drawing.Font("Leelawadee UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.ForeColor = System.Drawing.Color.White;
-            this.button8.Location = new System.Drawing.Point(77, 639);
-            this.button8.Margin = new System.Windows.Forms.Padding(10);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(300, 80);
-            this.button8.TabIndex = 17;
-            this.button8.Text = "Laser Designator Pod";
-            this.button8.UseVisualStyleBackColor = false;
+            this.btn_Laser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btn_Laser.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Laser.FlatAppearance.BorderSize = 0;
+            this.btn_Laser.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btn_Laser.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btn_Laser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Laser.Font = new System.Drawing.Font("Leelawadee UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Laser.ForeColor = System.Drawing.Color.White;
+            this.btn_Laser.Location = new System.Drawing.Point(77, 639);
+            this.btn_Laser.Margin = new System.Windows.Forms.Padding(10);
+            this.btn_Laser.Name = "btn_Laser";
+            this.btn_Laser.Size = new System.Drawing.Size(300, 80);
+            this.btn_Laser.TabIndex = 17;
+            this.btn_Laser.Text = "Laser Designator Pod";
+            this.btn_Laser.UseVisualStyleBackColor = false;
             // 
-            // button9
+            // btn_Amraam
             // 
-            this.button9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button9.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button9.FlatAppearance.BorderSize = 0;
-            this.button9.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button9.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button9.Font = new System.Drawing.Font("Leelawadee UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button9.ForeColor = System.Drawing.Color.White;
-            this.button9.Location = new System.Drawing.Point(77, 939);
-            this.button9.Margin = new System.Windows.Forms.Padding(10);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(300, 80);
-            this.button9.TabIndex = 20;
-            this.button9.Text = "AIM-120 AMRAAM";
-            this.button9.UseVisualStyleBackColor = false;
+            this.btn_Amraam.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btn_Amraam.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Amraam.FlatAppearance.BorderSize = 0;
+            this.btn_Amraam.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btn_Amraam.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btn_Amraam.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Amraam.Font = new System.Drawing.Font("Leelawadee UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Amraam.ForeColor = System.Drawing.Color.White;
+            this.btn_Amraam.Location = new System.Drawing.Point(77, 939);
+            this.btn_Amraam.Margin = new System.Windows.Forms.Padding(10);
+            this.btn_Amraam.Name = "btn_Amraam";
+            this.btn_Amraam.Size = new System.Drawing.Size(300, 80);
+            this.btn_Amraam.TabIndex = 20;
+            this.btn_Amraam.Text = "AIM-120 AMRAAM";
+            this.btn_Amraam.UseVisualStyleBackColor = false;
             // 
             // SlideWeaponry
             // 
@@ -224,33 +227,34 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.Controls.Add(this.button9);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.button8);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.button15);
+            this.Controls.Add(this.btn_Amraam);
+            this.Controls.Add(this.btn_Harm);
+            this.Controls.Add(this.btn_Iris);
+            this.Controls.Add(this.btn_Laser);
+            this.Controls.Add(this.btn_RECCE);
+            this.Controls.Add(this.btn_Meteor);
+            this.Controls.Add(this.btn_Sidewinder);
+            this.Controls.Add(this.btn_Paveway);
+            this.Controls.Add(this.btn_Taurus);
+            this.Controls.Add(this.btn_Tank);
             this.Name = "SlideWeaponry";
             this.Size = new System.Drawing.Size(1600, 1080);
+            this.Load += new System.EventHandler(this.SlideWeaponry_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button button15;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button btn_Tank;
+        private System.Windows.Forms.Button btn_Taurus;
+        private System.Windows.Forms.Button btn_Paveway;
+        private System.Windows.Forms.Button btn_RECCE;
+        private System.Windows.Forms.Button btn_Meteor;
+        private System.Windows.Forms.Button btn_Sidewinder;
+        private System.Windows.Forms.Button btn_Harm;
+        private System.Windows.Forms.Button btn_Iris;
+        private System.Windows.Forms.Button btn_Laser;
+        private System.Windows.Forms.Button btn_Amraam;
     }
 }

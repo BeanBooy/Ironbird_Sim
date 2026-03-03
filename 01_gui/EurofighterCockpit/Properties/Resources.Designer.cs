@@ -59,5 +59,15 @@ namespace EurofighterCockpit.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Byte[].
+        /// </summary>
+        internal static byte[] Taurus {
+            get {
+                object obj = ResourceManager.GetObject("Taurus", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }
