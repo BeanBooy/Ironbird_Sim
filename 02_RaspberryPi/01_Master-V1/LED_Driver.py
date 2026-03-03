@@ -24,15 +24,15 @@ def LED_LG_manager(toggleLED):
         LED_LG2.off() 
 
 def LED_manager(toggleLED):
-    if toggleLED == LED_POS:
+    if toggleLED == LED_POS or toggleLED == 3 or toggleLED == 7:
         LED_rot.on()
         LED_grün.on()
 
-    elif toggleLED == LED_LG:
+    if toggleLED == LED_LG or toggleLED == 6 or toggleLED == 7:
         LED_LG1.on()
         LED_LG2.on()
 
-    elif toggleLED == LED_ALL_ON:
+    if toggleLED == LED_ALL_ON:
         LED_rot.on()
         LED_grün.on()
         LED_LG1.on()
