@@ -232,17 +232,20 @@ namespace EurofighterCockpit
                 new SlideSystems(),
                 new SlideWeaponry(),
                 new SlideEngine(),
+                new Slide2(),
+                new SlideMovie(),
                 //new Slide2(),
                 //new Slide3(),
             };
             subSlides = new BaseSlide[] {
                 new Slide1(),
                 new Slide4(),
-                new SlideDetails(Resources.Taurus),
+                new SlideDetails(Resources.Taurus, Resources.TaurusImage),
             };
             for (int i = 0; i < mainSlides.Length; i++) {
                 mainSlides[i].MainSlideRequested += MainSlideRequestedHandler;
                 mainSlides[i].SubSlideRequested += SubSlideRequestedHandler;
+                mainSlides[i].MovieRequested += MovieRequestedHandler;
             }
         }
 
@@ -446,6 +449,10 @@ namespace EurofighterCockpit
         private void SubSlideRequestedHandler(object sender, SlideNavigationEventArgs e) {
             if (infotainmentSub != null && !infotainmentSub.IsDisposed)
                 ShowSubSlide(e.TargetSlide);
+        }
+
+        private void MovieRequestedHandler(object sender, EventArgs e) {
+            controller.StartMovie();
         }
     }
 }

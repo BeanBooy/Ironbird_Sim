@@ -1,4 +1,6 @@
-﻿using System;
+﻿using EurofighterCockpit.Properties;
+using System;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -18,6 +20,8 @@ namespace EurofighterCockpit
         private bool networkLog;
         private bool overwriteMode;
         private bool sleepMode;
+
+        private JoystickData[] movieInputs = null;
 
         // events for ui
         public event Action<JoystickData> JoystickDataUpdated;
@@ -154,6 +158,23 @@ namespace EurofighterCockpit
             Send(zeroPayload);
             timer?.Stop();
             tcpConnection?.Dispose();
+        }
+
+        public void StartMovie() {
+            //if (!File.Exists(Resources.MovieVideo))
+            //    return;
+            //if (!File.Exists(Resources.MovieInputs))
+            //    return;
+
+            //string[] data = File.ReadAllLines("configPath");
+            //movieInputs = new JoystickData[data.Length];
+            //foreach (var input in data) {
+
+            //}
+
+            //movieInputs = 
+
+            //logger.LogToBox("movie started");
         }
 
     }
