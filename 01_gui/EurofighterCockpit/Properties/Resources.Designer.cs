@@ -63,6 +63,26 @@ namespace EurofighterCockpit.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Byte[].
         /// </summary>
+        internal static byte[] ACS {
+            get {
+                object obj = ResourceManager.GetObject("ACS", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ACSImage {
+            get {
+                object obj = ResourceManager.GetObject("ACSImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Byte[].
+        /// </summary>
         internal static byte[] AGM88HARM {
             get {
                 object obj = ResourceManager.GetObject("AGM88HARM", resourceCulture);
@@ -123,6 +143,46 @@ namespace EurofighterCockpit.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Byte[].
         /// </summary>
+        internal static byte[] DC {
+            get {
+                object obj = ResourceManager.GetObject("DC", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap DCImage {
+            get {
+                object obj = ResourceManager.GetObject("DCImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Byte[].
+        /// </summary>
+        internal static byte[] IMRS {
+            get {
+                object obj = ResourceManager.GetObject("IMRS", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap IMRSImage {
+            get {
+                object obj = ResourceManager.GetObject("IMRSImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Byte[].
+        /// </summary>
         internal static byte[] IRIST {
             get {
                 object obj = ResourceManager.GetObject("IRIST", resourceCulture);
@@ -176,6 +236,26 @@ namespace EurofighterCockpit.Properties {
         internal static System.Drawing.Bitmap MeteorImage {
             get {
                 object obj = ResourceManager.GetObject("MeteorImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Byte[].
+        /// </summary>
+        internal static byte[] NAV {
+            get {
+                object obj = ResourceManager.GetObject("NAV", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap NAVImage {
+            get {
+                object obj = ResourceManager.GetObject("NAVImage", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

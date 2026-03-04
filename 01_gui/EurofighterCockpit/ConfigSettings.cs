@@ -238,8 +238,7 @@ namespace EurofighterCockpit
                 //new Slide3(),
             };
             subSlides = new BaseSlide[] {
-                //new Slide1(),
-                //new Slide4(),
+                // Weapomry-Slides:
                 new SlideDetails(Resources.Taurus, Resources.TaurusImage),
                 new SlideDetails(Resources.ThousandLiterTank, Resources.ThousandLiterTankImage),
                 new SlideDetails(Resources.PavewayII, Resources.PavewayllImage),
@@ -250,6 +249,11 @@ namespace EurofighterCockpit
                 new SlideDetails(Resources.IRIST, Resources.IRISTImager),
                 new SlideDetails(Resources.AGM88HARM, Resources.AGM88HARMImage),
                 new SlideDetails(Resources.AIM120AMRAAM, Resources.AIM120AMRAAMImage),
+                // Systems-Slides:
+                new SlideDetails(Resources.IMRS, Resources.IMRSImage),
+                new SlideDetails(Resources.DC, Resources.DCImage),
+                new SlideDetails(Resources.NAV, Resources.NAVImage),
+                new SlideDetails(Resources.ACS, Resources.ACSImage),
             };
             for (int i = 0; i < mainSlides.Length; i++) {
                 mainSlides[i].MainSlideRequested += MainSlideRequestedHandler;

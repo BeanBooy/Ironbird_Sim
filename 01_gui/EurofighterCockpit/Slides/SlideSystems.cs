@@ -21,5 +21,25 @@ namespace EurofighterCockpit.Slides
         private void SlideSystems_Load(object sender, EventArgs e) {
 
         }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            RequestSubSlide(10);
+        }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            RequestSubSlide(11);
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            RequestSubSlide(12);
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            RequestSubSlide(13);
+        }
     }
 }

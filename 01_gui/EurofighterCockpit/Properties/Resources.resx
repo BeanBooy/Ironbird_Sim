@@ -118,6 +118,12 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="ACS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\ACS.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ACSImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\ACS.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="AGM88HARM" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SlideDetails\AGM88HARM.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -136,6 +142,18 @@
   <data name="AIM120AMRAAMImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SlideDetails\AIM120AMRAAM.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="DC" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\DC.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="DCImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\DC.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IMRS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\IMRS.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="IMRSImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\IMRS.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="IRIST" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SlideDetails\IRIST.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -153,6 +171,12 @@
   </data>
   <data name="MeteorImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SlideDetails\Meteor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="NAV" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\NAV.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="NAVImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\NAV.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PavewayII" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SlideDetails\PavewayII.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>

@@ -97,6 +97,7 @@ namespace EurofighterCockpit.Slides
             this.button9.TabIndex = 16;
             this.button9.Text = "IMRS";
             this.button9.UseVisualStyleBackColor = false;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // button15
             // 
@@ -114,6 +115,7 @@ namespace EurofighterCockpit.Slides
             this.button15.TabIndex = 10;
             this.button15.Text = "D+C";
             this.button15.UseVisualStyleBackColor = false;
+            this.button15.Click += new System.EventHandler(this.button15_Click);
             // 
             // button10
             // 
@@ -148,6 +150,7 @@ namespace EurofighterCockpit.Slides
             this.button14.TabIndex = 11;
             this.button14.Text = "Nav";
             this.button14.UseVisualStyleBackColor = false;
+            this.button14.Click += new System.EventHandler(this.button14_Click);
             // 
             // button11
             // 
@@ -182,6 +185,7 @@ namespace EurofighterCockpit.Slides
             this.button13.TabIndex = 12;
             this.button13.Text = "ACS";
             this.button13.UseVisualStyleBackColor = false;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
             // button12
             // 
