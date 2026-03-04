@@ -112,6 +112,7 @@
             this.btn_RECCE.TabIndex = 16;
             this.btn_RECCE.Text = "RECCE Pod";
             this.btn_RECCE.UseVisualStyleBackColor = false;
+            this.btn_RECCE.Click += new System.EventHandler(this.btn_RECCE_Click);
             // 
             // btn_Meteor
             // 
@@ -130,6 +131,7 @@
             this.btn_Meteor.TabIndex = 15;
             this.btn_Meteor.Text = "Meteor";
             this.btn_Meteor.UseVisualStyleBackColor = false;
+            this.btn_Meteor.Click += new System.EventHandler(this.btn_Meteor_Click);
             // 
             // btn_Sidewinder
             // 
@@ -148,6 +150,7 @@
             this.btn_Sidewinder.TabIndex = 14;
             this.btn_Sidewinder.Text = "AIM-9 Sidewinder";
             this.btn_Sidewinder.UseVisualStyleBackColor = false;
+            this.btn_Sidewinder.Click += new System.EventHandler(this.btn_Sidewinder_Click);
             // 
             // btn_Harm
             // 
@@ -166,6 +169,7 @@
             this.btn_Harm.TabIndex = 19;
             this.btn_Harm.Text = "AGM-88 HARM";
             this.btn_Harm.UseVisualStyleBackColor = false;
+            this.btn_Harm.Click += new System.EventHandler(this.btn_Harm_Click);
             // 
             // btn_Iris
             // 
@@ -184,6 +188,7 @@
             this.btn_Iris.TabIndex = 18;
             this.btn_Iris.Text = "IRIS-T";
             this.btn_Iris.UseVisualStyleBackColor = false;
+            this.btn_Iris.Click += new System.EventHandler(this.btn_Iris_Click);
             // 
             // btn_Laser
             // 
@@ -202,6 +207,7 @@
             this.btn_Laser.TabIndex = 17;
             this.btn_Laser.Text = "Laser Designator Pod";
             this.btn_Laser.UseVisualStyleBackColor = false;
+            this.btn_Laser.Click += new System.EventHandler(this.btn_Laser_Click);
             // 
             // btn_Amraam
             // 
@@ -220,6 +226,7 @@
             this.btn_Amraam.TabIndex = 20;
             this.btn_Amraam.Text = "AIM-120 AMRAAM";
             this.btn_Amraam.UseVisualStyleBackColor = false;
+            this.btn_Amraam.Click += new System.EventHandler(this.btn_Amraam_Click);
             // 
             // SlideWeaponry
             // 

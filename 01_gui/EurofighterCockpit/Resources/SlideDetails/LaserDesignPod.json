@@ -1,0 +1,14 @@
+{
+    "title": "Laser Design Pod",
+  "data": {
+    "Funktion": "Navigation und Zielbeleuchtung",
+    "Hersteller": "Rafael / Northrop Grumman",
+    "Länge": "2.20 m",
+    "Durchmesser": "0.406 m",
+    "Gewicht": "200 kg",
+    "Sensoren": "Infrarot, CCD-TV, Laser",
+    "Einführung": "Februar 2000",
+    "Stückpreis": "$1.4 m"
+  },
+  "description": "Der LITENING-Zielbeleuchtungsbehälter ist ein Präzisions-Zielbeleuchtungsbehälter für Kampfflugzeuge. Der Behälter ist mit seinem schwenkbaren Sensorkopf in der Lage, auf große Distanzen Ziele nachts und bei schlechtem Wetter zu erfassen und mittels Laserstrahl für gelenkte Waffen (lasergelenkte Bomben, JDAM oder raktenengetriebene Lenkflugkörper) zu beleuchten. Der Behälter wurde von der israelischen Firma Rafael Advanced Defense Systems Ltd. entwickelt und produziert."
+}
