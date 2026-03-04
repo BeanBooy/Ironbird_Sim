@@ -334,7 +334,6 @@
     <Content Include="Resources\SlideDetails\Pavewayll.png" />
     <Content Include="Resources\SlideDetails\RECCE.png" />
     <Content Include="Resources\SlideDetails\ThousandLiterTank.png" />
-    <Content Include="Resources\SlideDetails\ThousandlLiterTank.png" />
     <EmbeddedResource Include="Resources\SlideDetails\Taurus.png" />
     <Content Include="Resources\Assets\TwoBirds.jpg" />
     <Content Include="Resources\Assets\BackroundPanelSelectButtons.jpg" />

@@ -36,7 +36,6 @@
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Leelawadee UI", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
@@ -48,18 +47,19 @@
             // 
             // l_title
             // 
-            this.l_title.AutoSize = true;
             this.l_title.BackColor = System.Drawing.Color.Transparent;
             this.l_title.Font = new System.Drawing.Font("Leelawadee UI", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.l_title.ForeColor = System.Drawing.Color.White;
             this.l_title.Location = new System.Drawing.Point(98, 75);
             this.l_title.Name = "l_title";
-            this.l_title.Size = new System.Drawing.Size(100, 50);
+            this.l_title.Size = new System.Drawing.Size(845, 50);
             this.l_title.TabIndex = 0;
             this.l_title.Text = "Title";
             // 
             // pb_image
             // 
+            this.pb_image.BackColor = System.Drawing.Color.Transparent;
+            this.pb_image.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pb_image.Location = new System.Drawing.Point(107, 201);
             this.pb_image.Name = "pb_image";
             this.pb_image.Size = new System.Drawing.Size(951, 502);
@@ -76,7 +76,7 @@
             this.tlp_data.ForeColor = System.Drawing.Color.White;
             this.tlp_data.Location = new System.Drawing.Point(1128, 273);
             this.tlp_data.Name = "tlp_data";
-            this.tlp_data.RowCount = 2;
+            this.tlp_data.RowCount = 1;
             this.tlp_data.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tlp_data.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tlp_data.Size = new System.Drawing.Size(663, 430);
@@ -110,7 +110,6 @@
             this.Size = new System.Drawing.Size(1920, 1080);
             ((System.ComponentModel.ISupportInitialize)(this.pb_image)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

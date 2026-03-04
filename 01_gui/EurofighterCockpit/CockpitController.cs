@@ -185,7 +185,6 @@ namespace EurofighterCockpit
         private void ReadMovieInputFile(string path) {
             string[] data = File.ReadAllLines(path);
             movieInputs = new JoystickData[data.Length];
-            // joystickY, joystickX, joystickTorque, Airbrake, Trigger, RudderLeft, RudderRight, RudderReset, Landing gear, landing Lights, position lights
             for (int i = 0; i < data.Length; i++) {
                 movieInputs[i] = new JoystickData();
                 string[] line = data[i].Split(',');

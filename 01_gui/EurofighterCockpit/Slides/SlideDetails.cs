@@ -18,11 +18,10 @@ namespace EurofighterCockpit.Slides
     public partial class SlideDetails : BaseSlide
     {
         private Image image = null;
+        private Bitmap scaledImage;
 
         public SlideDetails(byte[] data, Image image) {
             InitializeComponent();
-
-            pb_image.Paint += Image_Paint;
 
             string json = Encoding.UTF8.GetString(data);
             var detail = JsonSerializer.Deserialize<SlideDetailJson>(json);
@@ -31,35 +30,7 @@ namespace EurofighterCockpit.Slides
             l_text.Text = detail.Description;
             PopulateTable(tlp_data, detail.Data);
             this.image = image;
-            pb_image.Invalidate();
-        }
-
-        private void Image_Paint(object sender, PaintEventArgs e) {
-            if (image == null)
-                return;
-
-            Rectangle container = pb_image.ClientRectangle;
-            float imageRatio = (float)image.Width / image.Height;
-            float containerRatio = (float)container.Width / container.Height;
-            float scale;
-            float offsetX = 0;
-            float offsetY = 0;
-
-            if (containerRatio > imageRatio) {
-                // container is wider
-                scale = (float)container.Width / image.Width;
-                float scaledHeight = image.Height * scale;
-                offsetY = (container.Height - scaledHeight) / 2;
-            }
-            else {
-                // container is taller
-                scale = (float)container.Height / image.Height;
-                float scaledWidth = image.Width * scale;
-                offsetX = (container.Width - scaledWidth) / 2;
-            }
-
-            e.Graphics.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
-            e.Graphics.DrawImage(image, offsetX, offsetY, image.Width * scale, image.Height * scale);
+            pb_image.Image = image;
         }
 
         public static void PopulateTable(TableLayoutPanel table, Dictionary<string, object> data) {
@@ -81,7 +52,7 @@ namespace EurofighterCockpit.Slides
                     Text = kvp.Key,
                     Dock = DockStyle.Fill,
                     AutoSize = true,
-                    TextAlign = ContentAlignment.MiddleLeft,
+                    TextAlign = ContentAlignment.TopLeft,
                     Padding = new Padding(3)
                 };
 
@@ -90,7 +61,7 @@ namespace EurofighterCockpit.Slides
                     Dock = DockStyle.Fill,
                     AutoSize = true,
                     Font = new Font(table.Font, FontStyle.Italic),
-                    TextAlign = ContentAlignment.MiddleLeft,
+                    TextAlign = ContentAlignment.TopLeft,
                     Padding = new Padding(3)
                 };
 
