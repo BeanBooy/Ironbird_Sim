@@ -238,9 +238,11 @@ namespace EurofighterCockpit
                 //new Slide3(),
             };
             subSlides = new BaseSlide[] {
-                new Slide1(),
-                new Slide4(),
+                //new Slide1(),
+                //new Slide4(),
                 new SlideDetails(Resources.Taurus, Resources.TaurusImage),
+                new SlideDetails(Resources.ThousandLiterTank, Resources.ThousandLiterTankImage),
+                new SlideDetails(Resources.PavewayII, Resources.PavewayllImage),
             };
             for (int i = 0; i < mainSlides.Length; i++) {
                 mainSlides[i].MainSlideRequested += MainSlideRequestedHandler;

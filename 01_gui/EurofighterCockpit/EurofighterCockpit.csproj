@@ -271,6 +271,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <EmbeddedResource Include="Resources\SlideDetails\Taurus.json" />
+    <None Include="Resources\SlideDetails\ThousandLiterTank.json" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -316,6 +317,8 @@
     <Content Include="Resources\Assets\Background.jpg" />
     <Content Include="Resources\Assets\Eurofighter.jpg" />
     <Content Include="Resources\Assets\Engine.png" />
+    <Content Include="Resources\SlideDetails\ThousandLiterTank.png" />
+    <Content Include="Resources\SlideDetails\ThousandlLiterTank.png" />
     <EmbeddedResource Include="Resources\SlideDetails\Taurus.png" />
     <Content Include="Resources\Assets\TwoBirds.jpg" />
     <Content Include="Resources\Assets\BackroundPanelSelectButtons.jpg" />

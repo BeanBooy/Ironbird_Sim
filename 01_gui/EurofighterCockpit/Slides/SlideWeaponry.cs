@@ -21,11 +21,11 @@ namespace EurofighterCockpit.Slides
         }
 
         private void btn_Tank_Click(object sender, EventArgs e) {
-            RequestSubSlide(0);
+            RequestSubSlide(1);
         }
 
         private void btn_Taurus_Click(object sender, EventArgs e) {
-            RequestSubSlide(1);
+            RequestSubSlide(0);
         }
 
         private void btn_Paveway_Click(object sender, EventArgs e) {
