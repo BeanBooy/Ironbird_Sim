@@ -72,18 +72,17 @@ namespace EurofighterCockpit
                 previousData = data;
                 JoystickDataUpdated?.Invoke(data);
                 string[] Joystickdata = { 
-                    "1", // Mode
                     data.JoystickY.ToString(), 
                     data.JoystickX.ToString(), 
                     data.JoystickTorque.ToString(), 
-                    data.Airbrake.ToString(),
-                    data.Trigger.ToString(),
-                    data.RudderLeft.ToString(),
-                    data.RudderRight.ToString(),
-                    data.RudderReset.ToString(),
-                    data.LandingGear.ToString(),
-                    data.LandingLights.ToString(),
-                    data.PositionalLights.ToString()};
+                    data.Airbrake ? "1" : "0",
+                    data.Trigger ? "1" : "0",
+                    data.RudderLeft ? "1" : "0",
+                    data.RudderRight ? "1" : "0",
+                    data.RudderReset ? "1" : "0",
+                    data.LandingGear ? "1" : "0",
+                    data.LandingLights ? "1" : "0",
+                    data.PositionalLights ? "1" : "0"};
                 string JoystickdataString = string.Join(",", Joystickdata);
                 File.AppendAllText(
                     Path.Combine(RecFileDir, RecFile),
