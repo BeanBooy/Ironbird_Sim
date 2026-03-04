@@ -118,11 +118,35 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="AIM9Sidewinder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\AIM9Sidewinder.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="AIM9SidewinderImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\AIM9Sidewinder.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LaserDesignPod" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\LaserDesignPod.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="LaserDesignPodImager" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\LaserDesignPod.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Meteor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\Meteor.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="MeteorImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\Meteor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="PavewayII" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SlideDetails\PavewayII.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="PavewayllImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SlideDetails\Pavewayll.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RECCE" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\RECCE.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="RECCEImager" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\RECCE.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Taurus" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SlideDetails\Taurus.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>

@@ -31,5 +31,25 @@ namespace EurofighterCockpit.Slides
         private void btn_Paveway_Click(object sender, EventArgs e) {
             RequestSubSlide(2);
         }
+
+
+        private void btn_Sidewinder_Click(object sender, EventArgs e)
+        {
+            RequestSubSlide(3);
+        }
+        private void btn_Meteor_Click(object sender, EventArgs e)
+        {
+            RequestSubSlide(4);
+        }
+
+        private void btn_RECCE_Click(object sender, EventArgs e)
+        {
+            RequestSubSlide(5);
+        }
+
+        private void btn_Laser_Click(object sender, EventArgs e)
+        {
+            RequestSubSlide(6);
+        }
     }
 }

@@ -1,9 +1,17 @@
 {
     "title": "AIM-9 Sidewinder",
   "data": {
-    "Typ": "Luft-Luft-Lenkrakete",
-    "Anzahl": "Maximal 3",
-    "Flugprofil": "Überschallflug möglich"
+    "Typ": "Luft-Luft-Lenkwaffe",
+    "Hersteller": "Raytheon (u. a.)",
+    "Indienststellung": 1956,
+    "Stückpreis": "AIM-9X 262.000 USD",
+    "Länge": "2,85 m",
+    "Durchmesser": "127 mm",
+    "Gefechtsgewicht": "85 kg",
+    "Antrieb": "Feststoff-Raketenmotor",
+    "Geschwindigkeit": "Mach 2,5",
+    "Reichweite": "17,7 km",
+    "Gefechtskopf": "9,4 kg"
   },
   "description": "Die AIM-9 Sidewinder (AIM steht hierbei für Air Intercept Missile) ist eine wärmesuchende Kurzstrecken-Luft-Luft-Lenkwaffe für den Einsatz durch Kampfflugzeuge und Kampfhubschrauber aus US-amerikanischer Produktion. Im Laufe der inzwischen 50-jährigen Geschichte wurden mit der Sidewinder mehr Flugzeuge abgeschossen als mit jedem anderen Flugkörper. Eine modifizierte Version wurde auch im bodengestützten MIM-72 Chaparral eingesetzt.Die Sidewinder hat einen hochexplosiven Sprengkopf und eine Infrarotlenkung. Ihre weiteren Bestandteile sind ein optischer Zieldetektor, das Leitwerk und der Raketenmotor. Das Lenksystem leitet den Flugkörper direkt in die heißen Triebwerke des Gegners (oder was der Flugkörper dafür hält)."
 }

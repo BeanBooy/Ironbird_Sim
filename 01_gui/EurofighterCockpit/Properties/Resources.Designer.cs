@@ -63,6 +63,66 @@ namespace EurofighterCockpit.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Byte[].
         /// </summary>
+        internal static byte[] AIM9Sidewinder {
+            get {
+                object obj = ResourceManager.GetObject("AIM9Sidewinder", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap AIM9SidewinderImage {
+            get {
+                object obj = ResourceManager.GetObject("AIM9SidewinderImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Byte[].
+        /// </summary>
+        internal static byte[] LaserDesignPod {
+            get {
+                object obj = ResourceManager.GetObject("LaserDesignPod", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap LaserDesignPodImager {
+            get {
+                object obj = ResourceManager.GetObject("LaserDesignPodImager", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Byte[].
+        /// </summary>
+        internal static byte[] Meteor {
+            get {
+                object obj = ResourceManager.GetObject("Meteor", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MeteorImage {
+            get {
+                object obj = ResourceManager.GetObject("MeteorImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Byte[].
+        /// </summary>
         internal static byte[] PavewayII {
             get {
                 object obj = ResourceManager.GetObject("PavewayII", resourceCulture);
@@ -76,6 +136,26 @@ namespace EurofighterCockpit.Properties {
         internal static System.Drawing.Bitmap PavewayllImage {
             get {
                 object obj = ResourceManager.GetObject("PavewayllImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Byte[].
+        /// </summary>
+        internal static byte[] RECCE {
+            get {
+                object obj = ResourceManager.GetObject("RECCE", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RECCEImager {
+            get {
+                object obj = ResourceManager.GetObject("RECCEImager", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

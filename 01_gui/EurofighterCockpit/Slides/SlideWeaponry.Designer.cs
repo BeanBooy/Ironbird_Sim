@@ -112,6 +112,7 @@
             this.btn_RECCE.TabIndex = 16;
             this.btn_RECCE.Text = "RECCE Pod";
             this.btn_RECCE.UseVisualStyleBackColor = false;
+            this.btn_RECCE.Click += new System.EventHandler(this.btn_RECCE_Click);
             // 
             // btn_Meteor
             // 
@@ -130,6 +131,7 @@
             this.btn_Meteor.TabIndex = 15;
             this.btn_Meteor.Text = "Meteor";
             this.btn_Meteor.UseVisualStyleBackColor = false;
+            this.btn_Meteor.Click += new System.EventHandler(this.btn_Meteor_Click);
             // 
             // btn_Sidewinder
             // 
@@ -148,6 +150,7 @@
             this.btn_Sidewinder.TabIndex = 14;
             this.btn_Sidewinder.Text = "AIM-9 Sidewinder";
             this.btn_Sidewinder.UseVisualStyleBackColor = false;
+            this.btn_Sidewinder.Click += new System.EventHandler(this.btn_Sidewinder_Click);
             // 
             // btn_Harm
             // 
@@ -202,6 +205,7 @@
             this.btn_Laser.TabIndex = 17;
             this.btn_Laser.Text = "Laser Designator Pod";
             this.btn_Laser.UseVisualStyleBackColor = false;
+            this.btn_Laser.Click += new System.EventHandler(this.btn_Laser_Click);
             // 
             // btn_Amraam
             // 
