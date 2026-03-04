@@ -247,6 +247,9 @@ namespace EurofighterCockpit
                 new SlideDetails(Resources.Meteor, Resources.MeteorImage),
                 new SlideDetails(Resources.RECCE, Resources.RECCEImager),
                 new SlideDetails(Resources.LaserDesignPod, Resources.LaserDesignPodImager),
+                new SlideDetails(Resources.IRIST, Resources.IRISTImager),
+                new SlideDetails(Resources.AGM88HARM, Resources.AGM88HARMImage),
+                new SlideDetails(Resources.AIM120AMRAAM, Resources.AIM120AMRAAMImage),
             };
             for (int i = 0; i < mainSlides.Length; i++) {
                 mainSlides[i].MainSlideRequested += MainSlideRequestedHandler;

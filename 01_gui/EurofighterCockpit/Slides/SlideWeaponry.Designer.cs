@@ -169,6 +169,7 @@
             this.btn_Harm.TabIndex = 19;
             this.btn_Harm.Text = "AGM-88 HARM";
             this.btn_Harm.UseVisualStyleBackColor = false;
+            this.btn_Harm.Click += new System.EventHandler(this.btn_Harm_Click);
             // 
             // btn_Iris
             // 
@@ -187,6 +188,7 @@
             this.btn_Iris.TabIndex = 18;
             this.btn_Iris.Text = "IRIS-T";
             this.btn_Iris.UseVisualStyleBackColor = false;
+            this.btn_Iris.Click += new System.EventHandler(this.btn_Iris_Click);
             // 
             // btn_Laser
             // 
@@ -224,6 +226,7 @@
             this.btn_Amraam.TabIndex = 20;
             this.btn_Amraam.Text = "AIM-120 AMRAAM";
             this.btn_Amraam.UseVisualStyleBackColor = false;
+            this.btn_Amraam.Click += new System.EventHandler(this.btn_Amraam_Click);
             // 
             // SlideWeaponry
             // 

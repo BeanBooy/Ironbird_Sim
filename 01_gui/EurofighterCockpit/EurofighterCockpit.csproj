@@ -271,6 +271,14 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <EmbeddedResource Include="Resources\SlideDetails\Taurus.json" />
+    <None Include="Resources\SlideDetails\AGM88HARM.json" />
+    <None Include="Resources\SlideDetails\AIM120AMRAAM.json" />
+    <None Include="Resources\SlideDetails\AIM9Sidewinder.json" />
+    <None Include="Resources\SlideDetails\IRIST.json" />
+    <None Include="Resources\SlideDetails\LaserDesignPod.json" />
+    <None Include="Resources\SlideDetails\Meteor.json" />
+    <None Include="Resources\SlideDetails\PavewayII.json" />
+    <None Include="Resources\SlideDetails\RECCE.json" />
     <None Include="Resources\SlideDetails\ThousandLiterTank.json" />
   </ItemGroup>
   <ItemGroup>
@@ -317,6 +325,14 @@
     <Content Include="Resources\Assets\Background.jpg" />
     <Content Include="Resources\Assets\Eurofighter.jpg" />
     <Content Include="Resources\Assets\Engine.png" />
+    <Content Include="Resources\SlideDetails\AGM88HARM.png" />
+    <Content Include="Resources\SlideDetails\AIM120AMRAAM.png" />
+    <Content Include="Resources\SlideDetails\AIM9Sidewinder.png" />
+    <Content Include="Resources\SlideDetails\IRIST.png" />
+    <Content Include="Resources\SlideDetails\LaserDesignPod.png" />
+    <Content Include="Resources\SlideDetails\Meteor.png" />
+    <Content Include="Resources\SlideDetails\Pavewayll.png" />
+    <Content Include="Resources\SlideDetails\RECCE.png" />
     <Content Include="Resources\SlideDetails\ThousandLiterTank.png" />
     <Content Include="Resources\SlideDetails\ThousandlLiterTank.png" />
     <EmbeddedResource Include="Resources\SlideDetails\Taurus.png" />

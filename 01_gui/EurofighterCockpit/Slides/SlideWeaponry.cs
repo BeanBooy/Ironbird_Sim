@@ -51,5 +51,20 @@ namespace EurofighterCockpit.Slides
         {
             RequestSubSlide(6);
         }
+
+        private void btn_Iris_Click(object sender, EventArgs e)
+        {
+            RequestSubSlide(7);
+        }
+
+        private void btn_Harm_Click(object sender, EventArgs e)
+        {
+            RequestSubSlide(8);
+        }
+
+        private void btn_Amraam_Click(object sender, EventArgs e)
+        {
+            RequestSubSlide(9);
+        }
     }
 }

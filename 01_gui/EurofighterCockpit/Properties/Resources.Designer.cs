@@ -63,6 +63,46 @@ namespace EurofighterCockpit.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Byte[].
         /// </summary>
+        internal static byte[] AGM88HARM {
+            get {
+                object obj = ResourceManager.GetObject("AGM88HARM", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap AGM88HARMImage {
+            get {
+                object obj = ResourceManager.GetObject("AGM88HARMImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Byte[].
+        /// </summary>
+        internal static byte[] AIM120AMRAAM {
+            get {
+                object obj = ResourceManager.GetObject("AIM120AMRAAM", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap AIM120AMRAAMImage {
+            get {
+                object obj = ResourceManager.GetObject("AIM120AMRAAMImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Byte[].
+        /// </summary>
         internal static byte[] AIM9Sidewinder {
             get {
                 object obj = ResourceManager.GetObject("AIM9Sidewinder", resourceCulture);
@@ -76,6 +116,26 @@ namespace EurofighterCockpit.Properties {
         internal static System.Drawing.Bitmap AIM9SidewinderImage {
             get {
                 object obj = ResourceManager.GetObject("AIM9SidewinderImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Byte[].
+        /// </summary>
+        internal static byte[] IRIST {
+            get {
+                object obj = ResourceManager.GetObject("IRIST", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap IRISTImager {
+            get {
+                object obj = ResourceManager.GetObject("IRISTImager", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
