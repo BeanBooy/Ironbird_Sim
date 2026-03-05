@@ -102,7 +102,37 @@ namespace EurofighterCockpit.Slides
 
         private void label3_Click(object sender, EventArgs e)
         {
+            RequestSubSlide(26);
+        }
 
+        private void button8_Click(object sender, EventArgs e)
+        {
+            RequestSubSlide(27);
+        }
+
+        private void button18_Click(object sender, EventArgs e)
+        {
+            RequestSubSlide(28);
+        }
+
+        private void button21_Click(object sender, EventArgs e)
+        {
+            RequestSubSlide(29);
+        }
+
+        private void button17_Click(object sender, EventArgs e)
+        {
+            RequestSubSlide(30);
+        }
+
+        private void button16_Click(object sender, EventArgs e)
+        {
+            RequestSubSlide(31);
+        }
+
+        private void button19_Click(object sender, EventArgs e)
+        {
+            RequestSubSlide(32);
         }
     }
 }

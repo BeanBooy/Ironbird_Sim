@@ -243,6 +243,46 @@ namespace EurofighterCockpit.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Byte[].
         /// </summary>
+        internal static byte[] ECSLSS {
+            get {
+                object obj = ResourceManager.GetObject("ECSLSS", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ECSLSSImage {
+            get {
+                object obj = ResourceManager.GetObject("ECSLSSImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Byte[].
+        /// </summary>
+        internal static byte[] Electric {
+            get {
+                object obj = ResourceManager.GetObject("Electric", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ElectricImage {
+            get {
+                object obj = ResourceManager.GetObject("ElectricImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Byte[].
+        /// </summary>
         internal static byte[] Engines {
             get {
                 object obj = ResourceManager.GetObject("Engines", resourceCulture);
@@ -303,6 +343,46 @@ namespace EurofighterCockpit.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Byte[].
         /// </summary>
+        internal static byte[] Fuel {
+            get {
+                object obj = ResourceManager.GetObject("Fuel", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FuelImage {
+            get {
+                object obj = ResourceManager.GetObject("FuelImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Byte[].
+        /// </summary>
+        internal static byte[] GeneralSystems {
+            get {
+                object obj = ResourceManager.GetObject("GeneralSystems", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap GeneralSystemsImage {
+            get {
+                object obj = ResourceManager.GetObject("GeneralSystemsImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Byte[].
+        /// </summary>
         internal static byte[] GLU {
             get {
                 object obj = ResourceManager.GetObject("GLU", resourceCulture);
@@ -336,6 +416,26 @@ namespace EurofighterCockpit.Properties {
         internal static System.Drawing.Bitmap GSSImage {
             get {
                 object obj = ResourceManager.GetObject("GSSImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Byte[].
+        /// </summary>
+        internal static byte[] Hydraulic {
+            get {
+                object obj = ResourceManager.GetObject("Hydraulic", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap HydraulicImage {
+            get {
+                object obj = ResourceManager.GetObject("HydraulicImage", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -396,6 +496,26 @@ namespace EurofighterCockpit.Properties {
         internal static System.Drawing.Bitmap JettisonCESImage {
             get {
                 object obj = ResourceManager.GetObject("JettisonCESImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Byte[].
+        /// </summary>
+        internal static byte[] LandingGear {
+            get {
+                object obj = ResourceManager.GetObject("LandingGear", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap LandingGearImage {
+            get {
+                object obj = ResourceManager.GetObject("LandingGearImage", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -516,6 +636,26 @@ namespace EurofighterCockpit.Properties {
         internal static System.Drawing.Bitmap RECCEImager {
             get {
                 object obj = ResourceManager.GetObject("RECCEImager", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Byte[].
+        /// </summary>
+        internal static byte[] SPS {
+            get {
+                object obj = ResourceManager.GetObject("SPS", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SPSImage {
+            get {
+                object obj = ResourceManager.GetObject("SPSImage", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

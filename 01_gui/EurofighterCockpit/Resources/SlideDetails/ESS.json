@@ -1,7 +1,7 @@
 {
-  "title": "ESS",
+  "title": "Allgemeine Systeme",
   "data": {
-    "Funktionen/Arbeitsweise":"- Netzwerkbasiert\n- Auch als Stand Alone System\n- Systemdatenspeicherung\n- Auftragsverteilung\n- Führungstool\n- Wissensspeicher"
+    "Systeme": "- Fuel System\n- Hydraulic System\n- Secondary Power System\n- Electrical Power Generation System\n- Landing Gear\n- Environment Control System\n- Life Support System\n- Utility Control System"
   },
-  "description": "Das Engineering Support System – ESS dient dem technischen Betrieb des Eurofighter. In ihm werden alle Aufträge zur Instandsetzung und Wartung an die Luftfahrzeugmechaniker über ein Computernetzwerk geleitet. Alle Flugzeugdaten die während eines Fluges entstehen, werden darin eingetragen und ausgewertet. Die gesammelten Daten aller Verbände werden täglich zum National Data Center der Luftwaffe geleitet und archiviert. Das ESS dient als dezentrales Führungstool einem effizienten und nachvollziehbaren Instandsetzungsprozess."
+  "description": "Grundsysteme (General Systems) stellen die Grundfunktionalitäten eines Luftfahrzeuges zur Verfügung.\n\nDazu gehören: Antrieb, Steuerung, Betriebsmittelversorgung, Versorgung des Piloten, Elektrik, Überwachung."
 }

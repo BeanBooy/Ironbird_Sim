@@ -440,6 +440,7 @@ namespace EurofighterCockpit.Slides
             this.button19.TabIndex = 18;
             this.button19.Text = "SPS";
             this.button19.UseVisualStyleBackColor = false;
+            this.button19.Click += new System.EventHandler(this.button19_Click);
             // 
             // button16
             // 
@@ -457,6 +458,7 @@ namespace EurofighterCockpit.Slides
             this.button16.TabIndex = 17;
             this.button16.Text = "Hydraulik";
             this.button16.UseVisualStyleBackColor = false;
+            this.button16.Click += new System.EventHandler(this.button16_Click);
             // 
             // button8
             // 
@@ -474,6 +476,7 @@ namespace EurofighterCockpit.Slides
             this.button8.TabIndex = 16;
             this.button8.Text = "Fahrwerk";
             this.button8.UseVisualStyleBackColor = false;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // button17
             // 
@@ -491,6 +494,7 @@ namespace EurofighterCockpit.Slides
             this.button17.TabIndex = 15;
             this.button17.Text = "Treibstoff";
             this.button17.UseVisualStyleBackColor = false;
+            this.button17.Click += new System.EventHandler(this.button17_Click);
             // 
             // button18
             // 
@@ -508,6 +512,7 @@ namespace EurofighterCockpit.Slides
             this.button18.TabIndex = 11;
             this.button18.Text = "Elektronik";
             this.button18.UseVisualStyleBackColor = false;
+            this.button18.Click += new System.EventHandler(this.button18_Click);
             // 
             // button21
             // 
@@ -525,6 +530,7 @@ namespace EurofighterCockpit.Slides
             this.button21.TabIndex = 13;
             this.button21.Text = "ECS + LSS";
             this.button21.UseVisualStyleBackColor = false;
+            this.button21.Click += new System.EventHandler(this.button21_Click);
             // 
             // SlideSystems
             // 

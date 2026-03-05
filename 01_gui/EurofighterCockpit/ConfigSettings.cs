@@ -266,6 +266,13 @@ namespace EurofighterCockpit
                 new SlideDetails(Resources.ESS, Resources.ESSImage),
                 new SlideDetails(Resources.MSS, Resources.MSSImage),
                 new SlideDetails(Resources.GLU, Resources.GLUImage),
+                new SlideDetails(Resources.GeneralSystems, Resources.GeneralSystemsImage),
+                new SlideDetails(Resources.LandingGear, Resources.LandingGearImage),
+                new SlideDetails(Resources.Electric, Resources.ElectricImage),
+                new SlideDetails(Resources.ECSLSS, Resources.ECSLSSImage),
+                new SlideDetails(Resources.Fuel, Resources.FuelImage),
+                new SlideDetails(Resources.Hydraulic, Resources.HydraulicImage),
+                new SlideDetails(Resources.SPS, Resources.SPSImage),
             };
             for (int i = 0; i < mainSlides.Length; i++) {
                 mainSlides[i].MainSlideRequested += MainSlideRequestedHandler;

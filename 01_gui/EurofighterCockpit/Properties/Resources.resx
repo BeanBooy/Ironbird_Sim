@@ -172,6 +172,18 @@
   <data name="DCImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SlideDetails\DC.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ECSLSS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\ECSLSS.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ECSLSSImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\ECSLSS.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Electric" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\Electric.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ElectricImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\Electric.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Engines" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SlideDetails\Engines.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -190,6 +202,18 @@
   <data name="FCSImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SlideDetails\FCS.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Fuel" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\Fuel.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="FuelImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\Fuel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GeneralSystems" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\GeneralSystems.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="GeneralSystemsImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\GeneralSystems.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="GLU" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SlideDetails\GLU.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -201,6 +225,12 @@
   </data>
   <data name="GSSImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SlideDetails\GSS.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Hydraulic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\Hydraulic.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="HydraulicImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\Hydraulic.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="IMRS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SlideDetails\IMRS.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -219,6 +249,12 @@
   </data>
   <data name="JettisonCESImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SlideDetails\JettisonCES.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LandingGear" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\LandingGear.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="LandingGearImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\LandingGear.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="LaserDesignPod" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SlideDetails\LaserDesignPod.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -255,6 +291,12 @@
   </data>
   <data name="RECCEImager" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SlideDetails\RECCE.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SPS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\SPS.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="SPSImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\SPS.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Structure" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SlideDetails\Structure.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
