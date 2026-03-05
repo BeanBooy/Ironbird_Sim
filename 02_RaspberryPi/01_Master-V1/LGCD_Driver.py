@@ -1,8 +1,7 @@
 import time
 import threading
 import LED_Driver
-#from LED_Driver import LED_LG_ON, LED_LG_OFF
-from ServoClass import Servo
+from ServoObjects import RCD, LCD, LG
 from concurrent.futures import ThreadPoolExecutor
 
 # small buffer to handle high frequency input
@@ -45,10 +44,6 @@ lg_request_buffer = LastValueBuffer()
 # NOTE Only for testing. would be in main
 from adafruit_servokit import ServoKit
 servodriver = ServoKit(channels=16, address=0x40, frequency=30)
-
-RCD = Servo(channel=0,idle=0)
-LCD = Servo(channel=1,idle=0)
-LG = Servo(channel=14,idle=0) # only for get/set state
 
 # safe sleep to exit threads faster
 def safe_sleep(seconds):

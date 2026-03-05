@@ -6,7 +6,7 @@ import threading
 import LED_Driver
 import LGCD_Driver
 import ServoTest_Driver
-from ServoClass import Servo
+from ServoObjects import RCD, LCD, RU, LC, RC, LO, RO, LF, RF, AB
 from LED_Driver import LED_ALL_OFF
 from LGCD_Driver import LG_IN,stop_event
 from adafruit_servokit import ServoKit
@@ -29,18 +29,6 @@ iRF = 6 # Flaps Outboard
 iAB = 7 # Airbrakes
 iRU = 8 # Rudder
 iLG = 9 # Landing Gear
-
-# Defaultangles
-RCD = Servo(channel=0,idle=0)
-LCD = Servo(channel=1,idle=0)
-RU = Servo(channel=2,idle=128)
-LC = Servo(channel=3,idle=128)
-RC = Servo(channel=4,idle=128)
-LO = Servo(channel=5,idle=128)
-RO = Servo(channel=6,idle=128)
-LF = Servo(channel=7,idle=128)
-RF = Servo(channel=8,idle=128)
-AB = Servo(channel=9,idle=0)
 
 try:
     # initialize socket
