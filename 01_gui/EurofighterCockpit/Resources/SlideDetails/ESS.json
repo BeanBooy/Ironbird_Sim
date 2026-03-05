@@ -1,0 +1,7 @@
+{
+  "title": "Allgemeine Systeme",
+  "data": {
+    "Systeme": "- Fuel System\n- Hydraulic System\n- Secondary Power System\n- Electrical Power Generation System\n- Landing Gear\n- Environment Control System\n- Life Support System\n- Utility Control System"
+  },
+  "description": "Grundsysteme (General Systems) stellen die Grundfunktionalitäten eines Luftfahrzeuges zur Verfügung.\n\nDazu gehören: Antrieb, Steuerung, Betriebsmittelversorgung, Versorgung des Piloten, Elektrik, Überwachung."
+}
