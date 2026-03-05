@@ -238,18 +238,18 @@ namespace EurofighterCockpit
                 new SlideMovie(),
             };
             subSlides = new BaseSlide[] {
-                // Weapomry-Slides:
+                // weaponry slides
                 new SlideDetails(Resources.Taurus, Resources.TaurusImage),
                 new SlideDetails(Resources.ThousandLiterTank, Resources.ThousandLiterTankImage),
                 new SlideDetails(Resources.PavewayII, Resources.PavewayllImage),
                 new SlideDetails(Resources.AIM9Sidewinder, Resources.AIM9SidewinderImage),
                 new SlideDetails(Resources.Meteor, Resources.MeteorImage),
-                new SlideDetails(Resources.RECCE, Resources.RECCEImager),
-                new SlideDetails(Resources.LaserDesignatorPod, Resources.LaserDesignPodImager),
-                new SlideDetails(Resources.IRIST, Resources.IRISTImager),
+                new SlideDetails(Resources.RECCE, Resources.RECCEImage),
+                new SlideDetails(Resources.LaserDesignatorPod, Resources.LaserDesignPodImage),
+                new SlideDetails(Resources.IRIST, Resources.IRISTImage),
                 new SlideDetails(Resources.AGM88HARM, Resources.AGM88HARMImage),
                 new SlideDetails(Resources.AIM120AMRAAM, Resources.AIM120AMRAAMImage),
-                // Systems-Slides:
+                // system slides
                 new SlideDetails(Resources.IMRS, Resources.IMRSImage),
                 new SlideDetails(Resources.DC, Resources.DCImage),
                 new SlideDetails(Resources.NAV, Resources.NAVImage),
@@ -273,7 +273,7 @@ namespace EurofighterCockpit
                 new SlideDetails(Resources.Fuel, Resources.FuelImage),
                 new SlideDetails(Resources.Hydraulic, Resources.HydraulicImage),
                 new SlideDetails(Resources.SPS, Resources.SPSImage),
-                // Engine-Slides:
+                // engine slides:
                 new SlideDetails(Resources.HDCompressor, Resources.HDCompressorImage),
                 new SlideDetails(Resources.HDTurbine, Resources.HDTurbineImage),
                 new SlideDetails(Resources.Afterburner, Resources.AfterburnerImage),
@@ -281,6 +281,11 @@ namespace EurofighterCockpit
                 new SlideDetails(Resources.NDCompressor, Resources.NDCompressorImage),
                 new SlideDetails(Resources.BurningChamber, Resources.BurningChamberImage),
                 new SlideDetails(Resources.NDTurbine, Resources.NDTurbineImage),
+                // other slides
+                new SlideDetails(Resources.Eurofighter, Resources.EurofighterImage),
+                new SlideDetails(Resources.Engine, Resources.EngineImage),
+                new SlideDetails(Resources.Joystick, Resources.JoystickImage),
+                // TODO some sub slide for the movie slide
             };
             for (int i = 0; i < mainSlides.Length; i++) {
                 mainSlides[i].MainSlideRequested += MainSlideRequestedHandler;

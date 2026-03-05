@@ -550,7 +550,6 @@ namespace EurofighterCockpit.Slides
             this.Controls.Add(this.panel1);
             this.Name = "SlideSystems";
             this.Size = new System.Drawing.Size(1600, 1080);
-            this.Load += new System.EventHandler(this.SlideSystems_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
