@@ -83,6 +83,26 @@ namespace EurofighterCockpit.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Byte[].
         /// </summary>
+        internal static byte[] Afterburner {
+            get {
+                object obj = ResourceManager.GetObject("Afterburner", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap AfterburnerImage {
+            get {
+                object obj = ResourceManager.GetObject("AfterburnerImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Byte[].
+        /// </summary>
         internal static byte[] AGM88HARM {
             get {
                 object obj = ResourceManager.GetObject("AGM88HARM", resourceCulture);
@@ -176,6 +196,26 @@ namespace EurofighterCockpit.Properties {
         internal static System.Drawing.Bitmap AvionicSystemsImage {
             get {
                 object obj = ResourceManager.GetObject("AvionicSystemsImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Byte[].
+        /// </summary>
+        internal static byte[] BurningChamber {
+            get {
+                object obj = ResourceManager.GetObject("BurningChamber", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BurningChamberImage {
+            get {
+                object obj = ResourceManager.GetObject("BurningChamberImage", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -423,6 +463,46 @@ namespace EurofighterCockpit.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Byte[].
         /// </summary>
+        internal static byte[] HDCompressor {
+            get {
+                object obj = ResourceManager.GetObject("HDCompressor", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap HDCompressorImage {
+            get {
+                object obj = ResourceManager.GetObject("HDCompressorImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Byte[].
+        /// </summary>
+        internal static byte[] HDTurbine {
+            get {
+                object obj = ResourceManager.GetObject("HDTurbine", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap HDTurbineImage {
+            get {
+                object obj = ResourceManager.GetObject("HDTurbineImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Byte[].
+        /// </summary>
         internal static byte[] Hydraulic {
             get {
                 object obj = ResourceManager.GetObject("Hydraulic", resourceCulture);
@@ -523,9 +603,9 @@ namespace EurofighterCockpit.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Byte[].
         /// </summary>
-        internal static byte[] LaserDesignPod {
+        internal static byte[] LaserDesignatorPod {
             get {
-                object obj = ResourceManager.GetObject("LaserDesignPod", resourceCulture);
+                object obj = ResourceManager.GetObject("LaserDesignatorPod", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -596,6 +676,46 @@ namespace EurofighterCockpit.Properties {
         internal static System.Drawing.Bitmap NAVImage {
             get {
                 object obj = ResourceManager.GetObject("NAVImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Byte[].
+        /// </summary>
+        internal static byte[] NDCompressor {
+            get {
+                object obj = ResourceManager.GetObject("NDCompressor", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap NDCompressorImage {
+            get {
+                object obj = ResourceManager.GetObject("NDCompressorImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Byte[].
+        /// </summary>
+        internal static byte[] NDTurbine {
+            get {
+                object obj = ResourceManager.GetObject("NDTurbine", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap NDTurbineImage {
+            get {
+                object obj = ResourceManager.GetObject("NDTurbineImage", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -716,6 +836,26 @@ namespace EurofighterCockpit.Properties {
         internal static System.Drawing.Bitmap ThousandLiterTankImage {
             get {
                 object obj = ResourceManager.GetObject("ThousandLiterTankImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Byte[].
+        /// </summary>
+        internal static byte[] Thruster {
+            get {
+                object obj = ResourceManager.GetObject("Thruster", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ThrusterImage {
+            get {
+                object obj = ResourceManager.GetObject("ThrusterImage", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

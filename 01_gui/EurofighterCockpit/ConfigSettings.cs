@@ -245,7 +245,7 @@ namespace EurofighterCockpit
                 new SlideDetails(Resources.AIM9Sidewinder, Resources.AIM9SidewinderImage),
                 new SlideDetails(Resources.Meteor, Resources.MeteorImage),
                 new SlideDetails(Resources.RECCE, Resources.RECCEImager),
-                new SlideDetails(Resources.LaserDesignPod, Resources.LaserDesignPodImager),
+                new SlideDetails(Resources.LaserDesignatorPod, Resources.LaserDesignPodImager),
                 new SlideDetails(Resources.IRIST, Resources.IRISTImager),
                 new SlideDetails(Resources.AGM88HARM, Resources.AGM88HARMImage),
                 new SlideDetails(Resources.AIM120AMRAAM, Resources.AIM120AMRAAMImage),
@@ -273,6 +273,14 @@ namespace EurofighterCockpit
                 new SlideDetails(Resources.Fuel, Resources.FuelImage),
                 new SlideDetails(Resources.Hydraulic, Resources.HydraulicImage),
                 new SlideDetails(Resources.SPS, Resources.SPSImage),
+                // Engine-Slides:
+                new SlideDetails(Resources.HDCompressor, Resources.HDCompressorImage),
+                new SlideDetails(Resources.HDTurbine, Resources.HDTurbineImage),
+                new SlideDetails(Resources.Afterburner, Resources.AfterburnerImage),
+                new SlideDetails(Resources.Thruster, Resources.ThrusterImage),
+                new SlideDetails(Resources.NDCompressor, Resources.NDCompressorImage),
+                new SlideDetails(Resources.BurningChamber, Resources.BurningChamberImage),
+                new SlideDetails(Resources.NDTurbine, Resources.NDTurbineImage),
             };
             for (int i = 0; i < mainSlides.Length; i++) {
                 mainSlides[i].MainSlideRequested += MainSlideRequestedHandler;

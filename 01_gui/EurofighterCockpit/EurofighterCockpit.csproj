@@ -272,11 +272,13 @@
     </Compile>
     <EmbeddedResource Include="Resources\SlideDetails\Taurus.json" />
     <None Include="Resources\SlideDetails\ACS.json" />
+    <None Include="Resources\SlideDetails\Afterburner.json" />
     <None Include="Resources\SlideDetails\AGM88HARM.json" />
     <None Include="Resources\SlideDetails\AI.json" />
     <None Include="Resources\SlideDetails\AIM120AMRAAM.json" />
     <None Include="Resources\SlideDetails\AIM9Sidewinder.json" />
     <None Include="Resources\SlideDetails\AvionicSystems.json" />
+    <None Include="Resources\SlideDetails\BurningChamber.json" />
     <None Include="Resources\SlideDetails\COMMS.json" />
     <None Include="Resources\SlideDetails\DASS.json" />
     <None Include="Resources\SlideDetails\DC.json" />
@@ -289,20 +291,25 @@
     <None Include="Resources\SlideDetails\GeneralSystems.json" />
     <None Include="Resources\SlideDetails\GLU.json" />
     <None Include="Resources\SlideDetails\GSS.json" />
+    <None Include="Resources\SlideDetails\HDTurbine.json" />
     <None Include="Resources\SlideDetails\Hydraulic.json" />
     <None Include="Resources\SlideDetails\IMRS.json" />
     <None Include="Resources\SlideDetails\IRIST.json" />
     <None Include="Resources\SlideDetails\JettisonCES.json" />
     <None Include="Resources\SlideDetails\LandingGear.json" />
-    <None Include="Resources\SlideDetails\LaserDesignPod.json" />
+    <None Include="Resources\SlideDetails\LaserDesignatorPod.json" />
     <None Include="Resources\SlideDetails\Meteor.json" />
     <None Include="Resources\SlideDetails\MSS.json" />
     <None Include="Resources\SlideDetails\NAV.json" />
+    <None Include="Resources\SlideDetails\HDCompressor.json" />
+    <None Include="Resources\SlideDetails\NDCompressor.json" />
+    <None Include="Resources\SlideDetails\NDTurbine.json" />
     <None Include="Resources\SlideDetails\PavewayII.json" />
     <None Include="Resources\SlideDetails\RECCE.json" />
     <None Include="Resources\SlideDetails\SPS.json" />
     <None Include="Resources\SlideDetails\Structure.json" />
     <None Include="Resources\SlideDetails\ThousandLiterTank.json" />
+    <None Include="Resources\SlideDetails\Thruster.json" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -354,6 +361,7 @@
     <Content Include="Resources\SlideDetails\AIM120AMRAAM.png" />
     <Content Include="Resources\SlideDetails\AIM9Sidewinder.png" />
     <Content Include="Resources\SlideDetails\AvionicSystems.png" />
+    <Content Include="Resources\SlideDetails\BurningChamber.png" />
     <Content Include="Resources\SlideDetails\COMMS.png" />
     <Content Include="Resources\SlideDetails\DASS.png" />
     <Content Include="Resources\SlideDetails\DC.png" />
@@ -366,6 +374,9 @@
     <Content Include="Resources\SlideDetails\GeneralSystems.jpg" />
     <Content Include="Resources\SlideDetails\GLU.png" />
     <Content Include="Resources\SlideDetails\GSS.png" />
+    <Content Include="Resources\SlideDetails\HDCompressor.png" />
+    <Content Include="Resources\SlideDetails\HDTurbine.png" />
+    <Content Include="Resources\SlideDetails\HDVerdichter.png" />
     <Content Include="Resources\SlideDetails\Hydraulic.png" />
     <Content Include="Resources\SlideDetails\IMRS.png" />
     <Content Include="Resources\SlideDetails\IRIST.png" />
@@ -374,9 +385,13 @@
     <Content Include="Resources\SlideDetails\LaserDesignPod.png" />
     <Content Include="Resources\SlideDetails\Meteor.png" />
     <Content Include="Resources\SlideDetails\MSS.png" />
+    <Content Include="Resources\SlideDetails\Afterburner.png" />
     <Content Include="Resources\SlideDetails\NAV.png" />
+    <Content Include="Resources\SlideDetails\NDTurbine.png" />
+    <Content Include="Resources\SlideDetails\NDCompressor.png" />
     <Content Include="Resources\SlideDetails\Pavewayll.png" />
     <Content Include="Resources\SlideDetails\RECCE.png" />
+    <Content Include="Resources\SlideDetails\Thruster.png" />
     <Content Include="Resources\SlideDetails\SPS.png" />
     <Content Include="Resources\SlideDetails\Structure.png" />
     <Content Include="Resources\SlideDetails\ThousandLiterTank.png" />
