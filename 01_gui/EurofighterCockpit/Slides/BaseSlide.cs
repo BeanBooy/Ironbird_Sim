@@ -20,5 +20,7 @@ namespace EurofighterCockpit.Slides
         public void RequestMovie() {
             MovieRequested?.Invoke(this, new EventArgs());
         }
+
+        public virtual void OnShow() { }
     }
 }

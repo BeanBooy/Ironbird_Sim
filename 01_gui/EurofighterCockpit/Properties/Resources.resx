@@ -265,7 +265,7 @@
   <data name="IRIST" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SlideDetails\IRIST.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="IRISTImager" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="IRISTImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SlideDetails\IRIST.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="JettisonCES" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -283,7 +283,7 @@
   <data name="LaserDesignatorPod" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SlideDetails\LaserDesignatorPod.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="LaserDesignPodImager" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="LaserDesignPodImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SlideDetails\LaserDesignPod.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Meteor" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -325,7 +325,7 @@
   <data name="RECCE" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SlideDetails\RECCE.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="RECCEImager" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="RECCEImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SlideDetails\RECCE.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="SPS" type="System.Resources.ResXFileRef, System.Windows.Forms">

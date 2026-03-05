@@ -1,4 +1,5 @@
 ﻿using EurofighterCockpit.Properties;
+using EurofighterCockpit.Slides;
 using System;
 using System.IO;
 using System.Linq;
@@ -21,7 +22,9 @@ namespace EurofighterCockpit
         private bool overwriteMode;
         private bool sleepMode;
 
+        private bool isMovieRunning;
         private JoystickData[] movieInputs = null;
+        private int movieInputPosition = 0;
 
         // events for ui
         public event Action<JoystickData> JoystickDataUpdated;
@@ -65,7 +68,7 @@ namespace EurofighterCockpit
         private void OnTick(object sender, EventArgs e) {
             if (sleepMode) return;
 
-            var data = joystickController.Poll();
+            JoystickData data = GetJoystickData();
 
             if (!data.Equals(previousData)) {
                 previousData = data;
@@ -76,6 +79,16 @@ namespace EurofighterCockpit
                 var payload = BuildPayload(data);
                 ValidateAndSend(payload);
             }
+        }
+
+        private JoystickData GetJoystickData() {
+            // either return realtime joystick data or from movie file
+            if (isMovieRunning) {
+                if (movieInputPosition < movieInputs.Length)
+                    return movieInputs[movieInputPosition++];
+                EndMovie();
+            }
+            return joystickController.Poll();
         }
 
         private byte[] BuildPayload(JoystickData data) {
@@ -160,21 +173,46 @@ namespace EurofighterCockpit
             tcpConnection?.Dispose();
         }
 
-        public void StartMovie() {
-            //if (!File.Exists(Resources.MovieVideo))
-            //    return;
-            //if (!File.Exists(Resources.MovieInputs))
-            //    return;
+        public void StartMovieSequence() {
+            // read input file if not done already
+            if (movieInputs == null)
+                ReadMovieInputFile("C:\\Users\\maini\\Desktop\\EurofighterCockpit_MVrecording.txt");
 
-            //string[] data = File.ReadAllLines("configPath");
-            //movieInputs = new JoystickData[data.Length];
-            //foreach (var input in data) {
+            if (isMovieRunning)
+                EndMovie();
+            StartMovie();
+        }
 
-            //}
+        private void ReadMovieInputFile(string path) {
+            string[] data = File.ReadAllLines(path);
+            movieInputs = new JoystickData[data.Length];
+            for (int i = 0; i < data.Length; i++) {
+                movieInputs[i] = new JoystickData();
+                string[] line = data[i].Split(',');
+                movieInputs[i].JoystickY = Convert.ToUInt16(line[0]);
+                movieInputs[i].JoystickX = Convert.ToUInt16(line[1]);
+                movieInputs[i].JoystickTorque = Convert.ToUInt16(line[2]);
+                movieInputs[i].Airbrake = Convert.ToBoolean(Convert.ToInt32(line[3]));
+                movieInputs[i].Trigger = Convert.ToBoolean(Convert.ToInt32(line[4]));
+                movieInputs[i].RudderLeft = Convert.ToBoolean(Convert.ToInt32(line[5]));
+                movieInputs[i].RudderRight = Convert.ToBoolean(Convert.ToInt32(line[6]));
+                movieInputs[i].RudderReset = Convert.ToBoolean(Convert.ToInt32(line[7]));
+                movieInputs[i].LandingGear = Convert.ToBoolean(Convert.ToInt32(line[8]));
+                movieInputs[i].LandingLights = Convert.ToBoolean(Convert.ToInt32(line[9]));
+                movieInputs[i].PositionalLights = Convert.ToBoolean(Convert.ToInt32(line[10]));
+            }
+        }
 
-            //movieInputs = 
+        private void StartMovie() {
+            isMovieRunning = true;
+            movieInputPosition = 0;
+            logger.LogToBox("movie started");
+        }
 
-            //logger.LogToBox("movie started");
+        private void EndMovie() {
+            isMovieRunning = false;
+            movieInputPosition = 0;
+            logger.LogToBox("movie ended");
         }
 
     }

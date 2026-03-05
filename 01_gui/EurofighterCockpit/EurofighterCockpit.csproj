@@ -137,6 +137,12 @@
     <Compile Include="Slides\SlideEurofighter.Designer.cs">
       <DependentUpon>SlideEurofighter.cs</DependentUpon>
     </Compile>
+    <Compile Include="Slides\SlideJoystick.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Slides\SlideJoystick.Designer.cs">
+      <DependentUpon>SlideJoystick.cs</DependentUpon>
+    </Compile>
     <Compile Include="Slides\SlideMovie.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -224,6 +230,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Slides\SlideEurofighter.resx">
       <DependentUpon>SlideEurofighter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Slides\SlideJoystick.resx">
+      <DependentUpon>SlideJoystick.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Slides\SlideMovie.resx">
       <DependentUpon>SlideMovie.cs</DependentUpon>

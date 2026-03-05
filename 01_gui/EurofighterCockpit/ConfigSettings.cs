@@ -54,7 +54,7 @@ namespace EurofighterCockpit
             set {
                 tb_videoFilePath.Text = value;
                 cb_videoPathValid.BackColor = File.Exists(value) ? colGreen : colRed;
-                videoPlayer?.SetSource(value);
+                videoPlayer?.SetDefaultSource(value);
             }
         }
 
@@ -139,6 +139,8 @@ namespace EurofighterCockpit
             bpb_positionLights.Progress = data.PositionalLights ? 100 : 0;
             bpb_strobeLights.Progress = data.StrobeLights ? 100 : 0;
             bpb_landingLights.Progress = data.LandingLights ? 100 : 0;
+            // also display inputs on the joystick slide
+            SlideJoystick.GetInstance().DisplayControllerInput(data);
         }
 
         private void onConnectionStatusChanged(bool connected) {
@@ -232,10 +234,8 @@ namespace EurofighterCockpit
                 new SlideSystems(),
                 new SlideWeaponry(),
                 new SlideEngine(),
-                new Slide2(),
+                new SlideJoystick(),
                 new SlideMovie(),
-                //new Slide2(),
-                //new Slide3(),
             };
             subSlides = new BaseSlide[] {
                 // Weapomry-Slides:
@@ -300,7 +300,7 @@ namespace EurofighterCockpit
 
         private void initializeWindows() {
             videoPlayer = launchWindow(ref videoPlayer, videoPlayerScreenIndex, bt_videoPlayer, vp => {
-                vp.SetSource(VideoPath);
+                vp.SetDefaultSource(VideoPath);
             });
             infotainment = launchWindow(ref infotainment, infotainmentScreenIndex, bt_infotainment, i => {
                 i.SetSlidePool(mainSlides);
@@ -393,7 +393,7 @@ namespace EurofighterCockpit
         private void bt_videoPlayer_UserClick(object sender, EventArgs e) {
             if (videoPlayer == null)
                 videoPlayer = launchWindow(ref videoPlayer, videoPlayerScreenIndex, bt_videoPlayer, vp => {
-                    vp.SetSource(VideoPath);
+                    vp.SetDefaultSource(VideoPath);
                 });
             else
                 videoPlayer.Close();
@@ -492,7 +492,8 @@ namespace EurofighterCockpit
         }
 
         private void MovieRequestedHandler(object sender, EventArgs e) {
-            controller.StartMovie();
+            controller.StartMovieSequence();
+            videoPlayer.StartMovie("C:\\Users\\maini\\Desktop\\DemoVideo.mp4");
         }
     }
 }

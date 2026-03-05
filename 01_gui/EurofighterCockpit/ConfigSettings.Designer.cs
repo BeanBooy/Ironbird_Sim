@@ -92,7 +92,6 @@
             this.tb_logs = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             this.p_forServoDisplays = new System.Windows.Forms.Panel();
             this.label34 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
@@ -141,7 +140,7 @@
             this.tb_videoFilePath.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tb_videoFilePath.Font = new System.Drawing.Font("Leelawadee UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_videoFilePath.Location = new System.Drawing.Point(45, 66);
-            this.tb_videoFilePath.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.tb_videoFilePath.Margin = new System.Windows.Forms.Padding(10);
             this.tb_videoFilePath.Name = "tb_videoFilePath";
             this.tb_videoFilePath.ReadOnly = true;
             this.tb_videoFilePath.Size = new System.Drawing.Size(433, 15);
@@ -154,7 +153,7 @@
             this.btn_browseVideoFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_browseVideoFile.Font = new System.Drawing.Font("Leelawadee UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_browseVideoFile.Location = new System.Drawing.Point(488, 60);
-            this.btn_browseVideoFile.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.btn_browseVideoFile.Margin = new System.Windows.Forms.Padding(10);
             this.btn_browseVideoFile.Name = "btn_browseVideoFile";
             this.btn_browseVideoFile.Size = new System.Drawing.Size(59, 25);
             this.btn_browseVideoFile.TabIndex = 2;
@@ -168,7 +167,7 @@
             this.label2.Font = new System.Drawing.Font("Leelawadee UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(10, 10);
-            this.label2.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.label2.Margin = new System.Windows.Forms.Padding(10);
             this.label2.Name = "label2";
             this.label2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 2);
             this.label2.Size = new System.Drawing.Size(322, 40);
@@ -193,7 +192,7 @@
             this.panel1.Controls.Add(this.bt_showSceenIndicators);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Location = new System.Drawing.Point(17, 17);
-            this.panel1.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.panel1.Margin = new System.Windows.Forms.Padding(8);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(342, 230);
             this.panel1.TabIndex = 28;
@@ -216,7 +215,7 @@
             this.tlp_infotainmentSub.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tlp_infotainmentSub.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tlp_infotainmentSub.Location = new System.Drawing.Point(186, 185);
-            this.tlp_infotainmentSub.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.tlp_infotainmentSub.Margin = new System.Windows.Forms.Padding(10);
             this.tlp_infotainmentSub.Name = "tlp_infotainmentSub";
             this.tlp_infotainmentSub.RowCount = 1;
             this.tlp_infotainmentSub.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -231,7 +230,7 @@
             this.tlp_infotainment.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tlp_infotainment.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tlp_infotainment.Location = new System.Drawing.Point(186, 145);
-            this.tlp_infotainment.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.tlp_infotainment.Margin = new System.Windows.Forms.Padding(10);
             this.tlp_infotainment.Name = "tlp_infotainment";
             this.tlp_infotainment.RowCount = 1;
             this.tlp_infotainment.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -246,7 +245,7 @@
             this.tlp_videoPlayer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tlp_videoPlayer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tlp_videoPlayer.Location = new System.Drawing.Point(186, 105);
-            this.tlp_videoPlayer.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.tlp_videoPlayer.Margin = new System.Windows.Forms.Padding(10);
             this.tlp_videoPlayer.Name = "tlp_videoPlayer";
             this.tlp_videoPlayer.RowCount = 1;
             this.tlp_videoPlayer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -289,9 +288,9 @@
             this.bt_infotainmentSub.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bt_infotainmentSub.IsChecked = false;
             this.bt_infotainmentSub.Location = new System.Drawing.Point(10, 190);
-            this.bt_infotainmentSub.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.bt_infotainmentSub.Margin = new System.Windows.Forms.Padding(10);
             this.bt_infotainmentSub.Name = "bt_infotainmentSub";
-            this.bt_infotainmentSub.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.bt_infotainmentSub.Padding = new System.Windows.Forms.Padding(3);
             this.bt_infotainmentSub.Size = new System.Drawing.Size(40, 20);
             this.bt_infotainmentSub.TabIndex = 61;
             this.bt_infotainmentSub.UserClick += new System.EventHandler(this.bt_infotainmentSub_UserClick);
@@ -302,9 +301,9 @@
             this.bt_infotainment.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bt_infotainment.IsChecked = false;
             this.bt_infotainment.Location = new System.Drawing.Point(10, 150);
-            this.bt_infotainment.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.bt_infotainment.Margin = new System.Windows.Forms.Padding(10);
             this.bt_infotainment.Name = "bt_infotainment";
-            this.bt_infotainment.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.bt_infotainment.Padding = new System.Windows.Forms.Padding(3);
             this.bt_infotainment.Size = new System.Drawing.Size(40, 20);
             this.bt_infotainment.TabIndex = 60;
             this.bt_infotainment.UserClick += new System.EventHandler(this.bt_infotainment_UserClick);
@@ -315,9 +314,9 @@
             this.bt_videoPlayer.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bt_videoPlayer.IsChecked = false;
             this.bt_videoPlayer.Location = new System.Drawing.Point(10, 110);
-            this.bt_videoPlayer.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.bt_videoPlayer.Margin = new System.Windows.Forms.Padding(10);
             this.bt_videoPlayer.Name = "bt_videoPlayer";
-            this.bt_videoPlayer.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.bt_videoPlayer.Padding = new System.Windows.Forms.Padding(3);
             this.bt_videoPlayer.Size = new System.Drawing.Size(40, 20);
             this.bt_videoPlayer.TabIndex = 59;
             this.bt_videoPlayer.UserClick += new System.EventHandler(this.bt_videoPlayer_UserClick);
@@ -338,9 +337,9 @@
             this.bt_showSceenIndicators.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bt_showSceenIndicators.IsChecked = false;
             this.bt_showSceenIndicators.Location = new System.Drawing.Point(10, 60);
-            this.bt_showSceenIndicators.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.bt_showSceenIndicators.Margin = new System.Windows.Forms.Padding(10);
             this.bt_showSceenIndicators.Name = "bt_showSceenIndicators";
-            this.bt_showSceenIndicators.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.bt_showSceenIndicators.Padding = new System.Windows.Forms.Padding(3);
             this.bt_showSceenIndicators.Size = new System.Drawing.Size(40, 20);
             this.bt_showSceenIndicators.TabIndex = 57;
             this.bt_showSceenIndicators.UserClick += new System.EventHandler(this.bt_showSceenIndicators_UserClick);
@@ -380,7 +379,7 @@
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.panel6);
             this.panel2.Location = new System.Drawing.Point(17, 374);
-            this.panel2.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.panel2.Margin = new System.Windows.Forms.Padding(8);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(557, 325);
             this.panel2.TabIndex = 29;
@@ -390,7 +389,7 @@
             this.label19.BackColor = System.Drawing.Color.Transparent;
             this.label19.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.Location = new System.Drawing.Point(295, 215);
-            this.label19.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.label19.Margin = new System.Windows.Forms.Padding(10);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(160, 20);
             this.label19.TabIndex = 74;
@@ -404,7 +403,7 @@
             this.bpb_airbrake.Direction = EurofighterCockpit.Direction.bottomToTop;
             this.bpb_airbrake.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.bpb_airbrake.Location = new System.Drawing.Point(225, 255);
-            this.bpb_airbrake.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.bpb_airbrake.Margin = new System.Windows.Forms.Padding(8);
             this.bpb_airbrake.Name = "bpb_airbrake";
             this.bpb_airbrake.Progress = 0;
             this.bpb_airbrake.Size = new System.Drawing.Size(40, 20);
@@ -415,7 +414,7 @@
             this.label17.BackColor = System.Drawing.Color.Transparent;
             this.label17.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.Location = new System.Drawing.Point(295, 137);
-            this.label17.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.label17.Margin = new System.Windows.Forms.Padding(10);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(160, 20);
             this.label17.TabIndex = 72;
@@ -427,7 +426,7 @@
             this.label18.BackColor = System.Drawing.Color.Transparent;
             this.label18.Font = new System.Drawing.Font("Leelawadee UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.Location = new System.Drawing.Point(350, 235);
-            this.label18.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.label18.Margin = new System.Windows.Forms.Padding(1);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(50, 20);
             this.label18.TabIndex = 47;
@@ -439,7 +438,7 @@
             this.label16.BackColor = System.Drawing.Color.Transparent;
             this.label16.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.Location = new System.Drawing.Point(474, 60);
-            this.label16.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.label16.Margin = new System.Windows.Forms.Padding(10);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(70, 20);
             this.label16.TabIndex = 71;
@@ -453,7 +452,7 @@
             this.bpb_sound.Direction = EurofighterCockpit.Direction.bottomToTop;
             this.bpb_sound.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.bpb_sound.Location = new System.Drawing.Point(355, 255);
-            this.bpb_sound.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.bpb_sound.Margin = new System.Windows.Forms.Padding(8);
             this.bpb_sound.Name = "bpb_sound";
             this.bpb_sound.Progress = 0;
             this.bpb_sound.Size = new System.Drawing.Size(40, 20);
@@ -484,7 +483,7 @@
             this.label13.BackColor = System.Drawing.Color.Transparent;
             this.label13.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.Location = new System.Drawing.Point(295, 60);
-            this.label13.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.label13.Margin = new System.Windows.Forms.Padding(10);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(160, 20);
             this.label13.TabIndex = 68;
@@ -501,7 +500,7 @@
             this.cb_throttleConnected.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cb_throttleConnected.ForeColor = System.Drawing.Color.Black;
             this.cb_throttleConnected.Location = new System.Drawing.Point(285, 288);
-            this.cb_throttleConnected.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.cb_throttleConnected.Margin = new System.Windows.Forms.Padding(10);
             this.cb_throttleConnected.Name = "cb_throttleConnected";
             this.cb_throttleConnected.Size = new System.Drawing.Size(262, 25);
             this.cb_throttleConnected.TabIndex = 67;
@@ -519,7 +518,7 @@
             this.cb_joystickConnected.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cb_joystickConnected.ForeColor = System.Drawing.Color.Black;
             this.cb_joystickConnected.Location = new System.Drawing.Point(10, 288);
-            this.cb_joystickConnected.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.cb_joystickConnected.Margin = new System.Windows.Forms.Padding(10);
             this.cb_joystickConnected.Name = "cb_joystickConnected";
             this.cb_joystickConnected.Size = new System.Drawing.Size(265, 25);
             this.cb_joystickConnected.TabIndex = 66;
@@ -532,7 +531,7 @@
             this.label12.BackColor = System.Drawing.Color.Transparent;
             this.label12.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.Location = new System.Drawing.Point(215, 119);
-            this.label12.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.label12.Margin = new System.Windows.Forms.Padding(10);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(60, 20);
             this.label12.TabIndex = 65;
@@ -546,7 +545,7 @@
             this.bpb_airbrakeCurve.Direction = EurofighterCockpit.Direction.bottomToTop;
             this.bpb_airbrakeCurve.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.bpb_airbrakeCurve.Location = new System.Drawing.Point(225, 144);
-            this.bpb_airbrakeCurve.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.bpb_airbrakeCurve.Margin = new System.Windows.Forms.Padding(8);
             this.bpb_airbrakeCurve.Name = "bpb_airbrakeCurve";
             this.bpb_airbrakeCurve.Progress = 0;
             this.bpb_airbrakeCurve.Size = new System.Drawing.Size(40, 106);
@@ -557,7 +556,7 @@
             this.label11.BackColor = System.Drawing.Color.Transparent;
             this.label11.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(215, 60);
-            this.label11.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.label11.Margin = new System.Windows.Forms.Padding(10);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(60, 20);
             this.label11.TabIndex = 63;
@@ -569,7 +568,7 @@
             this.label27.BackColor = System.Drawing.Color.Transparent;
             this.label27.Font = new System.Drawing.Font("Leelawadee UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label27.Location = new System.Drawing.Point(410, 162);
-            this.label27.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.label27.Margin = new System.Windows.Forms.Padding(1);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(50, 20);
             this.label27.TabIndex = 62;
@@ -583,7 +582,7 @@
             this.bpb_strobeLights.Direction = EurofighterCockpit.Direction.bottomToTop;
             this.bpb_strobeLights.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.bpb_strobeLights.Location = new System.Drawing.Point(415, 182);
-            this.bpb_strobeLights.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.bpb_strobeLights.Margin = new System.Windows.Forms.Padding(8);
             this.bpb_strobeLights.Name = "bpb_strobeLights";
             this.bpb_strobeLights.Progress = 0;
             this.bpb_strobeLights.Size = new System.Drawing.Size(40, 20);
@@ -594,7 +593,7 @@
             this.label25.BackColor = System.Drawing.Color.Transparent;
             this.label25.Font = new System.Drawing.Font("Leelawadee UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label25.Location = new System.Drawing.Point(290, 162);
-            this.label25.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.label25.Margin = new System.Windows.Forms.Padding(1);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(50, 20);
             this.label25.TabIndex = 59;
@@ -606,7 +605,7 @@
             this.label24.BackColor = System.Drawing.Color.Transparent;
             this.label24.Font = new System.Drawing.Font("Leelawadee UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label24.Location = new System.Drawing.Point(350, 162);
-            this.label24.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.label24.Margin = new System.Windows.Forms.Padding(1);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(50, 20);
             this.label24.TabIndex = 58;
@@ -620,7 +619,7 @@
             this.bpb_landingLights.Direction = EurofighterCockpit.Direction.bottomToTop;
             this.bpb_landingLights.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.bpb_landingLights.Location = new System.Drawing.Point(295, 182);
-            this.bpb_landingLights.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.bpb_landingLights.Margin = new System.Windows.Forms.Padding(8);
             this.bpb_landingLights.Name = "bpb_landingLights";
             this.bpb_landingLights.Progress = 0;
             this.bpb_landingLights.Size = new System.Drawing.Size(40, 20);
@@ -633,7 +632,7 @@
             this.bpb_positionLights.Direction = EurofighterCockpit.Direction.bottomToTop;
             this.bpb_positionLights.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.bpb_positionLights.Location = new System.Drawing.Point(355, 182);
-            this.bpb_positionLights.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.bpb_positionLights.Margin = new System.Windows.Forms.Padding(8);
             this.bpb_positionLights.Name = "bpb_positionLights";
             this.bpb_positionLights.Progress = 0;
             this.bpb_positionLights.Size = new System.Drawing.Size(40, 20);
@@ -644,7 +643,7 @@
             this.label23.BackColor = System.Drawing.Color.Transparent;
             this.label23.Font = new System.Drawing.Font("Leelawadee UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label23.Location = new System.Drawing.Point(295, 235);
-            this.label23.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.label23.Margin = new System.Windows.Forms.Padding(1);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(40, 20);
             this.label23.TabIndex = 55;
@@ -658,7 +657,7 @@
             this.bpb_trigger.Direction = EurofighterCockpit.Direction.bottomToTop;
             this.bpb_trigger.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.bpb_trigger.Location = new System.Drawing.Point(225, 85);
-            this.bpb_trigger.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.bpb_trigger.Margin = new System.Windows.Forms.Padding(8);
             this.bpb_trigger.Name = "bpb_trigger";
             this.bpb_trigger.Progress = 0;
             this.bpb_trigger.Size = new System.Drawing.Size(40, 20);
@@ -671,7 +670,7 @@
             this.bpb_gear.Direction = EurofighterCockpit.Direction.bottomToTop;
             this.bpb_gear.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.bpb_gear.Location = new System.Drawing.Point(295, 255);
-            this.bpb_gear.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.bpb_gear.Margin = new System.Windows.Forms.Padding(8);
             this.bpb_gear.Name = "bpb_gear";
             this.bpb_gear.Progress = 0;
             this.bpb_gear.Size = new System.Drawing.Size(40, 20);
@@ -684,7 +683,7 @@
             this.bpb_rudderReset.Direction = EurofighterCockpit.Direction.bottomToTop;
             this.bpb_rudderReset.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.bpb_rudderReset.Location = new System.Drawing.Point(415, 105);
-            this.bpb_rudderReset.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.bpb_rudderReset.Margin = new System.Windows.Forms.Padding(8);
             this.bpb_rudderReset.Name = "bpb_rudderReset";
             this.bpb_rudderReset.Progress = 0;
             this.bpb_rudderReset.Size = new System.Drawing.Size(40, 20);
@@ -707,7 +706,7 @@
             this.bpb_rudderL.Direction = EurofighterCockpit.Direction.bottomToTop;
             this.bpb_rudderL.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.bpb_rudderL.Location = new System.Drawing.Point(295, 105);
-            this.bpb_rudderL.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.bpb_rudderL.Margin = new System.Windows.Forms.Padding(8);
             this.bpb_rudderL.Name = "bpb_rudderL";
             this.bpb_rudderL.Progress = 0;
             this.bpb_rudderL.Size = new System.Drawing.Size(40, 20);
@@ -720,7 +719,7 @@
             this.bpb_rudderR.Direction = EurofighterCockpit.Direction.bottomToTop;
             this.bpb_rudderR.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.bpb_rudderR.Location = new System.Drawing.Point(355, 105);
-            this.bpb_rudderR.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.bpb_rudderR.Margin = new System.Windows.Forms.Padding(8);
             this.bpb_rudderR.Name = "bpb_rudderR";
             this.bpb_rudderR.Progress = 0;
             this.bpb_rudderR.Size = new System.Drawing.Size(40, 20);
@@ -733,7 +732,7 @@
             this.bpb_throttle.Direction = EurofighterCockpit.Direction.bottomToTop;
             this.bpb_throttle.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.bpb_throttle.Location = new System.Drawing.Point(474, 85);
-            this.bpb_throttle.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.bpb_throttle.Margin = new System.Windows.Forms.Padding(8);
             this.bpb_throttle.Name = "bpb_throttle";
             this.bpb_throttle.Progress = 0;
             this.bpb_throttle.Size = new System.Drawing.Size(70, 190);
@@ -744,7 +743,7 @@
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(15, 60);
-            this.label6.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.label6.Margin = new System.Windows.Forms.Padding(10);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(187, 20);
             this.label6.TabIndex = 31;
@@ -757,7 +756,7 @@
             this.label5.Font = new System.Drawing.Font("Leelawadee UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(10, 10);
-            this.label5.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.label5.Margin = new System.Windows.Forms.Padding(10);
             this.label5.Name = "label5";
             this.label5.Padding = new System.Windows.Forms.Padding(0, 0, 0, 2);
             this.label5.Size = new System.Drawing.Size(537, 40);
@@ -886,7 +885,7 @@
             this.panel3.Controls.Add(this.btn_browseVideoFile);
             this.panel3.Controls.Add(this.tb_videoFilePath);
             this.panel3.Location = new System.Drawing.Point(17, 263);
-            this.panel3.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.panel3.Margin = new System.Windows.Forms.Padding(8);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(557, 95);
             this.panel3.TabIndex = 30;
@@ -901,7 +900,7 @@
             this.cb_videoPathValid.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cb_videoPathValid.ForeColor = System.Drawing.Color.Black;
             this.cb_videoPathValid.Location = new System.Drawing.Point(10, 60);
-            this.cb_videoPathValid.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.cb_videoPathValid.Margin = new System.Windows.Forms.Padding(10);
             this.cb_videoPathValid.Name = "cb_videoPathValid";
             this.cb_videoPathValid.Size = new System.Drawing.Size(25, 25);
             this.cb_videoPathValid.TabIndex = 32;
@@ -914,7 +913,7 @@
             this.label3.Font = new System.Drawing.Font("Leelawadee UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(10, 10);
-            this.label3.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.label3.Margin = new System.Windows.Forms.Padding(10);
             this.label3.Name = "label3";
             this.label3.Padding = new System.Windows.Forms.Padding(0, 0, 0, 2);
             this.label3.Size = new System.Drawing.Size(537, 40);
@@ -928,7 +927,7 @@
             this.panel4.Controls.Add(this.tb_logs);
             this.panel4.Controls.Add(this.label1);
             this.panel4.Location = new System.Drawing.Point(590, 374);
-            this.panel4.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.panel4.Margin = new System.Windows.Forms.Padding(8);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(609, 325);
             this.panel4.TabIndex = 30;
@@ -938,7 +937,7 @@
             this.tb_logs.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tb_logs.Font = new System.Drawing.Font("Consolas", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_logs.Location = new System.Drawing.Point(10, 60);
-            this.tb_logs.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tb_logs.Margin = new System.Windows.Forms.Padding(2);
             this.tb_logs.Multiline = true;
             this.tb_logs.Name = "tb_logs";
             this.tb_logs.ReadOnly = true;
@@ -952,7 +951,7 @@
             this.label1.Font = new System.Drawing.Font("Leelawadee UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(10, 10);
-            this.label1.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.label1.Margin = new System.Windows.Forms.Padding(10);
             this.label1.Name = "label1";
             this.label1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 2);
             this.label1.Size = new System.Drawing.Size(589, 40);
@@ -963,28 +962,13 @@
             // panel
             // 
             this.panel.BackColor = System.Drawing.Color.White;
-            this.panel.Controls.Add(this.button1);
             this.panel.Controls.Add(this.p_forServoDisplays);
             this.panel.Controls.Add(this.btn_startServoTest);
             this.panel.Location = new System.Drawing.Point(590, 17);
-            this.panel.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.panel.Margin = new System.Windows.Forms.Padding(8);
             this.panel.Name = "panel";
             this.panel.Size = new System.Drawing.Size(609, 341);
             this.panel.TabIndex = 30;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(199)))));
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Leelawadee UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(365, 300);
-            this.button1.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(234, 30);
-            this.button1.TabIndex = 34;
-            this.button1.Text = "TMP ONLY -> start interactive movie";
-            this.button1.UseVisualStyleBackColor = false;
             // 
             // p_forServoDisplays
             // 
@@ -1014,7 +998,7 @@
             this.label34.BackColor = System.Drawing.Color.Transparent;
             this.label34.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label34.Location = new System.Drawing.Point(309, 180);
-            this.label34.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.label34.Margin = new System.Windows.Forms.Padding(1);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(280, 25);
             this.label34.TabIndex = 55;
@@ -1026,7 +1010,7 @@
             this.label28.BackColor = System.Drawing.Color.Transparent;
             this.label28.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label28.Location = new System.Drawing.Point(0, 0);
-            this.label28.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.label28.Margin = new System.Windows.Forms.Padding(1);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(280, 25);
             this.label28.TabIndex = 41;
@@ -1062,7 +1046,7 @@
             this.label35.BackColor = System.Drawing.Color.Transparent;
             this.label35.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label35.Location = new System.Drawing.Point(0, 180);
-            this.label35.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.label35.Margin = new System.Windows.Forms.Padding(1);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(280, 25);
             this.label35.TabIndex = 53;
@@ -1110,7 +1094,7 @@
             this.label32.BackColor = System.Drawing.Color.Transparent;
             this.label32.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label32.Location = new System.Drawing.Point(309, 120);
-            this.label32.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.label32.Margin = new System.Windows.Forms.Padding(1);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(280, 25);
             this.label32.TabIndex = 51;
@@ -1122,7 +1106,7 @@
             this.label29.BackColor = System.Drawing.Color.Transparent;
             this.label29.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label29.Location = new System.Drawing.Point(309, 0);
-            this.label29.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.label29.Margin = new System.Windows.Forms.Padding(1);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(280, 25);
             this.label29.TabIndex = 43;
@@ -1158,7 +1142,7 @@
             this.label33.BackColor = System.Drawing.Color.Transparent;
             this.label33.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label33.Location = new System.Drawing.Point(0, 120);
-            this.label33.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.label33.Margin = new System.Windows.Forms.Padding(1);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(280, 25);
             this.label33.TabIndex = 49;
@@ -1170,7 +1154,7 @@
             this.label31.BackColor = System.Drawing.Color.Transparent;
             this.label31.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label31.Location = new System.Drawing.Point(0, 60);
-            this.label31.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.label31.Margin = new System.Windows.Forms.Padding(1);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(280, 25);
             this.label31.TabIndex = 45;
@@ -1194,7 +1178,7 @@
             this.label30.BackColor = System.Drawing.Color.Transparent;
             this.label30.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label30.Location = new System.Drawing.Point(309, 60);
-            this.label30.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.label30.Margin = new System.Windows.Forms.Padding(1);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(280, 25);
             this.label30.TabIndex = 47;
@@ -1208,7 +1192,7 @@
             this.btn_startServoTest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_startServoTest.Font = new System.Drawing.Font("Leelawadee UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_startServoTest.Location = new System.Drawing.Point(10, 300);
-            this.btn_startServoTest.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.btn_startServoTest.Margin = new System.Windows.Forms.Padding(10);
             this.btn_startServoTest.Name = "btn_startServoTest";
             this.btn_startServoTest.Size = new System.Drawing.Size(162, 30);
             this.btn_startServoTest.TabIndex = 33;
@@ -1222,7 +1206,7 @@
             this.label4.Font = new System.Drawing.Font("Leelawadee UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(600, 27);
-            this.label4.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.label4.Margin = new System.Windows.Forms.Padding(10);
             this.label4.Name = "label4";
             this.label4.Padding = new System.Windows.Forms.Padding(0, 0, 0, 2);
             this.label4.Size = new System.Drawing.Size(589, 40);
@@ -1246,7 +1230,7 @@
             this.panel7.Controls.Add(this.cb_connectionState);
             this.panel7.Controls.Add(this.asdf);
             this.panel7.Location = new System.Drawing.Point(375, 17);
-            this.panel7.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.panel7.Margin = new System.Windows.Forms.Padding(8);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(199, 230);
             this.panel7.TabIndex = 31;
@@ -1325,7 +1309,7 @@
             this.bt_sleep.Location = new System.Drawing.Point(10, 120);
             this.bt_sleep.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.bt_sleep.Name = "bt_sleep";
-            this.bt_sleep.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.bt_sleep.Padding = new System.Windows.Forms.Padding(3);
             this.bt_sleep.Size = new System.Drawing.Size(40, 20);
             this.bt_sleep.TabIndex = 56;
             this.bt_sleep.UserClick += new System.EventHandler(this.bt_sleep_UserClick);
@@ -1336,9 +1320,9 @@
             this.bt_overwriteControllerInput.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bt_overwriteControllerInput.IsChecked = false;
             this.bt_overwriteControllerInput.Location = new System.Drawing.Point(10, 90);
-            this.bt_overwriteControllerInput.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.bt_overwriteControllerInput.Margin = new System.Windows.Forms.Padding(10);
             this.bt_overwriteControllerInput.Name = "bt_overwriteControllerInput";
-            this.bt_overwriteControllerInput.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.bt_overwriteControllerInput.Padding = new System.Windows.Forms.Padding(3);
             this.bt_overwriteControllerInput.Size = new System.Drawing.Size(40, 20);
             this.bt_overwriteControllerInput.TabIndex = 69;
             this.bt_overwriteControllerInput.UserClick += new System.EventHandler(this.bt_overwriteControllerInput_UserClick);
@@ -1360,9 +1344,9 @@
             this.bt_showNetworkTraffic.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bt_showNetworkTraffic.IsChecked = false;
             this.bt_showNetworkTraffic.Location = new System.Drawing.Point(10, 60);
-            this.bt_showNetworkTraffic.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.bt_showNetworkTraffic.Margin = new System.Windows.Forms.Padding(10);
             this.bt_showNetworkTraffic.Name = "bt_showNetworkTraffic";
-            this.bt_showNetworkTraffic.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.bt_showNetworkTraffic.Padding = new System.Windows.Forms.Padding(3);
             this.bt_showNetworkTraffic.Size = new System.Drawing.Size(40, 20);
             this.bt_showNetworkTraffic.TabIndex = 57;
             this.bt_showNetworkTraffic.UserClick += new System.EventHandler(this.bt_showNetworkTraffic_UserClick);
@@ -1377,7 +1361,7 @@
             this.cb_connectionState.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cb_connectionState.ForeColor = System.Drawing.Color.Black;
             this.cb_connectionState.Location = new System.Drawing.Point(10, 180);
-            this.cb_connectionState.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.cb_connectionState.Margin = new System.Windows.Forms.Padding(10);
             this.cb_connectionState.Name = "cb_connectionState";
             this.cb_connectionState.Size = new System.Drawing.Size(179, 35);
             this.cb_connectionState.TabIndex = 30;
@@ -1391,7 +1375,7 @@
             this.asdf.Font = new System.Drawing.Font("Leelawadee UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.asdf.ForeColor = System.Drawing.Color.White;
             this.asdf.Location = new System.Drawing.Point(10, 10);
-            this.asdf.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.asdf.Margin = new System.Windows.Forms.Padding(10);
             this.asdf.Name = "asdf";
             this.asdf.Padding = new System.Windows.Forms.Padding(0, 0, 0, 2);
             this.asdf.Size = new System.Drawing.Size(179, 40);
@@ -1414,7 +1398,7 @@
             this.Controls.Add(this.panel3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ConfigSettings";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Settings";
@@ -1533,6 +1517,5 @@
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Panel p_forServoDisplays;
-        private System.Windows.Forms.Button button1;
     }
 }
