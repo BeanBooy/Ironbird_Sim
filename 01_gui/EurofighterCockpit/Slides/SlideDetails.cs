@@ -17,9 +17,6 @@ namespace EurofighterCockpit.Slides
 {
     public partial class SlideDetails : BaseSlide
     {
-        private Image image = null;
-        private Bitmap scaledImage;
-
         public SlideDetails(byte[] data, Image image) {
             InitializeComponent();
 
@@ -29,7 +26,6 @@ namespace EurofighterCockpit.Slides
             l_title.Text = detail.Title;
             l_text.Text = detail.Description;
             PopulateTable(tlp_data, detail.Data);
-            this.image = image;
             pb_image.Image = image;
         }
 
@@ -73,6 +69,55 @@ namespace EurofighterCockpit.Slides
 
             table.ResumeLayout();
         }
+
+        //public static void PopulateTable(TableLayoutPanel table, Dictionary<string, object> data) {
+        //    table.SuspendLayout();
+        //    table.Visible = false;
+
+        //    table.Controls.Clear();
+        //    table.RowStyles.Clear();
+        //    table.ColumnStyles.Clear();
+
+        //    table.ColumnCount = 2;
+        //    table.RowCount = data.Count;
+
+        //    table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 40));
+        //    table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 60));
+
+        //    var italicFont = new Font(table.Font, FontStyle.Italic);
+
+        //    int row = 0;
+
+        //    foreach (var kvp in data) {
+        //        table.RowStyles.Add(new RowStyle(SizeType.AutoSize));
+
+        //        var keyLabel = new Label {
+        //            Text = kvp.Key,
+        //            Dock = DockStyle.Fill,
+        //            AutoSize = false,
+        //            TextAlign = ContentAlignment.MiddleLeft,
+        //            Padding = new Padding(3)
+        //        };
+
+        //        var valueLabel = new Label {
+        //            Text = kvp.Value?.ToString() ?? "null",
+        //            Dock = DockStyle.Fill,
+        //            AutoSize = false,
+        //            Font = italicFont,
+        //            TextAlign = ContentAlignment.MiddleLeft,
+        //            Padding = new Padding(3)
+        //        };
+
+        //        table.Controls.Add(keyLabel, 0, row);
+        //        table.Controls.Add(valueLabel, 1, row);
+
+        //        row++;
+        //    }
+
+        //    table.Visible = true;
+        //    table.ResumeLayout();
+        //}
+
     }
 
     public class SlideDetailJson

@@ -246,7 +246,6 @@
             this.Controls.Add(this.btn_Tank);
             this.Name = "SlideWeaponry";
             this.Size = new System.Drawing.Size(1600, 1080);
-            this.Load += new System.EventHandler(this.SlideWeaponry_Load);
             this.ResumeLayout(false);
 
         }

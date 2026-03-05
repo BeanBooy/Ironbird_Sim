@@ -50,6 +50,7 @@
             // btn_Eurofighter
             // 
             this.btn_Eurofighter.BackColor = System.Drawing.Color.Black;
+            this.btn_Eurofighter.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Eurofighter.FlatAppearance.BorderSize = 3;
             this.btn_Eurofighter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Eurofighter.Font = new System.Drawing.Font("Leelawadee UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -83,6 +84,7 @@
             // btn_Engine
             // 
             this.btn_Engine.BackColor = System.Drawing.Color.Black;
+            this.btn_Engine.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Engine.FlatAppearance.BorderSize = 3;
             this.btn_Engine.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Engine.Font = new System.Drawing.Font("Leelawadee UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -99,6 +101,7 @@
             // btn_Movie
             // 
             this.btn_Movie.BackColor = System.Drawing.Color.Black;
+            this.btn_Movie.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Movie.FlatAppearance.BorderSize = 3;
             this.btn_Movie.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Movie.Font = new System.Drawing.Font("Leelawadee UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -115,6 +118,7 @@
             // btn_Joystick
             // 
             this.btn_Joystick.BackColor = System.Drawing.Color.Black;
+            this.btn_Joystick.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Joystick.FlatAppearance.BorderSize = 3;
             this.btn_Joystick.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Joystick.Font = new System.Drawing.Font("Leelawadee UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -131,6 +135,7 @@
             // btn_Weaponry
             // 
             this.btn_Weaponry.BackColor = System.Drawing.Color.Black;
+            this.btn_Weaponry.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Weaponry.FlatAppearance.BorderSize = 3;
             this.btn_Weaponry.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Weaponry.Font = new System.Drawing.Font("Leelawadee UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -147,6 +152,7 @@
             // btn_Systems
             // 
             this.btn_Systems.BackColor = System.Drawing.Color.Black;
+            this.btn_Systems.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Systems.FlatAppearance.BorderSize = 3;
             this.btn_Systems.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Systems.Font = new System.Drawing.Font("Leelawadee UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

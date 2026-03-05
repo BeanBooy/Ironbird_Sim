@@ -1,4 +1,5 @@
 ﻿using EurofighterCockpit.Properties;
+using EurofighterCockpit.Slides;
 using System;
 using System.IO;
 using System.Linq;

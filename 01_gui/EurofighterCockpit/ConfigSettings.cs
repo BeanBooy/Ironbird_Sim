@@ -139,6 +139,8 @@ namespace EurofighterCockpit
             bpb_positionLights.Progress = data.PositionalLights ? 100 : 0;
             bpb_strobeLights.Progress = data.StrobeLights ? 100 : 0;
             bpb_landingLights.Progress = data.LandingLights ? 100 : 0;
+            // also display inputs on the joystick slide
+            SlideJoystick.GetInstance().DisplayControllerInput(data);
         }
 
         private void onConnectionStatusChanged(bool connected) {
@@ -232,22 +234,18 @@ namespace EurofighterCockpit
                 new SlideSystems(),
                 new SlideWeaponry(),
                 new SlideEngine(),
-                new Slide2(),
+                new SlideJoystick(),
                 new SlideMovie(),
-                //new Slide2(),
-                //new Slide3(),
             };
             subSlides = new BaseSlide[] {
-                //new Slide1(),
-                //new Slide4(),
                 new SlideDetails(Resources.Taurus, Resources.TaurusImage),
                 new SlideDetails(Resources.ThousandLiterTank, Resources.ThousandLiterTankImage),
                 new SlideDetails(Resources.PavewayII, Resources.PavewayllImage),
                 new SlideDetails(Resources.AIM9Sidewinder, Resources.AIM9SidewinderImage),
                 new SlideDetails(Resources.Meteor, Resources.MeteorImage),
-                new SlideDetails(Resources.RECCE, Resources.RECCEImager),
-                new SlideDetails(Resources.LaserDesignPod, Resources.LaserDesignPodImager),
-                new SlideDetails(Resources.IRIST, Resources.IRISTImager),
+                new SlideDetails(Resources.RECCE, Resources.RECCEImage),
+                new SlideDetails(Resources.LaserDesignPod, Resources.LaserDesignPodImage),
+                new SlideDetails(Resources.IRIST, Resources.IRISTImage),
                 new SlideDetails(Resources.AGM88HARM, Resources.AGM88HARMImage),
                 new SlideDetails(Resources.AIM120AMRAAM, Resources.AIM120AMRAAMImage),
             };

@@ -30,12 +30,14 @@ namespace EurofighterCockpit
         public void ShowSlide(int slideIndex) {
             if (currentSlideIndex == slideIndex)
                 return;
-            currentSlideIndex = slideIndex;
             // to prevent index out of range error
             if (slideIndex < 0 || slideIndex >= slides.Length)
                 return;
+            // load selected slide onto panel
+            currentSlideIndex = slideIndex;
             p_content.Controls.Clear();
             p_content.Controls.Add(slides[slideIndex]);
+            slides[slideIndex].OnShow();
         }
 
         private void ResetAllButtons() {

@@ -2,7 +2,7 @@
 
 namespace EurofighterCockpit
 {
-    internal class JoystickData
+    public class JoystickData
     {
         private bool throttleConnected;
         private bool joystickConnected;
