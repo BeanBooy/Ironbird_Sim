@@ -133,6 +133,7 @@ namespace EurofighterCockpit.Slides
             this.button10.TabIndex = 15;
             this.button10.Text = "Comms";
             this.button10.UseVisualStyleBackColor = false;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // button14
             // 
@@ -168,6 +169,7 @@ namespace EurofighterCockpit.Slides
             this.button11.TabIndex = 14;
             this.button11.Text = "A+I";
             this.button11.UseVisualStyleBackColor = false;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
             // button13
             // 
@@ -203,6 +205,7 @@ namespace EurofighterCockpit.Slides
             this.button12.TabIndex = 13;
             this.button12.Text = "DASS";
             this.button12.UseVisualStyleBackColor = false;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
             // panel2
             // 
@@ -226,6 +229,7 @@ namespace EurofighterCockpit.Slides
             this.label1.TabIndex = 0;
             this.label1.Text = "Avionic\r\nSysteme";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // button1
             // 
@@ -241,6 +245,7 @@ namespace EurofighterCockpit.Slides
             this.button1.TabIndex = 17;
             this.button1.Text = "Jettison\r\nund CES";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -256,6 +261,7 @@ namespace EurofighterCockpit.Slides
             this.button2.TabIndex = 18;
             this.button2.Text = "Triebwerke";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -271,6 +277,7 @@ namespace EurofighterCockpit.Slides
             this.button3.TabIndex = 19;
             this.button3.Text = "Struktur";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // panel3
             // 
@@ -294,6 +301,7 @@ namespace EurofighterCockpit.Slides
             this.label2.TabIndex = 0;
             this.label2.Text = "GSS";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // panel4
             // 
@@ -323,6 +331,7 @@ namespace EurofighterCockpit.Slides
             this.button4.TabIndex = 16;
             this.button4.Text = "ESS";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button5
             // 
@@ -340,6 +349,7 @@ namespace EurofighterCockpit.Slides
             this.button5.TabIndex = 10;
             this.button5.Text = "MSS";
             this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button6
             // 
@@ -357,6 +367,7 @@ namespace EurofighterCockpit.Slides
             this.button6.TabIndex = 15;
             this.button6.Text = "GLU";
             this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button7
             // 
@@ -372,6 +383,7 @@ namespace EurofighterCockpit.Slides
             this.button7.TabIndex = 22;
             this.button7.Text = "FCS";
             this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // panel5
             // 
@@ -395,6 +407,7 @@ namespace EurofighterCockpit.Slides
             this.label3.TabIndex = 0;
             this.label3.Text = "Allgemeine\r\nSysteme";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // panel6
             // 

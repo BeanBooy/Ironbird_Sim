@@ -1,0 +1,15 @@
+{
+  "title": "DASS",
+  "data": {
+    "DAC": "Defensive Aids Computer",
+    "ESM": "Electronic Support Measures",
+    "ECM": "Elctronic Countermeasures (bspw. Jamming)",
+    "Chaff-Dispenser ": "Aluminiumbedampfte Glasfasern blenden das feindliche Radar",
+    "Flare-Dispenser": "",
+    "Flares": "20 cm länge\nZünden schon bei 60 Millivolt",
+   "Missile Approach Warner": "360° Überwachung\nLeitet automatisch Gegenmaßnahmen ein"
+
+
+  },
+  "description": "Das Defensive Aids Subsystem dient der Erkennung und  Gegenwehr sowie Täuschung von sich nähernden Bedrohungen. Hierzu zählen andere Flugkörper mit verschiedensten Zielerkennungssystem wie Laser, Infrarot und Radar."
+}

@@ -1,0 +1,9 @@
+{
+  "title": "GSS",
+  "data": {
+    "Name": "Ground Support System",
+    "Bestandteile": "- Mission Support Subsystem\n- Engineering Support Subsystem\n- Ground Loading Unit",
+    "Funktion": "- Verwaltung des EF am Boden\n- Wartung und Instandhaltung\n- Missionsdaten"
+  },
+  "description": "Das Ground Support System ist eine Kombination aus Hardware- und Softwarelösungen, mit denen das Flugzeug am Boden verwaltet werden kann. Es besteht aus aus dem Engineering Support Subsystem, dem Mission Support Subsystem und der Ground Loading und Data Transfer Unit."
+}

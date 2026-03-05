@@ -254,6 +254,18 @@ namespace EurofighterCockpit
                 new SlideDetails(Resources.DC, Resources.DCImage),
                 new SlideDetails(Resources.NAV, Resources.NAVImage),
                 new SlideDetails(Resources.ACS, Resources.ACSImage),
+                new SlideDetails(Resources.DASS, Resources.DASSImage),
+                new SlideDetails(Resources.AI, Resources.AIImage),
+                new SlideDetails(Resources.COMMS, Resources.COMMSImage),
+                new SlideDetails(Resources.Structure, Resources.StructureImage),
+                new SlideDetails(Resources.JettisonCES, Resources.JettisonCESImage),
+                new SlideDetails(Resources.Engines, Resources.EnginesImage),
+                new SlideDetails(Resources.FCS, Resources.FCSImage),
+                new SlideDetails(Resources.AvionicSystems, Resources.AvionicSystemsImage),
+                new SlideDetails(Resources.GSS, Resources.GSSImage),
+                new SlideDetails(Resources.ESS, Resources.ESSImage),
+                new SlideDetails(Resources.MSS, Resources.MSSImage),
+                new SlideDetails(Resources.GLU, Resources.GLUImage),
             };
             for (int i = 0; i < mainSlides.Length; i++) {
                 mainSlides[i].MainSlideRequested += MainSlideRequestedHandler;
