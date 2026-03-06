@@ -82,6 +82,10 @@ def IdleMode():
         AB.move(AB.idle)
         RU.move(RU.idle)
         LGCD_Driver.request_lg(LG_IN)
+        if LG.current_pos == LG_IN and LCD.move != LCD.idle:
+            time.sleep(2.5)
+            LCD.move(LCD.idle)
+            RCD.move(RCD.idle)
         # detach all servos if possible
         LC.move(None)
         RC.move(None)
@@ -91,10 +95,8 @@ def IdleMode():
         RF.move(None)
         AB.move(None)
         RU.move(None)
-        time.sleep(2)
-        if LG.current_pos == LG_IN:
-            LCD.move(None)
-            RCD.move(None)
+        LCD.move(None)
+        RCD.move(None)
         LED_Driver.LED_manager(LED_ALL_OFF)
     except Exception as e:
         print(f"FError controlling servos: {e}")
