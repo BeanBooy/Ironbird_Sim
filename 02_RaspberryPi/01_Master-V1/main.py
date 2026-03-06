@@ -6,10 +6,10 @@ import threading
 import LED_Driver
 import LGCD_Driver
 import ServoTest_Driver
-from ServoObjects import RCD, LCD, RU, LC, RC, LO, RO, LF, RF, AB
 from LED_Driver import LED_ALL_OFF
-from LGCD_Driver import LG_IN,stop_event
 from adafruit_servokit import ServoKit
+from LGCD_Driver import LG_IN,stop_event
+from ServoObjects import RCD, LCD, RU, LC, RC, LO, RO, LF, RF, AB
 
 # I2C Adresses. If changed and wont work, try also changing adress in *_Driver
 I2CSERVO = 0x40
@@ -180,6 +180,7 @@ while not stop_event.is_set():
         print(f"Connection error: {e}")
     finally:
         try:
+            IdleMode()
             client_socket.close()
         except Exception:
             pass

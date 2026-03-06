@@ -4,7 +4,7 @@ servodriver = ServoKit(channels=16,address=0x40,frequency=50)
 
 
 class Servo:
-    def __init__(self, channel, idle, min_pos=0, max_pos=256, actuation_range=256, min_pulsewidth=1000, max_pulsewidth=2000, inverted=False):
+    def __init__(self, channel, idle, min_pos=0, max_pos=256, actuation_range=256, min_pulsewidth=1000, max_pulsewidth=2300, inverted=False):
         # NOTE: Please remember actuation range in this case 256 because received data isnt 0 to 180 but 0 to 256.
         #       max_pos ca be changed to limit the real range
         self.channel = channel
@@ -44,7 +44,6 @@ class Servo:
         if angle == self.current_pos:
             return
 
-        start = self.current_pos
         end = angle
 
         if self.inverted == True:
@@ -58,7 +57,7 @@ class Servo:
 RCD = Servo(channel=0,idle=0)   # Right Cabindoor
 LCD = Servo(channel=1,idle=0)   # Left Cabindoor
 RU = Servo(channel=2,idle=128)  # Rudder
-LC = Servo(channel=3,idle=127)  # Left Canards
+LC = Servo(channel=3,idle=127)  # Left Canards #3
 RC = Servo(channel=4,idle=128)  # Right Canards
 LO = Servo(channel=5,idle=127)  # Left Aileron (Outboard, Querruder)
 RO = Servo(channel=6,idle=127)  # Right Aileron
