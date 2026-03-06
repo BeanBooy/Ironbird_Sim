@@ -11,10 +11,9 @@ class Servo:
         self.idle = idle
         self.inverted = inverted
         self.min_pos = min_pos
-        if max_pos != actuation_range:
-            self.max_pos = max_pos
-        else:
-            self.max_pos = actuation_range
+
+        self.max_pos = max_pos
+
         self.mid_pos = int(self.max_pos/2)
         self.current_pos = idle
         self.pulsewidth = servodriver.servo[self.channel].set_pulse_width_range(min_pulsewidth, max_pulsewidth)
@@ -36,14 +35,11 @@ class Servo:
         #angle = int(angle*0.703125) # NOTE: from 0 to 256 -> 0° to 180°
 
         raw_angle = max(0, min(255, raw_angle)) # to be sure
-        #if raw_angle == self.idle:
-            #angle = self.idle
-        #else:
-           #angle = self.map_input(raw_angle)
+        
         angle = self.map_input(raw_angle)
         if angle == self.current_pos:
             return
-
+    
         end = angle
 
         if self.inverted == True:

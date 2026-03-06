@@ -27,7 +27,6 @@ def safe_sleep(seconds):
 def test_move():
     try:
         for cycles in range(NUMCYCLES):
-            LED_Driver.LED_manager(LED_ALL_ON)
             if not stop_test.is_set():
                 for byte_value in range(0,256):
                     if stop_test.is_set():
@@ -41,7 +40,7 @@ def test_move():
                     RF.move(byte_value)
                     AB.move(byte_value)
                     time.sleep(0.002) # for smoother movement
-
+                LED_Driver.LED_manager(LED_ALL_ON)
                 RCD.move(RCD.max_pos)
                 LCD.move(LCD.max_pos)
                 safe_sleep(1)
@@ -79,6 +78,11 @@ def test_move():
         LF.move(LF.idle)
         RF.move(RF.idle)
         AB.move(AB.idle)
+        if LG.current_pos == LG_IN and RCD.current_pos == RCD.max_pos:
+            print("Closing Cabindoors...")
+            time.sleep(2) # blocks input-data but is acceptable because test is not used practical
+            RCD.move(RCD.idle)
+            LCD.move(LCD.idle)
         print(f"End of Servotest, went through {NUMCYCLES} cycle(s)")
 
 def start_servo_test():
@@ -100,11 +104,6 @@ def stop_servo_test():
     with future_lock:
         stop_test.set()
         LED_Driver.LED_manager(LED_ALL_OFF)
-        if LG.current_pos == LG_IN and RCD.current_pos == RCD.max_pos:
-            print("Closing Cabindoors...")
-            time.sleep(2) # blocks input-data but is acceptable because test is not used practical
-            RCD.move(RCD.idle)
-            LCD.move(LCD.idle)
         if current_test_future:
             current_test_future.cancel()
 
