@@ -31,7 +31,7 @@ namespace EurofighterCockpit
         private ScreenIndicator[] screenIndicators;
 
         // windows
-        private VideoPlayer videoPlayer;
+        private VLCPlayer videoPlayer;
         private Infotainment infotainment;
         private Infotainment infotainmentSub;
         private int videoPlayerScreenIndex = 0;
