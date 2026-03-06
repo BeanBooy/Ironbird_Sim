@@ -6,10 +6,10 @@ LED_grün = LED(27)   # green
 LED_LG1 = LED(16)    # landing gear 1 und 2
 LED_LG2 = LED(26)
 
-LED_POS = 1
-LED_LG = 4
-LED_ALL_ON = 5
-LED_ALL_OFF = 0
+LED_POS =   0b0001
+LED_LG =    0b0100
+LED_ALL_ON = 0b0101
+LED_ALL_OFF = 0b0000
 
 # LED_LG function only for LGDB_Sequence
 LED_LG_ON = 1
@@ -24,11 +24,11 @@ def LED_LG_manager(toggleLED):
         LED_LG2.off() 
 
 def LED_manager(toggleLED):
-    if toggleLED == LED_POS or toggleLED == 3 or toggleLED == 7:
+    if toggleLED == LED_POS or toggleLED == 0b0011 or toggleLED == 0b0111:
         LED_rot.on()
         LED_grün.on()
 
-    if toggleLED == LED_LG or toggleLED == 6 or toggleLED == 7:
+    if toggleLED == LED_LG or toggleLED == 0b0110 or toggleLED == 0b0111:
         LED_LG1.on()
         LED_LG2.on()
 

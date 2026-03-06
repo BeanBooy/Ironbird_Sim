@@ -9,7 +9,7 @@ import ServoTest_Driver
 from LED_Driver import LED_ALL_OFF
 from adafruit_servokit import ServoKit
 from LGCD_Driver import LG_IN,stop_event
-from ServoObjects import RCD, LCD, RU, LC, RC, LO, RO, LF, RF, AB
+from ServoObjects import RCD, LCD, RU, LC, RC, LO, RO, LF, RF, AB, LG
 
 # I2C Adresses. If changed and wont work, try also changing adress in *_Driver
 I2CSERVO = 0x40
@@ -91,8 +91,10 @@ def IdleMode():
         RF.move(None)
         AB.move(None)
         RU.move(None)
-        LCD.move(None)
-        RCD.move(None)
+        time.sleep(2)
+        if LG.current_pos == LG_IN:
+            LCD.move(None)
+            RCD.move(None)
         LED_Driver.LED_manager(LED_ALL_OFF)
     except Exception as e:
         print(f"FError controlling servos: {e}")
