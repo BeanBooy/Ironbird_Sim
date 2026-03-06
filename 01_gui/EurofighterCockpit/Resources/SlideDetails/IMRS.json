@@ -1,7 +1,6 @@
 {
-    "title": "IMRS",
+  "title": "IMRS - Integrated Monitoring, Test and Recording Subsystem",
   "data": {
-    "Aufzeichnungsmöglichkeiten": "",
     "PDS": "Portable Data Store",
     "VVR": "Video Voice Recorder",
     "CSMU": "Crash Survivable Memory Unit",

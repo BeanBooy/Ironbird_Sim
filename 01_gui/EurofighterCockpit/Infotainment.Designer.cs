@@ -39,7 +39,7 @@
             // 
             // p_content
             // 
-            this.p_content.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.p_content.BackColor = System.Drawing.Color.Black;
             this.p_content.Dock = System.Windows.Forms.DockStyle.Right;
             this.p_content.Location = new System.Drawing.Point(320, 0);
             this.p_content.Margin = new System.Windows.Forms.Padding(2);
@@ -128,7 +128,7 @@
             this.btn_Joystick.Name = "btn_Joystick";
             this.btn_Joystick.Size = new System.Drawing.Size(280, 65);
             this.btn_Joystick.TabIndex = 3;
-            this.btn_Joystick.Text = "Joystick";
+            this.btn_Joystick.Text = "Steuerknüppel";
             this.btn_Joystick.UseVisualStyleBackColor = false;
             this.btn_Joystick.Click += new System.EventHandler(this.btn_Click);
             // 

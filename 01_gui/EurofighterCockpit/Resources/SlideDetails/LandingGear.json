@@ -1,7 +1,7 @@
 {
   "title": "Fahrwerk",
   "data": {
-    "Räder": "2 (Hauptfahrwerk) + 1 (Bugfahrwerk)",
+    "Fahrwerk": "2 (Hauptfahrwerk) + 1 (Bugfahrwerk)",
     "Dämpfung": "Hydraulisch-pneumatisch",
     "Lenkung": "Bugfahrwerk",
     "Bremse": "Hauptfahrwerk",

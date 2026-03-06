@@ -363,6 +363,26 @@ namespace EurofighterCockpit.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Byte[].
         /// </summary>
+        internal static byte[] Eurofighter {
+            get {
+                object obj = ResourceManager.GetObject("Eurofighter", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap EurofighterImage {
+            get {
+                object obj = ResourceManager.GetObject("EurofighterImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Byte[].
+        /// </summary>
         internal static byte[] FCS {
             get {
                 object obj = ResourceManager.GetObject("FCS", resourceCulture);
@@ -776,6 +796,26 @@ namespace EurofighterCockpit.Properties {
         internal static System.Drawing.Bitmap SPSImage {
             get {
                 object obj = ResourceManager.GetObject("SPSImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Byte[].
+        /// </summary>
+        internal static byte[] Stick {
+            get {
+                object obj = ResourceManager.GetObject("Stick", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap StickImage {
+            get {
+                object obj = ResourceManager.GetObject("StickImage", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

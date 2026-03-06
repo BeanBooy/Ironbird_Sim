@@ -16,6 +16,10 @@ namespace EurofighterCockpit.Slides
             InitializeComponent();
         }
 
+        public override void OnShow() {
+            RequestSubSlide("joystick");
+        }
+
         private void btn_launchMovie_Click(object sender, EventArgs e) {
             RequestMovie();
         }

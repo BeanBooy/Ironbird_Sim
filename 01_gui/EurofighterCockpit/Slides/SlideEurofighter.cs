@@ -15,5 +15,9 @@ namespace EurofighterCockpit.Slides
         public SlideEurofighter() {
             InitializeComponent();
         }
+
+        public override void OnShow() {
+            RequestSubSlide("eurofighter");
+        }
     }
 }

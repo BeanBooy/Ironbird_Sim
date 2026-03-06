@@ -2,6 +2,8 @@
 using EurofighterCockpit.Slides;
 using SharpDX;
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -37,8 +39,10 @@ namespace EurofighterCockpit
         private int infotainmentSubScreenIndex = 0;
 
         // slides
-        private BaseSlide[] mainSlides = null;
-        private BaseSlide[] subSlides = null;
+        private Dictionary<string, BaseSlide> mainSlides = null;
+        private Dictionary<string, BaseSlide> subSlides = null;
+        //private BaseSlide[] mainSlides = null;
+        //private BaseSlide[] subSlides = null;
 
         // properties
         public bool ShowScreenIndicator { 
@@ -229,69 +233,81 @@ namespace EurofighterCockpit
         // ===============================================================
 
         private void initializeSlides() {
-            mainSlides = new BaseSlide[] {
-                new SlideEurofighter(),
-                new SlideSystems(),
-                new SlideWeaponry(),
-                new SlideEngine(),
-                new SlideJoystick(),
-                new SlideMovie(),
+            //mainSlides = new BaseSlide[] {
+            //    new SlideEurofighter(),
+            //    new SlideSystems(),
+            //    new SlideWeaponry(),
+            //    new SlideEngine(),
+            //    new SlideJoystick(),
+            //    new SlideMovie(),
+            //};
+            mainSlides = new Dictionary<string, BaseSlide>() {
+                { "eurofighter", new SlideEurofighter() },
+                { "systems", new SlideSystems() },
+                { "weaponry", new SlideWeaponry() },
+                { "engine", new SlideEngine() },
+                { "joystick", new SlideJoystick() },
+                { "movie", new SlideMovie() }
             };
-            subSlides = new BaseSlide[] {
+            subSlides = new Dictionary<string, BaseSlide>() {
+                { "eurofighter", new SlideDetails(Resources.Eurofighter, Resources.EurofighterImage) },
+                { "stick", new SlideDetails(Resources.Stick, Resources.StickImage) },
+                { "joystick", new SlideJoystick() },
                 // weaponry slides
-                new SlideDetails(Resources.Taurus, Resources.TaurusImage),
-                new SlideDetails(Resources.ThousandLiterTank, Resources.ThousandLiterTankImage),
-                new SlideDetails(Resources.PavewayII, Resources.PavewayllImage),
-                new SlideDetails(Resources.AIM9Sidewinder, Resources.AIM9SidewinderImage),
-                new SlideDetails(Resources.Meteor, Resources.MeteorImage),
-                new SlideDetails(Resources.RECCE, Resources.RECCEImage),
-                new SlideDetails(Resources.LaserDesignatorPod, Resources.LaserDesignPodImage),
-                new SlideDetails(Resources.IRIST, Resources.IRISTImage),
-                new SlideDetails(Resources.AGM88HARM, Resources.AGM88HARMImage),
-                new SlideDetails(Resources.AIM120AMRAAM, Resources.AIM120AMRAAMImage),
+                { "taurus", new SlideDetails(Resources.Taurus, Resources.TaurusImage) },
+                { "1000LiterTank", new SlideDetails(Resources.ThousandLiterTank, Resources.ThousandLiterTankImage) },
+                { "paveway2", new SlideDetails(Resources.PavewayII, Resources.PavewayllImage) },
+                { "aim9Sidewinder", new SlideDetails(Resources.AIM9Sidewinder, Resources.AIM9SidewinderImage) },
+                { "meteor", new SlideDetails(Resources.Meteor, Resources.MeteorImage) },
+                { "recce", new SlideDetails(Resources.RECCE, Resources.RECCEImage) },
+                { "laserPod", new SlideDetails(Resources.LaserDesignatorPod, Resources.LaserDesignPodImage) },
+                { "irisT", new SlideDetails(Resources.IRIST, Resources.IRISTImage) },
+                { "agm88harm", new SlideDetails(Resources.AGM88HARM, Resources.AGM88HARMImage) },
+                { "aim120amraam", new SlideDetails(Resources.AIM120AMRAAM, Resources.AIM120AMRAAMImage) },
                 // system slides
-                new SlideDetails(Resources.IMRS, Resources.IMRSImage),
-                new SlideDetails(Resources.DC, Resources.DCImage),
-                new SlideDetails(Resources.NAV, Resources.NAVImage),
-                new SlideDetails(Resources.ACS, Resources.ACSImage),
-                new SlideDetails(Resources.DASS, Resources.DASSImage),
-                new SlideDetails(Resources.AI, Resources.AIImage),
-                new SlideDetails(Resources.COMMS, Resources.COMMSImage),
-                new SlideDetails(Resources.Structure, Resources.StructureImage),
-                new SlideDetails(Resources.JettisonCES, Resources.JettisonCESImage),
-                new SlideDetails(Resources.Engines, Resources.EnginesImage),
-                new SlideDetails(Resources.FCS, Resources.FCSImage),
-                new SlideDetails(Resources.AvionicSystems, Resources.AvionicSystemsImage),
-                new SlideDetails(Resources.GSS, Resources.GSSImage),
-                new SlideDetails(Resources.ESS, Resources.ESSImage),
-                new SlideDetails(Resources.MSS, Resources.MSSImage),
-                new SlideDetails(Resources.GLU, Resources.GLUImage),
-                new SlideDetails(Resources.GeneralSystems, Resources.GeneralSystemsImage),
-                new SlideDetails(Resources.LandingGear, Resources.LandingGearImage),
-                new SlideDetails(Resources.Electric, Resources.ElectricImage),
-                new SlideDetails(Resources.ECSLSS, Resources.ECSLSSImage),
-                new SlideDetails(Resources.Fuel, Resources.FuelImage),
-                new SlideDetails(Resources.Hydraulic, Resources.HydraulicImage),
-                new SlideDetails(Resources.SPS, Resources.SPSImage),
-                // engine slides:
-                new SlideDetails(Resources.HDCompressor, Resources.HDCompressorImage),
-                new SlideDetails(Resources.HDTurbine, Resources.HDTurbineImage),
-                new SlideDetails(Resources.Afterburner, Resources.AfterburnerImage),
-                new SlideDetails(Resources.Thruster, Resources.ThrusterImage),
-                new SlideDetails(Resources.NDCompressor, Resources.NDCompressorImage),
-                new SlideDetails(Resources.BurningChamber, Resources.BurningChamberImage),
-                new SlideDetails(Resources.NDTurbine, Resources.NDTurbineImage),
-                // other slides
-                new SlideDetails(Resources.Eurofighter, Resources.EurofighterImage),
-                new SlideDetails(Resources.Engine, Resources.EngineImage),
-                new SlideDetails(Resources.Joystick, Resources.JoystickImage),
-                // TODO some sub slide for the movie slide
+                { "imrs", new SlideDetails(Resources.IMRS, Resources.IMRSImage) },
+                { "dc", new SlideDetails(Resources.DC, Resources.DCImage) },
+                { "nav", new SlideDetails(Resources.NAV, Resources.NAVImage) },
+                { "acs", new SlideDetails(Resources.ACS, Resources.ACSImage) },
+                { "dass", new SlideDetails(Resources.DASS, Resources.DASSImage) },
+                { "ai", new SlideDetails(Resources.AI, Resources.AIImage) },
+                { "comms", new SlideDetails(Resources.COMMS, Resources.COMMSImage) },
+                { "structure", new SlideDetails(Resources.Structure, Resources.StructureImage) },
+                { "jettisonCes", new SlideDetails(Resources.JettisonCES, Resources.JettisonCESImage) },
+                { "engines", new SlideDetails(Resources.Engines, Resources.EnginesImage) },
+                { "fcs", new SlideDetails(Resources.FCS, Resources.FCSImage) },
+                { "avionicSystems", new SlideDetails(Resources.AvionicSystems, Resources.AvionicSystemsImage) },
+                { "gss", new SlideDetails(Resources.GSS, Resources.GSSImage) },
+                { "ess", new SlideDetails(Resources.ESS, Resources.ESSImage) },
+                { "mss", new SlideDetails(Resources.MSS, Resources.MSSImage) },
+                { "glu", new SlideDetails(Resources.GLU, Resources.GLUImage) },
+                { "generalSystems", new SlideDetails(Resources.GeneralSystems, Resources.GeneralSystemsImage) },
+                { "landingGear", new SlideDetails(Resources.LandingGear, Resources.LandingGearImage) },
+                { "electric", new SlideDetails(Resources.Electric, Resources.ElectricImage) },
+                { "ecslss", new SlideDetails(Resources.ECSLSS, Resources.ECSLSSImage) },
+                { "fuel", new SlideDetails(Resources.Fuel, Resources.FuelImage) },
+                { "hydraulic", new SlideDetails(Resources.Hydraulic, Resources.HydraulicImage) },
+                { "sps", new SlideDetails(Resources.SPS, Resources.SPSImage) },
+                // engine slides
+                { "hdCompressor", new SlideDetails(Resources.HDCompressor, Resources.HDCompressorImage) },
+                { "hdTurbine", new SlideDetails(Resources.HDTurbine, Resources.HDTurbineImage) },
+                { "afterburner", new SlideDetails(Resources.Afterburner, Resources.AfterburnerImage) },
+                { "thruster", new SlideDetails(Resources.Thruster, Resources.ThrusterImage) },
+                { "ndCompressor", new SlideDetails(Resources.NDCompressor, Resources.NDCompressorImage) },
+                { "burningChamber", new SlideDetails(Resources.BurningChamber, Resources.BurningChamberImage) },
+                { "ndTurbine", new SlideDetails(Resources.NDTurbine, Resources.NDTurbineImage) }
             };
-            for (int i = 0; i < mainSlides.Length; i++) {
-                mainSlides[i].MainSlideRequested += MainSlideRequestedHandler;
-                mainSlides[i].SubSlideRequested += SubSlideRequestedHandler;
-                mainSlides[i].MovieRequested += MovieRequestedHandler;
+            // add events to all main slides
+            foreach (BaseSlide slide in mainSlides.Values) {
+                slide.MainSlideRequested += MainSlideRequestedHandler;
+                slide.SubSlideRequested += SubSlideRequestedHandler;
+                slide.MovieRequested += MovieRequestedHandler;
             }
+            //for (int i = 0; i < mainSlides.Length; i++) {
+            //    mainSlides[i].MainSlideRequested += MainSlideRequestedHandler;
+            //    mainSlides[i].SubSlideRequested += SubSlideRequestedHandler;
+            //    mainSlides[i].MovieRequested += MovieRequestedHandler;
+            //}
         }
 
         private void initializeScreens() {
@@ -318,8 +334,7 @@ namespace EurofighterCockpit
             populateScreenSelectors(tlp_infotainment, infotainment, screenCount);
             populateScreenSelectors(tlp_infotainmentSub, infotainmentSub, screenCount);
 
-            ShowMainSlide(0);
-            ShowSubSlide(0);
+            ShowMainSlide("eurofighter");
         }
 
         private void toggleScreenIndicator() {
@@ -472,18 +487,19 @@ namespace EurofighterCockpit
 
         #endregion
 
-        public void ShowMainSlide(int slideIndex) {
-            // to prevent index out of range error
-            if (slideIndex < 0 || slideIndex >= mainSlides.Length)
-                return;
-            infotainment.ShowSlide(slideIndex);
+        public void ShowMainSlide(string slideName) {
+            //// to prevent index out of range error
+            //if (slideIndex < 0 || slideIndex >= mainSlides.Length)
+            //    return;
+            //infotainment.ShowSlide(slideIndex);
+
+            if (mainSlides.ContainsKey(slideName))
+                infotainment.ShowSlide(slideName);
         }
 
-        public void ShowSubSlide(int slideIndex) {
-            // to prevent index out of range error
-            if (slideIndex < 0 || slideIndex >= subSlides.Length)
-                return;
-            infotainmentSub.ShowSlide(slideIndex);
+        public void ShowSubSlide(string slideName) {
+            if (subSlides.ContainsKey(slideName))
+                infotainmentSub.ShowSlide(slideName);
         }
 
         private void MainSlideRequestedHandler(object sender, SlideNavigationEventArgs e) {
@@ -498,7 +514,7 @@ namespace EurofighterCockpit
 
         private void MovieRequestedHandler(object sender, EventArgs e) {
             controller.StartMovieSequence();
-            videoPlayer.StartMovie("C:\\Users\\maini\\Desktop\\DemoVideo.mp4");
+            videoPlayer?.StartMovie("C:\\Users\\maini\\Desktop\\DemoVideo.mp4");
         }
     }
 }

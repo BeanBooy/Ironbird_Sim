@@ -9,12 +9,12 @@ namespace EurofighterCockpit.Slides
         public event EventHandler<SlideNavigationEventArgs> SubSlideRequested;
         public event EventHandler<EventArgs> MovieRequested;
 
-        public void RequestMainSlide(int targetSlide) {
-            MainSlideRequested?.Invoke(this, new SlideNavigationEventArgs(targetSlide));
+        public void RequestMainSlide(string targetSlideName) {
+            MainSlideRequested?.Invoke(this, new SlideNavigationEventArgs(targetSlideName));
         }
 
-        public void RequestSubSlide(int targetSlide) {
-            SubSlideRequested?.Invoke(this, new SlideNavigationEventArgs(targetSlide));
+        public void RequestSubSlide(string targetSlideName) {
+            SubSlideRequested?.Invoke(this, new SlideNavigationEventArgs(targetSlideName));
         }
 
         public void RequestMovie() {

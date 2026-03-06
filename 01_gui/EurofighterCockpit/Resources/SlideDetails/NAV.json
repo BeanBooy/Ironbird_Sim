@@ -1,7 +1,6 @@
 {
-  "title": "NAV",
+  "title": "Nav-System",
   "data": {
-    "Bestandteile des Nav-Subsystems": "",
     "MLS": "Microwave Landing System",
     "RadAlt": "Radar-Altimeter",
     "LINS": "Laser Inertial Navigation System",

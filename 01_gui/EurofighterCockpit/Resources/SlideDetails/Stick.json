@@ -1,0 +1,7 @@
+{
+  "title": "Steuerknüppel und Schubhebel",
+  "data": {
+    "Funktionen": "- Radar Air Combat Mode\n- Air/Air Weapons Select\n- Pitch/Roll Trim\n- Safety Interlock\n- Weapon Commit\n- Gun/Missile\n- Head Up Display\n- Auto Pilot\n- Nose Wheel Steering\n- Identification Friend or Foe"
+  },
+  "description": "Der EF wird über einen Steuerknüppel in der Mitte und einen Schubhebel auf der linken Seite gesteuert. Auf beiden sind jeweils zwölf Schalter angebracht. Die Bedienung des Flugzeuges ist hoch automatisiert: Bei einem Bombenangriff kann z.B. die Feuertaste permanent gedrückt werden, die Bomben werden automatisch im richtigen Moment ausgeklinkt. Die Automatisierung ist dabei mehrschichtig angelegt: Unerfahrene Piloten können einen hohen Grad wählen um sich besser auf Taktik und Flug zu konzentrieren, während erfahrene Piloten mehr Interaktionsmöglichkeiten mit dem System zur Verfügung stehen. Im Regelfall wird die Maschine nach dem VTAS-Prinzip (Voice, Throttle & Stick) gesteuert, die häufigsten Befehle können also nach dem HOTAS-Prinzip (Hands on Throttle and Stick) ausgewählt werden."
+}

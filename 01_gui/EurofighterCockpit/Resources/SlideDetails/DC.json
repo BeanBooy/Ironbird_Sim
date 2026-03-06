@@ -1,16 +1,16 @@
 {
-    "title": "D+C",
+  "title": "D+C - Displays and Controls System",
   "data": {
     "MHDD": "Multi Funktion Head Down Displays",
     "HUD": "Head Up Display",
     "CSG": "Computer Symbol Generator",
     "CIU": "Cockpit Interface Unit",
     "LHGS": "Left Hand Glare Shield",
-    "RHGS": "Right Hand Glareshield",
+    "RHGS": "Right Hand Glare Shield",
     "DMG": "Digital Map Generator",
     "DWP": "Dedicated Warning Panel",
     "HEAPU": "Head Equipment Assembly Processing Unit",
     "GDWS": "Ground Proximity Warning System"
   },
-  "description": "Das Displays and Controls System ist das Man-Machine-Interface des Eurofighters. Alle visuellen Ausgaben sowie die Eingaben desPiloten werden von ihm übernommen."
+  "description": "Das Displays and Controls System ist das Man-Machine-Interface des Eurofighters.\nAlle visuellen Ausgaben sowie die Eingaben des Piloten werden von ihm übernommen."
 }

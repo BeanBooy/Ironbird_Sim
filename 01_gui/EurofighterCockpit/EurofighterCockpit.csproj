@@ -92,32 +92,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="SlideNavigationEventArgs.cs" />
-    <Compile Include="Slides\Slide1.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Slides\Slide1.Designer.cs">
-      <DependentUpon>Slide1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Slides\Slide2.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Slides\Slide2.Designer.cs">
-      <DependentUpon>Slide2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Slides\Slide3.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Slides\Slide3.Designer.cs">
-      <DependentUpon>Slide3.cs</DependentUpon>
-    </Compile>
     <Compile Include="Slides\BaseSlide.cs">
       <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Slides\Slide4.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Slides\Slide4.Designer.cs">
-      <DependentUpon>Slide4.cs</DependentUpon>
     </Compile>
     <Compile Include="Slides\SlideDetails.cs">
       <SubType>UserControl</SubType>
@@ -210,18 +186,6 @@
     <Compile Include="VideoPlayer.Designer.cs">
       <DependentUpon>VideoPlayer.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Slides\Slide1.resx">
-      <DependentUpon>Slide1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Slides\Slide2.resx">
-      <DependentUpon>Slide2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Slides\Slide3.resx">
-      <DependentUpon>Slide3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Slides\Slide4.resx">
-      <DependentUpon>Slide4.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Slides\SlideDetails.resx">
       <DependentUpon>SlideDetails.cs</DependentUpon>
     </EmbeddedResource>
@@ -280,6 +244,8 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <EmbeddedResource Include="Resources\SlideDetails\Taurus.json" />
+    <None Include="Resources\SlideDetails\Eurofighter.json" />
+    <None Include="Resources\SlideDetails\Stick.json" />
     <None Include="Resources\SlideDetails\ACS.json" />
     <None Include="Resources\SlideDetails\Afterburner.json" />
     <None Include="Resources\SlideDetails\AGM88HARM.json" />
@@ -375,8 +341,8 @@
     <Content Include="Resources\SlideDetails\DASS.png" />
     <Content Include="Resources\SlideDetails\DC.png" />
     <Content Include="Resources\SlideDetails\ECSLSS.png" />
+    <Content Include="Resources\SlideDetails\Eurofighter.png" />
     <Content Include="Resources\SlideDetails\Electric.png" />
-    <Content Include="Resources\SlideDetails\Engines.png" />
     <Content Include="Resources\SlideDetails\ESS.png" />
     <Content Include="Resources\SlideDetails\FCS.png" />
     <Content Include="Resources\SlideDetails\Fuel.png" />
@@ -400,10 +366,12 @@
     <Content Include="Resources\SlideDetails\NDCompressor.png" />
     <Content Include="Resources\SlideDetails\Pavewayll.png" />
     <Content Include="Resources\SlideDetails\RECCE.png" />
+    <Content Include="Resources\SlideDetails\Stick.png" />
     <Content Include="Resources\SlideDetails\Thruster.png" />
     <Content Include="Resources\SlideDetails\SPS.png" />
     <Content Include="Resources\SlideDetails\Structure.png" />
     <Content Include="Resources\SlideDetails\ThousandLiterTank.png" />
+    <Content Include="Resources\SlideDetails\Engines.png" />
     <EmbeddedResource Include="Resources\SlideDetails\Taurus.png" />
     <Content Include="Resources\Assets\TwoBirds.jpg" />
     <Content Include="Resources\Assets\BackroundPanelSelectButtons.jpg" />

@@ -19,6 +19,10 @@ namespace EurofighterCockpit.Slides
             instance = this;
         }
 
+        public override void OnShow() {
+            RequestSubSlide("stick");
+        }
+
         public static SlideJoystick GetInstance() {
             // instance required to set controller input updates
             return instance;

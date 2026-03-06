@@ -1,9 +1,8 @@
 {
-  "title": "GLU",
+  "title": "GLU - Ground Loading Unit",
   "data": {
-    "Name": "Ground Loading Unit ",
     "CPU": "Mobile PIII-500Mhz",
-    "RAM": "256 MB DRAM/ECC (1GB max)" ,
+    "RAM": "256 MB DRAM/ECC (1GB max)",
     "Länge": "430 mm",
     "Breite": "280 mm",
     "Höhe": "370 mm",

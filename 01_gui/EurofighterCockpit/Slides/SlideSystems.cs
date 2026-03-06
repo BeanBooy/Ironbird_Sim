@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using System.Runtime.CompilerServices;
 
 namespace EurofighterCockpit.Slides
 {
@@ -14,98 +7,101 @@ namespace EurofighterCockpit.Slides
     {
         public SlideSystems() {
             InitializeComponent();
-            button1.BackColor = Color.FromArgb(50, Color.Black);
+        }
 
+        public override void OnShow() {
+            button20_Click(button20, null);
         }
 
         private void button9_Click(object sender, EventArgs e) {
-            RequestSubSlide(10);
+            RequestSubSlide("imrs");
         }
 
         private void button15_Click(object sender, EventArgs e) {
-            RequestSubSlide(11);
+            RequestSubSlide("dc");
         }
 
         private void button14_Click(object sender, EventArgs e) {
-            RequestSubSlide(12);
+            RequestSubSlide("nav");
         }
 
         private void button13_Click(object sender, EventArgs e) {
-            RequestSubSlide(13);
+            RequestSubSlide("acs");
         }
 
         private void button12_Click(object sender, EventArgs e) {
-            RequestSubSlide(14);
+            RequestSubSlide("dass");
         }
 
         private void button11_Click(object sender, EventArgs e) {
-            RequestSubSlide(15);
+            RequestSubSlide("ai");
         }
 
         private void button10_Click(object sender, EventArgs e) {
-            RequestSubSlide(16);
+            RequestSubSlide("comms");
         }
         private void button3_Click(object sender, EventArgs e) {
-            RequestSubSlide(17);
+            RequestSubSlide("structure");
         }
 
         private void button1_Click(object sender, EventArgs e) {
-            RequestSubSlide(18);
+            RequestSubSlide("jettisonCes");
         }
 
         private void button2_Click(object sender, EventArgs e) {
-            RequestSubSlide(19);
+            RequestSubSlide("engines");
         }
 
         private void button7_Click(object sender, EventArgs e) {
-            RequestSubSlide(20);
-        }
-        private void label1_Click(object sender, EventArgs e) {
-            RequestSubSlide(21);
-        }
-
-        private void label2_Click(object sender, EventArgs e) {
-            RequestSubSlide(22);
+            RequestSubSlide("fcs");
         }
 
         private void button4_Click(object sender, EventArgs e) {
-            RequestSubSlide(23);
+            RequestSubSlide("ess");
         }
 
         private void button5_Click(object sender, EventArgs e) {
-            RequestSubSlide(24);
+            RequestSubSlide("mss");
         }
 
         private void button6_Click(object sender, EventArgs e) {
-            RequestSubSlide(25);
-        }
-
-        private void label3_Click(object sender, EventArgs e) {
-            RequestSubSlide(26);
+            RequestSubSlide("glu");
         }
 
         private void button8_Click(object sender, EventArgs e) {
-            RequestSubSlide(27);
+            RequestSubSlide("landingGear");
         }
 
         private void button18_Click(object sender, EventArgs e) {
-            RequestSubSlide(28);
+            RequestSubSlide("electric");
         }
 
         private void button21_Click(object sender, EventArgs e) {
-            RequestSubSlide(29);
+            RequestSubSlide("ecslss");
         }
 
         private void button17_Click(object sender, EventArgs e) {
-            RequestSubSlide(30);
+            RequestSubSlide("fuel");
         }
 
         private void button16_Click(object sender, EventArgs e) {
-            RequestSubSlide(31);
+            RequestSubSlide("hydraulic");
         }
 
         private void button19_Click(object sender, EventArgs e) {
-            RequestSubSlide(32);
+            RequestSubSlide("sps");
+        }
+
+        private void button20_Click(object sender, EventArgs e) {
+            RequestSubSlide("avionicSystems");
+        }
+
+        private void button22_Click(object sender, EventArgs e) {
+            RequestSubSlide("generalSystems");
+        }
+
+        private void button23_Click(object sender, EventArgs e) {
+            RequestSubSlide("gss");
         }
     }
 }

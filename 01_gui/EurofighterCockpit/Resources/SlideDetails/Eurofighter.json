@@ -1,0 +1,16 @@
+{
+  "title": "Eurofighter Typhoon",
+  "data": {
+    "Spannweite": "11 m",
+    "Länge": "16 m",
+    "Flügelfläche": "51 m²",
+    "Leermasse": "11 Tonnen",
+    "Max. Gewicht": "23,5 Tonnen",
+    "G-Limits": "+9 bis -3",
+    "Schub (trocken)": "90 kN (60 kN trocken)",
+    "Max. Flughöhe": "> 55000 ft",
+    "Stand - Abheben": "< 8 s",
+    "Geschwindigkeit": "Mach 2"
+  },
+  "description": "Der Eurofighter Typhoon ist ein zweistrahliges Mehrzweckkampfflugzeug, das von Deutschland, Italien, Spanien und Großbritannien in Gemeinschaftsproduktion entwickelt und gebaut wird. Seine operationellen Einsatzgebiete umfassen Luftüberlegenheit und Luftraumüberwachung, Abfangjagd, Unterdrückung und Zerstörung von Luftverteidigungsanlagen, Luftnahunterstützung, Angriff zur See, Strategischer Angriff und Aufklärung."
+}

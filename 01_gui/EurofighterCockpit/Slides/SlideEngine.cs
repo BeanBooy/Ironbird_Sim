@@ -1,12 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace EurofighterCockpit.Slides
 {
@@ -15,31 +7,37 @@ namespace EurofighterCockpit.Slides
         public SlideEngine() {
             InitializeComponent();
         }
+
+        public override void OnShow() {
+            RequestSubSlide("engines");
+        }
+
         private void button1_Click(object sender, EventArgs e) {
-            RequestSubSlide(33);
+            RequestSubSlide("hdCompressor");
         }
 
         private void button3_Click(object sender, EventArgs e) {
-            RequestSubSlide(34);
+            RequestSubSlide("hdTurbine");
         }
 
         private void button5_Click(object sender, EventArgs e) {
-            RequestSubSlide(35);
+            RequestSubSlide("afterburner");
         }
 
         private void button6_Click(object sender, EventArgs e) {
-            RequestSubSlide(36);
+            RequestSubSlide("thruster");
         }
+
         private void button15_Click(object sender, EventArgs e) {
-            RequestSubSlide(37);
+            RequestSubSlide("ndCompressor");
         }
 
         private void button2_Click(object sender, EventArgs e) {
-            RequestSubSlide(38);
+            RequestSubSlide("burningChamber");
         }
 
         private void button4_Click(object sender, EventArgs e) {
-            RequestSubSlide(39);
+            RequestSubSlide("ndTurbine");
         }
     }
 }

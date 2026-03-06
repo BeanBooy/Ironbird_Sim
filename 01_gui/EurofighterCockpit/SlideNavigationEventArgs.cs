@@ -9,9 +9,9 @@ namespace EurofighterCockpit
 {
     public class SlideNavigationEventArgs : EventArgs
     {
-        public int TargetSlide { get; }
+        public string TargetSlide { get; }
 
-        public SlideNavigationEventArgs(int targetSlide) {
+        public SlideNavigationEventArgs(string targetSlide) {
             TargetSlide = targetSlide;
         }
     }
