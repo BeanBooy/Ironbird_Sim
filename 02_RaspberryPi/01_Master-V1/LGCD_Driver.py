@@ -43,7 +43,7 @@ lg_request_buffer = LastValueBuffer()
 
 # NOTE Only for testing. would be in main
 from adafruit_servokit import ServoKit
-servodriver = ServoKit(channels=16, address=0x40, frequency=30)
+servodriver = ServoKit(channels=16, address=0x40, frequency=50)
 
 # safe sleep to exit threads faster
 def safe_sleep(seconds):

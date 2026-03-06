@@ -11,7 +11,7 @@ LG_IN = 0
 
 NUMCYCLES = 2
 I2CSERVO = 0x40
-servodriver = ServoKit(channels=16, address=I2CSERVO, frequency=30)
+servodriver = ServoKit(channels=16, address=I2CSERVO, frequency=50)
 
 stop_test = threading.Event()
 executor = ThreadPoolExecutor(max_workers=1)
@@ -29,7 +29,7 @@ def test_move():
         for cycles in range(NUMCYCLES):
             LED_Driver.LED_manager(LED_ALL_ON)
             if not stop_test.is_set():
-                for byte_value in range(0,256+1):
+                for byte_value in range(0,256):
                     if stop_test.is_set():
                         break
                     RU.move(byte_value)
@@ -49,7 +49,7 @@ def test_move():
                     servodriver.servo[15].fraction = LG_OUT
                     LG.current_pos = LG_OUT
 
-                for byte_value in range(256,0,-1):
+                for byte_value in range(256,-1,-1):
                     if stop_test.is_set():
                         break
                     RU.move(byte_value)

@@ -44,7 +44,7 @@ except Exception as e:
     sys.exit(1)
 
 try:
-    servodriver = ServoKit(channels=16, address=I2CSERVO, frequency=30)
+    servodriver = ServoKit(channels=16, address=I2CSERVO, frequency=50)
 except Exception as e:
     print(f"(SERVO) ServoKit could not be initialized: {e}")
     servodriver = None
