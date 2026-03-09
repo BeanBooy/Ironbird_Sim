@@ -1,0 +1,14 @@
+{
+  "title": "Avionik Systeme",
+  "data": {
+    "COMMS": "Communications Subsystem",
+    "IMRS": "Integr. Monitoring a. Recording Subsystem",
+    "D+C": "Displays and Controls Subsystem",
+    "DASS": "Defensive Aids Subsystem",
+    "ACS": "Armament Control Subsystem",
+    "A+I": "Attack and Identification Subsystem",
+    "Radar Subsystem": "",
+    "NAV": "Navigation Subsystem"
+  },
+  "description": "Das Avionics System (AVS) bezeichnet die Hierarchie der elektronischen Komponenten im Waffensystem Eurofighter, die nicht unerlässlich für die Flugfähigkeit und das Einsatzspektrum des Waffensystems sind."
+}

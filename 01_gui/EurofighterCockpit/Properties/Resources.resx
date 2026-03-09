@@ -117,4 +117,257 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="ACS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\ACS.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ACSImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\ACS.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Afterburner" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\Afterburner.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="AfterburnerImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\Afterburner.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AGM88HARM" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\AGM88HARM.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="AGM88HARMImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\AGM88HARM.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AI" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\AI.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="AIImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\AI.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AIM9Sidewinder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\AIM9Sidewinder.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="AIM9SidewinderImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\AIM9Sidewinder.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AIM120AMRAAM" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\AIM120AMRAAM.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="AIM120AMRAAMImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\AIM120AMRAAM.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AvionicSystems" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\AvionicSystems.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="AvionicSystemsImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\AvionicSystems.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BurningChamber" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\BurningChamber.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="BurningChamberImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\BurningChamber.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="COMMS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\COMMS.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="COMMSImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\COMMS.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DASS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\DASS.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="DASSImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\DASS.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DC" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\DC.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="DCImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\DC.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ECSLSS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\ECSLSS.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ECSLSSImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\ECSLSS.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Electric" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\Electric.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ElectricImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\Electric.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Engines" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\Engines.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="EnginesImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\Engines.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ESS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\ESS.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ESSImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\ESS.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Eurofighter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\Eurofighter.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="EurofighterImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\Eurofighter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FCS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\FCS.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="FCSImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\FCS.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Fuel" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\Fuel.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="FuelImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\Fuel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GeneralSystems" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\GeneralSystems.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="GeneralSystemsImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\GeneralSystems.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GLU" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\GLU.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="GLUImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\GLU.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GSS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\GSS.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="GSSImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\GSS.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="HDCompressor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\HDCompressor.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="HDCompressorImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\HDCompressor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="HDTurbine" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\HDTurbine.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="HDTurbineImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\HDTurbine.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Hydraulic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\Hydraulic.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="HydraulicImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\Hydraulic.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IMRS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\IMRS.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="IMRSImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\IMRS.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IRIST" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\IRIST.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="IRISTImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\IRIST.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="JettisonCES" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\JettisonCES.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="JettisonCESImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\JettisonCES.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LandingGear" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\LandingGear.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="LandingGearImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\LandingGear.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LaserDesignatorPod" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\LaserDesignatorPod.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="LaserDesignPodImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\LaserDesignPod.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Meteor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\Meteor.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="MeteorImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\Meteor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MSS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\MSS.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="MSSImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\MSS.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="NAV" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\NAV.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="NAVImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\NAV.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="NDCompressor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\NDCompressor.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="NDCompressorImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\NDCompressor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="NDTurbine" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\NDTurbine.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="NDTurbineImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\NDTurbine.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PavewayII" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\PavewayII.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="PavewayllImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\Pavewayll.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RECCE" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\RECCE.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="RECCEImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\RECCE.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SPS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\SPS.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="SPSImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\SPS.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Stick" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\Stick.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="StickImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\Stick.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Structure" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\Structure.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="StructureImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\Structure.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Taurus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\Taurus.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="TaurusImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\Taurus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ThousandLiterTank" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\ThousandLiterTank.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ThousandLiterTankImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\ThousandLiterTank.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Thruster" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\Thruster.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ThrusterImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlideDetails\Thruster.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

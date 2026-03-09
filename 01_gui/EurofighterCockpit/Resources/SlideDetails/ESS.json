@@ -1,0 +1,12 @@
+{
+  "title": "ESS - Engineering Support System",
+  "data": {
+    "Netzwerkbasiert": "",
+    "Auch als Stand-Alone System": "",
+    "Systemdatenspeicherung": "",
+    "Auftragsverteilung": "",
+    "Führungstool": "",
+    "Wissensspeicher": ""
+  },
+  "description": "Das Engineering Support System (zb. natESS) dient dem technischen Betrieb des Eurofighter. In ihm werden alle Aufträge zur Instandsetzung und Wartung an die Luftfahrzeugmechaniker über ein Computernetzwerk geleitet. Alle Flugzeugdaten die während eines Fluges entstehen, werden darin eingetragen und ausgewertet. Die gesammelten Daten aller Verbände werden täglich zum National Data Center der Luftwaffe geleitet und archiviert. Das ESS dient als dezentrales Führungstool einem effizienten und nachvollziehbaren Instandsetzungsprozess."
+}

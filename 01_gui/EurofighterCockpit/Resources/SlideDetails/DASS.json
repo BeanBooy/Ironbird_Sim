@@ -1,0 +1,12 @@
+{
+  "title": "DASS - Defensive Aids Subsystem",
+  "data": {
+    "DAC": "Defensive Aids Computer",
+    "ESM": "Electronic Support Measures",
+    "ECM": "Elctronic Countermeasures",
+    "Chaff": "Aluminiumfasern blenden das feindliche Radar",
+    "Flares": "Stöhren Wärmekameras",
+    "MAW": "Missile Approach Warner"
+  },
+  "description": "Das Defensive Aids Subsystem (DASS) dient der Erkennung und Gegenwehr sowie Täuschung von sich nähernden Bedrohungen.\nHierzu zählen andere Flugkörper mit verschiedensten Zielerkennungssystem wie Laser, Infrarot und Radar."
+}

@@ -1,5 +1,7 @@
-﻿using EurofighterCockpit.Slides;
+﻿using EurofighterCockpit.Properties;
+using EurofighterCockpit.Slides;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -18,7 +20,7 @@ namespace EurofighterCockpit
 
         private readonly Logger logger = Logger.Instance;
         private readonly Config config = Config.Instance;
-        
+
         // screens
         private Screen[] screens;
         private int screenCount;
@@ -33,11 +35,14 @@ namespace EurofighterCockpit
         private int infotainmentScreenIndex = 0;
         private int infotainmentSubScreenIndex = 0;
 
+        // slides
+        private Dictionary<string, BaseSlide> mainSlides = null;
+        private Dictionary<string, BaseSlide> subSlides = null;
 
         // properties
-        public bool ShowScreenIndicator { 
+        public bool ShowScreenIndicator {
             get => showScreenIndicator;
-            set { 
+            set {
                 showScreenIndicator = value;
                 toggleScreenIndicator();
             }
@@ -48,7 +53,7 @@ namespace EurofighterCockpit
             set {
                 tb_videoFilePath.Text = value;
                 cb_videoPathValid.BackColor = File.Exists(value) ? colGreen : colRed;
-                videoPlayer?.SetSource(value);
+                videoPlayer?.SetDefaultSource(value);
             }
         }
 
@@ -70,20 +75,17 @@ namespace EurofighterCockpit
                 Environment.Exit(1);
             }
 
+            initializeSlides();
             initializeScreens();
             initializeWindows();
             initializeController();
 
             logger.LogToBox("...ready!");
-
-            // testing section !!!!!!!!!!!
-
-            infotainment.ShowSlide(new Slide1());
-
         }
 
         private bool isConfigFileValid() {
-            if (config.Dict.ContainsKey("ipAddress") && 
+            if (config.Dict != null &&
+                config.Dict.ContainsKey("ipAddress") &&
                 config.Dict.ContainsKey("port") &&
                 config.Dict.ContainsKey("defaultVideoPath"))
                 return true;
@@ -136,6 +138,8 @@ namespace EurofighterCockpit
             bpb_positionLights.Progress = data.PositionalLights ? 100 : 0;
             bpb_strobeLights.Progress = data.StrobeLights ? 100 : 0;
             bpb_landingLights.Progress = data.LandingLights ? 100 : 0;
+            // also display inputs on the joystick slide
+            SlideJoystick.GetInstance().DisplayControllerInput(data);
         }
 
         private void onConnectionStatusChanged(bool connected) {
@@ -223,6 +227,70 @@ namespace EurofighterCockpit
         #region screen + window logic
         // ===============================================================
 
+        private void initializeSlides() {
+            mainSlides = new Dictionary<string, BaseSlide>() {
+                { "eurofighter", new SlideEurofighter() },
+                { "systems", new SlideSystems() },
+                { "weaponry", new SlideWeaponry() },
+                { "engine", new SlideEngine() },
+                { "joystick", new SlideJoystick() },
+                { "movie", new SlideMovie() }
+            };
+            subSlides = new Dictionary<string, BaseSlide>() {
+                { "eurofighter", new SlideDetails(Resources.Eurofighter, Resources.EurofighterImage) },
+                { "stick", new SlideDetails(Resources.Stick, Resources.StickImage) },
+                // weaponry slides
+                { "taurus", new SlideDetails(Resources.Taurus, Resources.TaurusImage) },
+                { "1000LiterTank", new SlideDetails(Resources.ThousandLiterTank, Resources.ThousandLiterTankImage) },
+                { "paveway2", new SlideDetails(Resources.PavewayII, Resources.PavewayllImage) },
+                { "aim9Sidewinder", new SlideDetails(Resources.AIM9Sidewinder, Resources.AIM9SidewinderImage) },
+                { "meteor", new SlideDetails(Resources.Meteor, Resources.MeteorImage) },
+                { "recce", new SlideDetails(Resources.RECCE, Resources.RECCEImage) },
+                { "laserPod", new SlideDetails(Resources.LaserDesignatorPod, Resources.LaserDesignPodImage) },
+                { "irisT", new SlideDetails(Resources.IRIST, Resources.IRISTImage) },
+                { "agm88harm", new SlideDetails(Resources.AGM88HARM, Resources.AGM88HARMImage) },
+                { "aim120amraam", new SlideDetails(Resources.AIM120AMRAAM, Resources.AIM120AMRAAMImage) },
+                // system slides
+                { "imrs", new SlideDetails(Resources.IMRS, Resources.IMRSImage) },
+                { "dc", new SlideDetails(Resources.DC, Resources.DCImage) },
+                { "nav", new SlideDetails(Resources.NAV, Resources.NAVImage) },
+                { "acs", new SlideDetails(Resources.ACS, Resources.ACSImage) },
+                { "dass", new SlideDetails(Resources.DASS, Resources.DASSImage) },
+                { "ai", new SlideDetails(Resources.AI, Resources.AIImage) },
+                { "comms", new SlideDetails(Resources.COMMS, Resources.COMMSImage) },
+                { "structure", new SlideDetails(Resources.Structure, Resources.StructureImage) },
+                { "jettisonCes", new SlideDetails(Resources.JettisonCES, Resources.JettisonCESImage) },
+                { "engines", new SlideDetails(Resources.Engines, Resources.EnginesImage) },
+                { "fcs", new SlideDetails(Resources.FCS, Resources.FCSImage) },
+                { "avionicSystems", new SlideDetails(Resources.AvionicSystems, Resources.AvionicSystemsImage) },
+                { "gss", new SlideDetails(Resources.GSS, Resources.GSSImage) },
+                { "ess", new SlideDetails(Resources.ESS, Resources.ESSImage) },
+                { "mss", new SlideDetails(Resources.MSS, Resources.MSSImage) },
+                { "glu", new SlideDetails(Resources.GLU, Resources.GLUImage) },
+                { "generalSystems", new SlideDetails(Resources.GeneralSystems, Resources.GeneralSystemsImage) },
+                { "landingGear", new SlideDetails(Resources.LandingGear, Resources.LandingGearImage) },
+                { "electric", new SlideDetails(Resources.Electric, Resources.ElectricImage) },
+                { "ecslss", new SlideDetails(Resources.ECSLSS, Resources.ECSLSSImage) },
+                { "fuel", new SlideDetails(Resources.Fuel, Resources.FuelImage) },
+                { "hydraulic", new SlideDetails(Resources.Hydraulic, Resources.HydraulicImage) },
+                { "sps", new SlideDetails(Resources.SPS, Resources.SPSImage) },
+                // engine slides
+                { "hdCompressor", new SlideDetails(Resources.HDCompressor, Resources.HDCompressorImage) },
+                { "hdTurbine", new SlideDetails(Resources.HDTurbine, Resources.HDTurbineImage) },
+                { "afterburner", new SlideDetails(Resources.Afterburner, Resources.AfterburnerImage) },
+                { "thruster", new SlideDetails(Resources.Thruster, Resources.ThrusterImage) },
+                { "ndCompressor", new SlideDetails(Resources.NDCompressor, Resources.NDCompressorImage) },
+                { "burningChamber", new SlideDetails(Resources.BurningChamber, Resources.BurningChamberImage) },
+                { "ndTurbine", new SlideDetails(Resources.NDTurbine, Resources.NDTurbineImage) }
+            };
+            // add events to all main slides
+            foreach (BaseSlide slide in mainSlides.Values) {
+                slide.MainSlideRequested += MainSlideRequestedHandler;
+                slide.SubSlideRequested += SubSlideRequestedHandler;
+                slide.MovieRequested += MovieRequestedHandler;
+            }
+        }
+
         private void initializeScreens() {
             screens = Screen.AllScreens;
             screenCount = screens.Length;
@@ -234,13 +302,20 @@ namespace EurofighterCockpit
 
         private void initializeWindows() {
             videoPlayer = launchWindow(ref videoPlayer, videoPlayerScreenIndex, bt_videoPlayer, vp => {
-                vp.SetSource(VideoPath);
+                vp.SetDefaultSource(VideoPath);
             });
-            infotainment = launchWindow(ref infotainment, infotainmentScreenIndex, bt_infotainment);
-            infotainmentSub = launchWindow(ref infotainmentSub, infotainmentSubScreenIndex, bt_infotainmentSub, inf => inf.HidePanel());
+            infotainment = launchWindow(ref infotainment, infotainmentScreenIndex, bt_infotainment, i => {
+                i.SetSlidePool(mainSlides);
+            });
+            infotainmentSub = launchWindow(ref infotainmentSub, infotainmentSubScreenIndex, bt_infotainmentSub, i => {
+                i.SetSlidePool(subSlides);
+                i.HidePanel();
+            });
             populateScreenSelectors(tlp_videoPlayer, videoPlayer, screenCount);
             populateScreenSelectors(tlp_infotainment, infotainment, screenCount);
             populateScreenSelectors(tlp_infotainmentSub, infotainmentSub, screenCount);
+
+            ShowMainSlide("eurofighter");
         }
 
         private void toggleScreenIndicator() {
@@ -251,7 +326,7 @@ namespace EurofighterCockpit
         }
 
         private T launchWindow<T>(ref T window, int screenIndex, BetterToggle toggleButton, Action<T> postInit = null) where T : Form, new() {
-            if (window != null) return window;
+            if (window != null && !window.IsDisposed) return window;
             window = new T();
             window.Load += (s, e) => { toggleButton.IsChecked = true; };
             // capture window in local variable for safe closure
@@ -318,21 +393,32 @@ namespace EurofighterCockpit
 
         private void bt_videoPlayer_UserClick(object sender, EventArgs e) {
             if (videoPlayer == null)
-                videoPlayer = launchWindow(ref videoPlayer, videoPlayerScreenIndex, bt_videoPlayer, vp => vp.SetSource(VideoPath));
+                videoPlayer = launchWindow(ref videoPlayer, videoPlayerScreenIndex, bt_videoPlayer, vp => {
+                    vp.SetDefaultSource(VideoPath);
+                });
             else
                 videoPlayer.Close();
         }
 
         private void bt_infotainment_UserClick(object sender, EventArgs e) {
-            if (infotainment == null)
-                infotainment = launchWindow(ref infotainment, infotainmentScreenIndex, bt_infotainment);
+            if (infotainment == null) {
+                initializeSlides();
+                infotainment = launchWindow(ref infotainment, infotainmentScreenIndex, bt_infotainment, i => {
+                    i.SetSlidePool(mainSlides);
+                });
+            }
             else
                 infotainment.Close();
         }
 
         private void bt_infotainmentSub_UserClick(object sender, EventArgs e) {
-            if (infotainmentSub == null)
-                infotainmentSub = launchWindow(ref infotainmentSub, infotainmentSubScreenIndex, bt_infotainmentSub, inf => inf.HidePanel());
+            if (infotainmentSub == null) {
+                initializeSlides();
+                infotainmentSub = launchWindow(ref infotainmentSub, infotainmentSubScreenIndex, bt_infotainmentSub, i => {
+                    i.SetSlidePool(subSlides);
+                    i.HidePanel();
+                });
+            }
             else
                 infotainmentSub.Close();
         }
@@ -343,17 +429,17 @@ namespace EurofighterCockpit
             if (rb.Parent == tlp_videoPlayer) {
                 videoPlayerScreenIndex = screenIndex;
                 moveWindowToScreen(videoPlayer, screenIndex);
-                videoPlayer.Activate();  // bring to focus
+                videoPlayer?.Activate();  // bring to focus
             }
             if (rb.Parent == tlp_infotainment) {
                 infotainmentScreenIndex = screenIndex;
                 moveWindowToScreen(infotainment, infotainmentScreenIndex);
-                infotainment.Activate();  // bring to focus
+                infotainment?.Activate();  // bring to focus
             }
             if (rb.Parent == tlp_infotainmentSub) {
                 infotainmentSubScreenIndex = screenIndex;
                 moveWindowToScreen(infotainmentSub, infotainmentSubScreenIndex);
-                infotainmentSub.Activate();  // bring to focus
+                infotainmentSub?.Activate();  // bring to focus
             }
         }
 
@@ -380,9 +466,36 @@ namespace EurofighterCockpit
             base.WndProc(ref m);
         }
 
-
-
         #endregion
 
+        public void ShowMainSlide(string slideName) {
+            //// to prevent index out of range error
+            //if (slideIndex < 0 || slideIndex >= mainSlides.Length)
+            //    return;
+            //infotainment.ShowSlide(slideIndex);
+
+            if (mainSlides.ContainsKey(slideName))
+                infotainment.ShowSlide(slideName);
+        }
+
+        public void ShowSubSlide(string slideName) {
+            if (subSlides.ContainsKey(slideName))
+                infotainmentSub.ShowSlide(slideName);
+        }
+
+        private void MainSlideRequestedHandler(object sender, SlideNavigationEventArgs e) {
+            if (infotainment != null && !infotainment.IsDisposed)
+                ShowMainSlide(e.TargetSlide);
+        }
+
+        private void SubSlideRequestedHandler(object sender, SlideNavigationEventArgs e) {
+            if (infotainmentSub != null && !infotainmentSub.IsDisposed)
+                ShowSubSlide(e.TargetSlide);
+        }
+
+        private void MovieRequestedHandler(object sender, EventArgs e) {
+            controller.StartMovieSequence();
+            videoPlayer?.StartMovie("C:\\Users\\maini\\Desktop\\DemoVideo.mp4");
+        }
     }
 }

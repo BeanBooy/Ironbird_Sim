@@ -1,0 +1,10 @@
+{
+  "title": "A+I - Attack und Ident Subsystem",
+  "data": {
+    "Radarsystem (Antenne/Rechner)": "",
+    "Infrarotsystem (FLIR/IRST)": "",
+    "Information Friend or Foe (Interrogator/Transponder)": "",
+    "Attack Computer": ""
+  },
+  "description": "Das Attack und Ident Subsystem tastet seine Umgebung mittels Radar, Infrarot und der Freund-Feind-Abfrage ab. Es gibt die gewonnenen Erkenntnisse über Entfernungen, Geschwindigkeiten und Arten umgebender Objekte dem Piloten und den anderen Subsystemen des Eurofighter zur weiteren Verarbeitung ab.\nDer Attack-Computer ist als zentrale Recheneinheit für die Sensorfusion der Sensordaten zuständig."
+}
