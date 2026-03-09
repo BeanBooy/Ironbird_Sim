@@ -82,7 +82,7 @@ def IdleMode():
         AB.move(AB.idle)
         RU.move(RU.idle)
         LGCD_Driver.request_lg(LG_IN)
-        if LG.current_pos == LG_IN and LCD.move != LCD.idle:
+        if LG.current_pos == LG_IN and LCD.current_pos != LCD.idle:
             time.sleep(2.5)
             LCD.move(LCD.idle)
             RCD.move(RCD.idle)
