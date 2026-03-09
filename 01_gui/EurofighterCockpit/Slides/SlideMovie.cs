@@ -9,7 +9,7 @@ namespace EurofighterCockpit.Slides
         }
 
         public override void OnShow() {
-            RequestSubSlide("joystick");
+            //RequestSubSlide("joystick");  // will override main joystick slide
         }
 
         private void btn_launchMovie_Click(object sender, EventArgs e) {

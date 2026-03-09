@@ -239,7 +239,6 @@ namespace EurofighterCockpit
             subSlides = new Dictionary<string, BaseSlide>() {
                 { "eurofighter", new SlideDetails(Resources.Eurofighter, Resources.EurofighterImage) },
                 { "stick", new SlideDetails(Resources.Stick, Resources.StickImage) },
-                { "joystick", new SlideJoystick() },
                 // weaponry slides
                 { "taurus", new SlideDetails(Resources.Taurus, Resources.TaurusImage) },
                 { "1000LiterTank", new SlideDetails(Resources.ThousandLiterTank, Resources.ThousandLiterTankImage) },
