@@ -59,7 +59,7 @@
             // 
             // bpb_airbrake
             // 
-            this.bpb_airbrake.BackColor = System.Drawing.Color.Gainsboro;
+            this.bpb_airbrake.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.bpb_airbrake.ColorProg = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(199)))));
             this.bpb_airbrake.Direction = EurofighterCockpit.Direction.bottomToTop;
             this.bpb_airbrake.ForeColor = System.Drawing.SystemColors.ActiveCaption;
@@ -72,7 +72,7 @@
             // 
             // bpb_trigger
             // 
-            this.bpb_trigger.BackColor = System.Drawing.Color.Gainsboro;
+            this.bpb_trigger.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.bpb_trigger.ColorProg = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(199)))));
             this.bpb_trigger.Direction = EurofighterCockpit.Direction.bottomToTop;
             this.bpb_trigger.ForeColor = System.Drawing.SystemColors.ActiveCaption;
@@ -85,7 +85,7 @@
             // 
             // bpb_gear
             // 
-            this.bpb_gear.BackColor = System.Drawing.Color.Gainsboro;
+            this.bpb_gear.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.bpb_gear.ColorProg = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(199)))));
             this.bpb_gear.Direction = EurofighterCockpit.Direction.bottomToTop;
             this.bpb_gear.ForeColor = System.Drawing.SystemColors.ActiveCaption;
@@ -98,7 +98,7 @@
             // 
             // bpb_rudderReset
             // 
-            this.bpb_rudderReset.BackColor = System.Drawing.Color.Gainsboro;
+            this.bpb_rudderReset.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.bpb_rudderReset.ColorProg = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(199)))));
             this.bpb_rudderReset.Direction = EurofighterCockpit.Direction.bottomToTop;
             this.bpb_rudderReset.ForeColor = System.Drawing.SystemColors.ActiveCaption;
@@ -111,7 +111,7 @@
             // 
             // bpb_rudderL
             // 
-            this.bpb_rudderL.BackColor = System.Drawing.Color.Gainsboro;
+            this.bpb_rudderL.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.bpb_rudderL.ColorProg = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(199)))));
             this.bpb_rudderL.Direction = EurofighterCockpit.Direction.bottomToTop;
             this.bpb_rudderL.ForeColor = System.Drawing.SystemColors.ActiveCaption;
@@ -124,7 +124,7 @@
             // 
             // bpb_rudderR
             // 
-            this.bpb_rudderR.BackColor = System.Drawing.Color.Gainsboro;
+            this.bpb_rudderR.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.bpb_rudderR.ColorProg = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(199)))));
             this.bpb_rudderR.Direction = EurofighterCockpit.Direction.bottomToTop;
             this.bpb_rudderR.ForeColor = System.Drawing.SystemColors.ActiveCaption;
@@ -137,7 +137,7 @@
             // 
             // bpb_throttle
             // 
-            this.bpb_throttle.BackColor = System.Drawing.Color.Gainsboro;
+            this.bpb_throttle.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.bpb_throttle.ColorProg = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(199)))));
             this.bpb_throttle.Direction = EurofighterCockpit.Direction.bottomToTop;
             this.bpb_throttle.ForeColor = System.Drawing.SystemColors.ActiveCaption;
@@ -189,7 +189,7 @@
             // 
             // bpb_joystickTorque
             // 
-            this.bpb_joystickTorque.BackColor = System.Drawing.Color.Gainsboro;
+            this.bpb_joystickTorque.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.bpb_joystickTorque.ColorProg = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(32)))), ((int)(((byte)(91)))));
             this.bpb_joystickTorque.Direction = EurofighterCockpit.Direction.rightToLeft;
             this.bpb_joystickTorque.ForeColor = System.Drawing.SystemColors.ActiveCaption;
@@ -203,7 +203,7 @@
             // 
             // betterProgressBar1
             // 
-            this.betterProgressBar1.BackColor = System.Drawing.Color.Gainsboro;
+            this.betterProgressBar1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.betterProgressBar1.ColorProg = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(32)))), ((int)(((byte)(91)))));
             this.betterProgressBar1.Direction = EurofighterCockpit.Direction.leftToRight;
             this.betterProgressBar1.ForeColor = System.Drawing.SystemColors.ActiveCaption;
@@ -217,7 +217,7 @@
             // 
             // bpb_joystickXpos
             // 
-            this.bpb_joystickXpos.BackColor = System.Drawing.Color.Gainsboro;
+            this.bpb_joystickXpos.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.bpb_joystickXpos.ColorProg = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(199)))));
             this.bpb_joystickXpos.Direction = EurofighterCockpit.Direction.leftToRight;
             this.bpb_joystickXpos.ForeColor = System.Drawing.SystemColors.ActiveCaption;
@@ -230,7 +230,7 @@
             // 
             // bpb_joystickXneg
             // 
-            this.bpb_joystickXneg.BackColor = System.Drawing.Color.Gainsboro;
+            this.bpb_joystickXneg.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.bpb_joystickXneg.ColorProg = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(199)))));
             this.bpb_joystickXneg.Direction = EurofighterCockpit.Direction.rightToLeft;
             this.bpb_joystickXneg.ForeColor = System.Drawing.SystemColors.ActiveCaption;
@@ -243,7 +243,7 @@
             // 
             // bpb_joystickYpos
             // 
-            this.bpb_joystickYpos.BackColor = System.Drawing.Color.Gainsboro;
+            this.bpb_joystickYpos.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.bpb_joystickYpos.ColorProg = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(199)))));
             this.bpb_joystickYpos.Direction = EurofighterCockpit.Direction.bottomToTop;
             this.bpb_joystickYpos.ForeColor = System.Drawing.SystemColors.ActiveCaption;
@@ -256,7 +256,7 @@
             // 
             // bpb_joystickYneg
             // 
-            this.bpb_joystickYneg.BackColor = System.Drawing.Color.Gainsboro;
+            this.bpb_joystickYneg.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.bpb_joystickYneg.ColorProg = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(199)))));
             this.bpb_joystickYneg.Direction = EurofighterCockpit.Direction.topToBottom;
             this.bpb_joystickYneg.ForeColor = System.Drawing.SystemColors.ActiveCaption;
@@ -373,7 +373,7 @@
             // 
             // bpb_landingLights
             // 
-            this.bpb_landingLights.BackColor = System.Drawing.Color.Gainsboro;
+            this.bpb_landingLights.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.bpb_landingLights.ColorProg = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(199)))));
             this.bpb_landingLights.Direction = EurofighterCockpit.Direction.bottomToTop;
             this.bpb_landingLights.ForeColor = System.Drawing.SystemColors.ActiveCaption;
@@ -399,7 +399,7 @@
             // 
             // bpb_positionLights
             // 
-            this.bpb_positionLights.BackColor = System.Drawing.Color.Gainsboro;
+            this.bpb_positionLights.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.bpb_positionLights.ColorProg = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(199)))));
             this.bpb_positionLights.Direction = EurofighterCockpit.Direction.bottomToTop;
             this.bpb_positionLights.ForeColor = System.Drawing.SystemColors.ActiveCaption;
@@ -472,7 +472,6 @@
             this.Controls.Add(this.bpb_rudderR);
             this.Controls.Add(this.bpb_throttle);
             this.Controls.Add(this.label6);
-            this.Enabled = false;
             this.Name = "SlideJoystick";
             this.Size = new System.Drawing.Size(1600, 1080);
             this.ResumeLayout(false);

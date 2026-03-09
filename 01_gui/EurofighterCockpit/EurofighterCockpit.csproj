@@ -232,12 +232,6 @@
     <Compile Include="VideoPlayer.Designer.cs">
       <DependentUpon>VideoPlayer.cs</DependentUpon>
     </Compile>
-    <Compile Include="VLCPlayer.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="VLCPlayer.Designer.cs">
-      <DependentUpon>VLCPlayer.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Slides\SlideDetails.resx">
       <DependentUpon>SlideDetails.cs</DependentUpon>
     </EmbeddedResource>
@@ -284,9 +278,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="VideoPlayer.resx">
       <DependentUpon>VideoPlayer.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="VLCPlayer.resx">
-      <DependentUpon>VLCPlayer.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

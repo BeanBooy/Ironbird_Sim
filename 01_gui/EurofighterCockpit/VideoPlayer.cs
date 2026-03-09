@@ -1,4 +1,4 @@
-﻿using AxWMPLib;
+﻿using LibVLCSharp.Shared;
 using System;
 using System.Windows.Forms;
 
@@ -6,49 +6,41 @@ namespace EurofighterCockpit
 {
     public partial class VideoPlayer : Form
     {
+        private LibVLC libVLC;
+        private MediaPlayer mediaPlayer;
+        private Media defaultMedia;
         private bool isMoviePlaying;
-        private string defaultMediaPath = null;
 
         public VideoPlayer() {
             InitializeComponent();
-            // hide media player ui
-            windowsMediaPlayer.uiMode = "none";
-            // enable endless video loop
-            windowsMediaPlayer.settings.setMode("loop", true);
+            Core.Initialize();
+            libVLC = new LibVLC();
+            mediaPlayer = new MediaPlayer(libVLC);
+            videoView.MediaPlayer = mediaPlayer;
+            mediaPlayer.EndReached += MediaPlayer_EndReached;
+            mediaPlayer.Mute = true;
         }
 
         public void SetDefaultSource(string mediaPath) {
-            windowsMediaPlayer.URL = mediaPath;
-            defaultMediaPath = mediaPath;
-            // for whatever reason the sound setting are lost when setting a new url
-            // that's why they have to be set again
-            windowsMediaPlayer.settings.mute = true;
-            windowsMediaPlayer.Ctlcontrols.play();
-        }
-
-        public void SetSource(string mediaPath) {
-            windowsMediaPlayer.URL = mediaPath;
-            // for whatever reason the sound setting are lost when setting a new url
-            // that's why they have to be set again
-            windowsMediaPlayer.settings.mute = true;
-            windowsMediaPlayer.Ctlcontrols.play();
+            defaultMedia = new Media(libVLC, mediaPath, FromType.FromPath);
+            mediaPlayer.Play(defaultMedia);
         }
 
         public void StartMovie(string moviePath) {
             isMoviePlaying = true;
-            windowsMediaPlayer.settings.setMode("loop", false);
-            SetSource(moviePath);
+            var media = new Media(libVLC, moviePath, FromType.FromPath);
+            mediaPlayer.Play(media);
         }
 
-        private void windowsMediaPlayer_PlayStateChange(object sender, _WMPOCXEvents_PlayStateChangeEvent e) {
-            if (isMoviePlaying && (WMPLib.WMPPlayState)e.newState == WMPLib.WMPPlayState.wmppsMediaEnded) {
+        private void MediaPlayer_EndReached(object sender, EventArgs e) {
+            if (IsDisposed || !IsHandleCreated)
+                return;
+            if (isMoviePlaying)
                 isMoviePlaying = false;
-                // defer execution until WMP finished its internal transition
-                BeginInvoke((Action)(() => {
-                    windowsMediaPlayer.settings.setMode("loop", true);
-                    SetSource(defaultMediaPath);
-                }));
-            }
+            // restart default video
+            BeginInvoke(new Action(() => {
+                mediaPlayer.Play(defaultMedia);
+            }));
         }
     }
 }

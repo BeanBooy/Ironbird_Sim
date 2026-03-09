@@ -31,7 +31,7 @@ namespace EurofighterCockpit
         private ScreenIndicator[] screenIndicators;
 
         // windows
-        private VLCPlayer videoPlayer;
+        private VideoPlayer videoPlayer;
         private Infotainment infotainment;
         private Infotainment infotainmentSub;
         private int videoPlayerScreenIndex = 0;
@@ -41,8 +41,6 @@ namespace EurofighterCockpit
         // slides
         private Dictionary<string, BaseSlide> mainSlides = null;
         private Dictionary<string, BaseSlide> subSlides = null;
-        //private BaseSlide[] mainSlides = null;
-        //private BaseSlide[] subSlides = null;
 
         // properties
         public bool ShowScreenIndicator { 
@@ -233,14 +231,6 @@ namespace EurofighterCockpit
         // ===============================================================
 
         private void initializeSlides() {
-            //mainSlides = new BaseSlide[] {
-            //    new SlideEurofighter(),
-            //    new SlideSystems(),
-            //    new SlideWeaponry(),
-            //    new SlideEngine(),
-            //    new SlideJoystick(),
-            //    new SlideMovie(),
-            //};
             mainSlides = new Dictionary<string, BaseSlide>() {
                 { "eurofighter", new SlideEurofighter() },
                 { "systems", new SlideSystems() },
@@ -303,11 +293,6 @@ namespace EurofighterCockpit
                 slide.SubSlideRequested += SubSlideRequestedHandler;
                 slide.MovieRequested += MovieRequestedHandler;
             }
-            //for (int i = 0; i < mainSlides.Length; i++) {
-            //    mainSlides[i].MainSlideRequested += MainSlideRequestedHandler;
-            //    mainSlides[i].SubSlideRequested += SubSlideRequestedHandler;
-            //    mainSlides[i].MovieRequested += MovieRequestedHandler;
-            //}
         }
 
         private void initializeScreens() {
