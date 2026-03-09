@@ -14,6 +14,22 @@
     <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>x64</PlatformTarget>
@@ -34,6 +50,27 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>EurofighterCockpitLogo.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>5DA7022872B0571D669F9D3F6E8A8BEEE239017E</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>EurofighterCockpit_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="LibVLCSharp, Version=3.9.6.0, Culture=neutral, processorArchitecture=MSIL">
@@ -279,7 +316,9 @@
     <EmbeddedResource Include="VideoPlayer.resx">
       <DependentUpon>VideoPlayer.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="EurofighterCockpit_TemporaryKey.pfx" />
     <None Include="packages.config" />
+    <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -290,47 +329,47 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <EmbeddedResource Include="Resources\SlideDetails\Taurus.json" />
-    <None Include="Resources\SlideDetails\Eurofighter.json" />
-    <None Include="Resources\SlideDetails\Stick.json" />
-    <None Include="Resources\SlideDetails\ACS.json" />
-    <None Include="Resources\SlideDetails\Afterburner.json" />
-    <None Include="Resources\SlideDetails\AGM88HARM.json" />
-    <None Include="Resources\SlideDetails\AI.json" />
-    <None Include="Resources\SlideDetails\AIM120AMRAAM.json" />
-    <None Include="Resources\SlideDetails\AIM9Sidewinder.json" />
-    <None Include="Resources\SlideDetails\AvionicSystems.json" />
-    <None Include="Resources\SlideDetails\BurningChamber.json" />
-    <None Include="Resources\SlideDetails\COMMS.json" />
-    <None Include="Resources\SlideDetails\DASS.json" />
-    <None Include="Resources\SlideDetails\DC.json" />
-    <None Include="Resources\SlideDetails\ECSLSS.json" />
-    <None Include="Resources\SlideDetails\Electric.json" />
-    <None Include="Resources\SlideDetails\Engines.json" />
-    <None Include="Resources\SlideDetails\ESS.json" />
-    <None Include="Resources\SlideDetails\FCS.json" />
-    <None Include="Resources\SlideDetails\Fuel.json" />
-    <None Include="Resources\SlideDetails\GeneralSystems.json" />
-    <None Include="Resources\SlideDetails\GLU.json" />
-    <None Include="Resources\SlideDetails\GSS.json" />
-    <None Include="Resources\SlideDetails\HDTurbine.json" />
-    <None Include="Resources\SlideDetails\Hydraulic.json" />
-    <None Include="Resources\SlideDetails\IMRS.json" />
-    <None Include="Resources\SlideDetails\IRIST.json" />
-    <None Include="Resources\SlideDetails\JettisonCES.json" />
-    <None Include="Resources\SlideDetails\LandingGear.json" />
-    <None Include="Resources\SlideDetails\LaserDesignatorPod.json" />
-    <None Include="Resources\SlideDetails\Meteor.json" />
-    <None Include="Resources\SlideDetails\MSS.json" />
-    <None Include="Resources\SlideDetails\NAV.json" />
-    <None Include="Resources\SlideDetails\HDCompressor.json" />
-    <None Include="Resources\SlideDetails\NDCompressor.json" />
-    <None Include="Resources\SlideDetails\NDTurbine.json" />
-    <None Include="Resources\SlideDetails\PavewayII.json" />
-    <None Include="Resources\SlideDetails\RECCE.json" />
-    <None Include="Resources\SlideDetails\SPS.json" />
-    <None Include="Resources\SlideDetails\Structure.json" />
-    <None Include="Resources\SlideDetails\ThousandLiterTank.json" />
-    <None Include="Resources\SlideDetails\Thruster.json" />
+    <EmbeddedResource Include="Resources\SlideDetails\Eurofighter.json" />
+    <EmbeddedResource Include="Resources\SlideDetails\Stick.json" />
+    <EmbeddedResource Include="Resources\SlideDetails\ACS.json" />
+    <EmbeddedResource Include="Resources\SlideDetails\Afterburner.json" />
+    <EmbeddedResource Include="Resources\SlideDetails\AGM88HARM.json" />
+    <EmbeddedResource Include="Resources\SlideDetails\AI.json" />
+    <EmbeddedResource Include="Resources\SlideDetails\AIM120AMRAAM.json" />
+    <EmbeddedResource Include="Resources\SlideDetails\AIM9Sidewinder.json" />
+    <EmbeddedResource Include="Resources\SlideDetails\AvionicSystems.json" />
+    <EmbeddedResource Include="Resources\SlideDetails\BurningChamber.json" />
+    <EmbeddedResource Include="Resources\SlideDetails\COMMS.json" />
+    <EmbeddedResource Include="Resources\SlideDetails\DASS.json" />
+    <EmbeddedResource Include="Resources\SlideDetails\DC.json" />
+    <EmbeddedResource Include="Resources\SlideDetails\ECSLSS.json" />
+    <EmbeddedResource Include="Resources\SlideDetails\Electric.json" />
+    <EmbeddedResource Include="Resources\SlideDetails\Engines.json" />
+    <EmbeddedResource Include="Resources\SlideDetails\ESS.json" />
+    <EmbeddedResource Include="Resources\SlideDetails\FCS.json" />
+    <EmbeddedResource Include="Resources\SlideDetails\Fuel.json" />
+    <EmbeddedResource Include="Resources\SlideDetails\GeneralSystems.json" />
+    <EmbeddedResource Include="Resources\SlideDetails\GLU.json" />
+    <EmbeddedResource Include="Resources\SlideDetails\GSS.json" />
+    <EmbeddedResource Include="Resources\SlideDetails\HDTurbine.json" />
+    <EmbeddedResource Include="Resources\SlideDetails\Hydraulic.json" />
+    <EmbeddedResource Include="Resources\SlideDetails\IMRS.json" />
+    <EmbeddedResource Include="Resources\SlideDetails\IRIST.json" />
+    <EmbeddedResource Include="Resources\SlideDetails\JettisonCES.json" />
+    <EmbeddedResource Include="Resources\SlideDetails\LandingGear.json" />
+    <EmbeddedResource Include="Resources\SlideDetails\LaserDesignatorPod.json" />
+    <EmbeddedResource Include="Resources\SlideDetails\Meteor.json" />
+    <EmbeddedResource Include="Resources\SlideDetails\MSS.json" />
+    <EmbeddedResource Include="Resources\SlideDetails\NAV.json" />
+    <EmbeddedResource Include="Resources\SlideDetails\HDCompressor.json" />
+    <EmbeddedResource Include="Resources\SlideDetails\NDCompressor.json" />
+    <EmbeddedResource Include="Resources\SlideDetails\NDTurbine.json" />
+    <EmbeddedResource Include="Resources\SlideDetails\PavewayII.json" />
+    <EmbeddedResource Include="Resources\SlideDetails\RECCE.json" />
+    <EmbeddedResource Include="Resources\SlideDetails\SPS.json" />
+    <EmbeddedResource Include="Resources\SlideDetails\Structure.json" />
+    <EmbeddedResource Include="Resources\SlideDetails\ThousandLiterTank.json" />
+    <EmbeddedResource Include="Resources\SlideDetails\Thruster.json" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -373,51 +412,51 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="EurofighterCockpitLogo.ico" />
     <Content Include="Resources\Assets\Background.jpg" />
     <Content Include="Resources\Assets\Eurofighter.jpg" />
     <Content Include="Resources\Assets\Engine.png" />
-    <Content Include="Resources\SlideDetails\AI.png" />
-    <Content Include="Resources\SlideDetails\ACS.png" />
-    <Content Include="Resources\SlideDetails\AGM88HARM.png" />
-    <Content Include="Resources\SlideDetails\AIM120AMRAAM.png" />
-    <Content Include="Resources\SlideDetails\AIM9Sidewinder.png" />
-    <Content Include="Resources\SlideDetails\AvionicSystems.png" />
-    <Content Include="Resources\SlideDetails\BurningChamber.png" />
-    <Content Include="Resources\SlideDetails\COMMS.png" />
-    <Content Include="Resources\SlideDetails\DASS.png" />
-    <Content Include="Resources\SlideDetails\DC.png" />
-    <Content Include="Resources\SlideDetails\ECSLSS.png" />
-    <Content Include="Resources\SlideDetails\Eurofighter.png" />
-    <Content Include="Resources\SlideDetails\Electric.png" />
-    <Content Include="Resources\SlideDetails\ESS.png" />
-    <Content Include="Resources\SlideDetails\FCS.png" />
-    <Content Include="Resources\SlideDetails\Fuel.png" />
-    <Content Include="Resources\SlideDetails\GeneralSystems.jpg" />
-    <Content Include="Resources\SlideDetails\GLU.png" />
-    <Content Include="Resources\SlideDetails\GSS.png" />
-    <Content Include="Resources\SlideDetails\HDCompressor.png" />
-    <Content Include="Resources\SlideDetails\HDTurbine.png" />
-    <Content Include="Resources\SlideDetails\HDVerdichter.png" />
-    <Content Include="Resources\SlideDetails\Hydraulic.png" />
-    <Content Include="Resources\SlideDetails\IMRS.png" />
-    <Content Include="Resources\SlideDetails\IRIST.png" />
-    <Content Include="Resources\SlideDetails\JettisonCES.png" />
-    <Content Include="Resources\SlideDetails\LandingGear.png" />
-    <Content Include="Resources\SlideDetails\LaserDesignPod.png" />
-    <Content Include="Resources\SlideDetails\Meteor.png" />
-    <Content Include="Resources\SlideDetails\MSS.png" />
-    <Content Include="Resources\SlideDetails\Afterburner.png" />
-    <Content Include="Resources\SlideDetails\NAV.png" />
-    <Content Include="Resources\SlideDetails\NDTurbine.png" />
-    <Content Include="Resources\SlideDetails\NDCompressor.png" />
-    <Content Include="Resources\SlideDetails\Pavewayll.png" />
-    <Content Include="Resources\SlideDetails\RECCE.png" />
-    <Content Include="Resources\SlideDetails\Stick.png" />
-    <Content Include="Resources\SlideDetails\Thruster.png" />
-    <Content Include="Resources\SlideDetails\SPS.png" />
-    <Content Include="Resources\SlideDetails\Structure.png" />
-    <Content Include="Resources\SlideDetails\ThousandLiterTank.png" />
-    <Content Include="Resources\SlideDetails\Engines.png" />
+    <EmbeddedResource Include="Resources\SlideDetails\AI.png" />
+    <EmbeddedResource Include="Resources\SlideDetails\ACS.png" />
+    <EmbeddedResource Include="Resources\SlideDetails\AGM88HARM.png" />
+    <EmbeddedResource Include="Resources\SlideDetails\AIM120AMRAAM.png" />
+    <EmbeddedResource Include="Resources\SlideDetails\AIM9Sidewinder.png" />
+    <EmbeddedResource Include="Resources\SlideDetails\AvionicSystems.png" />
+    <EmbeddedResource Include="Resources\SlideDetails\BurningChamber.png" />
+    <EmbeddedResource Include="Resources\SlideDetails\COMMS.png" />
+    <EmbeddedResource Include="Resources\SlideDetails\DASS.png" />
+    <EmbeddedResource Include="Resources\SlideDetails\DC.png" />
+    <EmbeddedResource Include="Resources\SlideDetails\ECSLSS.png" />
+    <EmbeddedResource Include="Resources\SlideDetails\Eurofighter.png" />
+    <EmbeddedResource Include="Resources\SlideDetails\Electric.png" />
+    <EmbeddedResource Include="Resources\SlideDetails\ESS.png" />
+    <EmbeddedResource Include="Resources\SlideDetails\FCS.png" />
+    <EmbeddedResource Include="Resources\SlideDetails\Fuel.png" />
+    <EmbeddedResource Include="Resources\SlideDetails\GeneralSystems.jpg" />
+    <EmbeddedResource Include="Resources\SlideDetails\GLU.png" />
+    <EmbeddedResource Include="Resources\SlideDetails\GSS.png" />
+    <EmbeddedResource Include="Resources\SlideDetails\HDCompressor.png" />
+    <EmbeddedResource Include="Resources\SlideDetails\HDTurbine.png" />
+    <EmbeddedResource Include="Resources\SlideDetails\Hydraulic.png" />
+    <EmbeddedResource Include="Resources\SlideDetails\IMRS.png" />
+    <EmbeddedResource Include="Resources\SlideDetails\IRIST.png" />
+    <EmbeddedResource Include="Resources\SlideDetails\JettisonCES.png" />
+    <EmbeddedResource Include="Resources\SlideDetails\LandingGear.png" />
+    <EmbeddedResource Include="Resources\SlideDetails\LaserDesignPod.png" />
+    <EmbeddedResource Include="Resources\SlideDetails\Meteor.png" />
+    <EmbeddedResource Include="Resources\SlideDetails\MSS.png" />
+    <EmbeddedResource Include="Resources\SlideDetails\Afterburner.png" />
+    <EmbeddedResource Include="Resources\SlideDetails\NAV.png" />
+    <EmbeddedResource Include="Resources\SlideDetails\NDTurbine.png" />
+    <EmbeddedResource Include="Resources\SlideDetails\NDCompressor.png" />
+    <EmbeddedResource Include="Resources\SlideDetails\Pavewayll.png" />
+    <EmbeddedResource Include="Resources\SlideDetails\RECCE.png" />
+    <EmbeddedResource Include="Resources\SlideDetails\Stick.png" />
+    <EmbeddedResource Include="Resources\SlideDetails\Thruster.png" />
+    <EmbeddedResource Include="Resources\SlideDetails\SPS.png" />
+    <EmbeddedResource Include="Resources\SlideDetails\Structure.png" />
+    <EmbeddedResource Include="Resources\SlideDetails\ThousandLiterTank.png" />
+    <EmbeddedResource Include="Resources\SlideDetails\Engines.png" />
     <EmbeddedResource Include="Resources\SlideDetails\Taurus.png" />
     <Content Include="Resources\Assets\TwoBirds.jpg" />
     <Content Include="Resources\Assets\BackroundPanelSelectButtons.jpg" />
@@ -427,6 +466,18 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\Movie\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.8">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.8 %28x86 und x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\System.ValueTuple.4.6.1\build\net471\System.ValueTuple.targets" Condition="Exists('packages\System.ValueTuple.4.6.1\build\net471\System.ValueTuple.targets')" />

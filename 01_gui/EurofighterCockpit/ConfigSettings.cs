@@ -1,13 +1,10 @@
 ﻿using EurofighterCockpit.Properties;
 using EurofighterCockpit.Slides;
-using SharpDX;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Security.Cryptography;
 using System.Windows.Forms;
 
 namespace EurofighterCockpit
@@ -23,7 +20,7 @@ namespace EurofighterCockpit
 
         private readonly Logger logger = Logger.Instance;
         private readonly Config config = Config.Instance;
-        
+
         // screens
         private Screen[] screens;
         private int screenCount;
@@ -43,9 +40,9 @@ namespace EurofighterCockpit
         private Dictionary<string, BaseSlide> subSlides = null;
 
         // properties
-        public bool ShowScreenIndicator { 
+        public bool ShowScreenIndicator {
             get => showScreenIndicator;
-            set { 
+            set {
                 showScreenIndicator = value;
                 toggleScreenIndicator();
             }
@@ -88,7 +85,7 @@ namespace EurofighterCockpit
 
         private bool isConfigFileValid() {
             if (config.Dict != null &&
-                config.Dict.ContainsKey("ipAddress") && 
+                config.Dict.ContainsKey("ipAddress") &&
                 config.Dict.ContainsKey("port") &&
                 config.Dict.ContainsKey("defaultVideoPath"))
                 return true;

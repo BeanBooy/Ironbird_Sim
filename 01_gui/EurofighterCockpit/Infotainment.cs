@@ -40,7 +40,7 @@ namespace EurofighterCockpit
                 p_content.Controls.Add(slides[slideName]);
                 slides[slideName].OnShow();
             }
-                
+
         }
 
         private void ResetAllButtons() {

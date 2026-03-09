@@ -68,7 +68,7 @@ namespace EurofighterCockpit
         }
 
         public static byte CanardLeft(ushort joystickY) {
-            return ScaleUShortToByte((ushort)(joystickY));
+            return ScaleUShortToByte((ushort)joystickY);
         }
 
         public static byte Rudder(bool rudderLeft, bool rudderRight, bool rudderReset) {
@@ -93,9 +93,9 @@ namespace EurofighterCockpit
 
         public static byte Lights(bool positionLights, bool strobeLights, bool landingLight) {
             byte packed = (byte)(
-                (positionLights ? 1 : 0) << 0 |
-                (strobeLights ? 1 : 0) << 1 |
-                (landingLight ? 1 : 0) << 2
+                ((positionLights ? 1 : 0) << 0) |
+                ((strobeLights ? 1 : 0) << 1) |
+                ((landingLight ? 1 : 0) << 2)
             );
             return packed;
         }

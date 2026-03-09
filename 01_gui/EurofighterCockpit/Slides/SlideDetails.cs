@@ -1,12 +1,5 @@
-﻿using EurofighterCockpit.Properties;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using System.Collections.Generic;
 using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Reflection;
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
