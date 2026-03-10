@@ -416,6 +416,7 @@
     <Content Include="Resources\Assets\Background.jpg" />
     <Content Include="Resources\Assets\Eurofighter.jpg" />
     <Content Include="Resources\Assets\Engine.png" />
+    <Content Include="Resources\Assets\UiScreenshot.png" />
     <EmbeddedResource Include="Resources\SlideDetails\AI.png" />
     <EmbeddedResource Include="Resources\SlideDetails\ACS.png" />
     <EmbeddedResource Include="Resources\SlideDetails\AGM88HARM.png" />
