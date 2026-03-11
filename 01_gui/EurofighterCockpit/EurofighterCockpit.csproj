@@ -464,9 +464,7 @@
     <Content Include="Resources\Assets\EurofighterCockpitLogo.png" />
     <Content Include="Resources\Assets\twoEurofighter.jpg" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\Movie\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.8">
       <Visible>False</Visible>

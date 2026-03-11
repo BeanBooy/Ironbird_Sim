@@ -28,7 +28,7 @@ namespace EurofighterCockpit
 
         public Dictionary<string, string> Dict { get => dict; }
 
-        public void setConfig(string configPath) {
+        public void loadConfig(string configPath) {
             if (File.Exists(configPath) == false) {
                 logger.Log($"Unvalid config path: {configPath}");
                 return;

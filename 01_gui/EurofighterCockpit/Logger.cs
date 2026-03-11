@@ -15,7 +15,7 @@ namespace EurofighterCockpit
         private static readonly object padlock = new object();
         private readonly object fileLock = new object();
 
-        private string logFileDir = $"{Directory.GetCurrentDirectory()}\\logs";
+        private string logFileDir = $"{AppDomain.CurrentDomain.BaseDirectory}\\logs";
         private string logFile = $"EurofighterCockpit_{DateTime.Now:yyyy_MM_dd}.log";
         private TextBox logBox = null;
 

@@ -8,6 +8,7 @@ namespace EurofighterCockpit
     internal class CockpitController
     {
         private readonly Logger logger = Logger.Instance;
+        private readonly Config config = Config.Instance;
 
         private readonly JoystickController joystickController;
         private readonly TcpConnectionManager tcpConnection;
@@ -46,6 +47,8 @@ namespace EurofighterCockpit
                 logger.Log("ERROR in TCP connection: Please check your network configuration");
                 logger.LogToFile(ex.Message);
             }
+            // read input file for the movie joystick movement
+            ReadMovieInputFile(config.Dict["movieInputPath"]);
             // setup joystick polling timer
             timer = new Timer();
             timer.Interval = 30;
@@ -172,10 +175,6 @@ namespace EurofighterCockpit
         }
 
         public void StartMovieSequence() {
-            // read input file if not done already
-            if (movieInputs == null)
-                ReadMovieInputFile("C:\\Users\\maini\\Desktop\\EurofighterCockpit_MVrecording.txt");
-
             if (isMovieRunning)
                 EndMovie();
             StartMovie();

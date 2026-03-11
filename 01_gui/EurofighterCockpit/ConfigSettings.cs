@@ -60,7 +60,7 @@ namespace EurofighterCockpit
         public ConfigSettings() {
             InitializeComponent();
             logger.SetLogBox(tb_logs);
-            config.setConfig(Path.Combine(Environment.CurrentDirectory, "EurofighterCockpitConfig.json"));
+            config.loadConfig(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "data", "config.json"));
         }
 
         private void ConfigSettings_Load(object sender, EventArgs e) {
@@ -87,7 +87,9 @@ namespace EurofighterCockpit
             if (config.Dict != null &&
                 config.Dict.ContainsKey("ipAddress") &&
                 config.Dict.ContainsKey("port") &&
-                config.Dict.ContainsKey("defaultVideoPath"))
+                config.Dict.ContainsKey("defaultVideoPath") &&
+                config.Dict.ContainsKey("moviePath") &&
+                config.Dict.ContainsKey("movieInputPath"))
                 return true;
             return false;
         }
@@ -446,7 +448,6 @@ namespace EurofighterCockpit
         private void btn_browseVideoFile_Click(object sender, EventArgs e) {
             // open file dialog to select video file
             using (OpenFileDialog ofd = new OpenFileDialog()) {
-                ofd.InitialDirectory = "E:\\Dev\\Ironbird_Sim";  // TODO: setup for final version
                 ofd.Filter = "mp4 files (*.mp4)|*.mp4";
                 ofd.FilterIndex = 0;
                 ofd.RestoreDirectory = true;
@@ -495,7 +496,7 @@ namespace EurofighterCockpit
 
         private void MovieRequestedHandler(object sender, EventArgs e) {
             controller.StartMovieSequence();
-            videoPlayer?.StartMovie("C:\\Users\\maini\\Desktop\\DemoVideo.mp4");
+            videoPlayer?.StartMovie(config.Dict["moviePath"]);
         }
     }
 }
