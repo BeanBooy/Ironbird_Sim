@@ -80,6 +80,7 @@ namespace EurofighterCockpit
                     data.RudderLeft ? "1" : "0",
                     data.RudderRight ? "1" : "0",
                     data.RudderReset ? "1" : "0",
+                    data.Throttle.ToString(),
                     data.LandingGear ? "1" : "0",
                     data.LandingLights ? "1" : "0",
                     data.PositionalLights ? "1" : "0"};
