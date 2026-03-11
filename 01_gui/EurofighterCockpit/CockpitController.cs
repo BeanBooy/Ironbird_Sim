@@ -195,9 +195,10 @@ namespace EurofighterCockpit
                 movieInputs[i].RudderLeft = Convert.ToBoolean(Convert.ToInt32(line[5]));
                 movieInputs[i].RudderRight = Convert.ToBoolean(Convert.ToInt32(line[6]));
                 movieInputs[i].RudderReset = Convert.ToBoolean(Convert.ToInt32(line[7]));
-                movieInputs[i].LandingGear = Convert.ToBoolean(Convert.ToInt32(line[8]));
-                movieInputs[i].LandingLights = Convert.ToBoolean(Convert.ToInt32(line[9]));
-                movieInputs[i].PositionalLights = Convert.ToBoolean(Convert.ToInt32(line[10]));
+                movieInputs[i].Throttle = Convert.ToUInt16(line[8]);
+                movieInputs[i].LandingGear = Convert.ToBoolean(Convert.ToInt32(line[9]));
+                movieInputs[i].LandingLights = Convert.ToBoolean(Convert.ToInt32(line[10]));
+                movieInputs[i].PositionalLights = Convert.ToBoolean(Convert.ToInt32(line[11]));
             }
         }
 
