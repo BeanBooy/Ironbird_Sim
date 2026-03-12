@@ -68,10 +68,9 @@ namespace EurofighterCockpit
             var data = joystickController.Poll();
 
             // hier
-            if (!data.Equals(previousData)) {
-                previousData = data;
-                JoystickDataUpdated?.Invoke(data);
-                string[] Joystickdata = { 
+            previousData = data;
+            JoystickDataUpdated?.Invoke(data);
+            string[] Joystickdata = { 
                     data.JoystickY.ToString(), 
                     data.JoystickX.ToString(), 
                     data.JoystickTorque.ToString(), 
@@ -84,12 +83,12 @@ namespace EurofighterCockpit
                     data.LandingGear ? "1" : "0",
                     data.LandingLights ? "1" : "0",
                     data.PositionalLights ? "1" : "0"};
-                string JoystickdataString = string.Join(",", Joystickdata);
-                File.AppendAllText(
+            string JoystickdataString = string.Join(",", Joystickdata);
+            File.AppendAllText(
                     Path.Combine(RecFileDir, RecFile),
                     JoystickdataString + Environment.NewLine,
                     Encoding.UTF8);
-            }
+            
 
             if (!overwriteMode) {
                 var payload = BuildPayload(data);
