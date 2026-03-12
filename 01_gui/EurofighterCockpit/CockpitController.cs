@@ -3,6 +3,7 @@ using System.Linq;
 using System.Windows.Forms;
 using System.Text;
 using System.IO;
+using System.Diagnostics;
 
 namespace EurofighterCockpit
 {
@@ -13,6 +14,7 @@ namespace EurofighterCockpit
         private readonly JoystickController joystickController;
         private readonly TcpConnectionManager tcpConnection;
         private readonly Timer timer;
+        private readonly Stopwatch stopwatch = new Stopwatch();
 
         private JoystickData previousData = new JoystickData();
         private byte[] previousPayload = new byte[16];
@@ -55,6 +57,7 @@ namespace EurofighterCockpit
             joystickController.InitJoystick();
             joystickController.InitThrottle();
             tcpConnection?.Start();
+            stopwatch.Start();
             timer.Start();
         }
 
@@ -64,13 +67,14 @@ namespace EurofighterCockpit
 
         private void OnTick(object sender, EventArgs e) {
             if (sleepMode) return;
-
+            long ms = stopwatch.ElapsedMilliseconds;
             var data = joystickController.Poll();
-
-            // hier
-            previousData = data;
+            
+            // hier + sende ms seit start
+            //previousData = data;
             JoystickDataUpdated?.Invoke(data);
-            string[] Joystickdata = { 
+            string[] Joystickdata = {
+                    ms.ToString(),
                     data.JoystickY.ToString(), 
                     data.JoystickX.ToString(), 
                     data.JoystickTorque.ToString(), 
