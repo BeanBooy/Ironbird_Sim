@@ -60,7 +60,7 @@ namespace EurofighterCockpit
         public ConfigSettings() {
             InitializeComponent();
             logger.SetLogBox(tb_logs);
-            config.loadConfig(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "data", "config.json"));
+            config.loadConfig(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "config.json"));
         }
 
         private void ConfigSettings_Load(object sender, EventArgs e) {
