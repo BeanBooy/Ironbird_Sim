@@ -1,0 +1,9 @@
+{
+  "title": "ACS - Armament Control Subsystem",
+  "data": {
+    "Aufbau": "",
+    "(Enhanced) Safety Critical Armament Controller\nNon-Safety Critical Armament Controller\nDistribution Unit (Signalverteiler, Außenlasten)\nFuselage Station Unit (Rumpf-Außenlast-Dekodiergerät)\nIntegrated Tip Station Unit (integrierter Flügelspitzen-Außenlast-Dekodiergerät)\nWing Pylon Station Unit (Flügel-Außenlast-Dekodiergerät) \nGun Control Junction Box (Kanonenkontrollbox)":  ""
+
+  },
+  "description": "Das Armament Control Subsystem (ACS) ist Teil der Eurofighter Avionik und stellt als Waffensteueranlage die Schnittstelle zu den Waffen und Lasten dar. Die Hauptaufgabe des Subsystems besteht darin, alle Waffen, Lasten und die Bordkanone unter allen Bedingungen zu überwachen und sicher einzusetzen. Hierzu überwacht und bestimmt das ACS kontinuierlich den Status der Waffen und Lasten und sendet deren Anzahl und Ort an das Avionics System (AVS) und das Flight Control System (FCS)."
+}

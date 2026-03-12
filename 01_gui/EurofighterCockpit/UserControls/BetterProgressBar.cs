@@ -1,16 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace EurofighterCockpit
 {
-    public enum Direction {
+    public enum Direction
+    {
         leftToRight,
         rightToLeft,
         topToBottom,
@@ -26,8 +21,8 @@ namespace EurofighterCockpit
             InitializeComponent();
         }
 
-        public int Progress { 
-            get => progress; 
+        public int Progress {
+            get => progress;
             set {
                 progress = Math.Min(100, Math.Max(0, value));  // crop value to desired range
                 // update the UI
@@ -35,10 +30,10 @@ namespace EurofighterCockpit
                     p_progress.Width = Size.Width * value / 100;
                 else
                     p_progress.Height = Size.Height * value / 100;
-            } 
+            }
         }
 
-        public Direction Direction { 
+        public Direction Direction {
             get => direction;
             set {
                 direction = value;

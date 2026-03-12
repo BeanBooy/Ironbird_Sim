@@ -1,17 +1,12 @@
-﻿using EurofighterCockpit.Slides;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 
 namespace EurofighterCockpit
 {
     public class SlideNavigationEventArgs : EventArgs
     {
-        public int TargetSlide { get; }
+        public string TargetSlide { get; }
 
-        public SlideNavigationEventArgs(int targetSlide) {
+        public SlideNavigationEventArgs(string targetSlide) {
             TargetSlide = targetSlide;
         }
     }

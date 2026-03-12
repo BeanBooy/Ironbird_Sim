@@ -1,23 +1,46 @@
-﻿using System;
+﻿using LibVLCSharp.Shared;
+using System;
 using System.Windows.Forms;
 
 namespace EurofighterCockpit
 {
     public partial class VideoPlayer : Form
     {
+        private LibVLC libVLC;
+        private MediaPlayer mediaPlayer;
+        private Media defaultMedia;
+        private bool isMoviePlaying;
+
         public VideoPlayer() {
             InitializeComponent();
-            // hide media player ui
-            windowsMediaPlayer.uiMode = "none";
-            // enable endless video loop
-            windowsMediaPlayer.settings.setMode("loop", true);
+            Core.Initialize();
+            libVLC = new LibVLC();
+            mediaPlayer = new MediaPlayer(libVLC);
+            videoView.MediaPlayer = mediaPlayer;
+            mediaPlayer.EndReached += MediaPlayer_EndReached;
+            mediaPlayer.Mute = true;
         }
 
-        public void SetSource(string mediaPath) {
-            windowsMediaPlayer.URL = mediaPath;
-            // for whatever reason the sound setting are lost when setting a new url
-            // that's why they have to be set again
-            windowsMediaPlayer.settings.mute = true;
+        public void SetDefaultSource(string mediaPath) {
+            defaultMedia = new Media(libVLC, mediaPath, FromType.FromPath);
+            mediaPlayer.Play(defaultMedia);
+        }
+
+        public void StartMovie(string moviePath) {
+            isMoviePlaying = true;
+            var media = new Media(libVLC, moviePath, FromType.FromPath);
+            mediaPlayer.Play(media);
+        }
+
+        private void MediaPlayer_EndReached(object sender, EventArgs e) {
+            if (IsDisposed || !IsHandleCreated)
+                return;
+            if (isMoviePlaying)
+                isMoviePlaying = false;
+            // restart default video
+            BeginInvoke(new Action(() => {
+                mediaPlayer.Play(defaultMedia);
+            }));
         }
 
         private void VideoPlayer_LocationChanged(object sender, EventArgs e) {

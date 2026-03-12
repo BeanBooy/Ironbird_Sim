@@ -1,0 +1,9 @@
+{
+  "title": "RECCE Pod",
+  "data": {
+    "Bezeichnung": "Recce-Pod",
+    "Hersteller": "Airbus Defence and Space",
+    "Sensoren": "- Zeiss KS153A Trilens\n- Zeiss KS153A Tri- / Pentalens\n- IR-Line Scanner"
+  },
+  "description": "Ein RECCE Pod ist ein extern angebrachter Sensor in einer aerodynamischen Verkleidung. Diese Zusatzausrüstung ermöglicht, einen Eurofighter in der Aufklärungsrolle einzusetzen. Frühere Systeme nutzten zur Aufzeichnung der Aufklärungsergebnisse noch Nassfilme, die nach dem Flug durch speziell ausgebildetes Personal ausgewertet wurden. Durch die vermehrte Nutzung leistungsfähigerer elektronischer Sensoren besteht heute die Möglichkeit der digitalen Speicherung. Der Anbau des RECCE Pod erfolgt am Standard-Außenlastträger unter dem Rumpf."
+}

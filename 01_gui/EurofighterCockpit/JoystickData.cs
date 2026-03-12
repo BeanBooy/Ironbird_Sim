@@ -2,7 +2,7 @@
 
 namespace EurofighterCockpit
 {
-    internal class JoystickData
+    public class JoystickData
     {
         private bool throttleConnected;
         private bool joystickConnected;
@@ -41,9 +41,9 @@ namespace EurofighterCockpit
         public bool PositionalLights { get => positionalLights; set => positionalLights = value; }
         public bool StrobeLights { get => strobeLights; set => strobeLights = value; }
         public bool LandingLights { get => landingLights; set => landingLights = value; }
-        public double JoystickXPercent { get => (Convert.ToDouble(joystickX) - ushort.MaxValue / 2) / ushort.MaxValue * 2; }
-        public double JoystickYPercent { get => (Convert.ToDouble(joystickY) - ushort.MaxValue / 2) / ushort.MaxValue * -2; }
-        public double JoystickTorquePercent { get => (joystickTorque - ushort.MaxValue / 2) / ushort.MaxValue; }
+        public double JoystickXPercent { get => (Convert.ToDouble(joystickX) - (ushort.MaxValue / 2)) / ushort.MaxValue * 2; }
+        public double JoystickYPercent { get => (Convert.ToDouble(joystickY) - (ushort.MaxValue / 2)) / ushort.MaxValue * -2; }
+        public double JoystickTorquePercent { get => (joystickTorque - (ushort.MaxValue / 2)) / ushort.MaxValue; }
         public double ThrottlePercent { get => (Convert.ToDouble(throttle) - ushort.MaxValue) / -ushort.MaxValue; }
 
         public override bool Equals(object obj) {

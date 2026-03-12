@@ -1,0 +1,7 @@
+{
+  "title": "Hydraulik",
+  "data": {
+    "Steuerflächen":"1: Canard\n2: Inboard-Flaperon\n3: Outboard-Flaperon\n4: Ruder\n5: Slat\n6: Airbrake\n7: Lufteinlass\n8: Bugradsteuerung"
+  },
+  "description": "Die Hydraulik-Anlage liefert hydraulische Energie mit einem Druck von 280 bar (28000 kPa) und max. 4 Liter/Sekunde. Damit werden folgende Funktionen sichergestellt:\n- Umsetzung der Steuersignale auf die Steuerflächen\n- Primäre und sekundäre Flugsteuerung (FCS)\n- Ein- und Ausfahren des Fahrwerks\n- Abbremsung und Lenkung des Luftfahrzeugs"
+}

@@ -1,0 +1,10 @@
+{
+  "title": "Brennkammer",
+  "data": {
+    "Typ": "Ringbrennkammer",
+    "Zerstäuber": "20 Zerstäuberdüsen",
+    "Anlasser": "2 Anlasskraftstoffdüsen",
+    "Zündung": "2 Hochenergie-Zündkerzen"
+  },
+  "description": "In der Ringbrennkammer werden Luft und Treibstoff miteinander verbrannt, die Treibstoffeinspritzung erfolgt im air spray-Verfahren. Die Brennkammer ist mit Endoskopen zugänglich."
+}

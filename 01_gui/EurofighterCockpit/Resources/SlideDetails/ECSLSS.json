@@ -1,0 +1,7 @@
+{
+  "title": "Environmental Control System (ECS) und Life Support System (LSS)",
+  "data": {
+    "Aufgaben": "- Klimatisierung\n- Sauerstoff für den Piloten\n- Kabinendruck\n- Antibeschlagschutz des Canopy\n- Kühlung der Computer\n- Druck für die Anti-G-Hose"
+  },
+  "description": "Das Environmental Control System (ECS) zieht von den Verdichtern der Triebwerke Abzapfluft. Diese Abzapfluft wird herunter gekühlt, gefiltert und verteilt. Die wichtigsten Nutzer dieser Luft sind die Sauerstoffgewinnungsanalage, die Klimaanlage, die Computerkühlung und die Luftdruckanlage der Kabine sowie der Anti-G-Hose des Piloten."
+}
