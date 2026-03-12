@@ -3,6 +3,22 @@
 ## Einführung
 Diese Software steuert ein Servo- und LED-Treibersystem über ein das TCP Netzwerkprotokoll. Sie ermöglicht die Fernsteuerung verschiedener Servos und LEDs des Eurofighter-Messemodells.
 
+## Service-File für den Pi:
+
+[Unit]
+Description=Ironbird-Sim Script
+After=network.target
+
+[Service]
+Type=simple
+User=raspberrypi
+WorkingDirectory=/home/raspberrypi/Ironbird_Sim/02_RaspberryPi/
+ExecStart=/home/raspberrypi/Ironbird_Sim/02_RaspberryPi/.venv/bin/python3 main.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
 ---
 
 ## Voraussetzungen
@@ -45,13 +61,9 @@ Die Software unterstützt verschiedene Steuerungsbefehle, die über das Netzwerk
 
 - **0 (RuheModus):** Setzt alle Servos und LEDs in die Ausgangsposition.
 
-- **1 (LED-Steuerung):** Steuert die LEDs.
+- **1 (RemoteModus):** Steuert die Servos.
 
-- **2 (RemoteModus):** Steuert die Servos.
-
-- **3 (Servotest):** Führt einen Servotest aus.
-
-- **4 (LDP Steuerung):** Steuert die Servos für den Laser-Entfernungsmesser.
+- **2 (Servotest):** Führt einen Servotest aus.
 
 ---
 
