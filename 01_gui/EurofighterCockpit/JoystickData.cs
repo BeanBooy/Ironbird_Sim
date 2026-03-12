@@ -6,6 +6,7 @@ namespace EurofighterCockpit
     {
         private bool throttleConnected;
         private bool joystickConnected;
+        private uint timeInMs;
 
         // joystick
         private ushort joystickX = ushort.MaxValue / 2;
@@ -45,6 +46,7 @@ namespace EurofighterCockpit
         public double JoystickYPercent { get => (Convert.ToDouble(joystickY) - (ushort.MaxValue / 2)) / ushort.MaxValue * -2; }
         public double JoystickTorquePercent { get => (joystickTorque - (ushort.MaxValue / 2)) / ushort.MaxValue; }
         public double ThrottlePercent { get => (Convert.ToDouble(throttle) - ushort.MaxValue) / -ushort.MaxValue; }
+        public uint TimeInMs { get => timeInMs; set => timeInMs = value; }
 
         public override bool Equals(object obj) {
             if (obj is JoystickData other) {

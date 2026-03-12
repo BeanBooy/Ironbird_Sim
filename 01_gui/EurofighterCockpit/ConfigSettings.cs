@@ -103,8 +103,6 @@ namespace EurofighterCockpit
             controller.JoystickConnectionChanged += updateJoystickState;
             controller.ThrottleConnectionChanged += updateThrottleState;
 
-            controller.LogMessage += msg => logger.Log(msg);
-
             controller.Start();
         }
 

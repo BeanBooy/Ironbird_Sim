@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -24,12 +25,12 @@ namespace EurofighterCockpit
         private bool isMovieRunning;
         private JoystickData[] movieInputs = null;
         private int movieInputPosition = 0;
+        private Stopwatch timeKeeper;
 
         // events for ui
         public event Action<JoystickData> JoystickDataUpdated;
         public event Action<byte[]> PayloadUpdated;
         public event Action<bool> ConnectionStatusChanged;
-        public event Action<string> LogMessage;
         public event Action<bool> JoystickConnectionChanged;
         public event Action<bool> ThrottleConnectionChanged;
 
@@ -62,14 +63,10 @@ namespace EurofighterCockpit
             timer.Start();
         }
 
-        public void Stop() {
-            timer.Stop();
-        }
-
         private void OnTick(object sender, EventArgs e) {
             if (sleepMode) return;
 
-            JoystickData data = GetJoystickData();
+            JoystickData data = GetInputData();
 
             if (!data.Equals(previousData)) {
                 previousData = data;
@@ -82,13 +79,23 @@ namespace EurofighterCockpit
             }
         }
 
-        private JoystickData GetJoystickData() {
+        private JoystickData GetInputData() {
             // either return realtime joystick data or from movie file
             if (isMovieRunning) {
-                if (movieInputPosition < movieInputs.Length)
-                    return movieInputs[movieInputPosition++];
-                EndMovie();
+                if (movieInputPosition >= movieInputs.Length - 1) {
+                    EndMovie();
+                    return joystickController.Poll();
+                }
+
+                long realTime = timeKeeper.ElapsedMilliseconds;
+                // advance position while next timestamp is still before realtime
+                while (movieInputPosition < movieInputs.Length - 1 && 
+                    movieInputs[movieInputPosition + 1].TimeInMs <= realTime) {
+                    movieInputPosition++;
+                }
+                return movieInputs[movieInputPosition];
             }
+
             return joystickController.Poll();
         }
 
@@ -146,12 +153,12 @@ namespace EurofighterCockpit
                 var zeroPayload = new byte[16];
                 Send(zeroPayload);
                 timer.Stop();
-                LogMessage?.Invoke("Eurofighter set to sleep");
+                logger.Log("Eurofighter set to sleep");
             }
             else {
                 Send(previousPayload);
                 timer.Start();
-                LogMessage?.Invoke("Eurofighter woken up");
+                logger.Log("Eurofighter has woken up");
             }
         }
 
@@ -159,7 +166,7 @@ namespace EurofighterCockpit
             var payload = new byte[16];
             payload[0] = 2;
             Send(payload);
-            LogMessage?.Invoke("Servo test started");
+            logger.Log("Servo test started");
         }
 
         public void ReinitializeDevices() {
@@ -186,31 +193,34 @@ namespace EurofighterCockpit
             for (int i = 0; i < data.Length; i++) {
                 movieInputs[i] = new JoystickData();
                 string[] line = data[i].Split(',');
-                movieInputs[i].JoystickY = Convert.ToUInt16(line[0]);
-                movieInputs[i].JoystickX = Convert.ToUInt16(line[1]);
-                movieInputs[i].JoystickTorque = Convert.ToUInt16(line[2]);
-                movieInputs[i].Airbrake = Convert.ToBoolean(Convert.ToInt32(line[3]));
-                movieInputs[i].Trigger = Convert.ToBoolean(Convert.ToInt32(line[4]));
-                movieInputs[i].RudderLeft = Convert.ToBoolean(Convert.ToInt32(line[5]));
-                movieInputs[i].RudderRight = Convert.ToBoolean(Convert.ToInt32(line[6]));
-                movieInputs[i].RudderReset = Convert.ToBoolean(Convert.ToInt32(line[7]));
-                movieInputs[i].Throttle = Convert.ToUInt16(line[8]);
-                movieInputs[i].LandingGear = Convert.ToBoolean(Convert.ToInt32(line[9]));
-                movieInputs[i].LandingLights = Convert.ToBoolean(Convert.ToInt32(line[10]));
-                movieInputs[i].PositionalLights = Convert.ToBoolean(Convert.ToInt32(line[11]));
+                movieInputs[i].TimeInMs = Convert.ToUInt32(line[0]);
+                movieInputs[i].JoystickY = Convert.ToUInt16(line[1]);
+                movieInputs[i].JoystickX = Convert.ToUInt16(line[2]);
+                movieInputs[i].JoystickTorque = Convert.ToUInt16(line[3]);
+                movieInputs[i].Airbrake = Convert.ToBoolean(Convert.ToInt32(line[4]));
+                movieInputs[i].Trigger = Convert.ToBoolean(Convert.ToInt32(line[5]));
+                movieInputs[i].RudderLeft = Convert.ToBoolean(Convert.ToInt32(line[6]));
+                movieInputs[i].RudderRight = Convert.ToBoolean(Convert.ToInt32(line[7]));
+                movieInputs[i].RudderReset = Convert.ToBoolean(Convert.ToInt32(line[8]));
+                movieInputs[i].Throttle = Convert.ToUInt16(line[9]);
+                movieInputs[i].LandingGear = Convert.ToBoolean(Convert.ToInt32(line[10]));
+                movieInputs[i].LandingLights = Convert.ToBoolean(Convert.ToInt32(line[11]));
+                movieInputs[i].PositionalLights = Convert.ToBoolean(Convert.ToInt32(line[12]));
             }
         }
 
         private void StartMovie() {
             isMovieRunning = true;
+            timeKeeper = Stopwatch.StartNew();
             movieInputPosition = 0;
-            logger.LogToBox("movie started");
+            logger.LogToBox("movie sequence started");
         }
 
         private void EndMovie() {
             isMovieRunning = false;
+            timeKeeper = null;  // kill the stopwatch
             movieInputPosition = 0;
-            logger.LogToBox("movie ended");
+            logger.LogToBox("movie sequence ended");
         }
 
     }

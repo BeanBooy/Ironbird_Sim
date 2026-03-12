@@ -29,14 +29,17 @@ namespace EurofighterCockpit
         public void StartMovie(string moviePath) {
             isMoviePlaying = true;
             var media = new Media(libVLC, moviePath, FromType.FromPath);
+            mediaPlayer.Mute = false;
             mediaPlayer.Play(media);
         }
 
         private void MediaPlayer_EndReached(object sender, EventArgs e) {
             if (IsDisposed || !IsHandleCreated)
                 return;
-            if (isMoviePlaying)
+            if (isMoviePlaying) {
                 isMoviePlaying = false;
+                mediaPlayer.Mute = true;
+            }
             // restart default video
             BeginInvoke(new Action(() => {
                 mediaPlayer.Play(defaultMedia);
