@@ -38,23 +38,22 @@
             this.screenNumber.Font = new System.Drawing.Font("Consolas", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.screenNumber.Location = new System.Drawing.Point(0, 0);
             this.screenNumber.Margin = new System.Windows.Forms.Padding(0);
-            this.screenNumber.MinimumSize = new System.Drawing.Size(20, 109);
+            this.screenNumber.MinimumSize = new System.Drawing.Size(30, 168);
             this.screenNumber.Name = "screenNumber";
-            this.screenNumber.Size = new System.Drawing.Size(206, 112);
+            this.screenNumber.Size = new System.Drawing.Size(307, 168);
             this.screenNumber.TabIndex = 0;
             this.screenNumber.Text = "---";
             this.screenNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ScreenIndicator
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(395, 190);
+            this.ClientSize = new System.Drawing.Size(592, 293);
             this.Controls.Add(this.screenNumber);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "ScreenIndicator";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;

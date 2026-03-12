@@ -26,39 +26,42 @@
         /// </summary>
         private void InitializeComponent() {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VideoPlayer));
-            this.videoView = new LibVLCSharp.WinForms.VideoView();
-            ((System.ComponentModel.ISupportInitialize)(this.videoView)).BeginInit();
+            this.windowsMediaPlayer = new AxWMPLib.AxWindowsMediaPlayer();
+            ((System.ComponentModel.ISupportInitialize)(this.windowsMediaPlayer)).BeginInit();
             this.SuspendLayout();
             // 
-            // videoView
+            // windowsMediaPlayer
             // 
-            this.videoView.BackColor = System.Drawing.Color.Black;
-            this.videoView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.videoView.Location = new System.Drawing.Point(0, 0);
-            this.videoView.MediaPlayer = null;
-            this.videoView.Name = "videoView";
-            this.videoView.Size = new System.Drawing.Size(1920, 1080);
-            this.videoView.TabIndex = 0;
-            this.videoView.Text = "videoView1";
+            this.windowsMediaPlayer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.windowsMediaPlayer.Enabled = true;
+            this.windowsMediaPlayer.Location = new System.Drawing.Point(0, 0);
+            this.windowsMediaPlayer.Margin = new System.Windows.Forms.Padding(2);
+            this.windowsMediaPlayer.Name = "windowsMediaPlayer";
+            this.windowsMediaPlayer.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("windowsMediaPlayer.OcxState")));
+            this.windowsMediaPlayer.Size = new System.Drawing.Size(1069, 482);
+            this.windowsMediaPlayer.TabIndex = 0;
             // 
-            // VLCPlayer
+            // VideoPlayer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1920, 1080);
-            this.Controls.Add(this.videoView);
+            this.ClientSize = new System.Drawing.Size(1069, 482);
+            this.Controls.Add(this.windowsMediaPlayer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "VLCPlayer";
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Name = "VideoPlayer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "VLCPlayer";
-            ((System.ComponentModel.ISupportInitialize)(this.videoView)).EndInit();
+            this.Text = "VideoPlayer";
+            this.LocationChanged += new System.EventHandler(this.VideoPlayer_LocationChanged);
+            this.Move += new System.EventHandler(this.VideoPlayer_Move);
+            ((System.ComponentModel.ISupportInitialize)(this.windowsMediaPlayer)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private LibVLCSharp.WinForms.VideoView videoView;
+        private AxWMPLib.AxWindowsMediaPlayer windowsMediaPlayer;
     }
 }

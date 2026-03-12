@@ -1,4 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace EurofighterCockpit
@@ -11,10 +18,10 @@ namespace EurofighterCockpit
 
         public int Min {
             get => min;
-            set {
+            set { 
                 trackBar.Minimum = value;
                 min = value;
-            }
+            } 
         }
         public int Max {
             get => max;
