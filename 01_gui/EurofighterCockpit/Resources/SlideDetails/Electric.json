@@ -1,8 +1,0 @@
-{
-  "title": "Elektronik",
-  "data": {
-    "Wechselstromnetz": "115V 400hz",
-    "Gleichstromnetz": "28V"
-  },
-  "description": "Die elektrische Anlage des Eurofighter ist in ein Gleichstromnetz und ein Wechselstromnetz unterteilt. Die Versorgung der Netze kann am Boden durch eine externe Stromversorgung übernommen werden. Bevor die Triebwerke laufen, liefert ein Hilfsgenerator und die Batterie die benötigte Bordspannung. Sobald ein Triebwerk läuft, werden Gleich- und Wechselstromgenerator am Getriebe, welches mit dem Triebwerk verbunden ist, angetrieben."
-}

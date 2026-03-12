@@ -1,7 +1,0 @@
-{
-  "title": "MSS - Mission Support Subsystem",
-  "data": {
-    "Hauptfunktionen\n- Mission Planning and Briefing\n- Squadron Management\n- Pilot Management\n- Communications\n- Crypto Management":  ""
-  },
-  "description": "Das Mission Support Subsystem (MSS) dient der Planung von Missionen für das Waffensystem Eurofighter. Die Piloten können mit dieser Software unter anderem ihren Flugplan erstellen, Wegpunkte und Missionsziele definieren, Radiofrequenzen festlegen, den Kraftstoffverbrauch berechnen. Die fertige Missionsdatei wird auf einen Portable Data Store geschrieben und vom Piloten im Flugzeug einspielt."
-}

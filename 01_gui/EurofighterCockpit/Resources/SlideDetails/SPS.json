@@ -1,7 +1,0 @@
-{
-  "title": "SPS - Secondary Power Systems",
-  "data": {
-    "Komponenten des SPS\n- Air Turbine Starter/Motor\n- Gear Boxes\n- Auxiliary Power Unit\n- APU Control Unit\n- APU Non-Return Valve\n- SPS Air Ground Connector\n- Pressure Reduction and Shut-off Valve\n- PTO Shafts":  ""
-  },
-  "description": "Die Aufgabe des Secondary Power Systems ist die Versorgung aller erforderlichen Systeme mit elektrischem Strom und Druckluft. Dazu zählt im einzelnen:\n- Versorgung des Luftfahrzeugs am Boden mit Wechselstrom (APU-AC-Generator) und Druckluft (ECS)-Betrieb der APU\n- Anlassen eines Triebwerkes über die entsprechende Gearbox\n- Antrieb der Gearbox während des Fluges mechanisch über die PTO Shafts der laufenden Triebwerke."
-}
