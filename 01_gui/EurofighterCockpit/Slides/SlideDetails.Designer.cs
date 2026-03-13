@@ -26,91 +26,97 @@
         /// </summary>
         private void InitializeComponent() {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SlideDetails));
-            this.label1 = new System.Windows.Forms.Label();
-            this.l_title = new System.Windows.Forms.Label();
-            this.pb_image = new System.Windows.Forms.PictureBox();
-            this.tlp_data = new System.Windows.Forms.TableLayoutPanel();
-            this.l_text = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_image)).BeginInit();
-            this.SuspendLayout();
+            label1 = new System.Windows.Forms.Label();
+            l_title = new System.Windows.Forms.Label();
+            pb_image = new System.Windows.Forms.PictureBox();
+            tlp_data = new System.Windows.Forms.TableLayoutPanel();
+            l_text = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)pb_image).BeginInit();
+            SuspendLayout();
             // 
             // label1
             // 
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Leelawadee UI", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(1120, 160);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(265, 40);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Technische Daten:";
+            label1.BackColor = System.Drawing.Color.Transparent;
+            label1.Font = new System.Drawing.Font("Leelawadee UI", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
+            label1.ForeColor = System.Drawing.Color.White;
+            label1.Location = new System.Drawing.Point(1111, 170);
+            label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(309, 46);
+            label1.TabIndex = 1;
+            label1.Text = "Technische Daten:";
             // 
             // l_title
             // 
-            this.l_title.BackColor = System.Drawing.Color.Transparent;
-            this.l_title.Font = new System.Drawing.Font("Leelawadee UI", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_title.ForeColor = System.Drawing.Color.White;
-            this.l_title.Location = new System.Drawing.Point(100, 80);
-            this.l_title.Name = "l_title";
-            this.l_title.Size = new System.Drawing.Size(845, 50);
-            this.l_title.TabIndex = 0;
-            this.l_title.Text = "Title";
+            l_title.BackColor = System.Drawing.Color.Transparent;
+            l_title.Font = new System.Drawing.Font("Leelawadee UI", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
+            l_title.ForeColor = System.Drawing.Color.White;
+            l_title.Location = new System.Drawing.Point(117, 77);
+            l_title.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            l_title.Name = "l_title";
+            l_title.Size = new System.Drawing.Size(986, 58);
+            l_title.TabIndex = 0;
+            l_title.Text = "Title";
             // 
             // pb_image
             // 
-            this.pb_image.BackColor = System.Drawing.Color.Transparent;
-            this.pb_image.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pb_image.Location = new System.Drawing.Point(100, 160);
-            this.pb_image.Name = "pb_image";
-            this.pb_image.Size = new System.Drawing.Size(951, 502);
-            this.pb_image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pb_image.TabIndex = 6;
-            this.pb_image.TabStop = false;
+            pb_image.BackColor = System.Drawing.Color.Transparent;
+            pb_image.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            pb_image.Location = new System.Drawing.Point(117, 170);
+            pb_image.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            pb_image.Name = "pb_image";
+            pb_image.Size = new System.Drawing.Size(922, 514);
+            pb_image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            pb_image.TabIndex = 6;
+            pb_image.TabStop = false;
             // 
             // tlp_data
             // 
-            this.tlp_data.BackColor = System.Drawing.Color.Transparent;
-            this.tlp_data.ColumnCount = 2;
-            this.tlp_data.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.22625F));
-            this.tlp_data.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.77375F));
-            this.tlp_data.Font = new System.Drawing.Font("Leelawadee UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tlp_data.ForeColor = System.Drawing.Color.White;
-            this.tlp_data.Location = new System.Drawing.Point(1127, 218);
-            this.tlp_data.Name = "tlp_data";
-            this.tlp_data.RowCount = 1;
-            this.tlp_data.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlp_data.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlp_data.Size = new System.Drawing.Size(663, 444);
-            this.tlp_data.TabIndex = 7;
+            tlp_data.BackColor = System.Drawing.Color.Transparent;
+            tlp_data.ColumnCount = 2;
+            tlp_data.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.22625F));
+            tlp_data.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.77375F));
+            tlp_data.Font = new System.Drawing.Font("Leelawadee UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            tlp_data.ForeColor = System.Drawing.Color.White;
+            tlp_data.Location = new System.Drawing.Point(1119, 237);
+            tlp_data.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            tlp_data.Name = "tlp_data";
+            tlp_data.RowCount = 1;
+            tlp_data.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            tlp_data.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            tlp_data.Size = new System.Drawing.Size(688, 447);
+            tlp_data.TabIndex = 7;
             // 
             // l_text
             // 
-            this.l_text.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.l_text.Font = new System.Drawing.Font("Leelawadee UI", 20.25F);
-            this.l_text.ForeColor = System.Drawing.Color.White;
-            this.l_text.Location = new System.Drawing.Point(100, 729);
-            this.l_text.Name = "l_text";
-            this.l_text.Padding = new System.Windows.Forms.Padding(10);
-            this.l_text.Size = new System.Drawing.Size(1691, 270);
-            this.l_text.TabIndex = 8;
-            this.l_text.Text = "Description";
+            l_text.BackColor = System.Drawing.Color.FromArgb(170, 0, 0, 0);
+            l_text.Font = new System.Drawing.Font("Leelawadee UI", 20.25F);
+            l_text.ForeColor = System.Drawing.Color.White;
+            l_text.Location = new System.Drawing.Point(117, 752);
+            l_text.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            l_text.Name = "l_text";
+            l_text.Padding = new System.Windows.Forms.Padding(12);
+            l_text.Size = new System.Drawing.Size(1690, 247);
+            l_text.TabIndex = 8;
+            l_text.Text = "Description";
             // 
             // SlideDetails
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Controls.Add(this.l_text);
-            this.Controls.Add(this.tlp_data);
-            this.Controls.Add(this.pb_image);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.l_title);
-            this.Name = "SlideDetails";
-            this.Size = new System.Drawing.Size(1920, 1080);
-            ((System.ComponentModel.ISupportInitialize)(this.pb_image)).EndInit();
-            this.ResumeLayout(false);
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            BackColor = System.Drawing.Color.FromArgb(0, 0, 64);
+            BackgroundImage = (System.Drawing.Image)resources.GetObject("$this.BackgroundImage");
+            BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            Controls.Add(l_text);
+            Controls.Add(tlp_data);
+            Controls.Add(pb_image);
+            Controls.Add(label1);
+            Controls.Add(l_title);
+            Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            Name = "SlideDetails";
+            Size = new System.Drawing.Size(1920, 1080);
+            ((System.ComponentModel.ISupportInitialize)pb_image).EndInit();
+            ResumeLayout(false);
 
         }
 

@@ -1,17 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!--
-    Microsoft ResX Schema
-
+  <!-- 
+    Microsoft ResX Schema 
+    
     Version 2.0
-
-    The primary goals of this format is to allow a simple XML format
-    that is mostly human readable. The generation and parsing of the
-    various data types are done through the TypeConverter classes
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
     associated with the data types.
-
+    
     Example:
-
+    
     ... ado.net/XML headers & schema ...
     <resheader name="resmimetype">text/microsoft-resx</resheader>
     <resheader name="version">2.0</resheader>
@@ -26,36 +26,36 @@
         <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
         <comment>This is a comment</comment>
     </data>
-
-    There are any number of "resheader" rows that contain simple
+                
+    There are any number of "resheader" rows that contain simple 
     name/value pairs.
-
-    Each data row contains a name, and value. The row also contains a
-    type or mimetype. Type corresponds to a .NET class that support
-    text/value conversion through the TypeConverter architecture.
-    Classes that don't support this are serialized and stored with the
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
     mimetype set.
-
-    The mimetype is used for serialized objects, and tells the
-    ResXResourceReader how to depersist the object. This is currently not
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
     extensible. For a given mimetype the value must be set accordingly:
-
-    Note - application/x-microsoft.net.object.binary.base64 is the format
-    that the ResXResourceWriter will generate, however the reader can
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
     read any of the formats listed below.
-
+    
     mimetype: application/x-microsoft.net.object.binary.base64
-    value   : The object must be serialized with
+    value   : The object must be serialized with 
             : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
-
+    
     mimetype: application/x-microsoft.net.object.soap.base64
-    value   : The object must be serialized with
+    value   : The object must be serialized with 
             : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
             : and then encoded with base64 encoding.
 
     mimetype: application/x-microsoft.net.object.bytearray.base64
-    value   : The object must be serialized into a byte array
+    value   : The object must be serialized into a byte array 
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
@@ -117,17 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="label1.Text" xml:space="preserve">
-    <value>Der Eurofighter Typhoon ist ein zweistrahliges Mehrzweckkampfflugzeug, das von Deutschland, Italien, Spanien und Großbritannien in Gemeinschaftsproduktion entwickelt und gebaut wird.
-Seine operationellen Einsatzgebiete umfassen Luftüberlegenheit und Luftraumüberwachung, Abfangjagd, Unterdrückung und Zerstörung von Luftverteidigungsanlagen, Luftnahunterstützung, Angriff zur See, Strategischer Angriff und Aufklärung.
-
-Wegen der flexiblen Auslegung können zukünftige Missionen und Rollen relativ einfach implementiert werden. 
-Diese Flexibilität basiert auf fortschrittlicher Technik in den Bereichen Avionik, Sensorik und Waffenintegration. 
-Das Kampfflugzeug ist damit in der Lage, nicht nur verschiedene Rollen wahrzunehmen, sondern diese auch während einer einzigen Mission zu wechseln, wobei auch ein Wechsel zwischen Luft-Luft- und Luft-Boden-Einsatz möglich ist. 
-Ein einziges Flugzeug für eine große Reihe an Einsatzprofilen reduziert Kosten, steigert die Effektivität und erleichtert die Zusammenarbeit mit alliierten Streitkräften.
-
-In der Rolle des Luftüberlegenheitsjägers, für die er ursprünglich ausschließlich konzipiert wurde, kann der Eurofighter seine extreme Manövrierfähigkeit sowie sein hohes Schub-Gewichts-Verhältnis voll ausspielen. 
-Er kann mehrere feindliche Kampfflugzeuge gleichzeitig inner- wie außerhalb des sichtbaren Bereichs bekämpfen, darüber hinaus aber auch diverse Bodenziele auf unterschiedliche Weise angreifen. 
-Für diese vielfältigen Aufgaben stehen – neben einer fest installierten 27-mm-Bordkanone – insgesamt 13 Außenlaststationen für verschiedenste Waffengattungen sowie Abwurftanks zur Verfügung.</value>
-  </data>
 </root>

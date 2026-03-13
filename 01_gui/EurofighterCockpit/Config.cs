@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Web.Script.Serialization;
+using System.Text.Json;
 
 namespace EurofighterCockpit
 {
@@ -35,8 +35,7 @@ namespace EurofighterCockpit
             }
             try {
                 string json = File.ReadAllText(configPath);
-                JavaScriptSerializer serializer = new JavaScriptSerializer();
-                dict = serializer.Deserialize<Dictionary<string, string>>(json);
+                dict = JsonSerializer.Deserialize<Dictionary<string, string>>(json);
             }
             catch (Exception ex) {
                 logger.Log($"ERROR while reading config file: {configPath}");
