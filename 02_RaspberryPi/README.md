@@ -8,6 +8,8 @@ Diese Software steuert ein Servo- und LED-Treibersystem über ein das TCP Netzwe
 [Unit]
 Description=Ironbird-Sim Script
 After=network.target
+StartLimitIntervalSec=0
+StartLimitBurst=0
 
 [Service]
 Type=simple
@@ -15,6 +17,7 @@ User=raspberrypi
 WorkingDirectory=/home/raspberrypi/Ironbird_Sim/02_RaspberryPi/
 ExecStart=/home/raspberrypi/Ironbird_Sim/02_RaspberryPi/.venv/bin/python3 main.py
 Restart=always
+RestartSec=1
 
 [Install]
 WantedBy=multi-user.target
