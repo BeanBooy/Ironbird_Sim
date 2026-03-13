@@ -1,14 +1,15 @@
 ﻿using LibVLCSharp.Shared;
 using System;
+using System.IO;
 using System.Windows.Forms;
 
 namespace EurofighterCockpit
 {
     public partial class VideoPlayer : Form
     {
-        private LibVLC libVLC;
-        private MediaPlayer mediaPlayer;
-        private Media defaultMedia;
+        private LibVLC libVLC = null;
+        private MediaPlayer mediaPlayer = null;
+        private Media defaultMedia = null;
         private bool isMoviePlaying;
 
         public VideoPlayer() {
@@ -22,15 +23,19 @@ namespace EurofighterCockpit
         }
 
         public void SetDefaultSource(string mediaPath) {
-            defaultMedia = new Media(libVLC, mediaPath, FromType.FromPath);
-            mediaPlayer.Play(defaultMedia);
+            if (File.Exists(mediaPath)) {
+                defaultMedia = new Media(libVLC, mediaPath, FromType.FromPath);
+                mediaPlayer.Play(defaultMedia);
+            }
         }
 
         public void StartMovie(string moviePath) {
-            isMoviePlaying = true;
-            var media = new Media(libVLC, moviePath, FromType.FromPath);
-            mediaPlayer.Mute = false;
-            mediaPlayer.Play(media);
+            if (File.Exists(moviePath)) {
+                isMoviePlaying = true;
+                var media = new Media(libVLC, moviePath, FromType.FromPath);
+                mediaPlayer.Mute = false;
+                mediaPlayer.Play(media);
+            }
         }
 
         private void MediaPlayer_EndReached(object sender, EventArgs e) {

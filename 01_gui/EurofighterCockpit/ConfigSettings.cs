@@ -61,17 +61,19 @@ namespace EurofighterCockpit
             InitializeComponent();
             logger.SetLogBox(tb_logs);
             config.loadConfig(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "config.json"));
+            if (config.Dict == null)
+                Environment.Exit(1);
         }
 
         private void ConfigSettings_Load(object sender, EventArgs e) {
 
-            if (isConfigFileValid()) {
+            if (config.isConfigFileValid()) {
                 tb_ip.Text = config.Dict["ipAddress"];
                 tb_port.Text = config.Dict["port"];
                 VideoPath = config.Dict["defaultVideoPath"];
             }
             else {
-                MessageBox.Show("ERROR in config file!\nPlease check your json syntax");
+                MessageBox.Show($"ERROR in config file!\nPlease check your json syntax!", "Unvalid config file", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Environment.Exit(1);
             }
 
@@ -83,16 +85,7 @@ namespace EurofighterCockpit
             logger.LogToBox("...ready!");
         }
 
-        private bool isConfigFileValid() {
-            if (config.Dict != null &&
-                config.Dict.ContainsKey("ipAddress") &&
-                config.Dict.ContainsKey("port") &&
-                config.Dict.ContainsKey("defaultVideoPath") &&
-                config.Dict.ContainsKey("moviePath") &&
-                config.Dict.ContainsKey("movieInputPath"))
-                return true;
-            return false;
-        }
+        
 
         private void initializeController() {
             controller = new CockpitController(config.Dict["ipAddress"], config.Dict["port"]);

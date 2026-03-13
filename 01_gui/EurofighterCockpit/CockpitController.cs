@@ -81,7 +81,7 @@ namespace EurofighterCockpit
 
         private JoystickData GetInputData() {
             // either return realtime joystick data or from movie file
-            if (isMovieRunning) {
+            if (isMovieRunning && movieInputs != null) {
                 if (movieInputPosition >= movieInputs.Length - 1) {
                     EndMovie();
                     return joystickController.Poll();
@@ -188,6 +188,8 @@ namespace EurofighterCockpit
         }
 
         private void ReadMovieInputFile(string path) {
+            if (!File.Exists(path))
+                return;
             string[] data = File.ReadAllLines(path);
             movieInputs = new JoystickData[data.Length];
             for (int i = 0; i < data.Length; i++) {

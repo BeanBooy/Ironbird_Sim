@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
+using System.Windows.Forms;
 
 namespace EurofighterCockpit
 {
@@ -30,7 +31,8 @@ namespace EurofighterCockpit
 
         public void loadConfig(string configPath) {
             if (File.Exists(configPath) == false) {
-                logger.Log($"Unvalid config path: {configPath}");
+                MessageBox.Show($"Unvalid config path!\n{configPath} does not exist!", "Unvalid config path", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                logger.Log($"Unvalid config path!\n{configPath} does not exist!");
                 return;
             }
             try {
@@ -43,6 +45,23 @@ namespace EurofighterCockpit
             }
         }
 
+        public bool isConfigFileValid() {
 
+            if (Dict != null && !File.Exists(Dict["defaultVideoPath"]))
+                logger.Log("Unvalid video file in config file");
+            if (Dict != null && !File.Exists(Dict["moviePath"]))
+                logger.Log("Unvalid movie file in config file");
+            if (Dict != null && !File.Exists(Dict["movieInputPath"]))
+                logger.Log("Unvalid movie input file in config file");
+
+            if (Dict != null &&
+                Dict.ContainsKey("ipAddress") &&
+                Dict.ContainsKey("port") &&
+                Dict.ContainsKey("defaultVideoPath") &&
+                Dict.ContainsKey("moviePath") &&
+                Dict.ContainsKey("movieInputPath"))
+                return true;
+            return false;
+        }
     }
 }
